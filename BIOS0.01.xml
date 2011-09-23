@@ -1,0 +1,3305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<REGISTRY xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.dell.com/wbem/biosattributeregistry/1 file:///C:/work/12G/Attribute%20Registry/DCIM_AttributeRegistry.xsd" xmlns="http://schemas.dell.com/wbem/biosattributeregistry/1">
+	<!-- Registry XML Generated 2011-03-25 ; input file should be in csv format -->
+	<!--Copyright(C)2010 Dell Inc.  All rights reserved-->
+	<REGISTRY_DECLARATION>
+		<IDENTIFICATION NAME="Dell Attribute Registry" VERSION="1.0.0" LANGUAGE="en"/>
+		<SPECIFICATION NAME="DCIM BIOS, Boot Management" VERSION="1.2.0"/>
+		<SPECIFICATION NAME="Simple NIC Profile, Simple RAID Profile, iDRAC Card" VERSION="1.1.0"/>
+		<CIM_SCHEMA VERSION="2.17.0"/>
+		<OWNING_ENTITY NAME="Dell"/>
+		<EDITOR EMAIL="Dell_Support@Dell.com" NAME="Dell Support" ORGANIZATION="Dell"/>
+		<DESCRIPTION>This Registry defines a representation of system hardware or firmware Attribute instances, such as BIOS or NIC Attributes, as defined by Dell.</DESCRIPTION>
+	</REGISTRY_DECLARATION>
+	<REGISTRY_ENTRIES>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>MemTest</AttributeName>
+			<DisplayName>System Memory Testing</DisplayName>
+			<HelpText/>
+			<AttributeDescription>System Memory Testing</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>MemSettings</GroupName>
+			<GroupDisplayName>Memory Settings</GroupDisplayName>
+			<DisplayOrder>206</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>MemOptimizer</AttributeName>
+			<DisplayName>Memory Optimizer Technology</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Memory Optimizer Technology</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>MemSettings</GroupName>
+			<GroupDisplayName>Memory Settings</GroupDisplayName>
+			<DisplayOrder>207</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>MemOpMode</AttributeName>
+			<DisplayName>Memory Operating Mode</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Memory Operating Mode</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>OptimizerMode</ValueName>
+				<ValueDisplayName>Optimizer Mode</ValueDisplayName>
+				<ValueDescription>Optimizer Mode</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>SpareMode</ValueName>
+				<ValueDisplayName>Spare Mode</ValueDisplayName>
+				<ValueDescription>Spare Mode</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>MirrorMode</ValueName>
+				<ValueDisplayName>Mirror Mode</ValueDisplayName>
+				<ValueDescription>Mirror Mode</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>AdvEccMode</ValueName>
+				<ValueDisplayName>Advanced ECC Mode</ValueDisplayName>
+				<ValueDescription>Advanced ECC Mode</ValueDescription>
+			</AttributeValue>
+			<GroupName>MemSettings</GroupName>
+			<GroupDisplayName>Memory Settings</GroupDisplayName>
+			<DisplayOrder>208</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>RedundantMem</AttributeName>
+			<DisplayName>Redundant Memory</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Redundant Memory</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Spare</ValueName>
+				<ValueDisplayName>Spare Mode</ValueDisplayName>
+				<ValueDescription>Spare Mode</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Mirror</ValueName>
+				<ValueDisplayName>Mirror Mode</ValueDisplayName>
+				<ValueDescription>Mirror Mode</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>IntraNodeMirror</ValueName>
+				<ValueDisplayName>Intra-Node Mirror Mode</ValueDisplayName>
+				<ValueDescription>Intra-Node Mirror Mode</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>DimmSpare</ValueName>
+				<ValueDisplayName>DIMM Spare Mode</ValueDisplayName>
+				<ValueDescription>DIMM Spare Mode</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Dddc</ValueName>
+				<ValueDisplayName>Double DRAM ECC</ValueDisplayName>
+				<ValueDescription>Double DRAM ECC</ValueDescription>
+			</AttributeValue>
+			<GroupName>MemSettings</GroupName>
+			<GroupDisplayName>Memory Settings</GroupDisplayName>
+			<DisplayOrder>209</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>SnoopFilter</AttributeName>
+			<DisplayName>Snoop Filter</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Snoop Filter</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>MemSettings</GroupName>
+			<GroupDisplayName>Memory Settings</GroupDisplayName>
+			<DisplayOrder>210</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>NodeInterleave</AttributeName>
+			<DisplayName>Node Interleaving</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Node Interleaving</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>MemSettings</GroupName>
+			<GroupDisplayName>Memory Settings</GroupDisplayName>
+			<DisplayOrder>211</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>MemLowPower</AttributeName>
+			<DisplayName>Low Power Mode</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Low Power Mode</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>MemSettings</GroupName>
+			<GroupDisplayName>Memory Settings</GroupDisplayName>
+			<DisplayOrder>212</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>MemVolt</AttributeName>
+			<DisplayName>Memory Operating Voltage</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Memory Operating Voltage</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>AutoVolt</ValueName>
+				<ValueDisplayName>Auto</ValueDisplayName>
+				<ValueDescription>Auto</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Volt135V</ValueName>
+				<ValueDisplayName>1.35 V</ValueDisplayName>
+				<ValueDescription>1.35 V</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Volt15V</ValueName>
+				<ValueDisplayName>1.5 V</ValueDisplayName>
+				<ValueDescription>1.5 V</ValueDescription>
+			</AttributeValue>
+			<GroupName>MemSettings</GroupName>
+			<GroupDisplayName>Memory Settings</GroupDisplayName>
+			<DisplayOrder>213</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>MemOpVoltage</AttributeName>
+			<DisplayName>Memory Operating Voltage</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Memory Operating Voltage</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>AutoVolt</ValueName>
+				<ValueDisplayName>Auto</ValueDisplayName>
+				<ValueDescription>Auto</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Volt15V</ValueName>
+				<ValueDisplayName>1.5 V</ValueDisplayName>
+				<ValueDescription>1.5 V</ValueDescription>
+			</AttributeValue>
+			<GroupName>MemSettings</GroupName>
+			<GroupDisplayName>Memory Settings</GroupDisplayName>
+			<DisplayOrder>214</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>RedundantMemInUse</AttributeName>
+			<DisplayName>Redundant Memory Configuration In Use</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Redundant Memory Configuration In Use</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>NotInUse</ValueName>
+				<ValueDisplayName>Not In Use</ValueDisplayName>
+				<ValueDescription>Not In Use</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>InUse</ValueName>
+				<ValueDisplayName>In Use</ValueDisplayName>
+				<ValueDescription>In Use</ValueDescription>
+			</AttributeValue>
+			<GroupName>MemSettings</GroupName>
+			<GroupDisplayName>Memory Settings</GroupDisplayName>
+			<DisplayOrder>218</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>RedundantMemCfgValid</AttributeName>
+			<DisplayName>Redundant Memory Configuration Valid</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Redundant Memory Configuration Valid</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Invalid</ValueName>
+				<ValueDisplayName>Invalid</ValueDisplayName>
+				<ValueDescription>Invalid</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Valid</ValueName>
+				<ValueDisplayName>Valid</ValueDisplayName>
+				<ValueDescription>Valid</ValueDescription>
+			</AttributeValue>
+			<GroupName>MemSettings</GroupName>
+			<GroupDisplayName>Memory Settings</GroupDisplayName>
+			<DisplayOrder>220</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>LogicalProc</AttributeName>
+			<DisplayName>Logical Processor</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Logical Processor</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>ProcSettings</GroupName>
+			<GroupDisplayName>Processor Settings</GroupDisplayName>
+			<DisplayOrder>301</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>ProcHyperTransport</AttributeName>
+			<DisplayName>HyperTransport Technology</DisplayName>
+			<HelpText/>
+			<AttributeDescription>HyperTransport Technology</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>HT1</ValueName>
+				<ValueDisplayName>HT 1</ValueDisplayName>
+				<ValueDescription>HT 1</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>HT3</ValueName>
+				<ValueDisplayName>HT 3</ValueDisplayName>
+				<ValueDescription>HT 3</ValueDescription>
+			</AttributeValue>
+			<GroupName>ProcSettings</GroupName>
+			<GroupDisplayName>Processor Settings</GroupDisplayName>
+			<DisplayOrder>302</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>ProcHtAssist</AttributeName>
+			<DisplayName>HT Assist</DisplayName>
+			<HelpText/>
+			<AttributeDescription>HT Assist</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>ProcSettings</GroupName>
+			<GroupDisplayName>Processor Settings</GroupDisplayName>
+			<DisplayOrder>303</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>QpiSpeed</AttributeName>
+			<DisplayName>QPI Speed</DisplayName>
+			<HelpText/>
+			<AttributeDescription>QPI Speed</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>MaxDataRate</ValueName>
+				<ValueDisplayName>Maximum Data Rate</ValueDisplayName>
+				<ValueDescription>Maximum Data Rate</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>8GTps</ValueName>
+				<ValueDisplayName>8.0 GT/s</ValueDisplayName>
+				<ValueDescription>8.0 GT/s</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>7GTps</ValueName>
+				<ValueDisplayName>7.2 GT/s</ValueDisplayName>
+				<ValueDescription>7.2 GT/s</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>6GTps</ValueName>
+				<ValueDisplayName>6.4 GT/s</ValueDisplayName>
+				<ValueDescription>6.4 GT/s</ValueDescription>
+			</AttributeValue>
+			<GroupName>ProcSettings</GroupName>
+			<GroupDisplayName>Processor Settings</GroupDisplayName>
+			<DisplayOrder>304</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>ProcVirtualization</AttributeName>
+			<DisplayName>Virtualization Technology</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Virtualization Technology</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>ProcSettings</GroupName>
+			<GroupDisplayName>Processor Settings</GroupDisplayName>
+			<DisplayOrder>305</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>DmaVirtualization</AttributeName>
+			<DisplayName>DMA Virtualization</DisplayName>
+			<HelpText/>
+			<AttributeDescription>DMA Virtualization</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>ProcSettings</GroupName>
+			<GroupDisplayName>Processor Settings</GroupDisplayName>
+			<DisplayOrder>306</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>ProcDramPrefetcher</AttributeName>
+			<DisplayName>DRAM Prefetcher</DisplayName>
+			<HelpText/>
+			<AttributeDescription>DRAM Prefetcher</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>ProcSettings</GroupName>
+			<GroupDisplayName>Processor Settings</GroupDisplayName>
+			<DisplayOrder>307</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>ProcAdjCacheLine</AttributeName>
+			<DisplayName>Adjacent Cache Line Prefetch</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Adjacent Cache Line Prefetch</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>ProcSettings</GroupName>
+			<GroupDisplayName>Processor Settings</GroupDisplayName>
+			<DisplayOrder>308</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>ProcSoftwarePrefetcher</AttributeName>
+			<DisplayName>Hardware Prefetch Training on Software Prefetch</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Hardware Prefetch Training on Software Prefetch</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>ProcSettings</GroupName>
+			<GroupDisplayName>Processor Settings</GroupDisplayName>
+			<DisplayOrder>309</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>ProcHwPrefetcher</AttributeName>
+			<DisplayName>Hardware Prefetcher</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Hardware Prefetcher</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>ProcSettings</GroupName>
+			<GroupDisplayName>Processor Settings</GroupDisplayName>
+			<DisplayOrder>310</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>DcuStreamerPrefetcher</AttributeName>
+			<DisplayName>DCU Streamer Prefetcher</DisplayName>
+			<HelpText/>
+			<AttributeDescription>DCU Streamer Prefetcher</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>ProcSettings</GroupName>
+			<GroupDisplayName>Processor Settings</GroupDisplayName>
+			<DisplayOrder>311</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>DataReuse</AttributeName>
+			<DisplayName>Data Reuse</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Data Reuse</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>ProcSettings</GroupName>
+			<GroupDisplayName>Processor Settings</GroupDisplayName>
+			<DisplayOrder>312</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>QpiBandwidthPriority</AttributeName>
+			<DisplayName>Intel(R) QPI Bandwidth Priority</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Intel(R) QPI Bandwidth Priority</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>InputOutput</ValueName>
+				<ValueDisplayName>I/O</ValueDisplayName>
+				<ValueDescription>I/O</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Compute</ValueName>
+				<ValueDisplayName>Compute</ValueDisplayName>
+				<ValueDescription>Compute</ValueDescription>
+			</AttributeValue>
+			<GroupName>ProcSettings</GroupName>
+			<GroupDisplayName>Processor Settings</GroupDisplayName>
+			<DisplayOrder>313</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>ProcExecuteDisable</AttributeName>
+			<DisplayName>Execute Disable</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Execute Disable</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>ProcSettings</GroupName>
+			<GroupDisplayName>Processor Settings</GroupDisplayName>
+			<DisplayOrder>314</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>ProcC1E</AttributeName>
+			<DisplayName>C1E</DisplayName>
+			<HelpText/>
+			<AttributeDescription>C1E</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>ProcSettings</GroupName>
+			<GroupDisplayName>Processor Settings</GroupDisplayName>
+			<DisplayOrder>315</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>ProcCores</AttributeName>
+			<DisplayName>Number of Cores per Processor</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Number of Cores per Processor</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Single</ValueName>
+				<ValueDisplayName>Single</ValueDisplayName>
+				<ValueDescription>Single</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>All</ValueName>
+				<ValueDisplayName>All</ValueDisplayName>
+				<ValueDescription>All</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Dual</ValueName>
+				<ValueDisplayName>Dual</ValueDisplayName>
+				<ValueDescription>Dual</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Quad</ValueName>
+				<ValueDisplayName>Quad</ValueDisplayName>
+				<ValueDescription>Quad</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>1</ValueName>
+				<ValueDisplayName>1</ValueDisplayName>
+				<ValueDescription>1</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>2</ValueName>
+				<ValueDisplayName>2</ValueDisplayName>
+				<ValueDescription>2</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>4</ValueName>
+				<ValueDisplayName>4</ValueDisplayName>
+				<ValueDescription>4</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>6</ValueName>
+				<ValueDisplayName>6</ValueDisplayName>
+				<ValueDescription>6</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>8</ValueName>
+				<ValueDisplayName>8</ValueDisplayName>
+				<ValueDescription>8</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>10</ValueName>
+				<ValueDisplayName>10</ValueDisplayName>
+				<ValueDescription>10</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>12</ValueName>
+				<ValueDisplayName>12</ValueDisplayName>
+				<ValueDescription>12</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>14</ValueName>
+				<ValueDisplayName>14</ValueDisplayName>
+				<ValueDescription>14</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>16</ValueName>
+				<ValueDisplayName>16</ValueDisplayName>
+				<ValueDescription>16</ValueDescription>
+			</AttributeValue>
+			<GroupName>ProcSettings</GroupName>
+			<GroupDisplayName>Processor Settings</GroupDisplayName>
+			<DisplayOrder>316</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>ProcTurboMode</AttributeName>
+			<DisplayName>Processor Turbo Mode</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Processor Turbo Mode</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>ProcSettings</GroupName>
+			<GroupDisplayName>Processor Settings</GroupDisplayName>
+			<DisplayOrder>317</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>ProcCStates</AttributeName>
+			<DisplayName>Processor C States</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Processor C States</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>ProcSettings</GroupName>
+			<GroupDisplayName>Processor Settings</GroupDisplayName>
+			<DisplayOrder>318</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>CorePerfBoost</AttributeName>
+			<DisplayName>Core Performance Boost</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Core Performance Boost</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>ProcSettings</GroupName>
+			<GroupDisplayName>Processor Settings</GroupDisplayName>
+			<DisplayOrder>330</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>EmbSata</AttributeName>
+			<DisplayName>Embedded SATA</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Embedded SATA</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Off</ValueName>
+				<ValueDisplayName>Off</ValueDisplayName>
+				<ValueDescription>Off</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>AtaMode</ValueName>
+				<ValueDisplayName>ATA Mode</ValueDisplayName>
+				<ValueDescription>ATA Mode</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>RaidMode</ValueName>
+				<ValueDisplayName>RAID Mode</ValueDisplayName>
+				<ValueDescription>RAID Mode</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>AhciMode</ValueName>
+				<ValueDisplayName>AHCI Mode</ValueDisplayName>
+				<ValueDescription>AHCI Mode</ValueDescription>
+			</AttributeValue>
+			<GroupName>SataSettings</GroupName>
+			<GroupDisplayName>SATA Settings</GroupDisplayName>
+			<DisplayOrder>402</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>SataPortA</AttributeName>
+			<DisplayName>Port A</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Port A</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Off</ValueName>
+				<ValueDisplayName>Off</ValueDisplayName>
+				<ValueDescription>Off</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Auto</ValueName>
+				<ValueDisplayName>Auto</ValueDisplayName>
+				<ValueDescription>Auto</ValueDescription>
+			</AttributeValue>
+			<GroupName>SataSettings</GroupName>
+			<GroupDisplayName>SATA Settings</GroupDisplayName>
+			<DisplayOrder>404</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>SataPortB</AttributeName>
+			<DisplayName>Port B</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Port B</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Off</ValueName>
+				<ValueDisplayName>Off</ValueDisplayName>
+				<ValueDescription>Off</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Auto</ValueName>
+				<ValueDisplayName>Auto</ValueDisplayName>
+				<ValueDescription>Auto</ValueDescription>
+			</AttributeValue>
+			<GroupName>SataSettings</GroupName>
+			<GroupDisplayName>SATA Settings</GroupDisplayName>
+			<DisplayOrder>408</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>SataPortC</AttributeName>
+			<DisplayName>Port C</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Port C</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Off</ValueName>
+				<ValueDisplayName>Off</ValueDisplayName>
+				<ValueDescription>Off</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Auto</ValueName>
+				<ValueDisplayName>Auto</ValueDisplayName>
+				<ValueDescription>Auto</ValueDescription>
+			</AttributeValue>
+			<GroupName>SataSettings</GroupName>
+			<GroupDisplayName>SATA Settings</GroupDisplayName>
+			<DisplayOrder>412</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>SataPortD</AttributeName>
+			<DisplayName>Port D</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Port D</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Off</ValueName>
+				<ValueDisplayName>Off</ValueDisplayName>
+				<ValueDescription>Off</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Auto</ValueName>
+				<ValueDisplayName>Auto</ValueDisplayName>
+				<ValueDescription>Auto</ValueDescription>
+			</AttributeValue>
+			<GroupName>SataSettings</GroupName>
+			<GroupDisplayName>SATA Settings</GroupDisplayName>
+			<DisplayOrder>416</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>SataPortE</AttributeName>
+			<DisplayName>Port E</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Port E</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Off</ValueName>
+				<ValueDisplayName>Off</ValueDisplayName>
+				<ValueDescription>Off</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Auto</ValueName>
+				<ValueDisplayName>Auto</ValueDisplayName>
+				<ValueDescription>Auto</ValueDescription>
+			</AttributeValue>
+			<GroupName>SataSettings</GroupName>
+			<GroupDisplayName>SATA Settings</GroupDisplayName>
+			<DisplayOrder>420</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>SataPortF</AttributeName>
+			<DisplayName>Port F</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Port F</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Off</ValueName>
+				<ValueDisplayName>Off</ValueDisplayName>
+				<ValueDescription>Off</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Auto</ValueName>
+				<ValueDisplayName>Auto</ValueDisplayName>
+				<ValueDescription>Auto</ValueDescription>
+			</AttributeValue>
+			<GroupName>SataSettings</GroupName>
+			<GroupDisplayName>SATA Settings</GroupDisplayName>
+			<DisplayOrder>424</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>SataPortG</AttributeName>
+			<DisplayName>Port G</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Port G</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Off</ValueName>
+				<ValueDisplayName>Off</ValueDisplayName>
+				<ValueDescription>Off</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Auto</ValueName>
+				<ValueDisplayName>Auto</ValueDisplayName>
+				<ValueDescription>Auto</ValueDescription>
+			</AttributeValue>
+			<GroupName>SataSettings</GroupName>
+			<GroupDisplayName>SATA Settings</GroupDisplayName>
+			<DisplayOrder>428</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>SataPortH</AttributeName>
+			<DisplayName>Port H</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Port H</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Off</ValueName>
+				<ValueDisplayName>Off</ValueDisplayName>
+				<ValueDescription>Off</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Auto</ValueName>
+				<ValueDisplayName>Auto</ValueDisplayName>
+				<ValueDescription>Auto</ValueDescription>
+			</AttributeValue>
+			<GroupName>SataSettings</GroupName>
+			<GroupDisplayName>SATA Settings</GroupDisplayName>
+			<DisplayOrder>432</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>BootMode</AttributeName>
+			<DisplayName>Boot Mode</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Boot Mode</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Bios</ValueName>
+				<ValueDisplayName> 
+BIOS 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+BIOS 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Uefi</ValueName>
+				<ValueDisplayName> 
+UEFI 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+UEFI 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>BootSettings</GroupName>
+			<GroupDisplayName>Boot Settings</GroupDisplayName>
+			<DisplayOrder>501</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>BootSeqRetry</AttributeName>
+			<DisplayName>Boot Sequence Retry</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Boot Sequence Retry</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName> 
+Enabled 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Enabled 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName> 
+Disabled 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Disabled 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>BootSettings</GroupName>
+			<GroupDisplayName>Boot Settings</GroupDisplayName>
+			<DisplayOrder>503</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>OneTimeBootMode</AttributeName>
+			<DisplayName>One-Time Boot Device List</DisplayName>
+			<HelpText/>
+			<AttributeDescription>One-Time Boot Device List</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName> 
+Disabled 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Disabled 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>OneTimeBootSeq</ValueName>
+				<ValueDisplayName> 
+BIOS Boot Sequence Device 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+BIOS Boot Sequence Device 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>OneTimeHddSeq</ValueName>
+				<ValueDisplayName> 
+BIOS Hard-Disk Drive Sequence Device 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+BIOS Hard-Disk Drive Sequence Device 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>OneTimeUefiBootSeq</ValueName>
+				<ValueDisplayName>UEFI Boot Sequence Device</ValueDisplayName>
+				<ValueDescription>UEFI Boot Sequence Device</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>OneTimeCustomBootSeqStr</ValueName>
+				<ValueDisplayName>Custom BIOS Boot Sequence String</ValueDisplayName>
+				<ValueDescription>Custom BIOS Boot Sequence String</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>OneTimeCustomHddSeqStr</ValueName>
+				<ValueDisplayName>Custom BIOS Hard-Disk Drive Sequence String</ValueDisplayName>
+				<ValueDescription>Custom BIOS Hard-Disk Drive Sequence String</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>OneTimeCustomUefiBootSeqStr</ValueName>
+				<ValueDisplayName> 
+Custom UEFI Boot Sequence String 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Custom UEFI Boot Sequence String 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>OneTimeBoot</GroupName>
+			<GroupDisplayName>One-Time Boot</GroupDisplayName>
+			<DisplayOrder>800</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>IntegratedSas</AttributeName>
+			<DisplayName>Integrated SAS Controller</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Integrated SAS Controller</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName> 
+Enabled 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Enabled 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName> 
+Disabled 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Disabled 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>IntegratedDevices</GroupName>
+			<GroupDisplayName>Integrated Devices</GroupDisplayName>
+			<DisplayOrder>901</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>IntegratedRaid</AttributeName>
+			<DisplayName>Integrated RAID Controller</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Integrated RAID Controller</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName> 
+Enabled 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Enabled 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName> 
+Disabled 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Disabled 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>IntegratedDevices</GroupName>
+			<GroupDisplayName>Integrated Devices</GroupDisplayName>
+			<DisplayOrder>903</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>UsbPorts</AttributeName>
+			<DisplayName>User Accessible USB Ports</DisplayName>
+			<HelpText/>
+			<AttributeDescription>User Accessible USB Ports</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>AllOn</ValueName>
+				<ValueDisplayName> 
+All Ports On 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+All Ports On 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>OnlyBackPortsOn</ValueName>
+				<ValueDisplayName> 
+Only Back Ports On 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Only Back Ports On 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>AllOff</ValueName>
+				<ValueDisplayName> 
+All Ports Off 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+All Ports Off 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>IntegratedDevices</GroupName>
+			<GroupDisplayName>Integrated Devices</GroupDisplayName>
+			<DisplayOrder>905</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>InternalUsb</AttributeName>
+			<DisplayName>Internal USB Port</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Internal USB Port</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>On</ValueName>
+				<ValueDisplayName> 
+On 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+On 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Off</ValueName>
+				<ValueDisplayName> 
+Off 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Off 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>IntegratedDevices</GroupName>
+			<GroupDisplayName>Integrated Devices</GroupDisplayName>
+			<DisplayOrder>906</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>InternalUsb1</AttributeName>
+			<DisplayName>Internal USB Port 1</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Internal USB Port 1</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>On</ValueName>
+				<ValueDisplayName> 
+On 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+On 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Off</ValueName>
+				<ValueDisplayName> 
+Off 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Off 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>IntegratedDevices</GroupName>
+			<GroupDisplayName>Integrated Devices</GroupDisplayName>
+			<DisplayOrder>907</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>InternalUsb2</AttributeName>
+			<DisplayName>Internal USB Port 2</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Internal USB Port 2</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>On</ValueName>
+				<ValueDisplayName> 
+On 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+On 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Off</ValueName>
+				<ValueDisplayName> 
+Off 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Off 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>IntegratedDevices</GroupName>
+			<GroupDisplayName>Integrated Devices</GroupDisplayName>
+			<DisplayOrder>909</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>InternalSdCard</AttributeName>
+			<DisplayName>Internal SD Card Port</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Internal SD Card Port</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>On</ValueName>
+				<ValueDisplayName> 
+On 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+On 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Off</ValueName>
+				<ValueDisplayName> 
+Off 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Off 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>IntegratedDevices</GroupName>
+			<GroupDisplayName>Integrated Devices</GroupDisplayName>
+			<DisplayOrder>911</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>InternalSdCardRedundancy</AttributeName>
+			<DisplayName>Internal SD Card Redundancy</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Internal SD Card Redundancy</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Mirror</ValueName>
+				<ValueDisplayName> 
+Mirror 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Mirror 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName> 
+Disabled 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Disabled 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>IntegratedDevices</GroupName>
+			<GroupDisplayName>Integrated Devices</GroupDisplayName>
+			<DisplayOrder>912</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>IntegratedNetwork1</AttributeName>
+			<DisplayName>Integrated Network 1</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Integrated Network 1</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>DisabledOs</ValueName>
+				<ValueDisplayName>Disabled (OS)</ValueDisplayName>
+				<ValueDescription>Disabled (OS)</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>IntegratedDevices</GroupName>
+			<GroupDisplayName>Integrated Devices</GroupDisplayName>
+			<DisplayOrder>913</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>IntegratedNetwork2</AttributeName>
+			<DisplayName>Integrated Network 2</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Integrated Network 2</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>DisabledOs</ValueName>
+				<ValueDisplayName>Disabled (OS)</ValueDisplayName>
+				<ValueDescription>Disabled (OS)</ValueDescription>
+			</AttributeValue>
+			<GroupName>IntegratedDevices</GroupName>
+			<GroupDisplayName>Integrated Devices</GroupDisplayName>
+			<DisplayOrder>914</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>EmbNic1Nic2</AttributeName>
+			<DisplayName>Embedded NIC 1 and NIC 2</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Embedded NIC 1 and NIC 2</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>DisabledOs</ValueName>
+				<ValueDisplayName>Disabled (OS)</ValueDisplayName>
+				<ValueDescription>Disabled (OS)</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>IntegratedDevices</GroupName>
+			<GroupDisplayName>Integrated Devices</GroupDisplayName>
+			<DisplayOrder>915</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>EmbNic1</AttributeName>
+			<DisplayName>Embedded NIC1</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Embedded NIC1</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>EnabledPxe</ValueName>
+				<ValueDisplayName>Enabled with PXE</ValueDisplayName>
+				<ValueDescription>Enabled with PXE</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>EnablediScsi</ValueName>
+				<ValueDisplayName>Enabled with iSCSI Boot</ValueDisplayName>
+				<ValueDescription>Enabled with iSCSI Boot</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>IntegratedDevices</GroupName>
+			<GroupDisplayName>Integrated Devices</GroupDisplayName>
+			<DisplayOrder>916</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>EmbNic2</AttributeName>
+			<DisplayName>Embedded NIC2</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Embedded NIC2</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>EnabledPxe</ValueName>
+				<ValueDisplayName>Enabled with PXE</ValueDisplayName>
+				<ValueDescription>Enabled with PXE</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>EnablediScsi</ValueName>
+				<ValueDisplayName>Enabled with iSCSI Boot</ValueDisplayName>
+				<ValueDescription>Enabled with iSCSI Boot</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>IntegratedDevices</GroupName>
+			<GroupDisplayName>Integrated Devices</GroupDisplayName>
+			<DisplayOrder>917</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>EmbNic3Nic4</AttributeName>
+			<DisplayName>Embedded NIC 3 and NIC 4</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Embedded NIC 3 and NIC 4</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>DisabledOs</ValueName>
+				<ValueDisplayName>Disabled (OS)</ValueDisplayName>
+				<ValueDescription>Disabled (OS)</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>IntegratedDevices</GroupName>
+			<GroupDisplayName>Integrated Devices</GroupDisplayName>
+			<DisplayOrder>918</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>EmbNic3</AttributeName>
+			<DisplayName>Embedded NIC3</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Embedded NIC3</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>EnabledPxe</ValueName>
+				<ValueDisplayName>Enabled with PXE</ValueDisplayName>
+				<ValueDescription>Enabled with PXE</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>EnablediScsi</ValueName>
+				<ValueDisplayName>Enabled with iSCSI Boot</ValueDisplayName>
+				<ValueDescription>Enabled with iSCSI Boot</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>IntegratedDevices</GroupName>
+			<GroupDisplayName>Integrated Devices</GroupDisplayName>
+			<DisplayOrder>919</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>EmbNic4</AttributeName>
+			<DisplayName>Embedded NIC4</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Embedded NIC4</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>EnabledPxe</ValueName>
+				<ValueDisplayName>Enabled with PXE</ValueDisplayName>
+				<ValueDescription>Enabled with PXE</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>EnablediScsi</ValueName>
+				<ValueDisplayName>Enabled with iSCSI Boot</ValueDisplayName>
+				<ValueDescription>Enabled with iSCSI Boot</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>IntegratedDevices</GroupName>
+			<GroupDisplayName>Integrated Devices</GroupDisplayName>
+			<DisplayOrder>920</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>OsWatchdogTimer</AttributeName>
+			<DisplayName>OS Watchdog Timer</DisplayName>
+			<HelpText/>
+			<AttributeDescription>OS Watchdog Timer</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>IntegratedDevices</GroupName>
+			<GroupDisplayName>Integrated Devices</GroupDisplayName>
+			<DisplayOrder>921</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>IoatEngine</AttributeName>
+			<DisplayName>I/OAT DMA Engine</DisplayName>
+			<HelpText/>
+			<AttributeDescription>I/OAT DMA Engine</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>IntegratedDevices</GroupName>
+			<GroupDisplayName>Integrated Devices</GroupDisplayName>
+			<DisplayOrder>922</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>EmbVideo</AttributeName>
+			<DisplayName>Embedded Video Controller</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Embedded Video Controller</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>IntegratedDevices</GroupName>
+			<GroupDisplayName>Integrated Devices</GroupDisplayName>
+			<DisplayOrder>923</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>SriovGlobalEnable</AttributeName>
+			<DisplayName>SR-IOV Global Enable</DisplayName>
+			<HelpText/>
+			<AttributeDescription>SR-IOV Global Enable</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>IntegratedDevices</GroupName>
+			<GroupDisplayName>Integrated Devices</GroupDisplayName>
+			<DisplayOrder>924</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>SerialComm</AttributeName>
+			<DisplayName>Serial Communication</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Serial Communication</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Off</ValueName>
+				<ValueDisplayName> 
+Off 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Off 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>OnNoConRedir</ValueName>
+				<ValueDisplayName> 
+On without Console Redirection 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+On without Console Redirection 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>OnConRedirCom1</ValueName>
+				<ValueDisplayName> 
+On with Console Redirection via COM1 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+On with Console Redirection via COM1 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>OnConRedirCom2</ValueName>
+				<ValueDisplayName> 
+On with Console Redirection via COM2 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+On with Console Redirection via COM2 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>OnConRedir</ValueName>
+				<ValueDisplayName> 
+On with Console Redirection 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+On with Console Redirection 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>SerialCommSettings</GroupName>
+			<GroupDisplayName>Serial Communication</GroupDisplayName>
+			<DisplayOrder>1001</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>SerialPortAddress</AttributeName>
+			<DisplayName>Serial Port Address</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Serial Port Address</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Serial1Com1Serial2Com2</ValueName>
+				<ValueDisplayName>Serial Device1=COM1,Serial Device2=COM2</ValueDisplayName>
+				<ValueDescription>Serial Device1=COM1,Serial Device2=COM2</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Serial1Com2Serial2Com1</ValueName>
+				<ValueDisplayName>Serial Device1=COM2,Serial Device2=COM1</ValueDisplayName>
+				<ValueDescription>Serial Device1=COM2,Serial Device2=COM1</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Com1</ValueName>
+				<ValueDisplayName>COM1</ValueDisplayName>
+				<ValueDescription>COM1</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Com2</ValueName>
+				<ValueDisplayName>COM2</ValueDisplayName>
+				<ValueDescription>COM2</ValueDescription>
+			</AttributeValue>
+			<GroupName>SerialCommSettings</GroupName>
+			<GroupDisplayName>Serial Communication</GroupDisplayName>
+			<DisplayOrder>1003</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>ExtSerialConnector</AttributeName>
+			<DisplayName>External Serial Connector</DisplayName>
+			<HelpText/>
+			<AttributeDescription>External Serial Connector</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Serial1</ValueName>
+				<ValueDisplayName> 
+Serial Device 1 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Serial Device 1 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Serial2</ValueName>
+				<ValueDisplayName> 
+Serial Device 2 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Serial Device 2 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>RemoteAccDevice</ValueName>
+				<ValueDisplayName> 
+Remote Access Device 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Remote Access Device 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>SerialCommSettings</GroupName>
+			<GroupDisplayName>Serial Communication</GroupDisplayName>
+			<DisplayOrder>1005</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>FailSafeBaud</AttributeName>
+			<DisplayName>Failsafe Baud Rate</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Failsafe Baud Rate</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>115200</ValueName>
+				<ValueDisplayName> 
+115200 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+115200 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>57600</ValueName>
+				<ValueDisplayName> 
+57600 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+57600 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>19200</ValueName>
+				<ValueDisplayName> 
+19200 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+19200 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>9600</ValueName>
+				<ValueDisplayName> 
+9600 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+9600 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>SerialCommSettings</GroupName>
+			<GroupDisplayName>Serial Communication</GroupDisplayName>
+			<DisplayOrder>1007</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>ConTermType</AttributeName>
+			<DisplayName>Remote Terminal Type</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Remote Terminal Type</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Vt100Vt220</ValueName>
+				<ValueDisplayName> 
+VT100/VT220 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+VT100/VT220 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Ansi</ValueName>
+				<ValueDisplayName> 
+ANSI 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+ANSI 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>SerialCommSettings</GroupName>
+			<GroupDisplayName>Serial Communication</GroupDisplayName>
+			<DisplayOrder>1009</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>RedirAfterBoot</AttributeName>
+			<DisplayName>Redirection After Boot</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Redirection After Boot</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName> 
+Enabled 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Enabled 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName> 
+Disabled 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Disabled 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>SerialCommSettings</GroupName>
+			<GroupDisplayName>Serial Communication</GroupDisplayName>
+			<DisplayOrder>1011</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>FrontLcd</AttributeName>
+			<DisplayName>Front-Panel LCD Options</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Front-Panel LCD Options</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>None</ValueName>
+				<ValueDisplayName> 
+None 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+None 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>UserDefined</ValueName>
+				<ValueDisplayName> 
+User-Defined String 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+User-Defined String 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>ModelNum</ValueName>
+				<ValueDisplayName> 
+Model Number 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Model Number 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Advanced</ValueName>
+				<ValueDisplayName> 
+Advanced 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Advanced 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>EmbServerMgmt</GroupName>
+			<GroupDisplayName>Embedded Server Management</GroupDisplayName>
+			<DisplayOrder>1102</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>PowerMgmt</AttributeName>
+			<DisplayName>Power Management</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Power Management</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>OsCtrl</ValueName>
+				<ValueDisplayName> 
+OS Control 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+OS Control 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>ActivePwrCtrl</ValueName>
+				<ValueDisplayName> 
+Active Power Controller 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Active Power Controller 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Custom</ValueName>
+				<ValueDisplayName> 
+Custom 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Custom 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>MaxPerf</ValueName>
+				<ValueDisplayName> 
+Maximum Performance 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Maximum Performance 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>PowerMgmtSettings</GroupName>
+			<GroupDisplayName>Power Management</GroupDisplayName>
+			<DisplayOrder>1201</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>SysProfile</AttributeName>
+			<DisplayName>System Profile</DisplayName>
+			<HelpText/>
+			<AttributeDescription>System Profile</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>PerfPerWattOptimizedOs</ValueName>
+				<ValueDisplayName>Performance Per Watt Optimized (OS)</ValueDisplayName>
+				<ValueDescription>Performance Per Watt Optimized (OS)</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>PerfPerWattOptimizedDapc</ValueName>
+				<ValueDisplayName>Performance Per Watt Optimized (DAPC)</ValueDisplayName>
+				<ValueDescription>Performance Per Watt Optimized (DAPC)</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>PerfOptimized</ValueName>
+				<ValueDisplayName>Performance Optimized</ValueDisplayName>
+				<ValueDescription>Performance Optimized</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Custom</ValueName>
+				<ValueDisplayName>Custom</ValueDisplayName>
+				<ValueDescription>Custom</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>DenseCfgOptimized</ValueName>
+				<ValueDisplayName>Dense Configuration Optimized</ValueDisplayName>
+				<ValueDescription>Dense Configuration Optimized</ValueDescription>
+			</AttributeValue>
+			<GroupName>SysProfileSettings</GroupName>
+			<GroupDisplayName>System Profile</GroupDisplayName>
+			<DisplayOrder>1202</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>ProcPwrPerf</AttributeName>
+			<DisplayName>CPU Power and Performance Management</DisplayName>
+			<HelpText/>
+			<AttributeDescription>CPU Power and Performance Management</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>MaxPerf</ValueName>
+				<ValueDisplayName> 
+Maximum Performance 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Maximum Performance 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>MinPwr</ValueName>
+				<ValueDisplayName> 
+Minimum Power 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Minimum Power 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>SysDbpm</ValueName>
+				<ValueDisplayName> 
+System DBPM 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+System DBPM 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>OsDbpm</ValueName>
+				<ValueDisplayName> 
+OS DBPM 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+OS DBPM 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>PowerMgmtSettings</GroupName>
+			<GroupDisplayName>Power Management</GroupDisplayName>
+			<DisplayOrder>1203</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>MemFrequency</AttributeName>
+			<DisplayName>Memory Frequency</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Memory Frequency</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>MaxPerf</ValueName>
+				<ValueDisplayName>Maximum Performance</ValueDisplayName>
+				<ValueDescription>Maximum Performance</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>1600MHz</ValueName>
+				<ValueDisplayName>1600MHz</ValueDisplayName>
+				<ValueDescription>1600MHz</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>1333MHz</ValueName>
+				<ValueDisplayName>1333MHz</ValueDisplayName>
+				<ValueDescription>1333MHz</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>1067MHz</ValueName>
+				<ValueDisplayName>1067MHz</ValueDisplayName>
+				<ValueDescription>1067MHz</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>800MHz</ValueName>
+				<ValueDisplayName>800MHz</ValueDisplayName>
+				<ValueDescription>800MHz</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>MaxReliability</ValueName>
+				<ValueDisplayName>Maximum Reliability</ValueDisplayName>
+				<ValueDescription>Maximum Reliability</ValueDescription>
+			</AttributeValue>
+			<GroupName>SysProfileSettings</GroupName>
+			<GroupDisplayName>System Profile</GroupDisplayName>
+			<DisplayOrder>1204</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>MemPwrMgmt</AttributeName>
+			<DisplayName>Memory Power Management</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Memory Power Management</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>SysProfileSettings</GroupName>
+			<GroupDisplayName>System Profile</GroupDisplayName>
+			<DisplayOrder>1205</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>MemPatrolScrub</AttributeName>
+			<DisplayName>Memory Patrol Scrub</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Memory Patrol Scrub</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Standard</ValueName>
+				<ValueDisplayName>Standard</ValueDisplayName>
+				<ValueDescription>Standard</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Extended</ValueName>
+				<ValueDisplayName>Extended</ValueDisplayName>
+				<ValueDescription>Extended</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>SysProfileSettings</GroupName>
+			<GroupDisplayName>System Profile</GroupDisplayName>
+			<DisplayOrder>1206</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>PowerDelivery</AttributeName>
+			<DisplayName>Power Delivery</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Power Delivery</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>MaxReliability</ValueName>
+				<ValueDisplayName>Maximum Reliability</ValueDisplayName>
+				<ValueDescription>Maximum Reliability</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>MinPwr</ValueName>
+				<ValueDisplayName>Minimum Power</ValueDisplayName>
+				<ValueDescription>Minimum Power</ValueDescription>
+			</AttributeValue>
+			<GroupName>SysProfileSettings</GroupName>
+			<GroupDisplayName>System Profile</GroupDisplayName>
+			<DisplayOrder>1207</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>FanPwrPerf</AttributeName>
+			<DisplayName>Fan Power and Performance Management</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Fan Power and Performance Management</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>MaxPerf</ValueName>
+				<ValueDisplayName>Maximum Performance</ValueDisplayName>
+				<ValueDescription>Maximum Performance</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>MinPwr</ValueName>
+				<ValueDisplayName>Minimum Power</ValueDisplayName>
+				<ValueDescription>Minimum Power</ValueDescription>
+			</AttributeValue>
+			<GroupName>PowerMgmtSettings</GroupName>
+			<GroupDisplayName>Power Management</GroupDisplayName>
+			<DisplayOrder>1208</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>MemPwrPerf</AttributeName>
+			<DisplayName>Memory Power and Performance Management</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Memory Power and Performance Management</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>MaxPerf</ValueName>
+				<ValueDisplayName> 
+Maximum Performance 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Maximum Performance 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>1333Mhz</ValueName>
+				<ValueDisplayName> 
+1333Mhz 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+1333Mhz 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>1067Mhz</ValueName>
+				<ValueDisplayName> 
+1067Mhz 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+1067Mhz 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>978Mhz</ValueName>
+				<ValueDisplayName> 
+978Mhz 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+978Mhz 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>800Mhz</ValueName>
+				<ValueDisplayName> 
+800Mhz 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+800Mhz 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>MinPwr</ValueName>
+				<ValueDisplayName> 
+Minimum Power 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Minimum Power 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>PowerMgmtSettings</GroupName>
+			<GroupDisplayName>Power Management</GroupDisplayName>
+			<DisplayOrder>1211</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>MemDynamicPwr</AttributeName>
+			<DisplayName>Dynamic Memory Power Management</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Dynamic Memory Power Management</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>PowerMgmtSettings</GroupName>
+			<GroupDisplayName>Power Management</GroupDisplayName>
+			<DisplayOrder>1220</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>PasswordStatus</AttributeName>
+			<DisplayName>Password Status</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Password Status</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Locked</ValueName>
+				<ValueDisplayName> 
+Locked 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Locked 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Unlocked</ValueName>
+				<ValueDisplayName> 
+Unlocked 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Unlocked 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>SysSecurity</GroupName>
+			<GroupDisplayName>System Security</GroupDisplayName>
+			<DisplayOrder>1304</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>TpmSecurity</AttributeName>
+			<DisplayName>TPM Security</DisplayName>
+			<HelpText/>
+			<AttributeDescription>TPM Security</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Off</ValueName>
+				<ValueDisplayName> 
+Off 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Off 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>OnPbm</ValueName>
+				<ValueDisplayName> 
+On with Pre-boot Measurements 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+On with Pre-boot Measurements 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>OnNoPbm</ValueName>
+				<ValueDisplayName> 
+On without Pre-boot Measurements 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+On without Pre-boot Measurements 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>SysSecurity</GroupName>
+			<GroupDisplayName>System Security</GroupDisplayName>
+			<DisplayOrder>1307</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>TpmActivation</AttributeName>
+			<DisplayName>TPM Activation</DisplayName>
+			<HelpText/>
+			<AttributeDescription>TPM Activation</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>NoChange</ValueName>
+				<ValueDisplayName> 
+No Change 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+No Change 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Activate</ValueName>
+				<ValueDisplayName> 
+Activate 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Activate 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Deactivate</ValueName>
+				<ValueDisplayName> 
+Deactivate 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Deactivate 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>SysSecurity</GroupName>
+			<GroupDisplayName>System Security</GroupDisplayName>
+			<DisplayOrder>1309</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>TpmClear</AttributeName>
+			<DisplayName>TPM Clear</DisplayName>
+			<HelpText/>
+			<AttributeDescription>TPM Clear</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Yes</ValueName>
+				<ValueDisplayName> 
+Yes 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Yes 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>No</ValueName>
+				<ValueDisplayName> 
+No 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+No 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>SysSecurity</GroupName>
+			<GroupDisplayName>System Security</GroupDisplayName>
+			<DisplayOrder>1311</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>TcmSecurity</AttributeName>
+			<DisplayName>TCM Security</DisplayName>
+			<HelpText/>
+			<AttributeDescription>TCM Security</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Off</ValueName>
+				<ValueDisplayName> 
+Off 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Off 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>On</ValueName>
+				<ValueDisplayName> 
+On 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+On 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>SysSecurity</GroupName>
+			<GroupDisplayName>System Security</GroupDisplayName>
+			<DisplayOrder>1314</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>TcmActivation</AttributeName>
+			<DisplayName>TCM Activation</DisplayName>
+			<HelpText/>
+			<AttributeDescription>TCM Activation</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>NoChange</ValueName>
+				<ValueDisplayName> 
+No Change 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+No Change 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Activate</ValueName>
+				<ValueDisplayName> 
+Activate 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Activate 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Deactivate</ValueName>
+				<ValueDisplayName> 
+Deactivate 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Deactivate 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>SysSecurity</GroupName>
+			<GroupDisplayName>System Security</GroupDisplayName>
+			<DisplayOrder>1316</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>TcmClear</AttributeName>
+			<DisplayName>TCM Clear</DisplayName>
+			<HelpText/>
+			<AttributeDescription>TCM Clear</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Yes</ValueName>
+				<ValueDisplayName> 
+Yes 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Yes 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>No</ValueName>
+				<ValueDisplayName> 
+No 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+No 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>SysSecurity</GroupName>
+			<GroupDisplayName>System Security</GroupDisplayName>
+			<DisplayOrder>1318</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>IntelTxt</AttributeName>
+			<DisplayName>Intel(R) TXT</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Intel(R) TXT</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>On</ValueName>
+				<ValueDisplayName> 
+On 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+On 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Off</ValueName>
+				<ValueDisplayName> 
+Off 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Off 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>SysSecurity</GroupName>
+			<GroupDisplayName>System Security</GroupDisplayName>
+			<DisplayOrder>1319</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>PwrButton</AttributeName>
+			<DisplayName>Power Button</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Power Button</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName> 
+Enabled 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Enabled 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName> 
+Disabled 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Disabled 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>SysSecurity</GroupName>
+			<GroupDisplayName>System Security</GroupDisplayName>
+			<DisplayOrder>1320</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>NmiButton</AttributeName>
+			<DisplayName>NMI Button</DisplayName>
+			<HelpText/>
+			<AttributeDescription>NMI Button</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName> 
+Enabled 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Enabled 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName> 
+Disabled 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Disabled 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>SysSecurity</GroupName>
+			<GroupDisplayName>System Security</GroupDisplayName>
+			<DisplayOrder>1322</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>AcPwrRcvry</AttributeName>
+			<DisplayName>AC Power Recovery</DisplayName>
+			<HelpText/>
+			<AttributeDescription>AC Power Recovery</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>On</ValueName>
+				<ValueDisplayName>On</ValueDisplayName>
+				<ValueDescription>On</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Off</ValueName>
+				<ValueDisplayName> 
+Off 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Off 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Last</ValueName>
+				<ValueDisplayName> 
+Last 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Last 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>SysSecurity</GroupName>
+			<GroupDisplayName>System Security</GroupDisplayName>
+			<DisplayOrder>1326</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>AcPwrRcvryDelay</AttributeName>
+			<DisplayName>AC Power Recovery Delay</DisplayName>
+			<HelpText/>
+			<AttributeDescription>AC Power Recovery Delay</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Immediate</ValueName>
+				<ValueDisplayName>Immediate</ValueDisplayName>
+				<ValueDescription>Immediate</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>User</ValueName>
+				<ValueDisplayName> 
+User Defined 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+User Defined 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Random</ValueName>
+				<ValueDisplayName> 
+Random 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Random 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>SysSecurity</GroupName>
+			<GroupDisplayName>System Security</GroupDisplayName>
+			<DisplayOrder>1327</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>NumLock</AttributeName>
+			<DisplayName>Keyboard NumLock</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Keyboard NumLock</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>On</ValueName>
+				<ValueDisplayName> 
+On 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+On 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Off</ValueName>
+				<ValueDisplayName> 
+Off 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Off 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>MiscSettings</GroupName>
+			<GroupDisplayName>Miscellaneous Settings</GroupDisplayName>
+			<DisplayOrder>1403</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>ReportKbdErr</AttributeName>
+			<DisplayName>Report Keyboard Errors</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Report Keyboard Errors</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Report</ValueName>
+				<ValueDisplayName> 
+Report 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Report 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>NoReport</ValueName>
+				<ValueDisplayName> 
+Do Not Report 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Do Not Report 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>MiscSettings</GroupName>
+			<GroupDisplayName>Miscellaneous Settings</GroupDisplayName>
+			<DisplayOrder>1405</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>ErrPrompt</AttributeName>
+			<DisplayName>F1/F2 Prompt on Error</DisplayName>
+			<HelpText/>
+			<AttributeDescription>F1/F2 Prompt on Error</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName> 
+Enabled 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Enabled 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName> 
+Disabled 
+ 
+</ValueDisplayName>
+				<ValueDescription> 
+Disabled 
+ 
+</ValueDescription>
+			</AttributeValue>
+			<GroupName>MiscSettings</GroupName>
+			<GroupDisplayName>Miscellaneous Settings</GroupDisplayName>
+			<DisplayOrder>1407</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>Slot1</AttributeName>
+			<DisplayName>Slot 1</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Slot 1</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>SlotDisablement</GroupName>
+			<GroupDisplayName>Slot Disablement</GroupDisplayName>
+			<DisplayOrder>1601</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>Slot2</AttributeName>
+			<DisplayName>Slot 2</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Slot 2</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled </ValueDisplayName>
+				<ValueDescription>Enabled </ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>SlotDisablement</GroupName>
+			<GroupDisplayName>Slot Disablement</GroupDisplayName>
+			<DisplayOrder>1602</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>Slot3</AttributeName>
+			<DisplayName>Slot 3</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Slot 3</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>SlotDisablement</GroupName>
+			<GroupDisplayName>Slot Disablement</GroupDisplayName>
+			<DisplayOrder>1603</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>Slot4</AttributeName>
+			<DisplayName>Slot 4</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Slot 4</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>SlotDisablement</GroupName>
+			<GroupDisplayName>Slot Disablement</GroupDisplayName>
+			<DisplayOrder>1604</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>Slot5</AttributeName>
+			<DisplayName>Slot 5</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Slot 5</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>SlotDisablement</GroupName>
+			<GroupDisplayName>Slot Disablement</GroupDisplayName>
+			<DisplayOrder>1605</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>Slot6</AttributeName>
+			<DisplayName>Slot 6</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Slot 6</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>SlotDisablement</GroupName>
+			<GroupDisplayName>Slot Disablement</GroupDisplayName>
+			<DisplayOrder>1606</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>Slot7</AttributeName>
+			<DisplayName>Slot 7</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Slot 7</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Enabled</ValueName>
+				<ValueDisplayName>Enabled</ValueDisplayName>
+				<ValueDescription>Enabled</ValueDescription>
+			</AttributeValue>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName>Disabled</ValueName>
+				<ValueDisplayName>Disabled</ValueDisplayName>
+				<ValueDescription>Disabled</ValueDescription>
+			</AttributeValue>
+			<GroupName>SlotDisablement</GroupName>
+			<GroupDisplayName>Slot Disablement</GroupDisplayName>
+			<DisplayOrder>1607</DisplayOrder>
+			<AttributeType>DCIM_BIOSEnumeration</AttributeType>
+		</Attribute>
+	</REGISTRY_ENTRIES>
+</REGISTRY>
