@@ -31,7 +31,7 @@ import sys, os
 
 version = '0.1'
 
-setup(name='lcc_wsman',
+setup(name='lcctool',
       version=version,
       description="Tool to get data from Dell Lifecycle Controller",
       long_description="""This is the long description""",
@@ -43,15 +43,15 @@ setup(name='lcc_wsman',
       license='BSD',
       packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
       include_package_data=True,
-      package_data = { 'lcc_wsman': ['*.xml',] },
+      package_data = { 'lcctool': ['*.xml',] },
       zip_safe=False,
       install_requires=[
           "stdcli >= 0.9.dev",
       ],
       entry_points={
-        'console_scripts': [ 'lcctool = lcc_wsman.cli:main', ],
+        'console_scripts': [ 'lcctool = lcctool.cli:main', ],
         'lcctool_cli_extensions': [
-            'sample = stdcli.plugins.builtin:SamplePlugin',
+            'biosdata = lcctool.plugins.biosdata:BiosData',
             ],
         },
       )
