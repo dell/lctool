@@ -46,7 +46,7 @@ setup(name='lcc_wsman',
       package_data = { 'lcc_wsman': ['*.xml',] },
       zip_safe=False,
       install_requires=[
-          "stdcli >= 0.1",
+          "stdcli >= 0.9.dev",
       ],
       entry_points={
         'console_scripts': [ 'lcctool = lcc_wsman.cli:main', ],

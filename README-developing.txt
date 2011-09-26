@@ -1,3 +1,5 @@
+This package depends on the 'stdcli' package. Install that first (it has identical install instructions, so you can also install it similar to the instructions below.)
+
 To develop on RHEL6+:
 
 1) ensure ~/.local/bin is on your PATH. add the following to your ~/.bashrc:
