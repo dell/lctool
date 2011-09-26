@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# vim:expandtab:autoindent:tabstop=4:shiftwidth=4:filetype=python:tw=0:coding=latin-1:
 # #############################################################################
 #
 #  (C) 2011 Dell Inc.  All rights reserved.
@@ -26,7 +27,6 @@
 # Filename: pushattr.py
 # Version: 1.0
 # Authors: Sharad Naik
-# vim:expandtab:autoindent:tabstop=4:shiftwidth=4:filetype=python:coding=latin-1:
 import sys
 import os, time
 from xml.dom.minidom import parse
