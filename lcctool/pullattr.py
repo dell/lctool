@@ -31,10 +31,11 @@
 # Version: 1.0
 # Authors: Sharad Naik
 
-import sys, os
-from os import system, popen3
-from xml.dom.minidom import parse
+import os
+import sys
+import copy
 import xml.dom.minidom
+import ConfigParser
 
 from stdcli.trace_decorator import traceLog, getLog
 from stdcli.pycompat import call_output
@@ -43,99 +44,102 @@ moduleLog = getLog()
 moduleVerboseLog = getLog(prefix="verbose.")
 
 basic_wsman_cmd = ["wsman", "enumerate", "-P", "443", "-V", "-v", "-c", "dummy.cert", "-j", "utf-8", "-y", "basic", "-o", "-m", "512"]
-# info for when we get around to porting nic and idrac
-#'nic': ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_NICAttribute"] 
-#'idrac': ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_iDRACCardAttribute"]
 
-# =============================================================================
-class CNARunner:
+@traceLog()
+def CNARunner(drachost, ini, attr, wsman_cmds):
     '''
-    Transforms lists of tests into lists of results.
+    Takes a list of strings, which includes the iDrac ip, username, password and attribute type.
     '''
-    @traceLog()
-    def __init__(self, drachost, output_ini_file, order_xml, attr, wsman_cmds):
-        '''
-        Takes a list of strings, which includes the iDrac ip, username, password and attribute type.
-        '''
-        # Read the Ordered File so it can be used for sorting
-        orderAttr = self.buildOrder(order_xml)
-        del(order_xml) # free up memory
-  
-        # Get the BIOS or NIC attributes
-        moduleLog.info("Getting the Attributes")
+    # add basic authentication options to wsman command line
+    wsman_cmd = copy.copy(basic_wsman_cmd)
+    wsman_cmd.extend(["-h", drachost["host"],"-u", drachost["user"], "-p", drachost["password"],])
 
-        basic_wsman_cmd.extend(["-h", drachost["host"],"-u", drachost["user"], "-p", drachost["password"],])
-        for wsman_cmd in wsman_cmds:
-            wsman_xml = call_output( basic_wsman_cmd + [wsman_cmd], raise_exc=False )
-            self.buildIni(output_ini_file, attr, orderAttr, wsman_xml)
-            
+    # run each wsman command in turn, and add the info to the INI object
+    for cmd in wsman_cmds:
+        wsman_xml = call_output( wsman_cmd + [cmd], raise_exc=False )
+        add_options_to_ini(ini, attr, wsman_xml)
+    
 
-    # Create the ini file for BIOS or NIC by parsing the XML file from wsman
-    @traceLog()
-    def buildIni(self, output_ini_file, settings, orderAttr, wsman_xml):
+# Create the ini file for BIOS or NIC by parsing the XML file from wsman
+@traceLog()
+def add_options_to_ini(ini, settings, wsman_xml):
+    iniDict = {}
+    DOMTree = xml.dom.minidom.parseString(wsman_xml)
+    item_list = DOMTree.documentElement.getElementsByTagNameNS('*', 'Items')[0]
+    element_node_type = xml.dom.minidom.Node.ELEMENT_NODE
 
-      iniDict = {}
-      DOMTree = xml.dom.minidom.parseString(wsman_xml)
-      root_elem = DOMTree.documentElement
+    # iterate over all <Items> sub elements, we dont know what their names are
+    for elem in [ e for e in item_list.childNodes if e.nodeType == element_node_type]:
+        name  = getNodeText(elem.getElementsByTagNameNS('*', 'AttributeName')[0])
+        fqdd  = getNodeText(elem.getElementsByTagNameNS('*', 'FQDD')[0])
+        value = getNodeText(elem.getElementsByTagNameNS('*', 'CurrentValue')[0])
+        moduleVerboseLog.info("Processing element: %s" % name)
 
-      if (settings == 'idrac'):
-        grpid = root_elem.getElementsByTagNameNS('*', 'GroupID')
+        # something peculiar to idrac, no idea what at this point
+        # just emulating old behaviour for now
+        grpid = elem.getElementsByTagNameNS('*', 'GroupID')
+        if grpid:
+            value = value + "#" + getNodeText(grpid[0])
 
-      attrlist = root_elem.getElementsByTagNameNS('*', 'AttributeName')
-      vallist  = root_elem.getElementsByTagNameNS('*', 'CurrentValue')
-      fqdd     = root_elem.getElementsByTagNameNS('*', 'FQDD')
+        if not ini.has_section(fqdd):
+            ini.add_section(fqdd)
+        ini.set(fqdd, name, value)
 
-      # Check to see if the XML file is empty
-      if len(attrlist) == 0:
-         return
+# Take the XML which has the ordering of Attributes and extract the order
+@traceLog()
+def get_display_order(order_xml):
+  DOMTree = xml.dom.minidom.parseString(order_xml)
+  root_elem = DOMTree.documentElement
+  attrlist = root_elem.getElementsByTagName('AttributeName')
+  vallist  = root_elem.getElementsByTagName('DisplayOrder')
+  orderDict = {}
 
-      i = 0
-      fileStat = os.path.exists(output_ini_file)
-      ofile = open(output_ini_file, 'a')
-      if (fileStat != True):
-        ofile.write("[%s]\n" % fqdd[0].childNodes[0].data )
-      fqdd_save = fqdd[0].childNodes[0].data
-      iniList = []                               # Initialize the list
-      for attr in attrlist:
-        if fqdd_save != fqdd[i].childNodes[0].data:
-           iniList.sort(key=orderAttr.get)       # output to file before next fqdd
-           for attr_name in iniList:
-             ofile.write("%s = %s\n" % (attr_name, iniDict[attr_name]))
-           ofile.write('\n')
-           ofile.write("[%s]\n" % fqdd[i].childNodes[0].data)
-           fqdd_save = fqdd[i].childNodes[0].data
-           iniList = []                          # Initialize List for new fqdd
-           iniDict = {}
-        if vallist[i].hasChildNodes() == True:
-           if (settings == "idrac"):
-             idracattr = grpid[i].childNodes[0].data + "#" + attr.childNodes[0].data
-             iniList.append(idracattr)
-             iniDict[idracattr] = vallist[i].childNodes[0].data
-           else:
-             iniList.append(attr.childNodes[0].data)
-             iniDict[attr.childNodes[0].data] = vallist[i].childNodes[0].data
-        i = i + 1
+  i = 0
+  for attr in attrlist:
+    if vallist[i].hasChildNodes() == True:
+       orderDict[attr.childNodes[0].data] = int(vallist[i].childNodes[0].data)
+    i = i + 1
 
-      iniList.sort(key=orderAttr.get)
-      for attr in iniList:
-         ofile.write("%s = %s\n" % (attr, iniDict[attr]))
+  return orderDict
 
-      ofile.close()
 
-    # Take the XML which has the ordering of Attributes and extract the order
-    @traceLog()
-    def buildOrder(self, order_xml):
 
-      DOMTree = xml.dom.minidom.parseString(order_xml)
-      root_elem = DOMTree.documentElement
-      attrlist = root_elem.getElementsByTagName('AttributeName')
-      vallist  = root_elem.getElementsByTagName('DisplayOrder')
-      orderDict = {}
+# HELPER FUNCTIONS FOR PARSING XML BELOW
+def getText(nodelist):
+    rc = ""
+    if nodelist is not None:
+        for node in nodelist:
+            if node.nodeType == node.TEXT_NODE:
+                rc = rc + node.data
+    return rc
 
-      i = 0
-      for attr in attrlist:
-        if vallist[i].hasChildNodes() == True:
-           orderDict[attr.childNodes[0].data] = int(vallist[i].childNodes[0].data)
-        i = i + 1
+def getNodeText( node, *args ):
+    rc = ""
+    node = getNodeElement(node, *args)
+    if node is not None:
+        rc = getText( node.childNodes )
+    return rc
 
-      return orderDict
+def getNodeElement( node, *args ):
+    if len(args) == 0:
+        return node
+
+    if node is not None:
+        for search in node.childNodes:
+            if isinstance(args[0], types.StringTypes):
+                if search.nodeName == args[0]:
+                    candidate = getNodeElement( search, *args[1:] )
+                    if candidate is not None:
+                        return candidate
+            else:
+                if search.nodeName == args[0][0]:
+                    attrHash = args[0][1]
+                    found = 1
+                    for (key, value) in attrHash.items():
+                        if search.getAttribute( key ) != value:
+                            found = 0
+                    if found:
+                        candidate = getNodeElement( search, *args[1:] )
+                        if candidate is not None:
+                            return candidate
+

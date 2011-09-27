@@ -25,6 +25,9 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import os
+import sys
+import argparse
+import ConfigParser
 import pkg_resources
 
 import lcctool
@@ -39,28 +42,41 @@ moduleVerboseLog.debug("loading plugin module: %s" % __name__)
 
 _ = lcctool._
 
+wsman_cmds = {
+    "bios":  [ "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSEnumeration",
+        "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSString",
+        "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSinteger",],
+    'nic': ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_NICAttribute"],
+    'idrac': ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_iDRACCardAttribute"],
+    }
+
+order_files = {
+    'bios': "BIOS0.01.xml",
+    }
+
 class BiosData(Plugin):
     @traceLog()
     def __init__(self, ctx):
         moduleVerboseLog.debug("initializing plugin: %s" % self.__class__.__name__)
-        biosdata_ctl_p = ctx.subparsers.add_parser("get-bios", help="")
+        biosdata_ctl_p = ctx.subparsers.add_parser("enumerate", help="")
+        biosdata_ctl_p.add_argument('--output', '-O', action="store", dest="output_filename", default=None, help=_(""))
+        biosdata_ctl_p.add_argument('--bios',   action="append_const", const="bios", dest="enumerate_types", default=[], help=_(""))
+        biosdata_ctl_p.add_argument('--nic',   action="append_const", const="nic", dest="enumerate_types", help=_(""))
+        biosdata_ctl_p.add_argument('--idrac',   action="append_const", const="idrac", dest="enumerate_types", help=_(""))
         biosdata_ctl_p.set_defaults(func=self.biosdataCtl)
 
     @traceLog()
     def biosdataCtl(self, ctx):
-        print "in biosdatactl!"
-
-        order_xml = pkg_resources.resource_string("lcctool","BIOS0.01.xml")
-        bios_wsman_cmds = [ "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSEnumeration",
-                "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSString",
-                "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSinteger",]
-
+        #order_xml = pkg_resources.resource_string("lcctool","BIOS0.01.xml")
+        #orderAttr = lcctool.pullattr.get_display_order(order_xml)
         for host in ctx.raccfg.iterSpecfiedRacs():
-            print "  for host: %s" % host["host"]
-            outfile = host["host"] + "_bios.ini"
-            if os.path.exists(outfile):
-                os.remove(outfile)
-            lcctool.pullattr.CNARunner(host, outfile, order_xml, "bios", bios_wsman_cmds)
+            outfile = sys.stdout
+            if ctx.args.output_filename:
+                outfile = open(ctx.args.output_filename % { "host": host["host"] }, "w+")
+            ini = ConfigParser.ConfigParser()
+            ini.optionxform = str # need to be case sensitive
 
+            for enum in ctx.args.enumerate_types:
+                lcctool.pullattr.CNARunner(host, ini, enum, wsman_cmds[enum])
 
-
+            ini.write( outfile )

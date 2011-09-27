@@ -59,7 +59,6 @@ class RacCfg(Plugin):
         configfile = pkg_resources.resource_filename("lcctool","rachosts.ini")
 
         # --rac-host=HOST  --rac-user=USER  --rac-pass=PASS
-        # --rac-uri=rac://USER:PASS@HOST/  --rac-uri=rac://USER2:PASS2@HOST2/ ...
         # --rac-alias=HOSTALIAS1,HOSTALIAS2,HOSTALIAS3,...
         group = ctx.parser.add_argument_group("Options to specify RAC")
         group.add_argument("--rac-hosts-cfg", dest="rachosts_cfg", action="store", default=configfile, metavar="FILENAME", help=_("Config file with RAC host aliases."))
@@ -67,6 +66,7 @@ class RacCfg(Plugin):
         group.add_argument("--rac-user",     action="store", dest="rac_user", help=_("The username to authenticate against --rac-host"))
         group.add_argument("--rac-password", action="store", dest="rac_password", help=_("The password to authenticate against --rac-host"))
         # not yet implemented
+        # --rac-uri=rac://USER:PASS@HOST/  --rac-uri=rac://USER2:PASS2@HOST2/ ...
         #group.add_argument("--rac-uri",      action="store", dest="rac_uri",   help=_(""))
         group.add_argument("--rac-alias",    action="append", dest="rac_alias", help=_("The alias or group of the RAC hosts to operate on. Groups are specified with @groupname."))
 
