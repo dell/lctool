@@ -79,7 +79,7 @@ def add_options_to_ini(ini, settings, wsman_xml):
         # just emulating old behaviour for now
         grpid = elem.getElementsByTagNameNS('*', 'GroupID')
         if grpid:
-            value = value + "#" + getNodeText(grpid[0])
+            name = getNodeText(grpid[0]) + "#" + name
 
         if not ini.has_section(fqdd):
             ini.add_section(fqdd)
