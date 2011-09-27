@@ -36,12 +36,16 @@ import sys, os
 from os import system, popen3
 from xml.dom.minidom import parse
 import xml.dom.minidom
+import subprocess
+
+from stdcli.trace_decorator import traceLog, getLog
 
 # =============================================================================
 class CNARunner:
     '''
     Transforms lists of tests into lists of results.
     '''
+    @traceLog()
     def __init__(self, idracIp, idracUser, idracPass, attrSet):
         '''
         Takes a list of strings, which includes the iDrac ip, username, password and attribute type.
@@ -52,6 +56,7 @@ class CNARunner:
         self.settings  = attrSet
         self.run()
  
+    @traceLog()
     def run(self):
 
       # Check for ini filename and remove it if it exists
@@ -86,31 +91,23 @@ class CNARunner:
       # Get the BIOS or NIC attributes
       print "\n Getting the Attributes ...."
 
+      basic_wsman_cmd = ["wsman", "enumerate", "-h", self.idracIp, "-P", "443", "-u", self.idracUser, "-p", self.idracPass, "-V", "-v", "-c", "dummy.cert", "-j", "utf-8", "-y", "basic", "-o", "-m", "512", "-O", "virtList1.xml"]
+
       if (self.settings == 'bios'):
-        command = "wsman enumerate http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSEnumeration -h " + self.idracIp +" -P 443 -u " + self.idracUser + " -p " + self.idracPass + " -V -v -c dummy.cert -j utf-8 -y basic -o -m 512 -O virtList1.xml"
-#        print command #+ "\n" 
-        tmpList = self.runCommand(command)
-        logfd.write( "Command:" + command + "\n\n")
+        subprocess.call( basic_wsman_cmd + ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSEnumeration"]  )
         self.buildIni(self.idracIp, self.settings, orderAttr)
 
-        command = "wsman enumerate http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSString -h " + self.idracIp +" -P 443 -u " + self.idracUser + " -p " + self.idracPass + " -V -v -c dummy.cert -j utf-8 -y basic -o -m 512 -O virtList1.xml"
-        tmpList = self.runCommand(command)
-        logfd.write( "Command:" + command + "\n\n")
+        subprocess.call( basic_wsman_cmd + ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSString"] )
         self.buildIni(self.idracIp, self.settings, orderAttr)
 
-        command = "wsman enumerate http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSinteger -h " + self.idracIp +" -P 443 -u " + self.idracUser + " -p " + self.idracPass + " -V -v -c dummy.cert -j utf-8 -y basic -o -m 512 -O virtList1.xml"
-        tmpList = self.runCommand(command)
-        logfd.write( "Command:" + command + "\n\n")
+        subprocess.call( basic_wsman_cmd + ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSinteger"] )
         self.buildIni(self.idracIp, self.settings, orderAttr)
+
       elif (self.settings == 'nic'):
-        command = "wsman enumerate http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_NICAttribute -h " + self.idracIp +" -P 443 -u " + self.idracUser + " -p " + self.idracPass + " -V -v -c dummy.cert -j utf-8 -y basic -o -m 512 -O virtList1.xml"
-        tmpList = self.runCommand(command)
-        logfd.write( "Command:" + command + "\n\n")
+        subprocess.call( basic_wsman_cmd + ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_NICAttribute"] )
         self.buildIni(self.idracIp, self.settings, orderAttr)
       elif (self.settings == 'idrac'):
-        command = "wsman enumerate http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_iDRACCardAttribute -h " + self.idracIp +" -P 443 -u " + self.idracUser + " -p " + self.idracPass + " -V -v -c dummy.cert -j utf-8 -y basic -o -m 512 -O virtList1.xml"
-        tmpList = self.runCommand(command)
-        logfd.write( "Command:" + command + "\n\n")
+        subprocess.call( basic_wsman_cmd + ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_iDRACCardAttribute"] )
         self.buildIni(self.idracIp, self.settings, orderAttr)
       else:
         print "Option Not Valid. Use bios, nic or idrac\n"
@@ -119,6 +116,7 @@ class CNARunner:
 
     # Create the ini file for BIOS or NIC by parsing the XML file from wsman
 
+    @traceLog()
     def buildIni(self, idracIp, settings, orderAttr):
 
       iniDict = {}
@@ -180,6 +178,7 @@ class CNARunner:
         print " Adding Attributes to the file..."
       
     # Take the XML which has the ordering of Attributes and extract the order
+    @traceLog()
     def buildOrder(self, idracIp, settings, order_file):
 
       DOMTree = xml.dom.minidom.parse(order_file)
@@ -200,6 +199,7 @@ class CNARunner:
       return fileName
 
     # Read the  ordered attributes in a dictionary which can then be used as key for sorting
+    @traceLog()
     def read_orderxml(self, filename):
       orderDict = {}
       for line in open(filename):
@@ -209,44 +209,3 @@ class CNARunner:
           name = fields[1]
           orderDict[name] = int(fields[0])
       return orderDict
-
-    def runCommand(self, command):
-        '''
-        Executes command and returns a dictionary.
-        '''
-        tmpStr = ""
-        commandOutList = []
-        (fin, fout, ferr) = os.popen3(command, "t")
-        fin.close()
-        commandOutList.append(command)
-        tmpStr = self.smoosh(fout.read())
-        commandOutList.append(tmpStr.split('\n'))
-        commandOutList.append(ferr.read())
-        return commandOutList
-        
-    def smoosh(self, thing):  # message the output of a command
-        '''
-        >>> print Shell().smoosh("blah")  #  leave normal strings alone
-        blah
-        >>> print Shell().smoosh("blah\\n")  # strip trailing blanklines
-        blah
-        >>> print Shell().smoosh(["blah\\n"])  # if thing is one item list, return the item (smooshed)
-        blah
-        '''
-        if type([]) == type(thing):  # if return is a list of one item, return just the item.
-            newthing = []
-            for l in thing:
-                if '\n' == l[-1:]:
-                    newthing.append(l[:-1])
-                else:
-                    newthing.append(l)
-            thing = newthing
-                    
-            if 1 == len(thing):
-                thing = thing[0]
-        if type("") == type(thing):  # if return is a string with a newline, strip newline.
-            if '\n' == thing[-1:]:
-                thing = thing[:-1]
-        return thing
-
-
