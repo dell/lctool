@@ -12,7 +12,7 @@
 #     * Neither the name of the Dell, Inc. nor the
 #       names of its contributors may be used to endorse or promote products
 #       derived from this software without specific prior written permission.
-# 
+#
 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 # ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 # WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -130,7 +130,7 @@ class RacCfg(Plugin):
                         expanded[b] = None
                 else:
                     expanded[a] = None
-                
+
         return expanded.keys()
 
     @traceLog()
@@ -154,7 +154,7 @@ class RacCfg(Plugin):
             for a in self.flatten( [self.defaultAlias,] ):
                 yield self.getRacAliasDetails(a)
 
-        
+
     @traceLog()
     def getRacAliasDetails(self, alias):
         section = 'alias:%s' % alias
@@ -230,7 +230,7 @@ class RacCfg(Plugin):
                 groups = self.racconf.get("groups", group)
                 return [ s.strip() for s in groups.split(",") if s ]
         return []
-        
+
     @traceLog()
     def groupCreate(self, ctx):
         if not self.racconf.has_section("groups"):
@@ -253,7 +253,7 @@ class RacCfg(Plugin):
         map(set.__setitem__, ctx.args.alias, [])
         self.racconf.set("groups", ctx.args.groupname, ",".join(set.keys()))
         self.writeConfig()
-        
+
 
     @traceLog()
     def groupRmAlias(self, ctx):
