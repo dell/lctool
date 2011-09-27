@@ -52,6 +52,8 @@ wsman_cmds = {
 
 order_files = {
     'bios': "BIOS0.01.xml",
+    'idrac':"IDRAC0.01.xml",
+    'nic':  "NIC0.01.xml",
     }
 
 class BiosData(Plugin):
