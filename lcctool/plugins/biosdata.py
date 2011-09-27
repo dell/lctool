@@ -24,7 +24,8 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-import stdcli.cli_main
+import os
+import pkg_resources
 
 import lcctool
 from stdcli.trace_decorator import traceLog, getLog
@@ -48,8 +49,18 @@ class BiosData(Plugin):
     @traceLog()
     def biosdataCtl(self, ctx):
         print "in biosdatactl!"
+
+        order_xml = pkg_resources.resource_string("lcctool","BIOS0.01.xml")
+        bios_wsman_cmds = [ "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSEnumeration",
+                "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSString",
+                "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSinteger",]
+
         for host in ctx.raccfg.iterSpecfiedRacs():
             print "  for host: %s" % host["host"]
-            lcctool.pullattr.CNARunner(host["host"], host["user"], host["password"], "bios")
+            outfile = host["host"] + "_bios.ini"
+            if os.path.exists(outfile):
+                os.remove(outfile)
+            lcctool.pullattr.CNARunner(host, outfile, order_xml, "bios", bios_wsman_cmds)
+
 
 

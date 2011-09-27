@@ -31,14 +31,21 @@
 # Version: 1.0
 # Authors: Sharad Naik
 
-import pkg_resources
 import sys, os
 from os import system, popen3
 from xml.dom.minidom import parse
 import xml.dom.minidom
-import subprocess
 
 from stdcli.trace_decorator import traceLog, getLog
+from stdcli.pycompat import call_output
+
+moduleLog = getLog()
+moduleVerboseLog = getLog(prefix="verbose.")
+
+basic_wsman_cmd = ["wsman", "enumerate", "-P", "443", "-V", "-v", "-c", "dummy.cert", "-j", "utf-8", "-y", "basic", "-o", "-m", "512"]
+# info for when we get around to porting nic and idrac
+#'nic': ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_NICAttribute"] 
+#'idrac': ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_iDRACCardAttribute"]
 
 # =============================================================================
 class CNARunner:
@@ -46,81 +53,29 @@ class CNARunner:
     Transforms lists of tests into lists of results.
     '''
     @traceLog()
-    def __init__(self, idracIp, idracUser, idracPass, attrSet):
+    def __init__(self, drachost, output_ini_file, order_xml, attr, wsman_cmds):
         '''
         Takes a list of strings, which includes the iDrac ip, username, password and attribute type.
         '''
-        self.idracIp = idracIp
-        self.idracUser = idracUser
-        self.idracPass = idracPass
-        self.settings  = attrSet
-        self.run()
- 
-    @traceLog()
-    def run(self):
+        # Read the Ordered File so it can be used for sorting
+        orderAttr = self.buildOrder(order_xml)
+        del(order_xml) # free up memory
+  
+        # Get the BIOS or NIC attributes
+        moduleLog.info("Getting the Attributes")
 
-      # Check for ini filename and remove it if it exists
-
-      fileName = self.idracIp + "_" + self.settings + ".ini"
-      fileStat = os.path.exists(fileName)
-      if (fileStat == True):
-        os.remove(fileName)
-
-      # Create the log file
-
-      logFile = self.idracIp + "_" + self.settings + ".log"
-      logfd = open(logFile, 'wb')
-
-      # Build a order list with the Ordered XML file
-
-      print "\n Building the Order Attributes Template File..."
-      if (self.settings == 'bios'):
-        order_file = pkg_resources.resource_filename("lcctool","BIOS0.01.xml")
-      elif (self.settings == "nic"):
-        order_file = pkg_resources.resource_filename("lcctool","NIC0.01.xml")
-      else:
-        order_file = pkg_resources.resource_filename("lcctool","BIOS0.01.xml")
-
-      fname = self.buildOrder(self.idracIp, self.settings, order_file)
-
-      logfd.write("Order template file used: " + order_file + "\n\n")
-
-      # Read the Ordered File so it can be used for sorting
-      orderAttr = self.read_orderxml(fname)
-
-      # Get the BIOS or NIC attributes
-      print "\n Getting the Attributes ...."
-
-      basic_wsman_cmd = ["wsman", "enumerate", "-h", self.idracIp, "-P", "443", "-u", self.idracUser, "-p", self.idracPass, "-V", "-v", "-c", "dummy.cert", "-j", "utf-8", "-y", "basic", "-o", "-m", "512", "-O", "virtList1.xml"]
-
-      if (self.settings == 'bios'):
-        subprocess.call( basic_wsman_cmd + ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSEnumeration"]  )
-        self.buildIni(self.idracIp, self.settings, orderAttr)
-
-        subprocess.call( basic_wsman_cmd + ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSString"] )
-        self.buildIni(self.idracIp, self.settings, orderAttr)
-
-        subprocess.call( basic_wsman_cmd + ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSinteger"] )
-        self.buildIni(self.idracIp, self.settings, orderAttr)
-
-      elif (self.settings == 'nic'):
-        subprocess.call( basic_wsman_cmd + ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_NICAttribute"] )
-        self.buildIni(self.idracIp, self.settings, orderAttr)
-      elif (self.settings == 'idrac'):
-        subprocess.call( basic_wsman_cmd + ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_iDRACCardAttribute"] )
-        self.buildIni(self.idracIp, self.settings, orderAttr)
-      else:
-        print "Option Not Valid. Use bios, nic or idrac\n"
-
-      logfd.close()
+        basic_wsman_cmd.extend(["-h", drachost["host"],"-u", drachost["user"], "-p", drachost["password"],])
+        for wsman_cmd in wsman_cmds:
+            wsman_xml = call_output( basic_wsman_cmd + [wsman_cmd], raise_exc=False )
+            self.buildIni(output_ini_file, attr, orderAttr, wsman_xml)
+            
 
     # Create the ini file for BIOS or NIC by parsing the XML file from wsman
-
     @traceLog()
-    def buildIni(self, idracIp, settings, orderAttr):
+    def buildIni(self, output_ini_file, settings, orderAttr, wsman_xml):
 
       iniDict = {}
-      DOMTree = xml.dom.minidom.parse("virtList1.xml")
+      DOMTree = xml.dom.minidom.parseString(wsman_xml)
       root_elem = DOMTree.documentElement
 
       if (settings == 'idrac'):
@@ -135,24 +90,19 @@ class CNARunner:
          return
 
       i = 0
-      fileName = idracIp + "_" + settings + ".ini"
-      fileStat = os.path.exists(fileName)
-      ofile = open(fileName, 'ab')
+      fileStat = os.path.exists(output_ini_file)
+      ofile = open(output_ini_file, 'a')
       if (fileStat != True):
-        print " Creating the .ini file ...."
-        ofile.write("[" + fqdd[0].childNodes[0].data + "]")
-        ofile.write('\r\n')
+        ofile.write("[%s]\n" % fqdd[0].childNodes[0].data )
       fqdd_save = fqdd[0].childNodes[0].data
       iniList = []                               # Initialize the list
       for attr in attrlist:
         if fqdd_save != fqdd[i].childNodes[0].data:
            iniList.sort(key=orderAttr.get)       # output to file before next fqdd
            for attr_name in iniList:
-             ofile.write(attr_name + " = " + iniDict[attr_name])
-             ofile.write('\r\n')
-           ofile.write('\r\n')
-           ofile.write("[" + fqdd[i].childNodes[0].data + "]")
-           ofile.write('\r\n')
+             ofile.write("%s = %s\n" % (attr_name, iniDict[attr_name]))
+           ofile.write('\n')
+           ofile.write("[%s]\n" % fqdd[i].childNodes[0].data)
            fqdd_save = fqdd[i].childNodes[0].data
            iniList = []                          # Initialize List for new fqdd
            iniDict = {}
@@ -168,44 +118,24 @@ class CNARunner:
 
       iniList.sort(key=orderAttr.get)
       for attr in iniList:
-         ofile.write(attr + " = " + iniDict[attr])
-         ofile.write('\r\n')
+         ofile.write("%s = %s\n" % (attr, iniDict[attr]))
 
       ofile.close()
 
-      if (fileStat != True):
-        print " File Created: " + fileName 
-        print " Adding Attributes to the file..."
-      
     # Take the XML which has the ordering of Attributes and extract the order
     @traceLog()
-    def buildOrder(self, idracIp, settings, order_file):
+    def buildOrder(self, order_xml):
 
-      DOMTree = xml.dom.minidom.parse(order_file)
+      DOMTree = xml.dom.minidom.parseString(order_xml)
       root_elem = DOMTree.documentElement
       attrlist = root_elem.getElementsByTagName('AttributeName')
       vallist  = root_elem.getElementsByTagName('DisplayOrder')
+      orderDict = {}
 
       i = 0
-      fileName = idracIp + "_" + settings + "order.xml"
-      ofile = open(fileName, 'wb')
       for attr in attrlist:
         if vallist[i].hasChildNodes() == True:
-           ofile.write(vallist[i].childNodes[0].data + " " + attr.childNodes[0].data)
-           ofile.write('\r\n')
+           orderDict[attr.childNodes[0].data] = int(vallist[i].childNodes[0].data)
         i = i + 1
 
-      ofile.close()
-      return fileName
-
-    # Read the  ordered attributes in a dictionary which can then be used as key for sorting
-    @traceLog()
-    def read_orderxml(self, filename):
-      orderDict = {}
-      for line in open(filename):
-          line = line.strip()
-          if not line: continue
-          fields = line.split(" ")
-          name = fields[1]
-          orderDict[name] = int(fields[0])
       return orderDict
