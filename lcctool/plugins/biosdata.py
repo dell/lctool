@@ -30,6 +30,8 @@ import lcctool
 from stdcli.trace_decorator import traceLog, getLog
 from stdcli.plugin import Plugin
 
+import lcctool.pullattr
+
 moduleLog = getLog()
 moduleVerboseLog = getLog(prefix="verbose.")
 moduleVerboseLog.debug("loading plugin module: %s" % __name__)
@@ -45,5 +47,9 @@ class BiosData(Plugin):
 
     @traceLog()
     def biosdataCtl(self, ctx):
-        print "HI THERE!"
+        print "in biosdatactl!"
+        for host in ctx.raccfg.iterSpecfiedRacs():
+            print "  for host: %s" % host["host"]
+            lcctool.pullattr.CNARunner(host["host"], host["user"], host["password"], "bios")
+
 

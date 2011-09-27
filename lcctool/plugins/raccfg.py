@@ -56,7 +56,7 @@ class RacCfg(Plugin):
         moduleVerboseLog.debug("initializing plugin: %s" % self.__class__.__name__)
         ctx.raccfg = self
         self.ctx = ctx
-        configfile = pkg_resources.resource_filename(pkg_resources.Requirement.parse("lcctool"),"pkg/rachosts.ini")
+        configfile = pkg_resources.resource_filename("lcctool","rachosts.ini")
 
         # --rac-host=HOST  --rac-user=USER  --rac-pass=PASS
         # --rac-uri=rac://USER:PASS@HOST/  --rac-uri=rac://USER2:PASS2@HOST2/ ...

@@ -54,6 +54,7 @@ setup(name='lcctool',
             'raccfg = lcctool.plugins.raccfg:RacCfg',
             'sample-raccfg-test = lcctool.plugins.raccfg:SampleTestRacCfg',
             'power-ctl = lcctool.plugins.power:PowerPlugin',
+            'biosdata = lcctool.plugins.biosdata:BiosData',
             ],
         },
       )

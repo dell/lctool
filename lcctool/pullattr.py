@@ -31,6 +31,7 @@
 # Version: 1.0
 # Authors: Sharad Naik
 
+import pkg_resources
 import sys, os
 from os import system, popen3
 from xml.dom.minidom import parse
@@ -69,11 +70,11 @@ class CNARunner:
 
       print "\n Building the Order Attributes Template File..."
       if (self.settings == 'bios'):
-        order_file = "BIOS0.01.xml"
+        order_file = pkg_resources.resource_filename("lcctool","BIOS0.01.xml")
       elif (self.settings == "nic"):
-        order_file = "NIC0.01.xml"
+        order_file = pkg_resources.resource_filename("lcctool","NIC0.01.xml")
       else:
-        order_file = "BIOS0.01.xml"
+        order_file = pkg_resources.resource_filename("lcctool","BIOS0.01.xml")
 
       fname = self.buildOrder(self.idracIp, self.settings, order_file)
 
@@ -248,23 +249,4 @@ class CNARunner:
                 thing = thing[:-1]
         return thing
 
-# =============================================================================
-# Main Program, gets the input values and calls the routine in the main class
-if __name__ == '__main__':
-  bRunCNA = True
-  try:
-    idracIp = sys.argv[1]
-    idracUser = sys.argv[2]
-    idracPass = sys.argv[3]
-    attrSet = sys.argv[4]
-  except IndexError: #This error happens if you do not specify a file
-    print "USAGE: pullattr.py <IPADDRESS> <USERNAME> <USERPASSWORD> (nic | idrac)"
-    print "For example: python pullattr.py 192.168.0.111 admin admin123 nic"
-    bRunCNA = False
-  if bRunCNA == True:
-    CNARunner(idracIp, idracUser, idracPass, attrSet)
-
-# =============================================================================
-# End of code
-# =============================================================================
 
