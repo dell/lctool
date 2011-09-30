@@ -1,0 +1,2173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsen="http://schemas.xmlsoap.org/ws/2004/09/enumeration" xmlns:wsman="http://schemas.dmtf.org/wbem/wsman/1/wsman.xsd" xmlns:n1="http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_NICString" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:n2="http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_NICInteger" xmlns:n3="http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_NICEnumeration">
+  <s:Header>
+    <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+    <wsa:Action>http://schemas.xmlsoap.org/ws/2004/09/enumeration/EnumerateResponse</wsa:Action>
+    <wsa:RelatesTo>uuid:f8f0573b-ae2a-1e2a-8002-f5f65ac51500</wsa:RelatesTo>
+    <wsa:MessageID>uuid:ea8c9c2f-ae2a-1e2a-801d-1d9967e82400</wsa:MessageID>
+  </s:Header>
+  <s:Body>
+    <wsen:EnumerateResponse>
+      <wsman:Items>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>ChipMdl</n1:AttributeName>
+          <n1:CurrentValue>BCM5709 C0</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.4-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.4-1:ChipMdl</n1:InstanceID>
+          <n1:IsReadOnly>true</n1:IsReadOnly>
+          <n1:MaxLength>0</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>MacAddr</n1:AttributeName>
+          <n1:CurrentValue>00:24:E8:67:99:1B</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.4-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.4-1:MacAddr</n1:InstanceID>
+          <n1:IsReadOnly>true</n1:IsReadOnly>
+          <n1:MaxLength>0</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>VirtMacAddr</n1:AttributeName>
+          <n1:CurrentValue>00:24:E8:67:99:1B</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.4-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.4-1:VirtMacAddr</n1:InstanceID>
+          <n1:IsReadOnly>true</n1:IsReadOnly>
+          <n1:MaxLength>0</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiMacAddr</n1:AttributeName>
+          <n1:CurrentValue>00:24:E8:67:99:1C</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.4-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.4-1:IscsiMacAddr</n1:InstanceID>
+          <n1:IsReadOnly>true</n1:IsReadOnly>
+          <n1:MaxLength>0</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>VirtIscsiMacAddr</n1:AttributeName>
+          <n1:CurrentValue>00:24:E8:67:99:1C</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.4-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.4-1:VirtIscsiMacAddr</n1:InstanceID>
+          <n1:IsReadOnly>true</n1:IsReadOnly>
+          <n1:MaxLength>0</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>DhcpVendId</n1:AttributeName>
+          <n1:CurrentValue>BRCM ISAN</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.4-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.4-1:DhcpVendId</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>32</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorIpAddr</n1:AttributeName>
+          <n1:CurrentValue>::</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.4-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.4-1:IscsiInitiatorIpAddr</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorSubnetPrefix</n1:AttributeName>
+          <n1:CurrentValue>0</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.4-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.4-1:IscsiInitiatorSubnetPrefix</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorGateway</n1:AttributeName>
+          <n1:CurrentValue>::</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.4-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.4-1:IscsiInitiatorGateway</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorPrimDns</n1:AttributeName>
+          <n1:CurrentValue>::</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.4-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.4-1:IscsiInitiatorPrimDns</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorSecDns</n1:AttributeName>
+          <n1:CurrentValue>::</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.4-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.4-1:IscsiInitiatorSecDns</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorName</n1:AttributeName>
+          <n1:CurrentValue>iqn.1995-05.com.broadcom.iscsiboot</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.4-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.4-1:IscsiInitiatorName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>128</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorChapId</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.4-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.4-1:IscsiInitiatorChapId</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>128</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorChapPwd</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.4-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.4-1:IscsiInitiatorChapPwd</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>FirstTgtIpAddress</n1:AttributeName>
+          <n1:CurrentValue>::</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.4-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.4-1:FirstTgtIpAddress</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>FirstTgtIscsiName</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.4-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.4-1:FirstTgtIscsiName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>128</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>FirstTgtChapId</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.4-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.4-1:FirstTgtChapId</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>128</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>FirstTgtChapPwd</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.4-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.4-1:FirstTgtChapPwd</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>SecondTgtIpAddress</n1:AttributeName>
+          <n1:CurrentValue>::</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.4-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.4-1:SecondTgtIpAddress</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>SecondTgtIscsiName</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.4-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.4-1:SecondTgtIscsiName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>128</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>SecondTgtChapId</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.4-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.4-1:SecondTgtChapId</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>128</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>SecondTgtChapPwd</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.4-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.4-1:SecondTgtChapPwd</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>SecondaryDeviceMacAddr</n1:AttributeName>
+          <n1:CurrentValue>00:00:00:00:00:00</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.4-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.4-1:SecondaryDeviceMacAddr</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>17</n1:MaxLength>
+          <n1:MinLength>17</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>ChipMdl</n1:AttributeName>
+          <n1:CurrentValue>BCM5709 C0</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.3-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.3-1:ChipMdl</n1:InstanceID>
+          <n1:IsReadOnly>true</n1:IsReadOnly>
+          <n1:MaxLength>0</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>MacAddr</n1:AttributeName>
+          <n1:CurrentValue>00:24:E8:67:99:19</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.3-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.3-1:MacAddr</n1:InstanceID>
+          <n1:IsReadOnly>true</n1:IsReadOnly>
+          <n1:MaxLength>0</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>VirtMacAddr</n1:AttributeName>
+          <n1:CurrentValue>00:24:E8:67:99:19</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.3-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.3-1:VirtMacAddr</n1:InstanceID>
+          <n1:IsReadOnly>true</n1:IsReadOnly>
+          <n1:MaxLength>0</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiMacAddr</n1:AttributeName>
+          <n1:CurrentValue>00:24:E8:67:99:1A</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.3-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.3-1:IscsiMacAddr</n1:InstanceID>
+          <n1:IsReadOnly>true</n1:IsReadOnly>
+          <n1:MaxLength>0</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>VirtIscsiMacAddr</n1:AttributeName>
+          <n1:CurrentValue>00:24:E8:67:99:1A</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.3-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.3-1:VirtIscsiMacAddr</n1:InstanceID>
+          <n1:IsReadOnly>true</n1:IsReadOnly>
+          <n1:MaxLength>0</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>DhcpVendId</n1:AttributeName>
+          <n1:CurrentValue>BRCM ISAN</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.3-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.3-1:DhcpVendId</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>32</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorIpAddr</n1:AttributeName>
+          <n1:CurrentValue>0.0.0.0</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.3-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.3-1:IscsiInitiatorIpAddr</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorSubnet</n1:AttributeName>
+          <n1:CurrentValue>0.0.0.0</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.3-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.3-1:IscsiInitiatorSubnet</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorGateway</n1:AttributeName>
+          <n1:CurrentValue>0.0.0.0</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.3-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.3-1:IscsiInitiatorGateway</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorPrimDns</n1:AttributeName>
+          <n1:CurrentValue>0.0.0.0</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.3-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.3-1:IscsiInitiatorPrimDns</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorSecDns</n1:AttributeName>
+          <n1:CurrentValue>0.0.0.0</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.3-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.3-1:IscsiInitiatorSecDns</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorName</n1:AttributeName>
+          <n1:CurrentValue>iqn.1995-05.com.broadcom.iscsiboot</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.3-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.3-1:IscsiInitiatorName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>128</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorChapId</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.3-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.3-1:IscsiInitiatorChapId</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>128</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorChapPwd</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.3-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.3-1:IscsiInitiatorChapPwd</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>FirstTgtIpAddress</n1:AttributeName>
+          <n1:CurrentValue>0.0.0.0</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.3-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.3-1:FirstTgtIpAddress</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>FirstTgtIscsiName</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.3-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.3-1:FirstTgtIscsiName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>128</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>FirstTgtChapId</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.3-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.3-1:FirstTgtChapId</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>128</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>FirstTgtChapPwd</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.3-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.3-1:FirstTgtChapPwd</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>SecondTgtIpAddress</n1:AttributeName>
+          <n1:CurrentValue>0.0.0.0</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.3-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.3-1:SecondTgtIpAddress</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>SecondTgtIscsiName</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.3-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.3-1:SecondTgtIscsiName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>128</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>SecondTgtChapId</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.3-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.3-1:SecondTgtChapId</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>128</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>SecondTgtChapPwd</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.3-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.3-1:SecondTgtChapPwd</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>SecondaryDeviceMacAddr</n1:AttributeName>
+          <n1:CurrentValue>00:00:00:00:00:00</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.3-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.3-1:SecondaryDeviceMacAddr</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>17</n1:MaxLength>
+          <n1:MinLength>17</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>ChipMdl</n1:AttributeName>
+          <n1:CurrentValue>BCM5709 C0</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.2-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.2-1:ChipMdl</n1:InstanceID>
+          <n1:IsReadOnly>true</n1:IsReadOnly>
+          <n1:MaxLength>0</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>MacAddr</n1:AttributeName>
+          <n1:CurrentValue>00:24:E8:67:99:17</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.2-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.2-1:MacAddr</n1:InstanceID>
+          <n1:IsReadOnly>true</n1:IsReadOnly>
+          <n1:MaxLength>0</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>VirtMacAddr</n1:AttributeName>
+          <n1:CurrentValue>00:24:E8:67:99:17</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.2-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.2-1:VirtMacAddr</n1:InstanceID>
+          <n1:IsReadOnly>true</n1:IsReadOnly>
+          <n1:MaxLength>0</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiMacAddr</n1:AttributeName>
+          <n1:CurrentValue>00:24:E8:67:99:18</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.2-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.2-1:IscsiMacAddr</n1:InstanceID>
+          <n1:IsReadOnly>true</n1:IsReadOnly>
+          <n1:MaxLength>0</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>VirtIscsiMacAddr</n1:AttributeName>
+          <n1:CurrentValue>00:24:E8:67:99:18</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.2-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.2-1:VirtIscsiMacAddr</n1:InstanceID>
+          <n1:IsReadOnly>true</n1:IsReadOnly>
+          <n1:MaxLength>0</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>DhcpVendId</n1:AttributeName>
+          <n1:CurrentValue>BRCM ISAN</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.2-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.2-1:DhcpVendId</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>32</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorIpAddr</n1:AttributeName>
+          <n1:CurrentValue>172.17.11.4</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.2-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.2-1:IscsiInitiatorIpAddr</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorSubnet</n1:AttributeName>
+          <n1:CurrentValue>255.255.0.0</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.2-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.2-1:IscsiInitiatorSubnet</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorGateway</n1:AttributeName>
+          <n1:CurrentValue>172.17.1.150</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.2-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.2-1:IscsiInitiatorGateway</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorPrimDns</n1:AttributeName>
+          <n1:CurrentValue>172.17.1.150</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.2-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.2-1:IscsiInitiatorPrimDns</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorSecDns</n1:AttributeName>
+          <n1:CurrentValue>0.0.0.0</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.2-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.2-1:IscsiInitiatorSecDns</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorName</n1:AttributeName>
+          <n1:CurrentValue>iqn.1995-05.com.broadcom.iscsiboot:r710:lom2</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.2-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.2-1:IscsiInitiatorName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>128</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorChapId</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.2-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.2-1:IscsiInitiatorChapId</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>128</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorChapPwd</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.2-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.2-1:IscsiInitiatorChapPwd</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>FirstTgtIpAddress</n1:AttributeName>
+          <n1:CurrentValue>172.17.14.81</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.2-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.2-1:FirstTgtIpAddress</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>FirstTgtIscsiName</n1:AttributeName>
+          <n1:CurrentValue>iqn.1984-05.com.dell:powervault.md3200i.60026b9000348f3c000000004c99cb9d</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.2-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.2-1:FirstTgtIscsiName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>128</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>FirstTgtChapId</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.2-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.2-1:FirstTgtChapId</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>128</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>FirstTgtChapPwd</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.2-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.2-1:FirstTgtChapPwd</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>SecondTgtIpAddress</n1:AttributeName>
+          <n1:CurrentValue>172.17.14.80</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.2-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.2-1:SecondTgtIpAddress</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>SecondTgtIscsiName</n1:AttributeName>
+          <n1:CurrentValue>iqn.1984-05.com.dell:powervault.md3200i.60026b9000348f3c000000004c99cb9d</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.2-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.2-1:SecondTgtIscsiName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>128</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>SecondTgtChapId</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.2-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.2-1:SecondTgtChapId</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>128</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>SecondTgtChapPwd</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.2-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.2-1:SecondTgtChapPwd</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>SecondaryDeviceMacAddr</n1:AttributeName>
+          <n1:CurrentValue>00:00:00:00:00:00</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.2-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.2-1:SecondaryDeviceMacAddr</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>17</n1:MaxLength>
+          <n1:MinLength>17</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>ChipMdl</n1:AttributeName>
+          <n1:CurrentValue>BCM5709 C0</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.1-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.1-1:ChipMdl</n1:InstanceID>
+          <n1:IsReadOnly>true</n1:IsReadOnly>
+          <n1:MaxLength>0</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>MacAddr</n1:AttributeName>
+          <n1:CurrentValue>00:24:E8:67:99:15</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.1-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.1-1:MacAddr</n1:InstanceID>
+          <n1:IsReadOnly>true</n1:IsReadOnly>
+          <n1:MaxLength>0</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>VirtMacAddr</n1:AttributeName>
+          <n1:CurrentValue>00:24:E8:67:99:15</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.1-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.1-1:VirtMacAddr</n1:InstanceID>
+          <n1:IsReadOnly>true</n1:IsReadOnly>
+          <n1:MaxLength>0</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiMacAddr</n1:AttributeName>
+          <n1:CurrentValue>00:24:E8:67:99:16</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.1-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.1-1:IscsiMacAddr</n1:InstanceID>
+          <n1:IsReadOnly>true</n1:IsReadOnly>
+          <n1:MaxLength>0</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>VirtIscsiMacAddr</n1:AttributeName>
+          <n1:CurrentValue>00:24:E8:67:99:16</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.1-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.1-1:VirtIscsiMacAddr</n1:InstanceID>
+          <n1:IsReadOnly>true</n1:IsReadOnly>
+          <n1:MaxLength>0</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>DhcpVendId</n1:AttributeName>
+          <n1:CurrentValue>BRCM ISAN</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.1-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.1-1:DhcpVendId</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>32</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorIpAddr</n1:AttributeName>
+          <n1:CurrentValue>0.0.0.0</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.1-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.1-1:IscsiInitiatorIpAddr</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorSubnet</n1:AttributeName>
+          <n1:CurrentValue>0.0.0.0</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.1-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.1-1:IscsiInitiatorSubnet</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorGateway</n1:AttributeName>
+          <n1:CurrentValue>0.0.0.0</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.1-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.1-1:IscsiInitiatorGateway</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorPrimDns</n1:AttributeName>
+          <n1:CurrentValue>0.0.0.0</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.1-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.1-1:IscsiInitiatorPrimDns</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorSecDns</n1:AttributeName>
+          <n1:CurrentValue>0.0.0.0</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.1-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.1-1:IscsiInitiatorSecDns</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorName</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.1-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.1-1:IscsiInitiatorName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>128</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorChapId</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.1-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.1-1:IscsiInitiatorChapId</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>128</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>IscsiInitiatorChapPwd</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.1-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.1-1:IscsiInitiatorChapPwd</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>FirstTgtIpAddress</n1:AttributeName>
+          <n1:CurrentValue>0.0.0.0</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.1-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.1-1:FirstTgtIpAddress</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>FirstTgtIscsiName</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.1-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.1-1:FirstTgtIscsiName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>128</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>FirstTgtChapId</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.1-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.1-1:FirstTgtChapId</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>128</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>FirstTgtChapPwd</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.1-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.1-1:FirstTgtChapPwd</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>SecondTgtIpAddress</n1:AttributeName>
+          <n1:CurrentValue>0.0.0.0</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.1-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.1-1:SecondTgtIpAddress</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>39</n1:MaxLength>
+          <n1:MinLength>2</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>SecondTgtIscsiName</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.1-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.1-1:SecondTgtIscsiName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>128</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>SecondTgtChapId</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.1-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.1-1:SecondTgtChapId</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>128</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>SecondTgtChapPwd</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.1-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.1-1:SecondTgtChapPwd</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n1:DCIM_NICString>
+          <n1:AttributeName>SecondaryDeviceMacAddr</n1:AttributeName>
+          <n1:CurrentValue>00:00:00:00:00:00</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>NIC.Embedded.1-1</n1:FQDD>
+          <n1:InstanceID>NIC.Embedded.1-1:SecondaryDeviceMacAddr</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>17</n1:MaxLength>
+          <n1:MinLength>17</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_NICString>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>BlnkLeds</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.4-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.4-1:BlnkLeds</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>15</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>LnkUpDelayTime</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.4-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.4-1:LnkUpDelayTime</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>255</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>LunBusyRetryCnt</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.4-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.4-1:LunBusyRetryCnt</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>60</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>FirstTgtTcpPort</n2:AttributeName>
+          <n2:CurrentValue>3260</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.4-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.4-1:FirstTgtTcpPort</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>1</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>65535</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>FirstTgtBootLun</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.4-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.4-1:FirstTgtBootLun</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>255</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>SecondTgtTcpPort</n2:AttributeName>
+          <n2:CurrentValue>3260</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.4-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.4-1:SecondTgtTcpPort</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>1</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>65535</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>SecondTgtBootLun</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.4-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.4-1:SecondTgtBootLun</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>255</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>VLanId</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.4-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.4-1:VLanId</n2:InstanceID>
+          <n2:IsReadOnly>true</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>4095</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>BlnkLeds</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.3-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.3-1:BlnkLeds</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>15</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>LnkUpDelayTime</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.3-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.3-1:LnkUpDelayTime</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>255</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>LunBusyRetryCnt</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.3-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.3-1:LunBusyRetryCnt</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>60</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>FirstTgtTcpPort</n2:AttributeName>
+          <n2:CurrentValue>3260</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.3-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.3-1:FirstTgtTcpPort</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>1</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>65535</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>FirstTgtBootLun</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.3-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.3-1:FirstTgtBootLun</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>255</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>SecondTgtTcpPort</n2:AttributeName>
+          <n2:CurrentValue>3260</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.3-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.3-1:SecondTgtTcpPort</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>1</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>65535</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>SecondTgtBootLun</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.3-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.3-1:SecondTgtBootLun</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>255</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>VLanId</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.3-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.3-1:VLanId</n2:InstanceID>
+          <n2:IsReadOnly>true</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>4095</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>BlnkLeds</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.2-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.2-1:BlnkLeds</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>15</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>LnkUpDelayTime</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.2-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.2-1:LnkUpDelayTime</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>255</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>LunBusyRetryCnt</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.2-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.2-1:LunBusyRetryCnt</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>60</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>FirstTgtTcpPort</n2:AttributeName>
+          <n2:CurrentValue>3260</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.2-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.2-1:FirstTgtTcpPort</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>1</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>65535</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>FirstTgtBootLun</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.2-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.2-1:FirstTgtBootLun</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>255</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>SecondTgtTcpPort</n2:AttributeName>
+          <n2:CurrentValue>3260</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.2-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.2-1:SecondTgtTcpPort</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>1</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>65535</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>SecondTgtBootLun</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.2-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.2-1:SecondTgtBootLun</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>255</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>VLanId</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.2-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.2-1:VLanId</n2:InstanceID>
+          <n2:IsReadOnly>true</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>4095</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>BlnkLeds</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.1-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.1-1:BlnkLeds</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>15</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>LnkUpDelayTime</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.1-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.1-1:LnkUpDelayTime</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>255</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>LunBusyRetryCnt</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.1-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.1-1:LunBusyRetryCnt</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>60</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>FirstTgtTcpPort</n2:AttributeName>
+          <n2:CurrentValue>3260</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.1-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.1-1:FirstTgtTcpPort</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>1</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>65535</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>FirstTgtBootLun</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.1-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.1-1:FirstTgtBootLun</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>255</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>SecondTgtTcpPort</n2:AttributeName>
+          <n2:CurrentValue>3260</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.1-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.1-1:SecondTgtTcpPort</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>1</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>65535</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>SecondTgtBootLun</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.1-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.1-1:SecondTgtBootLun</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>255</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n2:DCIM_NICInteger>
+          <n2:AttributeName>VLanId</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue xsi:nil="true"/>
+          <n2:FQDD>NIC.Embedded.1-1</n2:FQDD>
+          <n2:InstanceID>NIC.Embedded.1-1:VLanId</n2:InstanceID>
+          <n2:IsReadOnly>true</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:PendingValue xsi:nil="true"/>
+          <n2:UpperBound>4095</n2:UpperBound>
+        </n2:DCIM_NICInteger>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>TcpIpViaDHCP</n3:AttributeName>
+          <n3:CurrentValue>Enabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.4-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.4-1:TcpIpViaDHCP</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>IscsiViaDHCP</n3:AttributeName>
+          <n3:CurrentValue>Enabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.4-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.4-1:IscsiViaDHCP</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>ChapAuthEnable</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.4-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.4-1:ChapAuthEnable</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>IscsiTgtBoot</n3:AttributeName>
+          <n3:CurrentValue>Enabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.4-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.4-1:IscsiTgtBoot</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+          <n3:PossibleValues>One Time Disabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>TcpTimestmp</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.4-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.4-1:TcpTimestmp</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>FirstHddTarget</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.4-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.4-1:FirstHddTarget</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>IpVer</n3:AttributeName>
+          <n3:CurrentValue>IPv6</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.4-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.4-1:IpVer</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>IPv4</n3:PossibleValues>
+          <n3:PossibleValues>IPv6</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>WinHbaBootMode</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.4-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.4-1:WinHbaBootMode</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>ConnectFirstTgt</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.4-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.4-1:ConnectFirstTgt</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>ConnectSecondTgt</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.4-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.4-1:ConnectSecondTgt</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>LegacyBootProto</n3:AttributeName>
+          <n3:CurrentValue>PXE</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.4-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.4-1:LegacyBootProto</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>PXE</n3:PossibleValues>
+          <n3:PossibleValues>iSCSI</n3:PossibleValues>
+          <n3:PossibleValues>NONE</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>LnkSpeed</n3:AttributeName>
+          <n3:CurrentValue>AutoNeg</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.4-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.4-1:LnkSpeed</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>AutoNeg</n3:PossibleValues>
+          <n3:PossibleValues>10Mbps Half</n3:PossibleValues>
+          <n3:PossibleValues>10Mbps Full</n3:PossibleValues>
+          <n3:PossibleValues>100Mbps Half</n3:PossibleValues>
+          <n3:PossibleValues>100Mbps Full</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>WakeOnLan</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.4-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.4-1:WakeOnLan</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>VLanMode</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.4-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.4-1:VLanMode</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>BootRetryCnt</n3:AttributeName>
+          <n3:CurrentValue>No Retry</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.4-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.4-1:BootRetryCnt</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>No Retry</n3:PossibleValues>
+          <n3:PossibleValues>1 Retry</n3:PossibleValues>
+          <n3:PossibleValues>2 Retries</n3:PossibleValues>
+          <n3:PossibleValues>3 Retries</n3:PossibleValues>
+          <n3:PossibleValues>4 Retries</n3:PossibleValues>
+          <n3:PossibleValues>5 Retries</n3:PossibleValues>
+          <n3:PossibleValues>6 Retries</n3:PossibleValues>
+          <n3:PossibleValues>Indefinite Retries</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>UseIndTgtPortal</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.4-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.4-1:UseIndTgtPortal</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>UseIndTgtName</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.4-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.4-1:UseIndTgtName</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>TcpIpViaDHCP</n3:AttributeName>
+          <n3:CurrentValue>Enabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.3-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.3-1:TcpIpViaDHCP</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>IscsiViaDHCP</n3:AttributeName>
+          <n3:CurrentValue>Enabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.3-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.3-1:IscsiViaDHCP</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>ChapAuthEnable</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.3-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.3-1:ChapAuthEnable</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>IscsiTgtBoot</n3:AttributeName>
+          <n3:CurrentValue>Enabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.3-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.3-1:IscsiTgtBoot</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+          <n3:PossibleValues>One Time Disabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>TcpTimestmp</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.3-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.3-1:TcpTimestmp</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>FirstHddTarget</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.3-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.3-1:FirstHddTarget</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>IpVer</n3:AttributeName>
+          <n3:CurrentValue>IPv4</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.3-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.3-1:IpVer</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>IPv4</n3:PossibleValues>
+          <n3:PossibleValues>IPv6</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>WinHbaBootMode</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.3-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.3-1:WinHbaBootMode</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>ConnectFirstTgt</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.3-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.3-1:ConnectFirstTgt</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>ConnectSecondTgt</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.3-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.3-1:ConnectSecondTgt</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>LegacyBootProto</n3:AttributeName>
+          <n3:CurrentValue>PXE</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.3-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.3-1:LegacyBootProto</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>PXE</n3:PossibleValues>
+          <n3:PossibleValues>iSCSI</n3:PossibleValues>
+          <n3:PossibleValues>NONE</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>LnkSpeed</n3:AttributeName>
+          <n3:CurrentValue>AutoNeg</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.3-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.3-1:LnkSpeed</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>AutoNeg</n3:PossibleValues>
+          <n3:PossibleValues>10Mbps Half</n3:PossibleValues>
+          <n3:PossibleValues>10Mbps Full</n3:PossibleValues>
+          <n3:PossibleValues>100Mbps Half</n3:PossibleValues>
+          <n3:PossibleValues>100Mbps Full</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>WakeOnLan</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.3-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.3-1:WakeOnLan</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>VLanMode</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.3-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.3-1:VLanMode</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>BootRetryCnt</n3:AttributeName>
+          <n3:CurrentValue>No Retry</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.3-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.3-1:BootRetryCnt</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>No Retry</n3:PossibleValues>
+          <n3:PossibleValues>1 Retry</n3:PossibleValues>
+          <n3:PossibleValues>2 Retries</n3:PossibleValues>
+          <n3:PossibleValues>3 Retries</n3:PossibleValues>
+          <n3:PossibleValues>4 Retries</n3:PossibleValues>
+          <n3:PossibleValues>5 Retries</n3:PossibleValues>
+          <n3:PossibleValues>6 Retries</n3:PossibleValues>
+          <n3:PossibleValues>Indefinite Retries</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>UseIndTgtPortal</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.3-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.3-1:UseIndTgtPortal</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>UseIndTgtName</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.3-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.3-1:UseIndTgtName</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>TcpIpViaDHCP</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.2-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.2-1:TcpIpViaDHCP</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>IscsiViaDHCP</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.2-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.2-1:IscsiViaDHCP</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>ChapAuthEnable</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.2-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.2-1:ChapAuthEnable</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>IscsiTgtBoot</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.2-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.2-1:IscsiTgtBoot</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+          <n3:PossibleValues>One Time Disabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>TcpTimestmp</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.2-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.2-1:TcpTimestmp</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>FirstHddTarget</n3:AttributeName>
+          <n3:CurrentValue>Enabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.2-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.2-1:FirstHddTarget</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>IpVer</n3:AttributeName>
+          <n3:CurrentValue>IPv4</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.2-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.2-1:IpVer</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>IPv4</n3:PossibleValues>
+          <n3:PossibleValues>IPv6</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>WinHbaBootMode</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.2-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.2-1:WinHbaBootMode</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>ConnectFirstTgt</n3:AttributeName>
+          <n3:CurrentValue>Enabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.2-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.2-1:ConnectFirstTgt</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>ConnectSecondTgt</n3:AttributeName>
+          <n3:CurrentValue>Enabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.2-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.2-1:ConnectSecondTgt</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>LegacyBootProto</n3:AttributeName>
+          <n3:CurrentValue>iSCSI</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.2-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.2-1:LegacyBootProto</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>PXE</n3:PossibleValues>
+          <n3:PossibleValues>iSCSI</n3:PossibleValues>
+          <n3:PossibleValues>NONE</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>LnkSpeed</n3:AttributeName>
+          <n3:CurrentValue>AutoNeg</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.2-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.2-1:LnkSpeed</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>AutoNeg</n3:PossibleValues>
+          <n3:PossibleValues>10Mbps Half</n3:PossibleValues>
+          <n3:PossibleValues>10Mbps Full</n3:PossibleValues>
+          <n3:PossibleValues>100Mbps Half</n3:PossibleValues>
+          <n3:PossibleValues>100Mbps Full</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>WakeOnLan</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.2-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.2-1:WakeOnLan</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>VLanMode</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.2-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.2-1:VLanMode</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>BootRetryCnt</n3:AttributeName>
+          <n3:CurrentValue>No Retry</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.2-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.2-1:BootRetryCnt</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>No Retry</n3:PossibleValues>
+          <n3:PossibleValues>1 Retry</n3:PossibleValues>
+          <n3:PossibleValues>2 Retries</n3:PossibleValues>
+          <n3:PossibleValues>3 Retries</n3:PossibleValues>
+          <n3:PossibleValues>4 Retries</n3:PossibleValues>
+          <n3:PossibleValues>5 Retries</n3:PossibleValues>
+          <n3:PossibleValues>6 Retries</n3:PossibleValues>
+          <n3:PossibleValues>Indefinite Retries</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>UseIndTgtPortal</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.2-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.2-1:UseIndTgtPortal</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>UseIndTgtName</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.2-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.2-1:UseIndTgtName</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>TcpIpViaDHCP</n3:AttributeName>
+          <n3:CurrentValue>Enabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.1-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.1-1:TcpIpViaDHCP</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>IscsiViaDHCP</n3:AttributeName>
+          <n3:CurrentValue>Enabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.1-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.1-1:IscsiViaDHCP</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>ChapAuthEnable</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.1-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.1-1:ChapAuthEnable</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>IscsiTgtBoot</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.1-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.1-1:IscsiTgtBoot</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+          <n3:PossibleValues>One Time Disabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>TcpTimestmp</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.1-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.1-1:TcpTimestmp</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>FirstHddTarget</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.1-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.1-1:FirstHddTarget</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>IpVer</n3:AttributeName>
+          <n3:CurrentValue>IPv4</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.1-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.1-1:IpVer</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>IPv4</n3:PossibleValues>
+          <n3:PossibleValues>IPv6</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>WinHbaBootMode</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.1-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.1-1:WinHbaBootMode</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>ConnectFirstTgt</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.1-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.1-1:ConnectFirstTgt</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>ConnectSecondTgt</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.1-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.1-1:ConnectSecondTgt</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>LegacyBootProto</n3:AttributeName>
+          <n3:CurrentValue>PXE</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.1-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.1-1:LegacyBootProto</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>PXE</n3:PossibleValues>
+          <n3:PossibleValues>iSCSI</n3:PossibleValues>
+          <n3:PossibleValues>NONE</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>LnkSpeed</n3:AttributeName>
+          <n3:CurrentValue>AutoNeg</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.1-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.1-1:LnkSpeed</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>AutoNeg</n3:PossibleValues>
+          <n3:PossibleValues>10Mbps Half</n3:PossibleValues>
+          <n3:PossibleValues>10Mbps Full</n3:PossibleValues>
+          <n3:PossibleValues>100Mbps Half</n3:PossibleValues>
+          <n3:PossibleValues>100Mbps Full</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>WakeOnLan</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.1-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.1-1:WakeOnLan</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>VLanMode</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.1-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.1-1:VLanMode</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>BootRetryCnt</n3:AttributeName>
+          <n3:CurrentValue>No Retry</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.1-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.1-1:BootRetryCnt</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>No Retry</n3:PossibleValues>
+          <n3:PossibleValues>1 Retry</n3:PossibleValues>
+          <n3:PossibleValues>2 Retries</n3:PossibleValues>
+          <n3:PossibleValues>3 Retries</n3:PossibleValues>
+          <n3:PossibleValues>4 Retries</n3:PossibleValues>
+          <n3:PossibleValues>5 Retries</n3:PossibleValues>
+          <n3:PossibleValues>6 Retries</n3:PossibleValues>
+          <n3:PossibleValues>Indefinite Retries</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>UseIndTgtPortal</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.1-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.1-1:UseIndTgtPortal</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+        <n3:DCIM_NICEnumeration>
+          <n3:AttributeName>UseIndTgtName</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue xsi:nil="true"/>
+          <n3:FQDD>NIC.Embedded.1-1</n3:FQDD>
+          <n3:InstanceID>NIC.Embedded.1-1:UseIndTgtName</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PendingValue xsi:nil="true"/>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_NICEnumeration>
+      </wsman:Items>
+      <wsen:EnumerationContext/>
+      <wsman:EndOfSequence/>
+    </wsen:EnumerateResponse>
+  </s:Body>
+</s:Envelope>
