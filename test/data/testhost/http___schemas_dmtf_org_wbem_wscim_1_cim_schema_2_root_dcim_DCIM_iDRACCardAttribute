@@ -1,0 +1,1839 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsen="http://schemas.xmlsoap.org/ws/2004/09/enumeration" xmlns:wsman="http://schemas.dmtf.org/wbem/wsman/1/wsman.xsd" xmlns:n1="http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_iDRACCardString" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:n2="http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_iDRACCardInteger" xmlns:n3="http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_iDRACCardEnumeration">
+  <s:Header>
+    <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+    <wsa:Action>http://schemas.xmlsoap.org/ws/2004/09/enumeration/EnumerateResponse</wsa:Action>
+    <wsa:RelatesTo>uuid:08d51668-ae2d-1e2d-8002-f5f65ac51500</wsa:RelatesTo>
+    <wsa:MessageID>uuid:facd01aa-ae2c-1e2c-8021-1d9967e82400</wsa:MessageID>
+  </s:Header>
+  <s:Body>
+    <wsen:EnumerateResponse>
+      <wsman:Items>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>DNS RAC Name</n1:AttributeDisplayName>
+          <n1:AttributeName>DNSRacName</n1:AttributeName>
+          <n1:CurrentValue>idrac-8HDPBK1</n1:CurrentValue>
+          <n1:DefaultValue/>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>NIC</n1:GroupDisplayName>
+          <n1:GroupID>NIC.1</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#NIC.1#DNSRacName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>63</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>DNS Domain Name</n1:AttributeDisplayName>
+          <n1:AttributeName>DNSDomainName</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue/>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>NIC</n1:GroupDisplayName>
+          <n1:GroupID>NIC.1</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#NIC.1#DNSDomainName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>254</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>IP Address</n1:AttributeDisplayName>
+          <n1:AttributeName>Address</n1:AttributeName>
+          <n1:CurrentValue>10.208.46.138</n1:CurrentValue>
+          <n1:DefaultValue>192.168.0.120</n1:DefaultValue>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>IPv4</n1:GroupDisplayName>
+          <n1:GroupID>IPv4.1</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#IPv4.1#Address</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>Netmask</n1:AttributeDisplayName>
+          <n1:AttributeName>Netmask</n1:AttributeName>
+          <n1:CurrentValue>255.255.254.0</n1:CurrentValue>
+          <n1:DefaultValue>255.255.255.0</n1:DefaultValue>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>IPv4</n1:GroupDisplayName>
+          <n1:GroupID>IPv4.1</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#IPv4.1#Netmask</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>Gateway</n1:AttributeDisplayName>
+          <n1:AttributeName>Gateway</n1:AttributeName>
+          <n1:CurrentValue>10.208.46.1</n1:CurrentValue>
+          <n1:DefaultValue>192.168.0.1</n1:DefaultValue>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>IPv4</n1:GroupDisplayName>
+          <n1:GroupID>IPv4.1</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#IPv4.1#Gateway</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>DNS Server 1</n1:AttributeDisplayName>
+          <n1:AttributeName>DNS1</n1:AttributeName>
+          <n1:CurrentValue>0.0.0.0</n1:CurrentValue>
+          <n1:DefaultValue>0.0.0.0</n1:DefaultValue>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>IPv4</n1:GroupDisplayName>
+          <n1:GroupID>IPv4.1</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#IPv4.1#DNS1</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>DNS Server 2</n1:AttributeDisplayName>
+          <n1:AttributeName>DNS2</n1:AttributeName>
+          <n1:CurrentValue>0.0.0.0</n1:CurrentValue>
+          <n1:DefaultValue>0.0.0.0</n1:DefaultValue>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>IPv4</n1:GroupDisplayName>
+          <n1:GroupID>IPv4.1</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#IPv4.1#DNS2</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin User Name</n1:AttributeDisplayName>
+          <n1:AttributeName>UserName</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue/>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.1</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.1#UserName</n1:InstanceID>
+          <n1:IsReadOnly>true</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin User Name</n1:AttributeDisplayName>
+          <n1:AttributeName>UserName</n1:AttributeName>
+          <n1:CurrentValue>root</n1:CurrentValue>
+          <n1:DefaultValue>root</n1:DefaultValue>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.2</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.2#UserName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin User Name</n1:AttributeDisplayName>
+          <n1:AttributeName>UserName</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue/>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.3</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.3#UserName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin User Name</n1:AttributeDisplayName>
+          <n1:AttributeName>UserName</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue/>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.4</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.4#UserName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin User Name</n1:AttributeDisplayName>
+          <n1:AttributeName>UserName</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue/>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.5</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.5#UserName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin User Name</n1:AttributeDisplayName>
+          <n1:AttributeName>UserName</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue/>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.6</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.6#UserName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin User Name</n1:AttributeDisplayName>
+          <n1:AttributeName>UserName</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue/>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.7</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.7#UserName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin User Name</n1:AttributeDisplayName>
+          <n1:AttributeName>UserName</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue/>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.8</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.8#UserName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin User Name</n1:AttributeDisplayName>
+          <n1:AttributeName>UserName</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue/>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.9</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.9#UserName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin User Name</n1:AttributeDisplayName>
+          <n1:AttributeName>UserName</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue/>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.10</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.10#UserName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin User Name</n1:AttributeDisplayName>
+          <n1:AttributeName>UserName</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue/>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.11</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.11#UserName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin User Name</n1:AttributeDisplayName>
+          <n1:AttributeName>UserName</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue/>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.12</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.12#UserName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin User Name</n1:AttributeDisplayName>
+          <n1:AttributeName>UserName</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue/>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.13</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.13#UserName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin User Name</n1:AttributeDisplayName>
+          <n1:AttributeName>UserName</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue/>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.14</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.14#UserName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin User Name</n1:AttributeDisplayName>
+          <n1:AttributeName>UserName</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue/>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.15</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.15#UserName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin User Name</n1:AttributeDisplayName>
+          <n1:AttributeName>UserName</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue/>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.16</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.16#UserName</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>16</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin Password</n1:AttributeDisplayName>
+          <n1:AttributeName>Password</n1:AttributeName>
+          <n1:CurrentValue>******</n1:CurrentValue>
+          <n1:DefaultValue>******</n1:DefaultValue>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.1</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.1#Password</n1:InstanceID>
+          <n1:IsReadOnly>true</n1:IsReadOnly>
+          <n1:MaxLength>20</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin Password</n1:AttributeDisplayName>
+          <n1:AttributeName>Password</n1:AttributeName>
+          <n1:CurrentValue>******</n1:CurrentValue>
+          <n1:DefaultValue>******</n1:DefaultValue>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.2</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.2#Password</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>20</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin Password</n1:AttributeDisplayName>
+          <n1:AttributeName>Password</n1:AttributeName>
+          <n1:CurrentValue>******</n1:CurrentValue>
+          <n1:DefaultValue>******</n1:DefaultValue>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.3</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.3#Password</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>20</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin Password</n1:AttributeDisplayName>
+          <n1:AttributeName>Password</n1:AttributeName>
+          <n1:CurrentValue>******</n1:CurrentValue>
+          <n1:DefaultValue>******</n1:DefaultValue>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.4</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.4#Password</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>20</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin Password</n1:AttributeDisplayName>
+          <n1:AttributeName>Password</n1:AttributeName>
+          <n1:CurrentValue>******</n1:CurrentValue>
+          <n1:DefaultValue>******</n1:DefaultValue>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.5</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.5#Password</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>20</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin Password</n1:AttributeDisplayName>
+          <n1:AttributeName>Password</n1:AttributeName>
+          <n1:CurrentValue>******</n1:CurrentValue>
+          <n1:DefaultValue>******</n1:DefaultValue>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.6</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.6#Password</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>20</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin Password</n1:AttributeDisplayName>
+          <n1:AttributeName>Password</n1:AttributeName>
+          <n1:CurrentValue>******</n1:CurrentValue>
+          <n1:DefaultValue>******</n1:DefaultValue>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.7</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.7#Password</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>20</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin Password</n1:AttributeDisplayName>
+          <n1:AttributeName>Password</n1:AttributeName>
+          <n1:CurrentValue>******</n1:CurrentValue>
+          <n1:DefaultValue>******</n1:DefaultValue>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.8</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.8#Password</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>20</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin Password</n1:AttributeDisplayName>
+          <n1:AttributeName>Password</n1:AttributeName>
+          <n1:CurrentValue>******</n1:CurrentValue>
+          <n1:DefaultValue>******</n1:DefaultValue>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.9</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.9#Password</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>20</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin Password</n1:AttributeDisplayName>
+          <n1:AttributeName>Password</n1:AttributeName>
+          <n1:CurrentValue>******</n1:CurrentValue>
+          <n1:DefaultValue>******</n1:DefaultValue>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.10</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.10#Password</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>20</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin Password</n1:AttributeDisplayName>
+          <n1:AttributeName>Password</n1:AttributeName>
+          <n1:CurrentValue>******</n1:CurrentValue>
+          <n1:DefaultValue>******</n1:DefaultValue>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.11</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.11#Password</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>20</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin Password</n1:AttributeDisplayName>
+          <n1:AttributeName>Password</n1:AttributeName>
+          <n1:CurrentValue>******</n1:CurrentValue>
+          <n1:DefaultValue>******</n1:DefaultValue>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.12</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.12#Password</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>20</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin Password</n1:AttributeDisplayName>
+          <n1:AttributeName>Password</n1:AttributeName>
+          <n1:CurrentValue>******</n1:CurrentValue>
+          <n1:DefaultValue>******</n1:DefaultValue>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.13</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.13#Password</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>20</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin Password</n1:AttributeDisplayName>
+          <n1:AttributeName>Password</n1:AttributeName>
+          <n1:CurrentValue>******</n1:CurrentValue>
+          <n1:DefaultValue>******</n1:DefaultValue>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.14</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.14#Password</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>20</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin Password</n1:AttributeDisplayName>
+          <n1:AttributeName>Password</n1:AttributeName>
+          <n1:CurrentValue>******</n1:CurrentValue>
+          <n1:DefaultValue>******</n1:DefaultValue>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.15</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.15#Password</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>20</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n1:DCIM_iDRACCardString>
+          <n1:AttributeDisplayName>User Admin Password</n1:AttributeDisplayName>
+          <n1:AttributeName>Password</n1:AttributeName>
+          <n1:CurrentValue>******</n1:CurrentValue>
+          <n1:DefaultValue>******</n1:DefaultValue>
+          <n1:Dependency xsi:nil="true"/>
+          <n1:DisplayOrder>0</n1:DisplayOrder>
+          <n1:FQDD>iDRAC.Embedded.1</n1:FQDD>
+          <n1:GroupDisplayName>Users</n1:GroupDisplayName>
+          <n1:GroupID>Users.16</n1:GroupID>
+          <n1:InstanceID>iDRAC.Embedded.1#Users.16#Password</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>20</n1:MaxLength>
+          <n1:MinLength>1</n1:MinLength>
+        </n1:DCIM_iDRACCardString>
+        <n2:DCIM_iDRACCardInteger>
+          <n2:AttributeDisplayName>VLan Priority</n2:AttributeDisplayName>
+          <n2:AttributeName>VLanPriority</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue>0</n2:DefaultValue>
+          <n2:Dependency xsi:nil="true"/>
+          <n2:DisplayOrder>0</n2:DisplayOrder>
+          <n2:FQDD>iDRAC.Embedded.1</n2:FQDD>
+          <n2:GroupDisplayName>NIC</n2:GroupDisplayName>
+          <n2:GroupID>NIC.1</n2:GroupID>
+          <n2:InstanceID>iDRAC.Embedded.1#NIC.1#VLanPriority</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:UpperBound>7</n2:UpperBound>
+        </n2:DCIM_iDRACCardInteger>
+        <n2:DCIM_iDRACCardInteger>
+          <n2:AttributeDisplayName>VLan ID</n2:AttributeDisplayName>
+          <n2:AttributeName>VLanID</n2:AttributeName>
+          <n2:CurrentValue>1</n2:CurrentValue>
+          <n2:DefaultValue>1</n2:DefaultValue>
+          <n2:Dependency xsi:nil="true"/>
+          <n2:DisplayOrder>0</n2:DisplayOrder>
+          <n2:FQDD>iDRAC.Embedded.1</n2:FQDD>
+          <n2:GroupDisplayName>NIC</n2:GroupDisplayName>
+          <n2:GroupID>NIC.1</n2:GroupID>
+          <n2:InstanceID>iDRAC.Embedded.1#NIC.1#VLanID</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>1</n2:LowerBound>
+          <n2:UpperBound>4094</n2:UpperBound>
+        </n2:DCIM_iDRACCardInteger>
+        <n2:DCIM_iDRACCardInteger>
+          <n2:AttributeDisplayName>User Admin Privilege</n2:AttributeDisplayName>
+          <n2:AttributeName>Privilege</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue>0</n2:DefaultValue>
+          <n2:Dependency xsi:nil="true"/>
+          <n2:DisplayOrder>0</n2:DisplayOrder>
+          <n2:FQDD>iDRAC.Embedded.1</n2:FQDD>
+          <n2:GroupDisplayName>Users</n2:GroupDisplayName>
+          <n2:GroupID>Users.1</n2:GroupID>
+          <n2:InstanceID>iDRAC.Embedded.1#Users.1#Privilege</n2:InstanceID>
+          <n2:IsReadOnly>true</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:UpperBound>511</n2:UpperBound>
+        </n2:DCIM_iDRACCardInteger>
+        <n2:DCIM_iDRACCardInteger>
+          <n2:AttributeDisplayName>User Admin Privilege</n2:AttributeDisplayName>
+          <n2:AttributeName>Privilege</n2:AttributeName>
+          <n2:CurrentValue>511</n2:CurrentValue>
+          <n2:DefaultValue>0</n2:DefaultValue>
+          <n2:Dependency xsi:nil="true"/>
+          <n2:DisplayOrder>0</n2:DisplayOrder>
+          <n2:FQDD>iDRAC.Embedded.1</n2:FQDD>
+          <n2:GroupDisplayName>Users</n2:GroupDisplayName>
+          <n2:GroupID>Users.2</n2:GroupID>
+          <n2:InstanceID>iDRAC.Embedded.1#Users.2#Privilege</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:UpperBound>511</n2:UpperBound>
+        </n2:DCIM_iDRACCardInteger>
+        <n2:DCIM_iDRACCardInteger>
+          <n2:AttributeDisplayName>User Admin Privilege</n2:AttributeDisplayName>
+          <n2:AttributeName>Privilege</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue>0</n2:DefaultValue>
+          <n2:Dependency xsi:nil="true"/>
+          <n2:DisplayOrder>0</n2:DisplayOrder>
+          <n2:FQDD>iDRAC.Embedded.1</n2:FQDD>
+          <n2:GroupDisplayName>Users</n2:GroupDisplayName>
+          <n2:GroupID>Users.3</n2:GroupID>
+          <n2:InstanceID>iDRAC.Embedded.1#Users.3#Privilege</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:UpperBound>511</n2:UpperBound>
+        </n2:DCIM_iDRACCardInteger>
+        <n2:DCIM_iDRACCardInteger>
+          <n2:AttributeDisplayName>User Admin Privilege</n2:AttributeDisplayName>
+          <n2:AttributeName>Privilege</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue>0</n2:DefaultValue>
+          <n2:Dependency xsi:nil="true"/>
+          <n2:DisplayOrder>0</n2:DisplayOrder>
+          <n2:FQDD>iDRAC.Embedded.1</n2:FQDD>
+          <n2:GroupDisplayName>Users</n2:GroupDisplayName>
+          <n2:GroupID>Users.4</n2:GroupID>
+          <n2:InstanceID>iDRAC.Embedded.1#Users.4#Privilege</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:UpperBound>511</n2:UpperBound>
+        </n2:DCIM_iDRACCardInteger>
+        <n2:DCIM_iDRACCardInteger>
+          <n2:AttributeDisplayName>User Admin Privilege</n2:AttributeDisplayName>
+          <n2:AttributeName>Privilege</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue>0</n2:DefaultValue>
+          <n2:Dependency xsi:nil="true"/>
+          <n2:DisplayOrder>0</n2:DisplayOrder>
+          <n2:FQDD>iDRAC.Embedded.1</n2:FQDD>
+          <n2:GroupDisplayName>Users</n2:GroupDisplayName>
+          <n2:GroupID>Users.5</n2:GroupID>
+          <n2:InstanceID>iDRAC.Embedded.1#Users.5#Privilege</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:UpperBound>511</n2:UpperBound>
+        </n2:DCIM_iDRACCardInteger>
+        <n2:DCIM_iDRACCardInteger>
+          <n2:AttributeDisplayName>User Admin Privilege</n2:AttributeDisplayName>
+          <n2:AttributeName>Privilege</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue>0</n2:DefaultValue>
+          <n2:Dependency xsi:nil="true"/>
+          <n2:DisplayOrder>0</n2:DisplayOrder>
+          <n2:FQDD>iDRAC.Embedded.1</n2:FQDD>
+          <n2:GroupDisplayName>Users</n2:GroupDisplayName>
+          <n2:GroupID>Users.6</n2:GroupID>
+          <n2:InstanceID>iDRAC.Embedded.1#Users.6#Privilege</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:UpperBound>511</n2:UpperBound>
+        </n2:DCIM_iDRACCardInteger>
+        <n2:DCIM_iDRACCardInteger>
+          <n2:AttributeDisplayName>User Admin Privilege</n2:AttributeDisplayName>
+          <n2:AttributeName>Privilege</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue>0</n2:DefaultValue>
+          <n2:Dependency xsi:nil="true"/>
+          <n2:DisplayOrder>0</n2:DisplayOrder>
+          <n2:FQDD>iDRAC.Embedded.1</n2:FQDD>
+          <n2:GroupDisplayName>Users</n2:GroupDisplayName>
+          <n2:GroupID>Users.7</n2:GroupID>
+          <n2:InstanceID>iDRAC.Embedded.1#Users.7#Privilege</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:UpperBound>511</n2:UpperBound>
+        </n2:DCIM_iDRACCardInteger>
+        <n2:DCIM_iDRACCardInteger>
+          <n2:AttributeDisplayName>User Admin Privilege</n2:AttributeDisplayName>
+          <n2:AttributeName>Privilege</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue>0</n2:DefaultValue>
+          <n2:Dependency xsi:nil="true"/>
+          <n2:DisplayOrder>0</n2:DisplayOrder>
+          <n2:FQDD>iDRAC.Embedded.1</n2:FQDD>
+          <n2:GroupDisplayName>Users</n2:GroupDisplayName>
+          <n2:GroupID>Users.8</n2:GroupID>
+          <n2:InstanceID>iDRAC.Embedded.1#Users.8#Privilege</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:UpperBound>511</n2:UpperBound>
+        </n2:DCIM_iDRACCardInteger>
+        <n2:DCIM_iDRACCardInteger>
+          <n2:AttributeDisplayName>User Admin Privilege</n2:AttributeDisplayName>
+          <n2:AttributeName>Privilege</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue>0</n2:DefaultValue>
+          <n2:Dependency xsi:nil="true"/>
+          <n2:DisplayOrder>0</n2:DisplayOrder>
+          <n2:FQDD>iDRAC.Embedded.1</n2:FQDD>
+          <n2:GroupDisplayName>Users</n2:GroupDisplayName>
+          <n2:GroupID>Users.9</n2:GroupID>
+          <n2:InstanceID>iDRAC.Embedded.1#Users.9#Privilege</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:UpperBound>511</n2:UpperBound>
+        </n2:DCIM_iDRACCardInteger>
+        <n2:DCIM_iDRACCardInteger>
+          <n2:AttributeDisplayName>User Admin Privilege</n2:AttributeDisplayName>
+          <n2:AttributeName>Privilege</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue>0</n2:DefaultValue>
+          <n2:Dependency xsi:nil="true"/>
+          <n2:DisplayOrder>0</n2:DisplayOrder>
+          <n2:FQDD>iDRAC.Embedded.1</n2:FQDD>
+          <n2:GroupDisplayName>Users</n2:GroupDisplayName>
+          <n2:GroupID>Users.10</n2:GroupID>
+          <n2:InstanceID>iDRAC.Embedded.1#Users.10#Privilege</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:UpperBound>511</n2:UpperBound>
+        </n2:DCIM_iDRACCardInteger>
+        <n2:DCIM_iDRACCardInteger>
+          <n2:AttributeDisplayName>User Admin Privilege</n2:AttributeDisplayName>
+          <n2:AttributeName>Privilege</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue>0</n2:DefaultValue>
+          <n2:Dependency xsi:nil="true"/>
+          <n2:DisplayOrder>0</n2:DisplayOrder>
+          <n2:FQDD>iDRAC.Embedded.1</n2:FQDD>
+          <n2:GroupDisplayName>Users</n2:GroupDisplayName>
+          <n2:GroupID>Users.11</n2:GroupID>
+          <n2:InstanceID>iDRAC.Embedded.1#Users.11#Privilege</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:UpperBound>511</n2:UpperBound>
+        </n2:DCIM_iDRACCardInteger>
+        <n2:DCIM_iDRACCardInteger>
+          <n2:AttributeDisplayName>User Admin Privilege</n2:AttributeDisplayName>
+          <n2:AttributeName>Privilege</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue>0</n2:DefaultValue>
+          <n2:Dependency xsi:nil="true"/>
+          <n2:DisplayOrder>0</n2:DisplayOrder>
+          <n2:FQDD>iDRAC.Embedded.1</n2:FQDD>
+          <n2:GroupDisplayName>Users</n2:GroupDisplayName>
+          <n2:GroupID>Users.12</n2:GroupID>
+          <n2:InstanceID>iDRAC.Embedded.1#Users.12#Privilege</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:UpperBound>511</n2:UpperBound>
+        </n2:DCIM_iDRACCardInteger>
+        <n2:DCIM_iDRACCardInteger>
+          <n2:AttributeDisplayName>User Admin Privilege</n2:AttributeDisplayName>
+          <n2:AttributeName>Privilege</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue>0</n2:DefaultValue>
+          <n2:Dependency xsi:nil="true"/>
+          <n2:DisplayOrder>0</n2:DisplayOrder>
+          <n2:FQDD>iDRAC.Embedded.1</n2:FQDD>
+          <n2:GroupDisplayName>Users</n2:GroupDisplayName>
+          <n2:GroupID>Users.13</n2:GroupID>
+          <n2:InstanceID>iDRAC.Embedded.1#Users.13#Privilege</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:UpperBound>511</n2:UpperBound>
+        </n2:DCIM_iDRACCardInteger>
+        <n2:DCIM_iDRACCardInteger>
+          <n2:AttributeDisplayName>User Admin Privilege</n2:AttributeDisplayName>
+          <n2:AttributeName>Privilege</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue>0</n2:DefaultValue>
+          <n2:Dependency xsi:nil="true"/>
+          <n2:DisplayOrder>0</n2:DisplayOrder>
+          <n2:FQDD>iDRAC.Embedded.1</n2:FQDD>
+          <n2:GroupDisplayName>Users</n2:GroupDisplayName>
+          <n2:GroupID>Users.14</n2:GroupID>
+          <n2:InstanceID>iDRAC.Embedded.1#Users.14#Privilege</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:UpperBound>511</n2:UpperBound>
+        </n2:DCIM_iDRACCardInteger>
+        <n2:DCIM_iDRACCardInteger>
+          <n2:AttributeDisplayName>User Admin Privilege</n2:AttributeDisplayName>
+          <n2:AttributeName>Privilege</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue>0</n2:DefaultValue>
+          <n2:Dependency xsi:nil="true"/>
+          <n2:DisplayOrder>0</n2:DisplayOrder>
+          <n2:FQDD>iDRAC.Embedded.1</n2:FQDD>
+          <n2:GroupDisplayName>Users</n2:GroupDisplayName>
+          <n2:GroupID>Users.15</n2:GroupID>
+          <n2:InstanceID>iDRAC.Embedded.1#Users.15#Privilege</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:UpperBound>511</n2:UpperBound>
+        </n2:DCIM_iDRACCardInteger>
+        <n2:DCIM_iDRACCardInteger>
+          <n2:AttributeDisplayName>User Admin Privilege</n2:AttributeDisplayName>
+          <n2:AttributeName>Privilege</n2:AttributeName>
+          <n2:CurrentValue>0</n2:CurrentValue>
+          <n2:DefaultValue>0</n2:DefaultValue>
+          <n2:Dependency xsi:nil="true"/>
+          <n2:DisplayOrder>0</n2:DisplayOrder>
+          <n2:FQDD>iDRAC.Embedded.1</n2:FQDD>
+          <n2:GroupDisplayName>Users</n2:GroupDisplayName>
+          <n2:GroupID>Users.16</n2:GroupID>
+          <n2:InstanceID>iDRAC.Embedded.1#Users.16#Privilege</n2:InstanceID>
+          <n2:IsReadOnly>false</n2:IsReadOnly>
+          <n2:LowerBound>0</n2:LowerBound>
+          <n2:UpperBound>511</n2:UpperBound>
+        </n2:DCIM_iDRACCardInteger>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>Nic Enable</n3:AttributeDisplayName>
+          <n3:AttributeName>Enable</n3:AttributeName>
+          <n3:CurrentValue>Enabled</n3:CurrentValue>
+          <n3:DefaultValue>Enabled</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>NIC</n3:GroupDisplayName>
+          <n3:GroupID>NIC.1</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#NIC.1#Enable</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>Nic Selection</n3:AttributeDisplayName>
+          <n3:AttributeName>Selection</n3:AttributeName>
+          <n3:CurrentValue>Dedicated</n3:CurrentValue>
+          <n3:DefaultValue>Shared</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>NIC</n3:GroupDisplayName>
+          <n3:GroupID>NIC.1</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#NIC.1#Selection</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Shared</n3:PossibleValues>
+          <n3:PossibleValues>SharedLom2Failover</n3:PossibleValues>
+          <n3:PossibleValues>Dedicated</n3:PossibleValues>
+          <n3:PossibleValues>SharedAllFailover</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>Nic Speed</n3:AttributeDisplayName>
+          <n3:AttributeName>Speed</n3:AttributeName>
+          <n3:CurrentValue>100</n3:CurrentValue>
+          <n3:DefaultValue>100</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>NIC</n3:GroupDisplayName>
+          <n3:GroupID>NIC.1</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#NIC.1#Speed</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>10</n3:PossibleValues>
+          <n3:PossibleValues>100</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>Nic Auto Negotiation</n3:AttributeDisplayName>
+          <n3:AttributeName>Autoneg</n3:AttributeName>
+          <n3:CurrentValue>Enabled</n3:CurrentValue>
+          <n3:DefaultValue>Enabled</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>NIC</n3:GroupDisplayName>
+          <n3:GroupID>NIC.1</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#NIC.1#Autoneg</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>Nic Duplex</n3:AttributeDisplayName>
+          <n3:AttributeName>Duplex</n3:AttributeName>
+          <n3:CurrentValue>Full</n3:CurrentValue>
+          <n3:DefaultValue>Full</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>NIC</n3:GroupDisplayName>
+          <n3:GroupID>NIC.1</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#NIC.1#Duplex</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Half</n3:PossibleValues>
+          <n3:PossibleValues>Full</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>DNS Register RAC</n3:AttributeDisplayName>
+          <n3:AttributeName>DNSRegister</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue>Disabled</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>NIC</n3:GroupDisplayName>
+          <n3:GroupID>NIC.1</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#NIC.1#DNSRegister</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>DNS Domain Name from DHCP</n3:AttributeDisplayName>
+          <n3:AttributeName>DNSDomainNameFromDHCP</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue>Disabled</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>NIC</n3:GroupDisplayName>
+          <n3:GroupID>NIC.1</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#NIC.1#DNSDomainNameFromDHCP</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>VLan Enable</n3:AttributeDisplayName>
+          <n3:AttributeName>VLanEnable</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue>Disabled</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>NIC</n3:GroupDisplayName>
+          <n3:GroupID>NIC.1</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#NIC.1#VLanEnable</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>Virtual Media Attached</n3:AttributeDisplayName>
+          <n3:AttributeName>Attached</n3:AttributeName>
+          <n3:CurrentValue>Attached</n3:CurrentValue>
+          <n3:DefaultValue>Detached</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>VirtualMedia</n3:GroupDisplayName>
+          <n3:GroupID>VirtualMedia.1</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#VirtualMedia.1#Attached</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Detached</n3:PossibleValues>
+          <n3:PossibleValues>Attached</n3:PossibleValues>
+          <n3:PossibleValues>Autoattach</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>IPv4 Enable</n3:AttributeDisplayName>
+          <n3:AttributeName>Enable</n3:AttributeName>
+          <n3:CurrentValue>Enabled</n3:CurrentValue>
+          <n3:DefaultValue>Enabled</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>IPv4</n3:GroupDisplayName>
+          <n3:GroupID>IPv4.1</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#IPv4.1#Enable</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>DHCP Enable</n3:AttributeDisplayName>
+          <n3:AttributeName>DHCPEnable</n3:AttributeName>
+          <n3:CurrentValue>Enabled</n3:CurrentValue>
+          <n3:DefaultValue>Disabled</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>IPv4</n3:GroupDisplayName>
+          <n3:GroupID>IPv4.1</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#IPv4.1#DHCPEnable</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>DNS From DHCP</n3:AttributeDisplayName>
+          <n3:AttributeName>DNSFromDHCP</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue>Disabled</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>IPv4</n3:GroupDisplayName>
+          <n3:GroupID>IPv4.1</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#IPv4.1#DNSFromDHCP</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI LAN Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiLanPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.1</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.1#IpmiLanPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>true</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI Serial Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiSerialPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.1</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.1#IpmiSerialPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>true</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin Enable</n3:AttributeDisplayName>
+          <n3:AttributeName>Enable</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue>Disabled</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.1</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.1#Enable</n3:InstanceID>
+          <n3:IsReadOnly>true</n3:IsReadOnly>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI LAN Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiLanPrivilege</n3:AttributeName>
+          <n3:CurrentValue>Administrator</n3:CurrentValue>
+          <n3:DefaultValue>Administrator</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.2</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.2#IpmiLanPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI Serial Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiSerialPrivilege</n3:AttributeName>
+          <n3:CurrentValue>Administrator</n3:CurrentValue>
+          <n3:DefaultValue>Administrator</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.2</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.2#IpmiSerialPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin Enable</n3:AttributeDisplayName>
+          <n3:AttributeName>Enable</n3:AttributeName>
+          <n3:CurrentValue>Enabled</n3:CurrentValue>
+          <n3:DefaultValue>Enabled</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.2</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.2#Enable</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI LAN Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiLanPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.3</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.3#IpmiLanPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI Serial Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiSerialPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.3</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.3#IpmiSerialPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin Enable</n3:AttributeDisplayName>
+          <n3:AttributeName>Enable</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue>Disabled</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.3</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.3#Enable</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI LAN Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiLanPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.4</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.4#IpmiLanPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI Serial Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiSerialPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.4</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.4#IpmiSerialPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin Enable</n3:AttributeDisplayName>
+          <n3:AttributeName>Enable</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue>Disabled</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.4</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.4#Enable</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI LAN Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiLanPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.5</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.5#IpmiLanPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI Serial Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiSerialPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.5</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.5#IpmiSerialPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin Enable</n3:AttributeDisplayName>
+          <n3:AttributeName>Enable</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue>Disabled</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.5</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.5#Enable</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI LAN Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiLanPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.6</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.6#IpmiLanPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI Serial Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiSerialPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.6</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.6#IpmiSerialPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin Enable</n3:AttributeDisplayName>
+          <n3:AttributeName>Enable</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue>Disabled</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.6</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.6#Enable</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI LAN Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiLanPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.7</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.7#IpmiLanPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI Serial Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiSerialPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.7</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.7#IpmiSerialPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin Enable</n3:AttributeDisplayName>
+          <n3:AttributeName>Enable</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue>Disabled</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.7</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.7#Enable</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI LAN Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiLanPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.8</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.8#IpmiLanPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI Serial Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiSerialPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.8</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.8#IpmiSerialPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin Enable</n3:AttributeDisplayName>
+          <n3:AttributeName>Enable</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue>Disabled</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.8</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.8#Enable</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI LAN Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiLanPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.9</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.9#IpmiLanPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI Serial Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiSerialPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.9</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.9#IpmiSerialPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin Enable</n3:AttributeDisplayName>
+          <n3:AttributeName>Enable</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue>Disabled</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.9</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.9#Enable</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI LAN Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiLanPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.10</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.10#IpmiLanPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI Serial Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiSerialPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.10</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.10#IpmiSerialPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin Enable</n3:AttributeDisplayName>
+          <n3:AttributeName>Enable</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue>Disabled</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.10</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.10#Enable</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI LAN Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiLanPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.11</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.11#IpmiLanPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI Serial Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiSerialPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.11</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.11#IpmiSerialPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin Enable</n3:AttributeDisplayName>
+          <n3:AttributeName>Enable</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue>Disabled</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.11</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.11#Enable</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI LAN Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiLanPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.12</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.12#IpmiLanPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI Serial Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiSerialPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.12</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.12#IpmiSerialPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin Enable</n3:AttributeDisplayName>
+          <n3:AttributeName>Enable</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue>Disabled</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.12</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.12#Enable</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI LAN Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiLanPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.13</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.13#IpmiLanPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI Serial Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiSerialPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.13</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.13#IpmiSerialPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin Enable</n3:AttributeDisplayName>
+          <n3:AttributeName>Enable</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue>Disabled</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.13</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.13#Enable</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI LAN Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiLanPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.14</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.14#IpmiLanPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI Serial Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiSerialPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.14</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.14#IpmiSerialPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin Enable</n3:AttributeDisplayName>
+          <n3:AttributeName>Enable</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue>Disabled</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.14</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.14#Enable</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI LAN Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiLanPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.15</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.15#IpmiLanPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI Serial Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiSerialPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.15</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.15#IpmiSerialPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin Enable</n3:AttributeDisplayName>
+          <n3:AttributeName>Enable</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue>Disabled</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.15</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.15#Enable</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI LAN Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiLanPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.16</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.16#IpmiLanPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin IPMI Serial Privilege</n3:AttributeDisplayName>
+          <n3:AttributeName>IpmiSerialPrivilege</n3:AttributeName>
+          <n3:CurrentValue>NoAccess</n3:CurrentValue>
+          <n3:DefaultValue>NoAccess</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.16</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.16#IpmiSerialPrivilege</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>User</n3:PossibleValues>
+          <n3:PossibleValues>Operator</n3:PossibleValues>
+          <n3:PossibleValues>Administrator</n3:PossibleValues>
+          <n3:PossibleValues>NoAccess</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+        <n3:DCIM_iDRACCardEnumeration>
+          <n3:AttributeDisplayName>User Admin Enable</n3:AttributeDisplayName>
+          <n3:AttributeName>Enable</n3:AttributeName>
+          <n3:CurrentValue>Disabled</n3:CurrentValue>
+          <n3:DefaultValue>Disabled</n3:DefaultValue>
+          <n3:Dependency xsi:nil="true"/>
+          <n3:DisplayOrder>0</n3:DisplayOrder>
+          <n3:FQDD>iDRAC.Embedded.1</n3:FQDD>
+          <n3:GroupDisplayName>Users</n3:GroupDisplayName>
+          <n3:GroupID>Users.16</n3:GroupID>
+          <n3:InstanceID>iDRAC.Embedded.1#Users.16#Enable</n3:InstanceID>
+          <n3:IsReadOnly>false</n3:IsReadOnly>
+          <n3:PossibleValues>Disabled</n3:PossibleValues>
+          <n3:PossibleValues>Enabled</n3:PossibleValues>
+        </n3:DCIM_iDRACCardEnumeration>
+      </wsman:Items>
+      <wsen:EnumerationContext/>
+      <wsman:EndOfSequence/>
+    </wsen:EnumerateResponse>
+  </s:Body>
+</s:Envelope>
