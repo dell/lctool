@@ -40,27 +40,49 @@ moduleVerboseLog = getLog(prefix="verbose.")
 
 basic_wsman_cmd = ["wsman", "enumerate", "-P", "443", "-V", "-v", "-c", "dummy.cert", "-j", "utf-8", "-y", "basic", "-o", "-m", "512"]
 
+unit_test_mode = False
+test_data_dir = ""
+
 @traceLog()
 def wsman_factory(*args, **kargs):
-    return Wsman(*args, **kargs)
+    if not unit_test_mode:
+        return Wsman(*args, **kargs)
+    else:
+        return MockWsman(*args, **kargs)
 
 class Wsman(object):
     def __init__(self, host):
         self.host = host
-        self.wsman_cmd = basic_wsman_cmd + ["-h", self.get_host(),"-u", self.get_user(), "-p", self.get_password(),]
+        opts = { "-h": self.get_host, "-u": self.get_user, "-p": self.get_password }
+        self.wsman_cmd = copy.copy(basic_wsman_cmd)
+        for k,v in opts.items():
+            if v() is not None:
+                self.wsman_cmd.extend([k,v()])
 
     def get_host(self):
-        return self.host["host"]
+        return self.host.get("host", None)
 
     def get_user(self):
-        return self.host["user"]
+        return self.host.get("user", None)
 
     def get_password(self):
-        return self.host["password"]
+        return self.host.get("password", None)
 
     def get_xml_from_uri(self, wsman_uri_list):
         for cmd in wsman_uri_list:
             yield call_output( self.wsman_cmd + [cmd], raise_exc=False )
+
+class MockWsman(Wsman):
+    def makesafe(self, pth):
+        p = re.compile( '[^a-zA-Z0-9]')
+        return p.sub( '_', pth)
+
+    def get_xml_from_uri(self, wsman_uri_list):
+        for uri in wsman_uri_list:
+            xml_file = open(os.path.join(test_data_dir, self.makesafe(self.get_host() + uri)), "r")
+            xml_str = xml_file.read()
+            xml_file.close()
+            yield xml_str
 
 @traceLog()
 def stuff_xml_into_ini(host, ini, wsman_uri_list):
