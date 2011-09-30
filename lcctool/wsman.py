@@ -27,6 +27,7 @@
 #
 
 import os
+import re
 import sys
 import copy
 import xml.dom.minidom
@@ -42,6 +43,20 @@ basic_wsman_cmd = ["wsman", "enumerate", "-P", "443", "-V", "-v", "-c", "dummy.c
 
 unit_test_mode = False
 test_data_dir = ""
+
+dell_uri_list = {
+    "bios":  [ "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSEnumeration",
+        "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSString",
+        "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSinteger",],
+    'nic': ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_NICAttribute"],
+    'idrac': ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_iDRACCardAttribute"],
+    }
+
+order_files = {
+    'bios': "BIOS0.01.xml",
+    'idrac':"IDRAC0.01.xml",
+    'nic':  "NIC0.01.xml",
+    }
 
 @traceLog()
 def wsman_factory(*args, **kargs):
@@ -79,14 +94,15 @@ class MockWsman(Wsman):
 
     def get_xml_from_uri(self, wsman_uri_list):
         for uri in wsman_uri_list:
-            xml_file = open(os.path.join(test_data_dir, self.makesafe(self.get_host() + uri)), "r")
+            xml_file = open(os.path.join(test_data_dir, self.makesafe(self.get_host()), self.makesafe(uri)), "r")
             xml_str = xml_file.read()
             xml_file.close()
             yield xml_str
 
 @traceLog()
-def stuff_xml_into_ini(host, ini, wsman_uri_list):
+def stuff_xml_into_ini(host, ini, setting):
     # run each wsman command in turn, and add the info to the INI object
+    wsman_uri_list = dell_uri_list[setting]
     wsman = wsman_factory(host)
     for wsman_xml in wsman.get_xml_from_uri(wsman_uri_list):
         add_options_to_ini(ini, wsman_xml)

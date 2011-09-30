@@ -42,20 +42,6 @@ moduleVerboseLog.debug("loading plugin module: %s" % __name__)
 
 _ = lcctool._
 
-wsman_cmds = {
-    "bios":  [ "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSEnumeration",
-        "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSString",
-        "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSinteger",],
-    'nic': ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_NICAttribute"],
-    'idrac': ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_iDRACCardAttribute"],
-    }
-
-order_files = {
-    'bios': "BIOS0.01.xml",
-    'idrac':"IDRAC0.01.xml",
-    'nic':  "NIC0.01.xml",
-    }
-
 class BiosData(Plugin):
     @traceLog()
     def __init__(self, ctx):
@@ -77,6 +63,6 @@ class BiosData(Plugin):
             ini.optionxform = str # need to be case sensitive
 
             for enum in ctx.args.enumerate_types:
-                lcctool.wsman.stuff_xml_into_ini(host, ini, wsman_cmds[enum])
+                lcctool.wsman.stuff_xml_into_ini(host, ini, enum)
 
             ini.write( outfile )
