@@ -47,7 +47,7 @@ setup(name='lcctool',
           # -*- Extra requirements: -*-
       ],
       entry_points={
-        'console_scripts': [ 'lcctool = lcctool.lcctool_cli:main', ],
+        'console_scripts': [ 'lcctool = lcctool:main', ],
         'lcctool_cli_extensions': [
             'sample = stdcli.plugins.builtin:SamplePlugin',
             'dump-config = stdcli.plugins.builtin:DumpConfigPlugin',

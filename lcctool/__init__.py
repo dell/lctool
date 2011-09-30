@@ -32,6 +32,10 @@ import pkg_resources
 dist = pkg_resources.get_distribution(__name__)
 __VERSION__=dist.version
 
+import stdcli.cli_main
+stdcli.cli_main.__VERSION__ = __VERSION__
+stdcli.cli_main.moduleName = __name__
+main = stdcli.cli_main.main
 
 try:
     import gettext
@@ -43,7 +47,4 @@ except:
     def _(str):
         """pass given string as-is"""
         return str
-
-
-
 
