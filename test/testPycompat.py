@@ -47,16 +47,17 @@ class TestCase(unittest.TestCase):
             if k.startswith("lcctool"):
                 del(sys.modules[k])
 
-    def testNic(self):
+    def dotestIni(self, enum, ini_data_string):
         import lcctool, lcctool.wsman
         host = {'host': 'testhost'}
         ini = ConfigParser.ConfigParser()
         ini.optionxform = str # need to be case sensitive
-        lcctool.wsman.stuff_xml_into_ini(host, ini, "nic")
+        for i in enum:
+            lcctool.wsman.stuff_xml_into_ini(host, ini, i)
 
         good_ini = ConfigParser.ConfigParser()
         good_ini.optionxform = str # need to be case sensitive
-        fh = cStringIO.StringIO(nic_ini_testdata)
+        fh = cStringIO.StringIO(ini_data_string)
         good_ini.readfp(fh)
         fh.close()
         for sec in good_ini.sections():
@@ -64,8 +65,203 @@ class TestCase(unittest.TestCase):
                 print "check [%s] %s = %s" % (sec, opt, good_ini.get(sec, opt))
                 self.assertEquals(good_ini.get(sec, opt), ini.get(sec, opt))
 
+    def testNic(self):
+        self.dotestIni(["nic"], nic_ini_testdata)
+
+    def testIdrac(self):
+        self.dotestIni(["idrac"], idrac_ini_testdata)
+
+    def testBios(self):
+        self.dotestIni(["bios"], bios_ini_testdata)
+
+    def testCombined(self):
+        self.dotestIni(["bios", "idrac", "nic"], bios_ini_testdata + nic_ini_testdata + idrac_ini_testdata)
+
+
 
 ## test data
+idrac_ini_testdata = """
+[iDRAC.Embedded.1]
+NIC.1#DNSRacName = idrac-8HDPBK1
+NIC.1#DNSDomainName = 
+IPv4.1#Address = 10.208.46.138
+IPv4.1#Netmask = 255.255.254.0
+IPv4.1#Gateway = 10.208.46.1
+IPv4.1#DNS1 = 0.0.0.0
+IPv4.1#DNS2 = 0.0.0.0
+Users.1#UserName = 
+Users.2#UserName = root
+Users.3#UserName = 
+Users.4#UserName = 
+Users.5#UserName = 
+Users.6#UserName = 
+Users.7#UserName = 
+Users.8#UserName = 
+Users.9#UserName = 
+Users.10#UserName = 
+Users.11#UserName = 
+Users.12#UserName = 
+Users.13#UserName = 
+Users.14#UserName = 
+Users.15#UserName = 
+Users.16#UserName = 
+Users.1#Password = ******
+Users.2#Password = ******
+Users.3#Password = ******
+Users.4#Password = ******
+Users.5#Password = ******
+Users.6#Password = ******
+Users.7#Password = ******
+Users.8#Password = ******
+Users.9#Password = ******
+Users.10#Password = ******
+Users.11#Password = ******
+Users.12#Password = ******
+Users.13#Password = ******
+Users.14#Password = ******
+Users.15#Password = ******
+Users.16#Password = ******
+NIC.1#VLanPriority = 0
+NIC.1#VLanID = 1
+Users.1#Privilege = 0
+Users.2#Privilege = 511
+Users.3#Privilege = 0
+Users.4#Privilege = 0
+Users.5#Privilege = 0
+Users.6#Privilege = 0
+Users.7#Privilege = 0
+Users.8#Privilege = 0
+Users.9#Privilege = 0
+Users.10#Privilege = 0
+Users.11#Privilege = 0
+Users.12#Privilege = 0
+Users.13#Privilege = 0
+Users.14#Privilege = 0
+Users.15#Privilege = 0
+Users.16#Privilege = 0
+NIC.1#Enable = Enabled
+NIC.1#Selection = Dedicated
+NIC.1#Speed = 100
+NIC.1#Autoneg = Enabled
+NIC.1#Duplex = Full
+NIC.1#DNSRegister = Disabled
+NIC.1#DNSDomainNameFromDHCP = Disabled
+NIC.1#VLanEnable = Disabled
+VirtualMedia.1#Attached = Attached
+IPv4.1#Enable = Enabled
+IPv4.1#DHCPEnable = Enabled
+IPv4.1#DNSFromDHCP = Disabled
+Users.1#IpmiLanPrivilege = NoAccess
+Users.1#IpmiSerialPrivilege = NoAccess
+Users.1#Enable = Disabled
+Users.2#IpmiLanPrivilege = Administrator
+Users.2#IpmiSerialPrivilege = Administrator
+Users.2#Enable = Enabled
+Users.3#IpmiLanPrivilege = NoAccess
+Users.3#IpmiSerialPrivilege = NoAccess
+Users.3#Enable = Disabled
+Users.4#IpmiLanPrivilege = NoAccess
+Users.4#IpmiSerialPrivilege = NoAccess
+Users.4#Enable = Disabled
+Users.5#IpmiLanPrivilege = NoAccess
+Users.5#IpmiSerialPrivilege = NoAccess
+Users.5#Enable = Disabled
+Users.6#IpmiLanPrivilege = NoAccess
+Users.6#IpmiSerialPrivilege = NoAccess
+Users.6#Enable = Disabled
+Users.7#IpmiLanPrivilege = NoAccess
+Users.7#IpmiSerialPrivilege = NoAccess
+Users.7#Enable = Disabled
+Users.8#IpmiLanPrivilege = NoAccess
+Users.8#IpmiSerialPrivilege = NoAccess
+Users.8#Enable = Disabled
+Users.9#IpmiLanPrivilege = NoAccess
+Users.9#IpmiSerialPrivilege = NoAccess
+Users.9#Enable = Disabled
+Users.10#IpmiLanPrivilege = NoAccess
+Users.10#IpmiSerialPrivilege = NoAccess
+Users.10#Enable = Disabled
+Users.11#IpmiLanPrivilege = NoAccess
+Users.11#IpmiSerialPrivilege = NoAccess
+Users.11#Enable = Disabled
+Users.12#IpmiLanPrivilege = NoAccess
+Users.12#IpmiSerialPrivilege = NoAccess
+Users.12#Enable = Disabled
+Users.13#IpmiLanPrivilege = NoAccess
+Users.13#IpmiSerialPrivilege = NoAccess
+Users.13#Enable = Disabled
+Users.14#IpmiLanPrivilege = NoAccess
+Users.14#IpmiSerialPrivilege = NoAccess
+Users.14#Enable = Disabled
+Users.15#IpmiLanPrivilege = NoAccess
+Users.15#IpmiSerialPrivilege = NoAccess
+Users.15#Enable = Disabled
+Users.16#IpmiLanPrivilege = NoAccess
+Users.16#IpmiSerialPrivilege = NoAccess
+Users.16#Enable = Disabled
+"""
+
+bios_ini_testdata = """
+[BIOS.Setup.1-1]
+MemTest = Enabled
+MemOpMode = OptimizerMode
+NodeInterleave = Disabled
+MemVolt = AutoVolt
+LogicalProc = Enabled
+ProcVirtualization = Enabled
+ProcAdjCacheLine = Enabled
+ProcHwPrefetcher = Enabled
+ProcExecuteDisable = Enabled
+ProcCores = All
+ProcC1E = Enabled
+ProcTurboMode = Enabled
+ProcCStates = Enabled
+EmbSata = AtaMode
+SataPortA = Auto
+SataPortB = Off
+BootMode = Bios
+BootSeqRetry = Disabled
+IntegratedRaid = Enabled
+UsbPorts = AllOn
+InternalUsb = On
+InternalSdCard = Off
+EmbNic1Nic2 = Enabled
+EmbNic1 = EnabledPxe
+EmbNic2 = Enabled
+EmbNic3Nic4 = Enabled
+EmbNic3 = Enabled
+EmbNic4 = Enabled
+OsWatchdogTimer = Disabled
+IoatEngine = Disabled
+EmbVideo = Enabled
+SriovGlobalEnable = Disabled
+SerialComm = OnConRedirCom1
+SerialPortAddress = Serial1Com1Serial2Com2
+ExtSerialConnector = RemoteAccDevice
+FailSafeBaud = 115200
+ConTermType = Vt100Vt220
+RedirAfterBoot = Enabled
+FrontLcd = Advanced
+PowerMgmt = OsCtrl
+ProcPwrPerf = OsDbpm
+FanPwrPerf = MinPwr
+MemPwrPerf = MaxPerf
+PasswordStatus = Unlocked
+TpmSecurity = Off
+TpmActivation = NoChange
+TpmClear = No
+PwrButton = Enabled
+NmiButton = Disabled
+AcPwrRcvry = Last
+AcPwrRcvryDelay = Immediate
+NumLock = On
+ReportKbdErr = NoReport
+ErrPrompt = Disabled
+UserLcdStr = 
+AssetTag = 
+AcPwrRcvryUserDelay = 30
+"""
+
 nic_ini_testdata = """
 [NIC.Embedded.4-1]
 ChipMdl = BCM5709 C0

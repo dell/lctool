@@ -3,8 +3,8 @@
   <s:Header>
     <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
     <wsa:Action>http://schemas.xmlsoap.org/ws/2004/09/enumeration/EnumerateResponse</wsa:Action>
-    <wsa:RelatesTo>uuid:1c4c9c1b-adf1-1df1-8002-f5f65ac51500</wsa:RelatesTo>
-    <wsa:MessageID>uuid:0d79a5e8-adf1-1df1-8057-1d9967e82400</wsa:MessageID>
+    <wsa:RelatesTo>uuid:1f676a77-ae2d-1e2d-8002-f5f65ac51500</wsa:RelatesTo>
+    <wsa:MessageID>uuid:106e2b42-ae2d-1e2d-8025-1d9967e82400</wsa:MessageID>
   </s:Header>
   <s:Body>
     <wsen:EnumerateResponse>
