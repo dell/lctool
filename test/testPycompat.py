@@ -13,7 +13,7 @@
 #     * Neither the name of the Dell, Inc. nor the
 #       names of its contributors may be used to endorse or promote products
 #       derived from this software without specific prior written permission.
-# 
+#
 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 # ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 # WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -55,14 +55,22 @@ class TestCase(unittest.TestCase):
         for i in enum:
             lcctool.wsman.stuff_xml_into_ini(host, ini, i)
 
+        # read in known-good INI data
         good_ini = ConfigParser.ConfigParser()
         good_ini.optionxform = str # need to be case sensitive
         fh = cStringIO.StringIO(ini_data_string)
         good_ini.readfp(fh)
         fh.close()
+
+        # check that each entry in good_ini corresponds with ini under test
         for sec in good_ini.sections():
             for opt in good_ini.options(sec):
-                print "check [%s] %s = %s" % (sec, opt, good_ini.get(sec, opt))
+                print "check GOOD [%s] %s = %s" % (sec, opt, good_ini.get(sec, opt))
+                self.assertEquals(good_ini.get(sec, opt), ini.get(sec, opt))
+        # and the reverse, to ensure we dont miss any
+        for sec in ini.sections():
+            for opt in ini.options(sec):
+                print "check SUT  [%s] %s = %s" % (sec, opt, ini.get(sec, opt))
                 self.assertEquals(good_ini.get(sec, opt), ini.get(sec, opt))
 
     def testNic(self):
@@ -83,7 +91,7 @@ class TestCase(unittest.TestCase):
 idrac_ini_testdata = """
 [iDRAC.Embedded.1]
 NIC.1#DNSRacName = idrac-8HDPBK1
-NIC.1#DNSDomainName = 
+NIC.1#DNSDomainName =
 IPv4.1#Address = 10.208.46.138
 IPv4.1#Netmask = 255.255.254.0
 IPv4.1#Gateway = 10.208.46.1
