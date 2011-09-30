@@ -39,7 +39,20 @@ from stdcli.pycompat import call_output
 moduleLog = getLog()
 moduleVerboseLog = getLog(prefix="verbose.")
 
-basic_wsman_cmd = ["wsman", "enumerate", "-P", "443", "-V", "-v", "-c", "dummy.cert", "-j", "utf-8", "-y", "basic", "-o", "-m", "512"]
+basic_wsman_cmd = ["wsman", "-P", "443", "-V", "-v", "-c", "dummy.cert", "-j", "utf-8", "-y", "basic", "-o", "-m", "512"]
+
+# more wsman commands we need to implement
+"wsman invoke -a ApplyAttributes http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_%(service)sService?SystemCreationClassName=DCIM_ComputerSystem,CreationClassName=DCIM_%(service)sService,SystemName=DCIM:ComputerSystem,Name=DCIM:%(service)sService -J %(f_name)s"
+
+"wsman invoke -a SetAttributes http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_%(service)sService?SystemCreationClassName=DCIM_ComputerSystem,CreationClassName=DCIM_%(service)sService,SystemName=DCIM:ComputerSystem,Name=DCIM:%(service)sService -J %(f_name)s"
+
+"wsman invoke -a GetRSStatus http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_LCService?SystemCreationClassName=DCIM_ComputerSystem,CreationClassName=DCIM_LCService,SystemName=DCIM:ComputerSystem,Name=DCIM:LCService"
+
+"wsman invoke -a CreateTargetedConfigJob http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_%(jobservice)s?SystemCreationClassName=DCIM_ComputerSystem,CreationClassName=DCIM_%(jobservice)s,SystemName=DCIM:ComputerSystem,Name=DCIM:%(jobservice)s -J %(f_name)s"
+
+"wsman get http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_LifecycleJob?InstanceID=%(job_id)s"
+
+"wsman get http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_LifecycleJob?InstanceID=%(job_id)s"
 
 unit_test_mode = False
 test_data_dir = ""
@@ -56,6 +69,12 @@ order_files = {
     'bios': "BIOS0.01.xml",
     'idrac':"IDRAC0.01.xml",
     'nic':  "NIC0.01.xml",
+    }
+
+service_names = {
+    'bios':  ["BIOS", "BIOSService"],
+    'nic':   ["NIC",  "NICService"],
+    'idrac': ["iDRACCard", "iDRACCardService"],
     }
 
 @traceLog()
@@ -84,8 +103,9 @@ class Wsman(object):
         return self.host.get("password", None)
 
     def get_xml_from_uri(self, wsman_uri_list):
-        for cmd in wsman_uri_list:
-            yield call_output( self.wsman_cmd + [cmd], raise_exc=False )
+        for uri in wsman_uri_list:
+            moduleLog.info("retrieving info for uri: %s" % uri)
+            yield call_output( self.wsman_cmd + ["enumerate", uri], raise_exc=False )
 
 class MockWsman(Wsman):
     def makesafe(self, pth):
@@ -100,20 +120,29 @@ class MockWsman(Wsman):
             yield xml_str
 
 @traceLog()
+def settings_from_ini(host, ini, setting):
+    pass
+
+@traceLog()
 def stuff_xml_into_ini(host, ini, setting):
     # run each wsman command in turn, and add the info to the INI object
     wsman_uri_list = dell_uri_list[setting]
     wsman = wsman_factory(host)
+    if not ini.has_section("breadcrumbs"):
+        ini.add_section("breadcrumbs")
     for wsman_xml in wsman.get_xml_from_uri(wsman_uri_list):
-        add_options_to_ini(ini, wsman_xml)
+        add_options_to_ini(ini, wsman_xml, setting)
 
 
 # Create the ini file for BIOS or NIC by parsing the XML file from wsman
-def add_options_to_ini(ini, wsman_xml):
+@traceLog()
+def add_options_to_ini(ini, wsman_xml, setting):
     iniDict = {}
     DOMTree = xml.dom.minidom.parseString(wsman_xml)
     item_list = DOMTree.documentElement.getElementsByTagNameNS('*', 'Items')[0]
     element_node_type = xml.dom.minidom.Node.ELEMENT_NODE
+
+    section_list = {}
 
     # iterate over all <Items> sub elements, we dont know what their names are
     for elem in [ e for e in item_list.childNodes if e.nodeType == element_node_type]:
@@ -128,11 +157,14 @@ def add_options_to_ini(ini, wsman_xml):
         if grpid:
             name = getNodeText(grpid[0]) + "#" + name
 
+        section_list[fqdd] = None
         if not ini.has_section(fqdd):
             ini.add_section(fqdd)
         ini.set(fqdd, name, value)
+        ini.set("breadcrumbs", setting, section_list.keys())
 
 # Take the XML which has the ordering of Attributes and extract the order
+# apparently unused, need to remove at the end if we dont end up using this
 @traceLog()
 def get_display_order(order_xml):
   DOMTree = xml.dom.minidom.parseString(order_xml)

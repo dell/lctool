@@ -42,6 +42,7 @@ class CNARunner:
     '''
     Transforms lists of tests into lists of results.
     '''
+    #"USAGE: <IPADDRESS> <USERNAME> <USERPASSWORD> <INIFILE> (nic | bios | idrac) Now"
     def __init__(self, idracIp, idracUser, idracPass, file, attrSet, flag):
         '''
         Takes a list of strings, which (for now) must be both a valid file name, and the name of the testcase-derived class inside that file.
@@ -68,7 +69,9 @@ class CNARunner:
       tempOrderedList = config
       jobs = []
       if len(config) >= 1:
-        if (self.flagSet != "Commit"):
+        # now
+        # set
+        if (self.flagSet == "set" || self.flagSet == "now"):
           print "\n"
           print "Now setting attributes..."
           print "\n"
@@ -93,6 +96,8 @@ class CNARunner:
             self.msgOutput(nic, msg_string)
           print "\n"
 
+        # commit
+        # now
         if (self.flagSet != "Set" and self.settings != "idrac"):
           jobs = []
           count = 0
@@ -203,37 +208,10 @@ class CNARunner:
         (fin, fout, ferr) = os.popen3(command, "t")
         fin.close()
         commandOutList.append(command)
-        tmpStr = self.smoosh(fout.read())
-        commandOutList.append(tmpStr.split('\n'))
+        commandOutList.append(fout.read.strip().split('\n'))
         commandOutList.append(ferr.read())
         return commandOutList
         
-    def smoosh(self, thing):  # message the output of a command
-        '''
-        >>> print Shell().smoosh("blah")  #  leave normal strings alone
-        blah
-        >>> print Shell().smoosh("blah\\n")  # strip trailing blanklines
-        blah
-        >>> print Shell().smoosh(["blah\\n"])  # if thing is one item list, return the item (smooshed)
-        blah
-        '''
-        if type([]) == type(thing):  # if return is a list of one item, return just the item.
-            newthing = []
-            for l in thing:
-                if '\n' == l[-1:]:
-                    newthing.append(l[:-1])
-                else:
-                    newthing.append(l)
-            thing = newthing
-                    
-            if 1 == len(thing):
-                thing = thing[0]
-        if type("") == type(thing):  # if return is a string with a newline, strip newline.
-            if '\n' == thing[-1:]:
-                thing = thing[:-1]
-        return thing
-      
-
     # Creates the Bios or NIC set attributes file
 
     def setNICAttributes(self, nic, attnames, attvalues, service, settings):
@@ -486,25 +464,3 @@ class CNARunner:
       return config 
   
 
-
-# =============================================================================
-# Main Program, gets the input values and calls the routine in the main class
-if __name__ == '__main__':
-  bRunCNA = True
-  try:
-    idracIp = sys.argv[1]
-    idracUser = sys.argv[2]
-    idracPass = sys.argv[3]
-    file = sys.argv[4]
-    attrSet = sys.argv[5]
-    flag = sys.argv[6]
-  except IndexError: #This error happens if you do not specify a file
-    print "USAGE: pushattr.py <IPADDRESS> <USERNAME> <USERPASSWORD> <INIFILE> (nic | bios | idrac) Now"
-    print "For example: python pushattr.py 192.168.0.111 admin admin123 file.ini nic Now"
-    bRunCNA = False
-  if bRunCNA == True:
-    CNARunner(idracIp, idracUser, idracPass, file, attrSet, flag)
-
-# =============================================================================
-# End of code
-# =============================================================================
