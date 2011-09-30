@@ -25,11 +25,6 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-#
-# #############################################################################
-# Filename: pullattr.py
-# Version: 1.0
-# Authors: Sharad Naik
 
 import os
 import sys
@@ -46,23 +41,37 @@ moduleVerboseLog = getLog(prefix="verbose.")
 basic_wsman_cmd = ["wsman", "enumerate", "-P", "443", "-V", "-v", "-c", "dummy.cert", "-j", "utf-8", "-y", "basic", "-o", "-m", "512"]
 
 @traceLog()
-def CNARunner(drachost, ini, attr, wsman_cmds):
-    '''
-    Takes a list of strings, which includes the iDrac ip, username, password and attribute type.
-    '''
-    # add basic authentication options to wsman command line
-    wsman_cmd = copy.copy(basic_wsman_cmd)
-    wsman_cmd.extend(["-h", drachost["host"],"-u", drachost["user"], "-p", drachost["password"],])
+def wsman_factory(*args, **kargs):
+    return Wsman(*args, **kargs)
 
+class Wsman(object):
+    def __init__(self, host):
+        self.host = host
+        self.wsman_cmd = basic_wsman_cmd + ["-h", self.get_host(),"-u", self.get_user(), "-p", self.get_password(),]
+
+    def get_host(self):
+        return self.host["host"]
+
+    def get_user(self):
+        return self.host["user"]
+
+    def get_password(self):
+        return self.host["password"]
+
+    def get_xml_from_uri(self, wsman_uri_list):
+        for cmd in wsman_uri_list:
+            yield call_output( self.wsman_cmd + [cmd], raise_exc=False )
+
+@traceLog()
+def stuff_xml_into_ini(host, ini, wsman_uri_list):
     # run each wsman command in turn, and add the info to the INI object
-    for cmd in wsman_cmds:
-        wsman_xml = call_output( wsman_cmd + [cmd], raise_exc=False )
-        add_options_to_ini(ini, attr, wsman_xml)
-    
+    wsman = wsman_factory(host)
+    for wsman_xml in wsman.get_xml_from_uri(wsman_uri_list):
+        add_options_to_ini(ini, wsman_xml)
+
 
 # Create the ini file for BIOS or NIC by parsing the XML file from wsman
-@traceLog()
-def add_options_to_ini(ini, settings, wsman_xml):
+def add_options_to_ini(ini, wsman_xml):
     iniDict = {}
     DOMTree = xml.dom.minidom.parseString(wsman_xml)
     item_list = DOMTree.documentElement.getElementsByTagNameNS('*', 'Items')[0]

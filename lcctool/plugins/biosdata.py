@@ -34,7 +34,7 @@ import lcctool
 from stdcli.trace_decorator import traceLog, getLog
 from stdcli.plugin import Plugin
 
-import lcctool.pullattr
+import lcctool.wsman
 
 moduleLog = getLog()
 moduleVerboseLog = getLog(prefix="verbose.")
@@ -69,8 +69,6 @@ class BiosData(Plugin):
 
     @traceLog()
     def biosdataCtl(self, ctx):
-        #order_xml = pkg_resources.resource_string("lcctool","BIOS0.01.xml")
-        #orderAttr = lcctool.pullattr.get_display_order(order_xml)
         for host in ctx.raccfg.iterSpecfiedRacs():
             outfile = sys.stdout
             if ctx.args.output_filename:
@@ -79,6 +77,6 @@ class BiosData(Plugin):
             ini.optionxform = str # need to be case sensitive
 
             for enum in ctx.args.enumerate_types:
-                lcctool.pullattr.CNARunner(host, ini, enum, wsman_cmds[enum])
+                lcctool.wsman.stuff_xml_into_ini(host, ini, wsman_cmds[enum])
 
             ini.write( outfile )
