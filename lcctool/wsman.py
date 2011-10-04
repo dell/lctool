@@ -126,7 +126,7 @@ class MockWsman(Wsman):
             yield xml_str
 
 @traceLog()
-def settings_from_ini(host, ini, setting):
+def settings_from_ini(host, ini):
     pass
 
 @traceLog()
@@ -174,23 +174,9 @@ def add_options_to_ini(ini, wsman_xml, setting):
         for section in section_list.keys():
             ini.set("breadcrumbs", section, setting)
 
-# Take the XML which has the ordering of Attributes and extract the order
-# apparently unused, need to remove at the end if we dont end up using this
-@traceLog()
-def get_display_order(order_xml):
-  DOMTree = xml.dom.minidom.parseString(order_xml)
-  root_elem = DOMTree.documentElement
-  attrlist = root_elem.getElementsByTagName('AttributeName')
-  vallist  = root_elem.getElementsByTagName('DisplayOrder')
-  orderDict = {}
 
-  i = 0
-  for attr in attrlist:
-    if vallist[i].hasChildNodes() == True:
-       orderDict[attr.childNodes[0].data] = int(vallist[i].childNodes[0].data)
-    i = i + 1
 
-  return orderDict
+
 
 
 

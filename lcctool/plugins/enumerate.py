@@ -96,7 +96,7 @@ class Enumerate(Plugin):
             ini.readfp(infile)
             ini.close()
 
-            lcctool.wsman.settings_from_ini(host, ini, enum)
+            lcctool.wsman.settings_from_ini(host, ini)
 
         if ctx.args.flag in ("set", "now"):
             self.commitCtl(ctx)
