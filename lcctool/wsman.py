@@ -58,9 +58,9 @@ unit_test_mode = False
 test_data_dir = ""
 
 def get_subsystems():
-    return dell_uri_list.keys()
+    return dell_schema_list.keys()
 
-dell_uri_list = {
+dell_schema_list = {
     "bios":  [ "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSEnumeration",
         "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSString",
         "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSinteger",],
@@ -108,19 +108,19 @@ class Wsman(object):
     def get_password(self):
         return self.host.get("password", None)
 
-    def get_xml_from_uri(self, wsman_uri_list):
-        for uri in wsman_uri_list:
-            moduleLog.info("retrieving info for uri: %s" % uri)
-            yield call_output( self.wsman_cmd + ["enumerate", uri], raise_exc=False )
+    def get_xml_for_schema(self, schema_list):
+        for schema in schema_list:
+            moduleLog.info("retrieving info for schema: %s" % schema)
+            yield call_output( self.wsman_cmd + ["enumerate", schema], raise_exc=False )
 
 class MockWsman(Wsman):
     def makesafe(self, pth):
         p = re.compile( '[^a-zA-Z0-9]')
         return p.sub( '_', pth)
 
-    def get_xml_from_uri(self, wsman_uri_list):
-        for uri in wsman_uri_list:
-            xml_file = open(os.path.join(test_data_dir, self.makesafe(self.get_host()), self.makesafe(uri)), "r")
+    def get_xml_for_schema(self, schema_list):
+        for schema in schema_list:
+            xml_file = open(os.path.join(test_data_dir, self.makesafe(self.get_host()), self.makesafe(schema)), "r")
             xml_str = xml_file.read()
             xml_file.close()
             yield xml_str
@@ -136,11 +136,11 @@ def commit_settings(host, setting):
 @traceLog()
 def stuff_xml_into_ini(host, ini, setting):
     # run each wsman command in turn, and add the info to the INI object
-    wsman_uri_list = dell_uri_list[setting]
+    schema_list = dell_schema_list[setting]
     wsman = wsman_factory(host)
     if not ini.has_section("breadcrumbs"):
         ini.add_section("breadcrumbs")
-    for wsman_xml in wsman.get_xml_from_uri(wsman_uri_list):
+    for wsman_xml in wsman.get_xml_for_schema(schema_list):
         add_options_to_ini(ini, wsman_xml, setting)
 
 
