@@ -1,0 +1,12 @@
+<p:SetAttributes_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_NICService">
+  <p:Target>NIC.Integrated.1-1-1</p:Target>
+  <p:AttributeName>ConnectFirstFCoETarget</p:AttributeName>
+  <p:AttributeValue>Enabled</p:AttributeValue>
+  <p:AttributeName>FirstFCoEWWPNTarget</p:AttributeName>
+  <p:AttributeValue> 20:00:00:10:18:88:C0:03</p:AttributeValue>
+  <p:AttributeName>FirstFCoEBootTargetLUN</p:AttributeName>
+  <p:AttributeValue>33</p:AttributeValue>
+  <p:AttributeName>FirstFCoEFCFVLANID</p:AttributeName>
+  <p:AttributeValue>34</p:AttributeValue>
+</p:SetAttributes_INPUT>
+

@@ -1,0 +1,6 @@
+<p:SetAttribute_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_LCService">
+  <p:AttributeName>IPChangeNotifyPS</p:AttributeName>
+  <p:AttributeValue>on</p:AttributeValue>
+</p:SetAttribute_INPUT>
+
+

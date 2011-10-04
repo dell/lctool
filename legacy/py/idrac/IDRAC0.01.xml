@@ -1,0 +1,1986 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<REGISTRY xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<!-- Registry XML Generated 2011-08-12 15:40:59.639000 ; input file should be in csv format and sorted by AttributeName -->
+<!--Copyright(C)2010 Dell Inc.  All rights reserved-->
+
+  <REGISTRY_DECLARATION>
+    <IDENTIFICATION NAME="Dell Attribute Registry" VERSION="1.0.0" LANGUAGE="en"/>
+    <SPECIFICATION NAME="iDRAC Profile" VERSION="1.1.0"/>
+    <CIM_SCHEMA VERSION="2.17.0"/>
+    <OWNING_ENTITY NAME="Dell"/>
+    <EDITOR EMAIL="Dell_Support@Dell.com" NAME="Dell Support" ORGANIZATION="Dell"/>
+    <DESCRIPTION>This Registry defines a representation of system hardware or firmware Attribute instances, such as BIOS or NIC Attributes, as defined by Dell.</DESCRIPTION>
+  </REGISTRY_DECLARATION>
+  <REGISTRY_ENTRIES>  
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>ActivePolicyName</AttributeName>
+      <DisplayName>Active Power Cap Policy Name</DisplayName>
+      <HelpText />
+      <AttributeDescription>Active Power Cap Policy Name</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ServerPwr</GroupName>
+      <GroupDisplayName>Server Power</GroupDisplayName>
+      <DisplayOrder>10</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>ActivePowerCapVal</AttributeName>
+      <DisplayName>Active Power Cap Value</DisplayName>
+      <HelpText />
+      <AttributeDescription>Active Power Cap Value</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ServerPwr</GroupName>
+      <GroupDisplayName>Server Power</GroupDisplayName>
+      <DisplayOrder>9</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Address</AttributeName>
+      <DisplayName>IPv4 Address</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPv4 Address</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPv4</GroupName>
+      <GroupDisplayName>IPv4 Information</GroupDisplayName>
+      <DisplayOrder>3</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Address1</AttributeName>
+      <DisplayName>IPV6 Address 1</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPV6 Address 1</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPv6</GroupName>
+      <GroupDisplayName>IPv6 Information</GroupDisplayName>
+      <DisplayOrder>4</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Address10</AttributeName>
+      <DisplayName>IPV6 Address 10</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPV6 Address 10</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPV6</GroupName>
+      <GroupDisplayName>IPv6 Information</GroupDisplayName>
+      <DisplayOrder>19</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Address11</AttributeName>
+      <DisplayName>IPV6 Address 11</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPV6 Address 11</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPV6</GroupName>
+      <GroupDisplayName>IPv6 Information</GroupDisplayName>
+      <DisplayOrder>20</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Address12</AttributeName>
+      <DisplayName>IPV6 Address 12</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPV6 Address 12</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPV6</GroupName>
+      <GroupDisplayName>IPv6 Information</GroupDisplayName>
+      <DisplayOrder>21</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Address13</AttributeName>
+      <DisplayName>IPV6 Address 13</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPV6 Address 13</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPV6</GroupName>
+      <GroupDisplayName>IPv6 Information</GroupDisplayName>
+      <DisplayOrder>22</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Address14</AttributeName>
+      <DisplayName>IPV6 Address 14</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPV6 Address 14</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPV6</GroupName>
+      <GroupDisplayName>IPv6 Information</GroupDisplayName>
+      <DisplayOrder>23</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Address15</AttributeName>
+      <DisplayName>IPV6 Address 15</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPV6 Address 15</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPV6</GroupName>
+      <GroupDisplayName>IPv6 Information</GroupDisplayName>
+      <DisplayOrder>24</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Address2</AttributeName>
+      <DisplayName>IPV6 Address 2</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPV6 Address 2</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPV6</GroupName>
+      <GroupDisplayName>IPv6 Information</GroupDisplayName>
+      <DisplayOrder>11</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Address3</AttributeName>
+      <DisplayName>IPV6 Address 3</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPV6 Address 3</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPV6</GroupName>
+      <GroupDisplayName>IPv6 Information</GroupDisplayName>
+      <DisplayOrder>12</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Address4</AttributeName>
+      <DisplayName>IPV6 Address 4</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPV6 Address 4</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPV6</GroupName>
+      <GroupDisplayName>IPv6 Information</GroupDisplayName>
+      <DisplayOrder>13</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Address5</AttributeName>
+      <DisplayName>IPV6 Address 5</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPV6 Address 5</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPV6</GroupName>
+      <GroupDisplayName>IPv6 Information</GroupDisplayName>
+      <DisplayOrder>14</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Address6</AttributeName>
+      <DisplayName>IPV6 Address 6</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPV6 Address 6</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPV6</GroupName>
+      <GroupDisplayName>IPv6 Information</GroupDisplayName>
+      <DisplayOrder>15</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Address7</AttributeName>
+      <DisplayName>IPV6 Address 7</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPV6 Address 7</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPV6</GroupName>
+      <GroupDisplayName>IPv6 Information</GroupDisplayName>
+      <DisplayOrder>16</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Address8</AttributeName>
+      <DisplayName>IPV6 Address 8</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPV6 Address 8</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPV6</GroupName>
+      <GroupDisplayName>IPv6 Information</GroupDisplayName>
+      <DisplayOrder>17</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Address9</AttributeName>
+      <DisplayName>IPV6 Address 9</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPV6 Address 9</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPV6</GroupName>
+      <GroupDisplayName>IPv6 Information</GroupDisplayName>
+      <DisplayOrder>18</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>AdminState</AttributeName>
+      <DisplayName>LC and Host Private Channel State</DisplayName>
+      <HelpText />
+      <AttributeDescription>LC and Host Private Channel State</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>OS-BMC</GroupName>
+      <GroupDisplayName>OS-BMC Passthru Configuration</GroupDisplayName>
+      <DisplayOrder>1</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>AgentCommunity</AttributeName>
+      <DisplayName>SNMP Agent Community</DisplayName>
+      <HelpText />
+      <AttributeDescription>SNMP Agent Community</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>SNMP</GroupName>
+      <GroupDisplayName>SNMP Configuration</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>AgentEnable</AttributeName>
+      <DisplayName>SNMP Agent Enable</DisplayName>
+      <HelpText />
+      <AttributeDescription>SNMP Agent Enable</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>SNMP</GroupName>
+      <GroupDisplayName>SNMP Configuration</GroupDisplayName>
+      <DisplayOrder>1</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>AisleName</AttributeName>
+      <DisplayName>Aisle Name</DisplayName>
+      <HelpText />
+      <AttributeDescription>Aisle Name</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ServerTopology</GroupName>
+      <GroupDisplayName>Server Topology</GroupDisplayName>
+      <DisplayOrder>13</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>AlertEnable</AttributeName>
+      <DisplayName>Alert Enable</DisplayName>
+      <HelpText />
+      <AttributeDescription>Alert Enable</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPMILan</GroupName>
+      <GroupDisplayName>IPMI LAN Information</GroupDisplayName>
+      <DisplayOrder>5</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Attached</AttributeName>
+      <DisplayName>Virtual Media Attached</DisplayName>
+      <HelpText />
+      <AttributeDescription>Virtual Media Attached</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>VirtualMedia</GroupName>
+      <GroupDisplayName>Virtual Media</GroupDisplayName>
+      <DisplayOrder>1</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>AttachMode</AttributeName>
+      <DisplayName>Media Attach Mode</DisplayName>
+      <HelpText />
+      <AttributeDescription>Media Attach Mode</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>RFS</GroupName>
+      <GroupDisplayName>Remote File Share</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>AuthTimeout</AttributeName>
+      <DisplayName>Active Directory Authentication Timeout</DisplayName>
+      <HelpText />
+      <AttributeDescription>Active Directory Authentication Timeout</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ActiveDirectory</GroupName>
+      <GroupDisplayName>Active Directory</GroupDisplayName>
+      <DisplayOrder>4</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>AutoConfig</AttributeName>
+      <DisplayName>IPV6 Auto Config</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPV6 Auto Config</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPv6</GroupName>
+      <GroupDisplayName>IPv6 Information</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Autoneg</AttributeName>
+      <DisplayName>NIC Auto Negotiation</DisplayName>
+      <HelpText />
+      <AttributeDescription>NIC Auto Negotiation</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>NIC</GroupName>
+      <GroupDisplayName>NIC Information</GroupDisplayName>
+      <DisplayOrder>6</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>BaseDN</AttributeName>
+      <DisplayName>LDAP Base Domain Name</DisplayName>
+      <HelpText />
+      <AttributeDescription>LDAP Base Domain Name</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>LDAP</GroupName>
+      <GroupDisplayName>LDAP</GroupDisplayName>
+      <DisplayOrder>4</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>BaudRate</AttributeName>
+      <DisplayName>Serial Baud Rate</DisplayName>
+      <HelpText />
+      <AttributeDescription>Serial Baud Rate</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Serial</GroupName>
+      <GroupDisplayName>Serial Configuration</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>BindDN</AttributeName>
+      <DisplayName>LDAP Bind User Distinguished Name</DisplayName>
+      <HelpText />
+      <AttributeDescription>LDAP Bind User Distinguished Name</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>LDAP</GroupName>
+      <GroupDisplayName>LDAP</GroupDisplayName>
+      <DisplayOrder>8</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>BindPassword</AttributeName>
+      <DisplayName>LDAP Bind Password</DisplayName>
+      <HelpText />
+      <AttributeDescription>LDAP Bind Password</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>LDAP</GroupName>
+      <GroupDisplayName>LDAP</GroupDisplayName>
+      <DisplayOrder>9</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>BladeSlotNumInChassis</AttributeName>
+      <DisplayName>Blade Slot Num in Chassis</DisplayName>
+      <HelpText />
+      <AttributeDescription>Blade Slot Num in Chassis</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ServerTopology</GroupName>
+      <GroupDisplayName>Server Topology</GroupDisplayName>
+      <DisplayOrder>18</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>BlockEnable</AttributeName>
+      <DisplayName>Tune IP Block Enable</DisplayName>
+      <HelpText />
+      <AttributeDescription>Tune IP Block Enable</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPBlocking</GroupName>
+      <GroupDisplayName>IP Blocking</GroupDisplayName>
+      <DisplayOrder>4</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>BootOnce</AttributeName>
+      <DisplayName>Virtual Media Boot Once</DisplayName>
+      <HelpText />
+      <AttributeDescription>Virtual Media Boot Once</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>VirtualMedia</GroupName>
+      <GroupDisplayName>Virtual Media</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Build</AttributeName>
+      <DisplayName>iDRAC Build Information</DisplayName>
+      <HelpText />
+      <AttributeDescription>iDRAC Build Information</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Info</GroupName>
+      <GroupDisplayName>RAC Information</GroupDisplayName>
+      <DisplayOrder>4</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>CertValidationEnable</AttributeName>
+      <DisplayName>Certificate Validation Enable</DisplayName>
+      <HelpText />
+      <AttributeDescription>Certificate Validation Enable</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ActiveDirectory</GroupName>
+      <GroupDisplayName>Active Directory</GroupDisplayName>
+      <DisplayOrder>12</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>ChanPrivLimit</AttributeName>
+      <DisplayName>IPMI Serial Channel Privilege Limit</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPMI Serial Channel Privilege Limit</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPMISerial</GroupName>
+      <GroupDisplayName>RAC IPMI Serial</GroupDisplayName>
+      <DisplayOrder>4</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>ChassisName</AttributeName>
+      <DisplayName>Chassis Name</DisplayName>
+      <HelpText />
+      <AttributeDescription>Chassis Name</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ServerTopology</GroupName>
+      <GroupDisplayName>Server Topology</GroupDisplayName>
+      <DisplayOrder>17</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>CollectSystemInventoryOnRestart</AttributeName>
+      <DisplayName>Collect System Inventory on Restart</DisplayName>
+      <HelpText />
+      <AttributeDescription>Collect System Inventory on Restart</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>LCAttributes</GroupName>
+      <GroupDisplayName>Lifecycle Controller Attributes</GroupDisplayName>
+      <DisplayOrder>1</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Command</AttributeName>
+      <DisplayName>Serial Console Command</DisplayName>
+      <HelpText />
+      <AttributeDescription>Serial Console Command</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Serial</GroupName>
+      <GroupDisplayName>Serial Configuration</GroupDisplayName>
+      <DisplayOrder>6</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>CommunityName</AttributeName>
+      <DisplayName>Community Name</DisplayName>
+      <HelpText />
+      <AttributeDescription>Community Name</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPMILan</GroupName>
+      <GroupDisplayName>IPMI LAN Information</GroupDisplayName>
+      <DisplayOrder>4</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Configuration</AttributeName>
+      <DisplayName>LCD Configuration</DisplayName>
+      <HelpText />
+      <AttributeDescription>LCD Configuration</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>LCD</GroupName>
+      <GroupDisplayName>LCD Configuration</GroupDisplayName>
+      <DisplayOrder>3</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>ConnectionMode</AttributeName>
+      <DisplayName>IPMI Serial Connection Mode</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPMI Serial Connection Mode</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPMISerial</GroupName>
+      <GroupDisplayName>RAC IPMI Serial</GroupDisplayName>
+      <DisplayOrder>1</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>CsrCommonName</AttributeName>
+      <DisplayName>CSR Common Name</DisplayName>
+      <HelpText />
+      <AttributeDescription>CSR Common Name</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Security</GroupName>
+      <GroupDisplayName>RAC Certificate</GroupDisplayName>
+      <DisplayOrder>1</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>CsrCountryCode</AttributeName>
+      <DisplayName>CSR Country Code</DisplayName>
+      <HelpText />
+      <AttributeDescription>CSR Country Code</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Security</GroupName>
+      <GroupDisplayName>RAC Certificate</GroupDisplayName>
+      <DisplayOrder>6</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>CsrEmailAddr</AttributeName>
+      <DisplayName>CSR Email Address</DisplayName>
+      <HelpText />
+      <AttributeDescription>CSR Email Address</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Security</GroupName>
+      <GroupDisplayName>RAC Certificate</GroupDisplayName>
+      <DisplayOrder>7</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>CsrKeySize</AttributeName>
+      <DisplayName>CSR Key Size</DisplayName>
+      <HelpText />
+      <AttributeDescription>CSR Key Size</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Security</GroupName>
+      <GroupDisplayName>RAC Certificate</GroupDisplayName>
+      <DisplayOrder>8</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>CsrLocalityName</AttributeName>
+      <DisplayName>CSR Locality Name</DisplayName>
+      <HelpText />
+      <AttributeDescription>CSR Locality Name</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Security</GroupName>
+      <GroupDisplayName>RAC Certificate</GroupDisplayName>
+      <DisplayOrder>4</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>CsrOrganizationName</AttributeName>
+      <DisplayName>CSR Organization Name</DisplayName>
+      <HelpText />
+      <AttributeDescription>CSR Organization Name</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Security</GroupName>
+      <GroupDisplayName>RAC Certificate</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>CsrOrganizationUnit</AttributeName>
+      <DisplayName>CSR Organization Unit</DisplayName>
+      <HelpText />
+      <AttributeDescription>CSR Organization Unit</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Security</GroupName>
+      <GroupDisplayName>RAC Certificate</GroupDisplayName>
+      <DisplayOrder>3</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>CsrStateName</AttributeName>
+      <DisplayName>CSR State Name</DisplayName>
+      <HelpText />
+      <AttributeDescription>CSR State Name</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Security</GroupName>
+      <GroupDisplayName>RAC Certificate</GroupDisplayName>
+      <DisplayOrder>5</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>CurrentDisplay</AttributeName>
+      <DisplayName>Current LCD Display String</DisplayName>
+      <HelpText />
+      <AttributeDescription>Current LCD Display String</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>LCD</GroupName>
+      <GroupDisplayName>LCD Configuration</GroupDisplayName>
+      <DisplayOrder>1</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>CustomMsg</AttributeName>
+      <DisplayName>Email Alert Custom Message</DisplayName>
+      <HelpText />
+      <AttributeDescription>Email Alert Custom Message</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>EmailAlert</GroupName>
+      <GroupDisplayName>RAC Email Alert</GroupDisplayName>
+      <DisplayOrder>3</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DataCenterName</AttributeName>
+      <DisplayName>Data Center Name</DisplayName>
+      <HelpText />
+      <AttributeDescription>Data Center Name</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ServerTopology</GroupName>
+      <GroupDisplayName>Server Topology</GroupDisplayName>
+      <DisplayOrder>12</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DayLightOffset</AttributeName>
+      <DisplayName>Time</DisplayName>
+      <HelpText />
+      <AttributeDescription>Time</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Time</GroupName>
+      <GroupDisplayName>Time Zone Configuration Information</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DCLookupByUserDomain</AttributeName>
+      <DisplayName>Domain Controller Lookup By User Domain</DisplayName>
+      <HelpText />
+      <AttributeDescription>Domain Controller Lookup By User Domain</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ActiveDirectory</GroupName>
+      <GroupDisplayName>Active Directory</GroupDisplayName>
+      <DisplayOrder>18</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DCLookupDomainName</AttributeName>
+      <DisplayName>Active Directory Lookup Domain Name</DisplayName>
+      <HelpText />
+      <AttributeDescription>Active Directory Lookup Domain Name</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ActiveDirectory</GroupName>
+      <GroupDisplayName>Active Directory</GroupDisplayName>
+      <DisplayOrder>17</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DCLookupEnable</AttributeName>
+      <DisplayName>Domain Controller Lookup Enable</DisplayName>
+      <HelpText />
+      <AttributeDescription>Domain Controller Lookup Enable</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ActiveDirectory</GroupName>
+      <GroupDisplayName>Active Directory</GroupDisplayName>
+      <DisplayOrder>15</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DeleteControl</AttributeName>
+      <DisplayName>IPMI Serial Delete Control</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPMI Serial Delete Control</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPMISerial</GroupName>
+      <GroupDisplayName>RAC IPMI Serial</GroupDisplayName>
+      <DisplayOrder>6</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Description</AttributeName>
+      <DisplayName>iDRAC Description Information</DisplayName>
+      <HelpText />
+      <AttributeDescription>iDRAC Description Information</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Info</GroupName>
+      <GroupDisplayName>RAC Information</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DestinationNum</AttributeName>
+      <DisplayName>Destination Number</DisplayName>
+      <HelpText />
+      <AttributeDescription>Destination Number</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>SNMPTrapIPv6</GroupName>
+      <GroupDisplayName>SNMP Trap IPv6</GroupDisplayName>
+      <DisplayOrder>1</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DestIPv4Addr</AttributeName>
+      <DisplayName>Destination IPv4 Address</DisplayName>
+      <HelpText />
+      <AttributeDescription>Destination IPv4 Address</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>SNMPTrapIPv4</GroupName>
+      <GroupDisplayName>SNMP Trap IPv4</GroupDisplayName>
+      <DisplayOrder>3</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DestIPv6Addr</AttributeName>
+      <DisplayName>Destination IPv6 Address</DisplayName>
+      <HelpText />
+      <AttributeDescription>Destination IPv6 Address</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>SNMPTrapIPv6</GroupName>
+      <GroupDisplayName>SNMP Trap IPv6</GroupDisplayName>
+      <DisplayOrder>3</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DHCPEnable</AttributeName>
+      <DisplayName>IPv4 DHCP Enable</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPv4 DHCP Enable</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPv4</GroupName>
+      <GroupDisplayName>IPv4 Information</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DN</AttributeName>
+      <DisplayName>LDAP Role Group Domain Name</DisplayName>
+      <HelpText />
+      <AttributeDescription>LDAP Role Group Domain Name</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>LDAPRoleGroup</GroupName>
+      <GroupDisplayName>LDAP Group</GroupDisplayName>
+      <DisplayOrder>1</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DNS1</AttributeName>
+      <DisplayName>DNS Server 1</DisplayName>
+      <HelpText />
+      <AttributeDescription>DNS Server 1</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPv4</GroupName>
+      <GroupDisplayName>IPv4 Information</GroupDisplayName>
+      <DisplayOrder>7</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DNS2</AttributeName>
+      <DisplayName>DNS Server 2</DisplayName>
+      <HelpText />
+      <AttributeDescription>DNS Server 2</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPv4</GroupName>
+      <GroupDisplayName>IPv4 Information</GroupDisplayName>
+      <DisplayOrder>8</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DNSDomainFromDHCP</AttributeName>
+      <DisplayName>DNS Domain From DHCP</DisplayName>
+      <HelpText />
+      <AttributeDescription>DNS Domain From DHCP</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>NIC</GroupName>
+      <GroupDisplayName>NIC Information</GroupDisplayName>
+      <DisplayOrder>11</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DNSDomainName</AttributeName>
+      <DisplayName>DNS Domain Name</DisplayName>
+      <HelpText />
+      <AttributeDescription>DNS Domain Name</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>NIC</GroupName>
+      <GroupDisplayName>NIC Information</GroupDisplayName>
+      <DisplayOrder>12</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DNSFromDHCP</AttributeName>
+      <DisplayName>DNS Servers From DHCP</DisplayName>
+      <HelpText />
+      <AttributeDescription>DNS Servers From DHCP</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPv4</GroupName>
+      <GroupDisplayName>IPv4 Information</GroupDisplayName>
+      <DisplayOrder>6</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DNSFromDHCP6</AttributeName>
+      <DisplayName>DNS Server From DCHP6</DisplayName>
+      <HelpText />
+      <AttributeDescription>DNS Server From DCHP6</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPv6</GroupName>
+      <GroupDisplayName>IPv6 Information</GroupDisplayName>
+      <DisplayOrder>3</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DNSRacName</AttributeName>
+      <DisplayName>DNS RAC Name</DisplayName>
+      <HelpText />
+      <AttributeDescription>DNS RAC Name</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>NIC</GroupName>
+      <GroupDisplayName>NIC Information</GroupDisplayName>
+      <DisplayOrder>10</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DNSRegister</AttributeName>
+      <DisplayName>DNS Register RAC</DisplayName>
+      <HelpText />
+      <AttributeDescription>DNS Register RAC</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>NIC</GroupName>
+      <GroupDisplayName>NIC Information</GroupDisplayName>
+      <DisplayOrder>9</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Domain</AttributeName>
+      <DisplayName>AD Group Domain</DisplayName>
+      <HelpText />
+      <AttributeDescription>AD Group Domain</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ADGroup</GroupName>
+      <GroupDisplayName>AD Group Configuration</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DomainController1</AttributeName>
+      <DisplayName>Domain Controller 1</DisplayName>
+      <HelpText />
+      <AttributeDescription>Domain Controller 1</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ActiveDirectory</GroupName>
+      <GroupDisplayName>Active Directory</GroupDisplayName>
+      <DisplayOrder>6</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DomainController2</AttributeName>
+      <DisplayName>Domain Controller 2</DisplayName>
+      <HelpText />
+      <AttributeDescription>Domain Controller 2</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ActiveDirectory</GroupName>
+      <GroupDisplayName>Active Directory</GroupDisplayName>
+      <DisplayOrder>7</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DomainController3</AttributeName>
+      <DisplayName>Domain Controller 3</DisplayName>
+      <HelpText />
+      <AttributeDescription>Domain Controller 3</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ActiveDirectory</GroupName>
+      <GroupDisplayName>Active Directory</GroupDisplayName>
+      <DisplayOrder>8</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Duplex</AttributeName>
+      <DisplayName>NIC Duplex</DisplayName>
+      <HelpText />
+      <AttributeDescription>NIC Duplex</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>NIC</GroupName>
+      <GroupDisplayName>NIC Information</GroupDisplayName>
+      <DisplayOrder>7</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>EchoControl</AttributeName>
+      <DisplayName>IPMI Serial Echo Control</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPMI Serial Echo Control</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPMISerial</GroupName>
+      <GroupDisplayName>RAC IPMI Serial</GroupDisplayName>
+      <DisplayOrder>7</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Enable</AttributeName>
+      <DisplayName>NIC Enable</DisplayName>
+      <HelpText />
+      <AttributeDescription>NIC Enable</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>NIC</GroupName>
+      <GroupDisplayName>NIC Information</GroupDisplayName>
+      <DisplayOrder>1</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>EncryptEnable</AttributeName>
+      <DisplayName>Encrypt Enable</DisplayName>
+      <HelpText />
+      <AttributeDescription>Encrypt Enable</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>VirtualConsole</GroupName>
+      <GroupDisplayName>Virtual Console Configuration</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>EncryptionKey</AttributeName>
+      <DisplayName>Encryption Key</DisplayName>
+      <HelpText />
+      <AttributeDescription>Encryption Key</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPMILan</GroupName>
+      <GroupDisplayName>IPMI LAN Information</GroupDisplayName>
+      <DisplayOrder>3</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FailCount</AttributeName>
+      <DisplayName>Tune IP Fail Count</DisplayName>
+      <HelpText />
+      <AttributeDescription>Tune IP Fail Count</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPBlocking</GroupName>
+      <GroupDisplayName>IP Blocking</GroupDisplayName>
+      <DisplayOrder>5</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Failover</AttributeName>
+      <DisplayName>NIC Failover</DisplayName>
+      <HelpText />
+      <AttributeDescription>NIC Failover</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>NIC</GroupName>
+      <GroupDisplayName>NIC Information</GroupDisplayName>
+      <DisplayOrder>4</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FailWindow</AttributeName>
+      <DisplayName>Tune IP Block Fail Window</DisplayName>
+      <HelpText />
+      <AttributeDescription>Tune IP Block Fail Window</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPBlocking</GroupName>
+      <GroupDisplayName>IP Blocking</GroupDisplayName>
+      <DisplayOrder>6</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FloppyEmulation</AttributeName>
+      <DisplayName>Virtual Media Floppy Emulation</DisplayName>
+      <HelpText />
+      <AttributeDescription>Virtual Media Floppy Emulation</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>VirtualMedia</GroupName>
+      <GroupDisplayName>Virtual Media</GroupDisplayName>
+      <DisplayOrder>4</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FlowControl</AttributeName>
+      <DisplayName>IPMI Serial Flow Control</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPMI Serial Flow Control</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPMISerial</GroupName>
+      <GroupDisplayName>RAC IPMI Serial</GroupDisplayName>
+      <DisplayOrder>3</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FwUpdateIPAddr</AttributeName>
+      <DisplayName>Firmware Update IP Address</DisplayName>
+      <HelpText />
+      <AttributeDescription>Firmware Update IP Address</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Update</GroupName>
+      <GroupDisplayName>Firmware Update</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FwUpdatePath</AttributeName>
+      <DisplayName>Firmware Update File Path</DisplayName>
+      <HelpText />
+      <AttributeDescription>Firmware Update File Path</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Update</GroupName>
+      <GroupDisplayName>Firmware Update</GroupDisplayName>
+      <DisplayOrder>3</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FwUpdateTFTPEnable</AttributeName>
+      <DisplayName>Enable or Disable TFTP for Firware Update</DisplayName>
+      <HelpText />
+      <AttributeDescription>Enable or Disable TFTP for Firware Update</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Update</GroupName>
+      <GroupDisplayName>Firmware Update</GroupDisplayName>
+      <DisplayOrder>1</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Gateway</AttributeName>
+      <DisplayName>Gateway</DisplayName>
+      <HelpText />
+      <AttributeDescription>Gateway</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPv4</GroupName>
+      <GroupDisplayName>IPv4 Information</GroupDisplayName>
+      <DisplayOrder>5</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>GCLookupEnable</AttributeName>
+      <DisplayName>Global Catalog Server Lookup Enable</DisplayName>
+      <HelpText />
+      <AttributeDescription>Global Catalog Server Lookup Enable</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ActiveDirectory</GroupName>
+      <GroupDisplayName>Active Directory</GroupDisplayName>
+      <DisplayOrder>14</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>GCRootDomain</AttributeName>
+      <DisplayName>Active Directory Root Domain</DisplayName>
+      <HelpText />
+      <AttributeDescription>Active Directory Root Domain</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ActiveDirectory</GroupName>
+      <GroupDisplayName>Active Directory</GroupDisplayName>
+      <DisplayOrder>16</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>GlobalCatalog1</AttributeName>
+      <DisplayName>Global Catalog 1</DisplayName>
+      <HelpText />
+      <AttributeDescription>Global Catalog 1</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ActiveDirectory</GroupName>
+      <GroupDisplayName>Active Directory</GroupDisplayName>
+      <DisplayOrder>9</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>GlobalCatalog2</AttributeName>
+      <DisplayName>Global Catalog 2</DisplayName>
+      <HelpText />
+      <AttributeDescription>Global Catalog 2</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ActiveDirectory</GroupName>
+      <GroupDisplayName>Active Directory</GroupDisplayName>
+      <DisplayOrder>10</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>GlobalCatalog3</AttributeName>
+      <DisplayName>Global Catalog 3</DisplayName>
+      <HelpText />
+      <AttributeDescription>Global Catalog 3</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ActiveDirectory</GroupName>
+      <GroupDisplayName>Active Directory</GroupDisplayName>
+      <DisplayOrder>11</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>GroupAttribute</AttributeName>
+      <DisplayName>LDAP Group Attribute</DisplayName>
+      <HelpText />
+      <AttributeDescription>LDAP Group Attribute</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>LDAP</GroupName>
+      <GroupDisplayName>LDAP</GroupDisplayName>
+      <DisplayOrder>6</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>GroupAttributeIsDN</AttributeName>
+      <DisplayName>LDAP Group Attribute Is Domain Name</DisplayName>
+      <HelpText />
+      <AttributeDescription>LDAP Group Attribute Is Domain Name</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>LDAP</GroupName>
+      <GroupDisplayName>LDAP</GroupDisplayName>
+      <DisplayOrder>7</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>HandshakeControl</AttributeName>
+      <DisplayName>IPMI Serial Handshake Control</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPMI Serial Handshake Control</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPMISerial</GroupName>
+      <GroupDisplayName>RAC IPMI Serial</GroupDisplayName>
+      <DisplayOrder>8</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>HistorySize</AttributeName>
+      <DisplayName>Serial History Size</DisplayName>
+      <HelpText />
+      <AttributeDescription>Serial History Size</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Serial</GroupName>
+      <GroupDisplayName>Serial Configuration</GroupDisplayName>
+      <DisplayOrder>5</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>HttpPort</AttributeName>
+      <DisplayName>Http Port</DisplayName>
+      <HelpText />
+      <AttributeDescription>Http Port</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>WebServer</GroupName>
+      <GroupDisplayName>Web Server Configuration</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>HttpsPort</AttributeName>
+      <DisplayName>Https Port</DisplayName>
+      <HelpText />
+      <AttributeDescription>Https Port</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>WebServer</GroupName>
+      <GroupDisplayName>Web Server Configuration</GroupDisplayName>
+      <DisplayOrder>3</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>IdleTimeout</AttributeName>
+      <DisplayName>Serial Console Idle Timeout</DisplayName>
+      <HelpText />
+      <AttributeDescription>Serial Console Idle Timeout</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Serial</GroupName>
+      <GroupDisplayName>Serial Configuration</GroupDisplayName>
+      <DisplayOrder>3</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>InputNewLineSeq</AttributeName>
+      <DisplayName>IPMI Serial  Input New Line Sequence</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPMI Serial  Input New Line Sequence</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPMISerial</GroupName>
+      <GroupDisplayName>RAC IPMI Serial</GroupDisplayName>
+      <DisplayOrder>10</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>IpmiLanPrivilege</AttributeName>
+      <DisplayName>User Admin IPMI LAN Privilege</DisplayName>
+      <HelpText />
+      <AttributeDescription>User Admin IPMI LAN Privilege</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Users</GroupName>
+      <GroupDisplayName>iDRAC Users</GroupDisplayName>
+      <DisplayOrder>1</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>IpmiSerialPrivilege</AttributeName>
+      <DisplayName>User Admin IPMI Serial Privilege</DisplayName>
+      <HelpText />
+      <AttributeDescription>User Admin IPMI Serial Privilege</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Users</GroupName>
+      <GroupDisplayName>iDRAC Users</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>IPV6NumOfExtAddress</AttributeName>
+      <DisplayName>Total Number of Extended IP</DisplayName>
+      <HelpText />
+      <AttributeDescription>Total Number of Extended IP</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPV6</GroupName>
+      <GroupDisplayName>IPv6 Information</GroupDisplayName>
+      <DisplayOrder>10</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>KeyEnable</AttributeName>
+      <DisplayName>Virtual Media Key Enable</DisplayName>
+      <HelpText />
+      <AttributeDescription>Virtual Media Key Enable</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>VirtualMedia</GroupName>
+      <GroupDisplayName>Virtual Media</GroupDisplayName>
+      <DisplayOrder>3</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>LifecycleControllerState</AttributeName>
+      <DisplayName>Lifecycle Controller State</DisplayName>
+      <HelpText />
+      <AttributeDescription>Lifecycle Controller State</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>LCAttributes</GroupName>
+      <GroupDisplayName>Lifecycle Controller Attributes</GroupDisplayName>
+      <DisplayOrder></DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>LineEdit</AttributeName>
+      <DisplayName>IPMI Serial Line Edit</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPMI Serial Line Edit</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPMISerial</GroupName>
+      <GroupDisplayName>RAC IPMI Serial</GroupDisplayName>
+      <DisplayOrder>5</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>LinkLocalAddress</AttributeName>
+      <DisplayName>IPV6 Link Local Address</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPV6 Link Local Address</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPv6</GroupName>
+      <GroupDisplayName>IPv6 Information</GroupDisplayName>
+      <DisplayOrder>6</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>LocalConfig</AttributeName>
+      <DisplayName>Local Config</DisplayName>
+      <HelpText />
+      <AttributeDescription>Local Config</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>LocalSecurity</GroupName>
+      <GroupDisplayName>Local Security</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>LocalVideo</AttributeName>
+      <DisplayName>Local Video</DisplayName>
+      <HelpText />
+      <AttributeDescription>Local Video</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>VirtualConsole</GroupName>
+      <GroupDisplayName>Virtual Console Configuration</GroupDisplayName>
+      <DisplayOrder>3</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>LowerEncryptionBitLength</AttributeName>
+      <DisplayName>Lower Encryption Bit Length</DisplayName>
+      <HelpText />
+      <AttributeDescription>Lower Encryption Bit Length</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>WebServer</GroupName>
+      <GroupDisplayName>Web Server Configuration</GroupDisplayName>
+      <DisplayOrder>5</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>MACAddress</AttributeName>
+      <DisplayName>MAC Address</DisplayName>
+      <HelpText />
+      <AttributeDescription>MAC Address</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>NIC</GroupName>
+      <GroupDisplayName>NIC Information</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>MaxSessions</AttributeName>
+      <DisplayName>Max Sessions</DisplayName>
+      <HelpText />
+      <AttributeDescription>Max Sessions</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>VirtualConsole</GroupName>
+      <GroupDisplayName>Virtual Console Configuration</GroupDisplayName>
+      <DisplayOrder>5</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>MediaAttachState</AttributeName>
+      <DisplayName>Media Attach State</DisplayName>
+      <HelpText />
+      <AttributeDescription>Media Attach State</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>RFS</GroupName>
+      <GroupDisplayName>Remote File Share</GroupDisplayName>
+      <DisplayOrder>1</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>MinPrivilege</AttributeName>
+      <DisplayName>IPMI SOL Min Privilege</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPMI SOL Min Privilege</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPMISOL</GroupName>
+      <GroupDisplayName>IPMI SOL</GroupDisplayName>
+      <DisplayOrder>3</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>MTU</AttributeName>
+      <DisplayName>NIC Maximum Transmission Unit</DisplayName>
+      <HelpText />
+      <AttributeDescription>NIC Maximum Transmission Unit</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>NIC</GroupName>
+      <GroupDisplayName>NIC Information</GroupDisplayName>
+      <DisplayOrder>8</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Name</AttributeName>
+      <DisplayName>iDRAC Name</DisplayName>
+      <HelpText />
+      <AttributeDescription>iDRAC Name</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Info</GroupName>
+      <GroupDisplayName>RAC Information</GroupDisplayName>
+      <DisplayOrder>5</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Netmask</AttributeName>
+      <DisplayName>Net Mask</DisplayName>
+      <HelpText />
+      <AttributeDescription>Net Mask</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPv4</GroupName>
+      <GroupDisplayName>IPv4 Information</GroupDisplayName>
+      <DisplayOrder>4</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>NewLineSeq</AttributeName>
+      <DisplayName>IPMI Serial New Line Sequence</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPMI Serial New Line Sequence</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPMISerial</GroupName>
+      <GroupDisplayName>RAC IPMI Serial</GroupDisplayName>
+      <DisplayOrder>9</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>NoAuth</AttributeName>
+      <DisplayName>Serial Console No Authentication</DisplayName>
+      <HelpText />
+      <AttributeDescription>Serial Console No Authentication</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Serial</GroupName>
+      <GroupDisplayName>Serial Configuration</GroupDisplayName>
+      <DisplayOrder>4</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>PartConfigurationUpdate</AttributeName>
+      <DisplayName>Part Configuration Update</DisplayName>
+      <HelpText />
+      <AttributeDescription>Part Configuration Update</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>LCAttributes</GroupName>
+      <GroupDisplayName>Lifecycle Controller Attributes</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>PartFirmwareUpdate</AttributeName>
+      <DisplayName>Part Firmware Update</DisplayName>
+      <HelpText />
+      <AttributeDescription>Part Firmware Update</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>LCAttributes</GroupName>
+      <GroupDisplayName>Lifecycle Controller Attributes</GroupDisplayName>
+      <DisplayOrder>3</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Password</AttributeName>
+      <DisplayName>User Admin Password</DisplayName>
+      <HelpText />
+      <AttributeDescription>User Admin Password</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Users</GroupName>
+      <GroupDisplayName>iDRAC Users</GroupDisplayName>
+      <DisplayOrder>5</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>pciePowerAllocation</AttributeName>
+      <DisplayName>PCIe Power Allocation</DisplayName>
+      <HelpText />
+      <AttributeDescription>PCIe Power Allocation</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ServerPwr</GroupName>
+      <GroupDisplayName>Server Power</GroupDisplayName>
+      <DisplayOrder>7</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>PenaltyTime</AttributeName>
+      <DisplayName>Tune IP Block Penalty Time</DisplayName>
+      <HelpText />
+      <AttributeDescription>Tune IP Block Penalty Time</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPBlocking</GroupName>
+      <GroupDisplayName>IP Blocking</GroupDisplayName>
+      <DisplayOrder>7</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>PluginType</AttributeName>
+      <DisplayName>Plugin Type</DisplayName>
+      <HelpText />
+      <AttributeDescription>Plugin Type</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>VirtualConsole</GroupName>
+      <GroupDisplayName>Virtual Console Configuration</GroupDisplayName>
+      <DisplayOrder>4</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Port</AttributeName>
+      <DisplayName>Telnet Port</DisplayName>
+      <HelpText />
+      <AttributeDescription>Telnet Port</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Telnet</GroupName>
+      <GroupDisplayName>Telnet Configuration</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>PowerCapMaxThres</AttributeName>
+      <DisplayName>Power Cap Max Threshold</DisplayName>
+      <HelpText />
+      <AttributeDescription>Power Cap Max Threshold</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ServerPwr</GroupName>
+      <GroupDisplayName>Server Power</GroupDisplayName>
+      <DisplayOrder>3</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>PowerCapMinThres</AttributeName>
+      <DisplayName>Power Cap Min Threshold</DisplayName>
+      <HelpText />
+      <AttributeDescription>Power Cap Min Threshold</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ServerPwr</GroupName>
+      <GroupDisplayName>Server Power</GroupDisplayName>
+      <DisplayOrder>4</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>PowerCapSetting</AttributeName>
+      <DisplayName>Power Cap Setting</DisplayName>
+      <HelpText />
+      <AttributeDescription>Power Cap Setting</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ServerPwr</GroupName>
+      <GroupDisplayName>Server Power</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>PowerCapValue</AttributeName>
+      <DisplayName>Power Cap Value</DisplayName>
+      <HelpText />
+      <AttributeDescription>Power Cap Value</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ServerPwr</GroupName>
+      <GroupDisplayName>Server Power</GroupDisplayName>
+      <DisplayOrder>1</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>PrebootConfig</AttributeName>
+      <DisplayName>Preboot Config</DisplayName>
+      <HelpText />
+      <AttributeDescription>Preboot Config</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>LocalSecurity</GroupName>
+      <GroupDisplayName>Local Security</GroupDisplayName>
+      <DisplayOrder>1</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>PrefixLength</AttributeName>
+      <DisplayName>IPV6 Link Local Prefix Length</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPV6 Link Local Prefix Length</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPV6</GroupName>
+      <GroupDisplayName>IPv6 Information</GroupDisplayName>
+      <DisplayOrder>7</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Privilege</AttributeName>
+      <DisplayName>User Admin Privilege</DisplayName>
+      <HelpText />
+      <AttributeDescription>User Admin Privilege</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Users</GroupName>
+      <GroupDisplayName>iDRAC Users</GroupDisplayName>
+      <DisplayOrder>3</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>PrivLimit</AttributeName>
+      <DisplayName>Privilege Limit</DisplayName>
+      <HelpText />
+      <AttributeDescription>Privilege Limit</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPMILan</GroupName>
+      <GroupDisplayName>IPMI LAN Information</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Product</AttributeName>
+      <DisplayName>iDRAC Product Information</DisplayName>
+      <HelpText />
+      <AttributeDescription>iDRAC Product Information</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Info</GroupName>
+      <GroupDisplayName>RAC Information</GroupDisplayName>
+      <DisplayOrder>1</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>PSPFCEnabled</AttributeName>
+      <DisplayName>Power Supply PFC Enable</DisplayName>
+      <HelpText />
+      <AttributeDescription>Power Supply PFC Enable</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ServerPwr</GroupName>
+      <GroupDisplayName>Server Power</GroupDisplayName>
+      <DisplayOrder>6</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>PSRapidOn</AttributeName>
+      <DisplayName>Power Supply Rapid On Enable</DisplayName>
+      <HelpText />
+      <AttributeDescription>Power Supply Rapid On Enable</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ServerPwr</GroupName>
+      <GroupDisplayName>Server Power</GroupDisplayName>
+      <DisplayOrder>8</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>PSRedPolicy</AttributeName>
+      <DisplayName>Power Supply Redundancy Policy</DisplayName>
+      <HelpText />
+      <AttributeDescription>Power Supply Redundancy Policy</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ServerPwr</GroupName>
+      <GroupDisplayName>Server Power</GroupDisplayName>
+      <DisplayOrder>5</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>QuitKey</AttributeName>
+      <DisplayName>Serial Console Quit Key</DisplayName>
+      <HelpText />
+      <AttributeDescription>Serial Console Quit Key</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>SerialRedirection</GroupName>
+      <GroupDisplayName>RAC Serial Redirection</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>RacDomain</AttributeName>
+      <DisplayName>Active Directory RAC Domain</DisplayName>
+      <HelpText />
+      <AttributeDescription>Active Directory RAC Domain</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ActiveDirectory</GroupName>
+      <GroupDisplayName>Active Directory</GroupDisplayName>
+      <DisplayOrder>3</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>RackName</AttributeName>
+      <DisplayName>Rack Name</DisplayName>
+      <HelpText />
+      <AttributeDescription>Rack Name</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ServerTopology</GroupName>
+      <GroupDisplayName>Server Topology</GroupDisplayName>
+      <DisplayOrder>14</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>RackSlot</AttributeName>
+      <DisplayName>Rack Slot</DisplayName>
+      <HelpText />
+      <AttributeDescription>Rack Slot</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ServerTopology</GroupName>
+      <GroupDisplayName>Server Topology</GroupDisplayName>
+      <DisplayOrder>15</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>RacName</AttributeName>
+      <DisplayName>Active Directory RAC Name</DisplayName>
+      <HelpText />
+      <AttributeDescription>Active Directory RAC Name</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ActiveDirectory</GroupName>
+      <GroupDisplayName>Active Directory</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>RangeAddr</AttributeName>
+      <DisplayName>Tune IP Range Address</DisplayName>
+      <HelpText />
+      <AttributeDescription>Tune IP Range Address</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPBlocking</GroupName>
+      <GroupDisplayName>IP Blocking</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>RangeEnable</AttributeName>
+      <DisplayName>Tune IP Range Enable</DisplayName>
+      <HelpText />
+      <AttributeDescription>Tune IP Range Enable</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPBlocking</GroupName>
+      <GroupDisplayName>IP Blocking</GroupDisplayName>
+      <DisplayOrder>1</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>RangeMask</AttributeName>
+      <DisplayName>Tune IP Range Mask</DisplayName>
+      <HelpText />
+      <AttributeDescription>Tune IP Range Mask</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPBlocking</GroupName>
+      <GroupDisplayName>IP Blocking</GroupDisplayName>
+      <DisplayOrder>3</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>RapidOnPrimaryPSU</AttributeName>
+      <DisplayName>Rapid On Primary PSU</DisplayName>
+      <HelpText />
+      <AttributeDescription>Rapid On Primary PSU</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ServerPwr</GroupName>
+      <GroupDisplayName>Server Power</GroupDisplayName>
+      <DisplayOrder>11</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Schema</AttributeName>
+      <DisplayName>Active Directory Schema Type</DisplayName>
+      <HelpText />
+      <AttributeDescription>Active Directory Schema Type</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ActiveDirectory</GroupName>
+      <GroupDisplayName>Active Directory</GroupDisplayName>
+      <DisplayOrder>5</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>SearchFilter</AttributeName>
+      <DisplayName>LDAP Search Filter</DisplayName>
+      <HelpText />
+      <AttributeDescription>LDAP Search Filter</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>LDAP</GroupName>
+      <GroupDisplayName>LDAP</GroupDisplayName>
+      <DisplayOrder>10</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Selection</AttributeName>
+      <DisplayName>NIC Selection</DisplayName>
+      <HelpText />
+      <AttributeDescription>NIC Selection</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>NIC</GroupName>
+      <GroupDisplayName>NIC Information</GroupDisplayName>
+      <DisplayOrder>3</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>SendThreshold</AttributeName>
+      <DisplayName>IPMI SOL Send Threshold</DisplayName>
+      <HelpText />
+      <AttributeDescription>IPMI SOL Send Threshold</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>IPMISOL</GroupName>
+      <GroupDisplayName>IPMI SOL</GroupDisplayName>
+      <DisplayOrder>5</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Server</AttributeName>
+      <DisplayName>LDAP Server</DisplayName>
+      <HelpText />
+      <AttributeDescription>LDAP Server</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>LDAP</GroupName>
+      <GroupDisplayName>LDAP</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Server1</AttributeName>
+      <DisplayName>Sys Log Server 1</DisplayName>
+      <HelpText />
+      <AttributeDescription>Sys Log Server 1</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>SysLog</GroupName>
+      <GroupDisplayName>Sys Log</GroupDisplayName>
+      <DisplayOrder>3</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Server2</AttributeName>
+      <DisplayName>Sys Log Server 2</DisplayName>
+      <HelpText />
+      <AttributeDescription>Sys Log Server 2</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>SysLog</GroupName>
+      <GroupDisplayName>Sys Log</GroupDisplayName>
+      <DisplayOrder>4</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Server3</AttributeName>
+      <DisplayName>Sys Log Server 3</DisplayName>
+      <HelpText />
+      <AttributeDescription>Sys Log Server 3</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>SysLog</GroupName>
+      <GroupDisplayName>Sys Log</GroupDisplayName>
+      <DisplayOrder>5</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>SizeOfManagedSystemInU</AttributeName>
+      <DisplayName>Size of Managed System in U</DisplayName>
+      <HelpText />
+      <AttributeDescription>Size of Managed System in U</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ServerTopology</GroupName>
+      <GroupDisplayName>Server Topology</GroupDisplayName>
+      <DisplayOrder>16</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>SmartCardCRLEnable</AttributeName>
+      <DisplayName>Smart Card CRL Enable</DisplayName>
+      <HelpText />
+      <AttributeDescription>Smart Card CRL Enable</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>SmartCard</GroupName>
+      <GroupDisplayName>Smart Card Configuration</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>SmartCardLogonEnable</AttributeName>
+      <DisplayName>Smart Card Logon Enable</DisplayName>
+      <HelpText />
+      <AttributeDescription>Smart Card Logon Enable</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>SmartCard</GroupName>
+      <GroupDisplayName>Smart Card Configuration</GroupDisplayName>
+      <DisplayOrder>1</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>SMTPServerIPAddress</AttributeName>
+      <DisplayName>SMTP Server IP Address</DisplayName>
+      <HelpText />
+      <AttributeDescription>SMTP Server IP Address</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>RemoteHosts</GroupName>
+      <GroupDisplayName>RAC Remote Hosts</GroupDisplayName>
+      <DisplayOrder>1</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>SolEnable</AttributeName>
+      <DisplayName>User Admin SOL Enable</DisplayName>
+      <HelpText />
+      <AttributeDescription>User Admin SOL Enable</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Users</GroupName>
+      <GroupDisplayName>iDRAC Users</GroupDisplayName>
+      <DisplayOrder>7</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Speed</AttributeName>
+      <DisplayName>NIC Speed</DisplayName>
+      <HelpText />
+      <AttributeDescription>NIC Speed</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>NIC</GroupName>
+      <GroupDisplayName>NIC Information</GroupDisplayName>
+      <DisplayOrder>5</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>SSOEnable</AttributeName>
+      <DisplayName>SSO Enable</DisplayName>
+      <HelpText />
+      <AttributeDescription>SSO Enable</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>ActiveDirectory</GroupName>
+      <GroupDisplayName>Active Directory</GroupDisplayName>
+      <DisplayOrder>13</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>State</AttributeName>
+      <DisplayName>State</DisplayName>
+      <HelpText />
+      <AttributeDescription>State</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>SNMPTrapIPv6</GroupName>
+      <GroupDisplayName>SNMP Trap IPv6</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>SysLogEnable</AttributeName>
+      <DisplayName>Sys Log Enable</DisplayName>
+      <HelpText />
+      <AttributeDescription>Sys Log Enable</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>SysLog</GroupName>
+      <GroupDisplayName>Sys Log</GroupDisplayName>
+      <DisplayOrder>1</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Timeout</AttributeName>
+      <DisplayName>Timeout</DisplayName>
+      <HelpText />
+      <AttributeDescription>Timeout</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Telnet</GroupName>
+      <GroupDisplayName>Telnet Configuration</GroupDisplayName>
+      <DisplayOrder>3</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>TimeZoneOffset</AttributeName>
+      <DisplayName>Time</DisplayName>
+      <HelpText />
+      <AttributeDescription>Time</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Time</GroupName>
+      <GroupDisplayName>Time Zone Configuration Information</GroupDisplayName>
+      <DisplayOrder>1</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Type</AttributeName>
+      <DisplayName>iDRAC Type</DisplayName>
+      <HelpText />
+      <AttributeDescription>iDRAC Type</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Info</GroupName>
+      <GroupDisplayName>RAC Information</GroupDisplayName>
+      <DisplayOrder>6</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>UserAttribute</AttributeName>
+      <DisplayName>LDAP User Attribute</DisplayName>
+      <HelpText />
+      <AttributeDescription>LDAP User Attribute</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>LDAP</GroupName>
+      <GroupDisplayName>LDAP</GroupDisplayName>
+      <DisplayOrder>5</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>UserDefinedString</AttributeName>
+      <DisplayName>User Defined String for LCD</DisplayName>
+      <HelpText />
+      <AttributeDescription>User Defined String for LCD</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>LCD</GroupName>
+      <GroupDisplayName>LCD Configuration</GroupDisplayName>
+      <DisplayOrder>2</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>UserName</AttributeName>
+      <DisplayName>User Admin User Name</DisplayName>
+      <HelpText />
+      <AttributeDescription>User Admin User Name</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Users</GroupName>
+      <GroupDisplayName>iDRAC Users</GroupDisplayName>
+      <DisplayOrder>4</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>Version</AttributeName>
+      <DisplayName>iDRAC Version Information</DisplayName>
+      <HelpText />
+      <AttributeDescription>iDRAC Version Information</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>Info</GroupName>
+      <GroupDisplayName>RAC Information</GroupDisplayName>
+      <DisplayOrder>3</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>VLanEnable</AttributeName>
+      <DisplayName>Enable VLAN</DisplayName>
+      <HelpText />
+      <AttributeDescription>Enable VLAN</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>NIC</GroupName>
+      <GroupDisplayName>NIC Information</GroupDisplayName>
+      <DisplayOrder>13</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>VLanID</AttributeName>
+      <DisplayName>VLAN ID</DisplayName>
+      <HelpText />
+      <AttributeDescription>VLAN ID</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>NIC</GroupName>
+      <GroupDisplayName>NIC Information</GroupDisplayName>
+      <DisplayOrder>15</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>VLanPriority</AttributeName>
+      <DisplayName>VLAN Priority</DisplayName>
+      <HelpText />
+      <AttributeDescription>VLAN Priority</AttributeDescription>
+      <ModelCorrespondence />
+      <GroupName>NIC</GroupName>
+      <GroupDisplayName>NIC Information</GroupDisplayName>
+      <DisplayOrder>14</DisplayOrder>
+      <AttributeType>DCIM_iDRACCardInteger</AttributeType>
+    </Attribute> 
+  </REGISTRY_ENTRIES>
+</REGISTRY>

@@ -1,0 +1,30 @@
+<p:SetAttributes_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_NICService">
+  <p:Target>NIC.Integrated.1-1-1</p:Target>
+  <p:AttributeName>BootToTarget</p:AttributeName>
+  <p:AttributeValue>Enabled</p:AttributeValue>
+  <p:AttributeName>IscsiInitiatorIpAddr</p:AttributeName>
+  <p:AttributeValue>10.10.10.10</p:AttributeValue>
+  <p:AttributeName>IscsiInitiatorSubnet</p:AttributeName>
+  <p:AttributeValue>255.255.255.0</p:AttributeValue>
+  <p:AttributeName>IscsiInitiatorGateway</p:AttributeName>
+  <p:AttributeValue>10.10.10.1</p:AttributeValue>
+  <p:AttributeName>IscsiInitiatorPrimDns</p:AttributeName>
+  <p:AttributeValue>10.10.10.2</p:AttributeValue>
+  <p:AttributeName>IscsiInitiatorSecDns</p:AttributeName>
+  <p:AttributeValue>10.10.10.3</p:AttributeValue>
+  <p:AttributeName>IscsiInitiatorName</p:AttributeName>
+  <p:AttributeValue>testname</p:AttributeValue>
+  <p:AttributeName>IscsiInitiatorChapId</p:AttributeName>
+  <p:AttributeValue>testid</p:AttributeValue>
+  <p:AttributeName>IscsiInitiatorChapPwd</p:AttributeName>
+  <p:AttributeValue>testpassword</p:AttributeValue>
+  <p:AttributeName>FirstTgtIpAddress</p:AttributeName>
+  <p:AttributeValue>2.2.2.2</p:AttributeValue>
+  <p:AttributeName>FirstTgtIscsiName</p:AttributeName>
+  <p:AttributeValue>tgtiscsitest</p:AttributeValue>
+  <p:AttributeName>FirstTgtChapId</p:AttributeName>
+  <p:AttributeValue>firsttestID</p:AttributeValue>
+  <p:AttributeName>FirstTgtChapPwd</p:AttributeName>
+  <p:AttributeValue>testpassword2</p:AttributeValue>
+</p:SetAttributes_INPUT>
+

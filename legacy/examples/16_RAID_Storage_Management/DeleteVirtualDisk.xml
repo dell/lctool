@@ -1,0 +1,3 @@
+<p:DeleteVirtualDisk_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_RAIDService">
+  <p:Target>DISK.Virtual.0:RAID.Integrated.1-1</p:Target>
+</p:DeleteVirtualDisk_INPUT>

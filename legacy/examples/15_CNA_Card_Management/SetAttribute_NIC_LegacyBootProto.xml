@@ -1,0 +1,5 @@
+<p:SetAttribute_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_NICService">
+  <p:Target>NIC.Embedded.1-1</p:Target>
+  <p:AttributeName>LegacyBootProto</p:AttributeName>
+  <p:AttributeValue>PXE</p:AttributeValue>
+</p:SetAttribute_INPUT> 

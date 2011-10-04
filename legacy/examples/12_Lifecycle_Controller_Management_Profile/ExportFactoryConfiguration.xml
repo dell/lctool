@@ -1,0 +1,9 @@
+<p:ExportFactoryConfiguration_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_LCService">
+  <p:IPAddress>123.456.7.8</p:IPAddress>
+  <p:ShareName>sharename</p:ShareName>
+  <p:FileName>filename.txt</p:FileName>
+  <p:ShareType>0</p:ShareType>
+  <p:Username>admin</p:Username>
+  <p:Password>password</p:Password>
+  <p:Workgroup>Workgroup</p:Workgroup>
+</p:ExportFactoryConfiguration_INPUT>

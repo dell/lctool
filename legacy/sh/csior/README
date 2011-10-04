@@ -1,0 +1,68 @@
+# #############################################################################
+#
+#  (C) 2011 Dell Inc.  All rights reserved.
+#
+#  THIS SOFTWARE IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL, BUT IS
+#  PROVIDED "AS IS" WITHOUT ANY WARRANTY, EXPRESS, IMPLIED OR OTHERWISE,
+#  INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTY OF MERCHANTABILITY OR
+#  FITNESS FOR A PARTICULAR PURPOSE OR ANY WARRANTY REGARDING TITLE OR
+#  AGAINST INFRINGEMENT.  IN NO EVENT SHALL DELL BE LIABLE FOR ANY DIRECT,
+#  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+#  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTUTUTE GOODS OR
+#  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+#  HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+#  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+#  IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+#  POSSIBILITY OF SUCH DAMAGE.
+#
+#  This sample script is provided as an example only, and is not warranted
+#  in any way by Dell; Dell disclaims any liability in connection therewith.
+#  Dell provides no technical support with regard to content herein. For
+#  more information on libraries and tools used in this example, refer to
+#  applicable documentation
+#
+# #############################################################################
+# Version 1.0
+
+USE CASE FOR Collect System Inventory On Restart(CSIOR)
+
+
+1) First Enumerate the class DCIM_LCEmnumeration, look for the Attribute name
+   "Collect System Inventory on Restart" and the instance id for that Attribute.
+   Run: ./ws-attributelist.sh lc
+
+2) Set the Attribute value to the required one. Eg: "Enabled"
+   The accepted values are listed in the PossibleValue field for the 
+   enumerated attribute.
+   The IsReadonly field should be "false"
+   Run: ./ws-attributeset.sh lc "Collect System Inventory on Restart"="Enabled"
+
+3) Once the attribute is set, the value goes to pending and it must be applied
+   by creating a configuration job.
+   Run: ./ws-configjob.sh
+   This will return a Job id of the form (JID_XXXXXXXXXXXX)
+
+4) Check the status of job by enumerating the DCIM_LifeCycleJob Job instance
+   For an interactive update (The script will continue to run, until you 
+   specify it to stop) on your job status you can:
+   A) Run: ./ws-jobget.sh JID_XXXXXXXXXXXX
+
+      For just the current status:
+   B) Run: ./ws-attributeget.sh DCIM_LifecycleJob JID_XXXXXXXXXXXX
+
+5) Check the Attribute again to see that the current value for the attribute is
+   set to the the value given in step 2.
+   Run: ./ws-attributelist.sh lc and look for the Attribute Name "Collect System
+   Inventory on Restart" and check the Current Value.
+
+6) Some Attributes may need a reboot in order for the values to be set. In that
+   case a Reboot job has to be created aand scheduled.
+   Run: ./ws-reboot.sh
+   You will get a Reboot ID of the form RID_XXXXXXXXXXXX. You can then schedule
+   the reboot
+   Run: ./ws-jobnow.sh RID_XXXXXXXXXXXX
+
+7) Once the reboot is completed, depending upon the attribute you can check the
+   BIOS(F2) or system services (Ctrl E) to see if the value is set.
+
+[End of Content]

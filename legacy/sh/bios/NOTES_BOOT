@@ -1,0 +1,158 @@
+# #############################################################################
+#
+#  (C) 2011 Dell Inc.  All rights reserved.
+#
+#  THIS SOFTWARE IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL, BUT IS
+#  PROVIDED "AS IS" WITHOUT ANY WARRANTY, EXPRESS, IMPLIED OR OTHERWISE,
+#  INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTY OF MERCHANTABILITY OR
+#  FITNESS FOR A PARTICULAR PURPOSE OR ANY WARRANTY REGARDING TITLE OR
+#  AGAINST INFRINGEMENT.  IN NO EVENT SHALL DELL BE LIABLE FOR ANY DIRECT,
+#  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+#  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTUTUTE GOODS OR
+#  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+#  HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+#  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+#  IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+#  POSSIBILITY OF SUCH DAMAGE.
+#
+#  This sample script is provided as an example only, and is not warranted
+#  in any way by Dell; Dell disclaims any liability in connection therewith.
+#  Dell provides no technical support with regard to content herein. For
+#  more information on libraries and tools used in this example, refer to
+#  applicable documentation
+#
+# #############################################################################
+# Version 1.0
+
+BOOT CONTROL CONFIGURATION & MANAGEMENT
+
+Boot Control provides the ability to get and set the boot order configuration
+
+A) List BootConfigSetting Inventory
+   The boot config settings are a collection of settings that are applied to
+   the boot configurable system during the boot process.
+   Options:
+        ./ws-bootinvent.sh bconfig
+        ./ws-bootinvent.sh bsource
+
+   Example:
+        ./ws-bootinvent.sh bconfig
+
+B) GET BootConfigSetting Instance
+
+   Get one particular instance of boot configuration, instead of enumerating 
+   all the instances as was done in item A
+   First list all the instances of BIOSEnumeration and then pick one instance id.
+   Run: ./ws-bootinvent.sh config
+   Select an instance id, For example: UEFI
+   Now you can get the details for the above id
+   Run: ./ws-attributeget.sh DCIM_BootConfigSetting UEFI
+
+C) List BootSourceSetting Inventory
+   Each Boot Configuration contains an ordered list of boot sources, which 
+   include the logical devices to use during the boot process.
+   Run: ./ws-bootinvent.sh bsource
+
+D) ChangeBootOrderByInstanceID
+
+   The ChangeBootOrderByInstanceID() method is used to change the order of a
+   particular boot device for a specific booting process. 
+
+   1) First enumerate the instances for BootConfigSetting class and select a
+      instance id.
+      Run: ./ws-bootinvent.sh bconfig
+      Example: We can select IPL
+
+   2) Enumerate the BootSourceSetting class and identify the boot source
+      Instance ID holding the BootconfigSetting's instance id in the previous
+      step. The CurrentAssignedSequence attribute of each instance defines
+      the instance's place in the zero based indexed boot sequence.
+      Run: ./ws-bootinvent.sh bsource
+
+   3) Create an input xml file with the name ws-changebootorder.xml that will
+      contain the entries for the boot source instance ids. An example file 
+      changebootorder.xml is provided in the directory.  
+
+   4) Invoke the ChangeBootOrderByInstanceID() method.
+      Run: ./ws-changebootorder.sh InstanceID
+
+   4) Once the method is invoked, the PendingAssignedSequence values are
+      set and they must be applied by using the CreateTargetedConfigJob() 
+      method. This method creates the job  to apply the pending value and also
+      has the option to create and schedule a Reboot job.
+      To create & schedule the job
+      Run: ./ws-targetedjob.sh DCIM_BIOSService BIOS.Setup.1-1
+      This will return a Job id of the form (JID_XXXXXXXXXXXX) and also run the
+      Reboot Job
+
+   5) Check the status of job by enumerating the DCIM_LifeCycleJob Job instance
+      For an interactive update (The script will continue to run, until you
+      specify it to stop) on your job status you can:
+      a) Run: ./ws-jobget.sh JID_XXXXXXXXXXXX
+
+      For just the current status:
+      b) Run: ./ws-attributeget.sh DCIM_LifecycleJob JID_XXXXXXXXXXXX
+
+   6) Once the system is rebooted, Repeat step 2 and check the
+      CurrentEnabledStatus for the boot source instance id and it should be
+      disabled (0).
+
+E) Enable/Disable Boot Source
+
+   This method is used to change the enabled/disabled state of a single or 
+   multiple boot devices.  Please not that IPL can only be changed when the 
+   boot mode is set to bios.  UEFI can only be changed when the boot mode is 
+   set to UEFI. The boot mode can be changed using the NOTES_BIOS document. 
+
+   1) First enumerate the instances for BootConfigSetting class and select a
+      instance id.  The instance id that can be either enabled or disabled are
+      IPL and UEFI.
+      Run: ./ws-bootinvent.sh bconfig
+      Example: We can select IPL
+
+   2) Enumerate the BootSourceSetting class and identify the boot source 
+      Instance ID. The CurrentEnabledStatus of each instance identifies whether
+      it is enabled or disabled.
+      Run: ./ws-bootinvent.sh bsource
+      Example: 
+      InstanceID = IPL:Optical.SATAEmbedded.A-1:eb8aeb15796fb85f8e1447f0cfb8a68e
+      CurrentEnabledStatus = 1
+
+   3) Invoke ChangeBootSourceState() method to disable 
+      Run: ./ws-bootsrcstate.sh IPL 0 InstanceID
+      Use the InstanceID found in step 2.
+
+   4) Once the following method is invoked, the PendingEnabledStatus is set to 0. 
+      and it is applied by using the CreateTargetedConfigJob() method. This 
+      method creates the job  to apply the pending value and also schedules
+      a Reboot job.
+      To create & schedule the job
+      Run: ./ws-targetedjob.sh DCIM_BIOSService BIOS.Setup.1-1
+      This will return a Job id of the form (JID_XXXXXXXXXXXX) and also run the
+      Reboot Job
+
+   5) Check the status of job by enumerating the DCIM_LifeCycleJob Job instance
+      For an interactive update (The script will continue to run, until you
+      specify it to stop) on your job status you can:
+      a) Run: ./ws-jobget.sh JID_XXXXXXXXXXXX
+
+      For just the current status:
+      b) Run: ./ws-attributeget.sh DCIM_LifecycleJob JID_XXXXXXXXXXXX
+
+   6) Once the system is rebooted, Repeat step 2 and check the 
+      CurrentEnabledStatus for the boot source instance id and it should be
+      disabled (0).
+
+E) Troubleshoot
+   1) To clean everything and rerun desired process execute the following scripts.
+        a) clear all jobs.
+           Run: ./ws-jobclearall.sh
+        b) create a new environment session to run scripts.
+           Run: . ./sourceme-cleanup
+           Run: . ./sourceme-first
+           More information of clearing the environment can be found in the NOTES_SETUP
+
+
+
+      
+[End of Content]

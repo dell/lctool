@@ -1,0 +1,5 @@
+<p:ReInitiateDHS_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_LCService">
+  <p:ProvisioningServer>PS_IP_ADDRESS</p:ProvisioningServer>
+  <p:ResetToFactoryDefaults>TRUE</p:ResetToFactoryDefaults>
+  <p:PerformAutoDiscovery>3</p:PerformAutoDiscovery>
+</p:ReInitiateDHS_INPUT>

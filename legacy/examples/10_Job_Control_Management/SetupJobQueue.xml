@@ -1,0 +1,6 @@
+<p:SetupJobQueue_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_JobService">
+  <p:JobArray>JID_001249463339</p:JobArray>
+  <p:JobArray>RID_001265817718</p:JobArray>
+  <p:StartTimeInterval>TIME_NOW</p:StartTimeInterval>
+  <p:UntilTime>20100730121500</p:UntilTime>
+</p:SetupJobQueue_INPUT>

@@ -1,0 +1,7 @@
+<p:SetAttributes_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_LCService">
+  <p:AttributeName>Part Firmware Update</p:AttributeName>
+  <p:AttributeValue>Allow version upgrade only</p:AttributeValue>
+  <p:AttributeName>Collect System Inventory on Restart</p:AttributeName>
+  <p:AttributeValue>Enabled</p:AttributeValue>
+</p:SetAttributes_INPUT>
+

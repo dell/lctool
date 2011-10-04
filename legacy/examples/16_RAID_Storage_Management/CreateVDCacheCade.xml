@@ -1,0 +1,8 @@
+<p:CreateVirtualDisk_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_RAIDService">
+  <p:Target>RAID.Integrated.1-1</p:Target>
+  <p:PDArray>Disk.Bay.0:Enclosure.Internal.0-0:RAID.Integrated.1-1</p:PDArray> 
+   <p:VDPropNameArray>VirtualDiskName</p:VDPropNameArray>
+	<p:VDPropValueArray>MyCacheCadeVD</p:VDPropValueArray>   
+   <p:VDPropNameArray>Cachecade</p:VDPropNameArray>   
+        <p:VDPropValueArray>1</p:VDPropValueArray>
+</p:CreateVirtualDisk_INPUT>

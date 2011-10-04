@@ -1,0 +1,11 @@
+<p:InstallFromSoftwareIdentity_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_SoftwareInstallationService">
+<p:Target xmlns:a="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:w="http://schemas.dmtf.org/wbem/wsman/1/wsman.xsd">
+  <a:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</a:Address>
+  <a:ReferenceParameters>
+    <w:ResourceURI>http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_SoftwareIdentity</w:ResourceURI>
+    <w:SelectorSet>
+      <w:Selector Name="InstanceID">DCIM:AVAILABLE:NONPCI:159:2.1.4</w:Selector>
+    </w:SelectorSet>
+  </a:ReferenceParameters>
+</p:Target>    
+</p:InstallFromSoftwareIdentity_INPUT>

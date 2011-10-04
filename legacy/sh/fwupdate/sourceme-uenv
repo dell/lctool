@@ -1,0 +1,137 @@
+#!/bin/sh
+# #############################################################################
+#
+#  (C) 2011 Dell Inc.  All rights reserved.
+#
+#  THIS SOFTWARE IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL, BUT IS
+#  PROVIDED "AS IS" WITHOUT ANY WARRANTY, EXPRESS, IMPLIED OR OTHERWISE,
+#  INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTY OF MERCHANTABILITY OR
+#  FITNESS FOR A PARTICULAR PURPOSE OR ANY WARRANTY REGARDING TITLE OR
+#  AGAINST INFRINGEMENT.  IN NO EVENT SHALL DELL BE LIABLE FOR ANY DIRECT,
+#  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+#  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTUTUTE GOODS OR
+#  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+#  HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+#  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+#  IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+#  POSSIBILITY OF SUCH DAMAGE.
+#
+#  This sample script is provided as an example only, and is not warranted
+#  in any way by Dell; Dell disclaims any liability in connection therewith.
+#  Dell provides no technical support with regard to content herein. For
+#  more information on libraries and tools used in this example, refer to
+#  applicable documentation
+#
+# #############################################################################
+# Version 1.0
+
+
+# ************************************
+# ***** User configurable values *****
+# ************************************
+
+# PATH: Necessary only if wsman files and dependencies are installed 
+# in a non-standard location.
+export PATH=$PATH:/home/cpoblete/test/local-install/bin:.
+
+# LD_LIBRARY_PATH: Necessary only if wsman libraries and dependencies
+# are installed in a non-standard location.
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/cpoblete/test/local-install/lib:.
+
+# WSDEMO: When enabled (set to y), shows the command and the result.
+# When disabled (empty), shows all activity from command to result.
+export WSDEMO=y
+
+# WSTEXT: When enabled (set to y), shows the result in a readable format.
+# When disabled (empty), shows the result in raw XML.
+export WSTEXT=y
+
+# ****************************************
+# ***** Static values, do not change *****
+# ****************************************
+
+[ "x${WSENDPOINT}" = "x" ] && . sourceme-first
+[ "x${WSUSER}" = "x" ] && . sourceme-first
+[ "x${WSPASS}" = "x" ] && . sourceme-first
+[ "x${WSSLCERT}" = "x" ] && . sourceme-first
+
+export WSCOLORCMD="echo -en \\033[0;32m"
+export WSCOLORREQ="echo -en \\033[0;31m"
+export WSCOLORRSP="echo -en \\033[0;34m"
+export WSCOLORWRN="echo -en \\033[0;36m"
+export WSCOLORERR="echo -en \\033[0;35m"
+export WSCOLORNORM="echo -en \\033[0;39m"
+export WSNIL="xsi:nil"
+
+export WSOPTS="-h $WSENDPOINT -P 443 -u $WSUSER -p $WSPASS -v -c $WSSLCERT -j utf-8 -y basic -R "
+
+export RESPONSEFILE=response.xml
+echo >${RESPONSEFILE}
+
+export WSLOG=log.txt
+[ -z $WSDEMO ] && WSLOG=/dev/stdout
+echo >${WSLOG}
+
+export WSTEXTXSL="uwstext.xsl"
+
+fDisplayResult()
+{
+   $WSCOLORRSP
+   if [ ! -z ${WSTEXT} ]; then
+      cat $1 | sed 's/^\s*//g' | tr -d '\n' | xsltproc ${WSTEXTXSL} -
+   else
+      cat $1 >>${WSLOG}
+   fi
+}
+
+fSearchEPRbyKey()
+{
+  FILE=$1 KEY=$2 SEARCH1=$3 SEARCH2=$4
+  FLAG=0
+  while read -e line ; do
+    if [ $FLAG -eq 0 ]; then
+      [[ "${line}" =~ ":ReferenceParameters" ]] && FLAG=$((FLAG + 1))
+    elif [ $FLAG -eq 1 ]; then
+      [[ "${line}" =~ "ResourceURI" ]] && export WSResourceURI=$(echo ${line} | xml_grep "wsman:ResourceURI" - --text_only)
+      [[ "${line}" =~ "__cimnamespace" ]] && export WSNS=$(echo ${line} | xml_grep '*[@Name="__cimnamespace"]' - --text_only)
+      [[ "${line}" =~ "Name=\"Name\"" ]] && export WSName=$(echo ${line} | xml_grep '*[@Name="Name"]' - --text_only)
+      [[ "${line}" =~ "Name=\"InstanceID\"" ]] && export WSInstanceID=$(echo ${line} | xml_grep '*[@Name="InstanceID"]' - --text_only)
+      [[ "${line}" =~ "Name=\"CreationClassName\"" ]] && export WSCreationClassName=$(echo ${line} | xml_grep '*[@Name="CreationClassName"]' - --text_only)
+      if [[ "${line}" =~ ":ReferenceParameters" ]]; then
+        eval echo $`echo ${KEY}` | grep -ie "${SEARCH1}" | grep -ie "${SEARCH2}" >/dev/null 2>&1
+        if [ $? -eq 0 ]; then
+          return
+        else
+          unset WSResourceURI WSNS WSName WSInstanceID WSCreationClassName
+          FLAG=0
+        fi
+      fi
+    fi
+  done < "${FILE}"
+}
+
+fSearchObjEPRbyKey()
+{
+  FILE=$1 KEY=$2 SEARCH1=$3 SEARCH2=$4
+  FLAG=0
+  while read -e line ; do
+    if [ $FLAG -eq 0 ]; then
+      [[ "${line}" =~ ":Item>" ]] && FLAG=$((FLAG + 1))
+    elif [ $FLAG -eq 1 ]; then
+      [[ "${line}" =~ "ResourceURI" ]] && export WSResourceURI=$(echo ${line} | xml_grep "wsman:ResourceURI" - --text_only)
+      [[ "${line}" =~ "__cimnamespace" ]] && export WSNS=$(echo ${line} | xml_grep '*[@Name="__cimnamespace"]' - --text_only)
+      [[ "${line}" =~ "Name=\"InstanceID\"" ]] && export WSInstanceID=$(echo ${line} | xml_grep '*[@Name="InstanceID"]' - --text_only)
+      [[ "${line}" =~ "RegisteredName" ]] && export WSRegisteredName=$(echo ${line} | awk -F'>' '{print $2}' | awk -F'<' '{print $1}')
+      if [[ "${line}" =~ ":Item>" ]]; then
+        eval echo $`echo ${KEY}` | grep -ie "${SEARCH1}" | grep -ie "${SEARCH2}" >/dev/null 2>&1
+        if [ $? -eq 0 ]; then
+          return
+        else
+          unset WSResourceURI WSNS WSInstanceID WSRegisteredName
+          FLAG=0
+        fi
+      fi
+    fi
+  done < "${FILE}"
+}
+

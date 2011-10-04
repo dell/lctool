@@ -1,0 +1,24 @@
+<p:CreatePartitionUsingImage_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_PersistentStorageService">
+  <p:PartitionIndex>15</p:PartitionIndex>
+  <p:PartitionType>2</p:PartitionType>
+  <p:OSVolumeLabel>label</p:OSVolumeLabel>
+  <p:URI>ftp://123.456.7.89/dir/filename.exe</p:URI>
+  <p:IPAddress>123.456.7.8</p:IPAddress>
+  <p:ShareType>3</p:ShareType>
+  <p:SharePath></p:SharePath>
+  <p:ImageName>imagename.iso</p:ImageName>
+  <p:Workgroup>workgroup</p:Workgroup>
+  <p:Username>Administrator</p:Username>
+  <p:Password>password</p:Password>
+  <p:Port></p:Port>
+  <p:HashType>1</p:HashType>
+  <p:HashValue>123</p:HashValue>
+</p:CreatePartitionUsingImage_INPUT>
+
+
+
+
+
+
+
+

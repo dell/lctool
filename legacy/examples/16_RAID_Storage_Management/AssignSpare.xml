@@ -1,0 +1,4 @@
+<p:AssignSpare_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_RAIDService">
+  <p:Target>Disk.Bay.3:Enclosure.Internal.0-0:RAID.Integrated.1-1</p:Target>
+  <p:VirtualDiskArray>Disk.Virtual.0:RAID.Integrated.1-1</p:VirtualDiskArray>
+</p:AssignSpare_INPUT>

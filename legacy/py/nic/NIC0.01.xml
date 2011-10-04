@@ -1,0 +1,2609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<REGISTRY xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<!-- Registry XML Generated 2011-02-23 ; input file should be in csv format -->
+<!--Copyright(C)2010 Dell Inc.  All rights reserved-->
+
+  <REGISTRY_DECLARATION>
+    <IDENTIFICATION NAME="Dell Attribute Registry" VERSION="1.0.0" LANGUAGE="en"/>
+    <SPECIFICATION NAME="DCIM BIOS, Boot Management and Simple NIC Profile" VERSION="1.2.0"/>
+    <CIM_SCHEMA VERSION="2.17.0"/>
+    <OWNING_ENTITY NAME="Dell"/>
+    <EDITOR EMAIL="Dell_Support@Dell.com" NAME="Dell Support" ORGANIZATION="Dell"/>
+    <DESCRIPTION>This Registry defines a representation of system hardware or firmware Attribute instances, such as BIOS or NIC Attributes, as defined by Dell.</DESCRIPTION>
+  </REGISTRY_DECLARATION>
+  <REGISTRY_ENTRIES>  
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>NicMode</AttributeName>
+      <DisplayName>Enable/Disable NIC personality on the partition.</DisplayName>
+      <HelpText />
+      <AttributeDescription>Enable/Disable NIC personality on the partition.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Enabled</ValueName>
+        <ValueDisplayName>Enabled</ValueDisplayName>
+        <ValueDescription>Enabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1218</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FCoEOffloadMode</AttributeName>
+      <DisplayName>Enable/Disable FC personality on the partition.</DisplayName>
+      <HelpText />
+      <AttributeDescription>Enable/Disable FC personality on the partition.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Enabled</ValueName>
+        <ValueDisplayName>Enabled</ValueDisplayName>
+        <ValueDescription>Enabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1208</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>iScsiOffloadMode</AttributeName>
+      <DisplayName>iSCSI personality on the partition.</DisplayName>
+      <HelpText />
+      <AttributeDescription>iSCSI personality on the partition.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Enabled</ValueName>
+        <ValueDisplayName>Enabled</ValueDisplayName>
+        <ValueDescription>Enabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1214</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>LinkStatus</AttributeName>
+      <DisplayName>Link Status</DisplayName>
+      <HelpText />
+      <AttributeDescription>Link Status</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Connected</ValueName>
+        <ValueDisplayName>Connected</ValueDisplayName>
+        <ValueDescription>Connected</ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1216</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FlowControlSetting</AttributeName>
+      <DisplayName>Flow Control Setting</DisplayName>
+      <HelpText />
+      <AttributeDescription>Flow Control Setting</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Auto (default)</ValueName>
+        <ValueDisplayName>Auto (default)</ValueDisplayName>
+        <ValueDescription>Auto (default)</ValueDescription>
+      </AttributeValue>
+      <GroupName>NICPartitioningConfig</GroupName>
+      <GroupDisplayName>NIC Partitioning Configuration</GroupDisplayName>
+      <DisplayOrder>1101</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>NicPartitioning</AttributeName>
+      <DisplayName>NIC Partitioning</DisplayName>
+      <HelpText />
+      <AttributeDescription>NIC Partitioning</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Enabled</ValueName>
+        <ValueDisplayName>Enabled</ValueDisplayName>
+        <ValueDescription>Enabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>NICPartitioningConfig</GroupName>
+      <GroupDisplayName>NIC Partitioning Configuration</GroupDisplayName>
+      <DisplayOrder>1101</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>PartitionState</AttributeName>
+      <DisplayName>Partition State</DisplayName>
+      <HelpText />
+      <AttributeDescription>Partition State</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Enabled</ValueName>
+        <ValueDisplayName>Enabled</ValueDisplayName>
+        <ValueDescription>Enabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>NICPartitioningConfig</GroupName>
+      <GroupDisplayName>NIC Partitioning Configuration</GroupDisplayName>
+      <DisplayOrder>1104</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>BootToTarget</AttributeName>
+      <DisplayName>Boot to iSCSI target after connection</DisplayName>
+      <HelpText />
+      <AttributeDescription>Boot to iSCSI target after connection</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Enabled</ValueName>
+        <ValueDisplayName>Enabled</ValueDisplayName>
+        <ValueDescription>Enabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiGenParams</GroupName>
+      <GroupDisplayName>iSCSI General Parameters</GroupDisplayName>
+      <DisplayOrder>701</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>WindowsHBABootMode</AttributeName>
+      <DisplayName>Windows HBA Boot Mode</DisplayName>
+      <HelpText />
+      <AttributeDescription>Windows HBA Boot Mode</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Enabled</ValueName>
+        <ValueDisplayName>Enabled</ValueDisplayName>
+        <ValueDescription>Enabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiGenParams</GroupName>
+      <GroupDisplayName>iSCSI General Parameters</GroupDisplayName>
+      <DisplayOrder>712</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>ConnectFirstFCoETarget</AttributeName>
+      <DisplayName>Connect</DisplayName>
+      <HelpText />
+      <AttributeDescription>Connect</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Enabled</ValueName>
+        <ValueDisplayName>Enabled</ValueDisplayName>
+        <ValueDescription>Enabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>FCoEConfiguration</GroupName>
+      <GroupDisplayName>FCoE Configuration</GroupDisplayName>
+      <DisplayOrder>411</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>ConnectFirstTgt</AttributeName>
+      <DisplayName>First target establishment for iSCSI.</DisplayName>
+      <HelpText />
+      <AttributeDescription>First target establishment for iSCSI.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Enabled</ValueName>
+        <ValueDisplayName>Enabled</ValueDisplayName>
+        <ValueDescription>Enabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiFirstTgtParams</GroupName>
+      <GroupDisplayName>iSCSI First Target Parameters</GroupDisplayName>
+      <DisplayOrder>601</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>ConnectSecondTgt</AttributeName>
+      <DisplayName>First target establishment for iSCSI.</DisplayName>
+      <HelpText />
+      <AttributeDescription>First target establishment for iSCSI.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Enabled</ValueName>
+        <ValueDisplayName>Enabled</ValueDisplayName>
+        <ValueDescription>Enabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiSecondTgtParams</GroupName>
+      <GroupDisplayName>iSCSI Second Target Parameters</GroupDisplayName>
+      <DisplayOrder>1002</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>LegacyBootProto</AttributeName>
+      <DisplayName>Legacy Boot Protocol</DisplayName>
+      <HelpText />
+      <AttributeDescription>Legacy Boot Protocol</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>PXE</ValueName>
+        <ValueDisplayName>PXE</ValueDisplayName>
+        <ValueDescription>PXE</ValueDescription>
+      </AttributeValue>
+      <GroupName>NICConfig</GroupName>
+      <GroupDisplayName>NIC Configuration</GroupDisplayName>
+      <DisplayOrder>1105</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>LnkSpeed</AttributeName>
+      <DisplayName>Configure link speed for Managed Boot Agent.</DisplayName>
+      <HelpText />
+      <AttributeDescription>Configure link speed for Managed Boot Agent.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>AutoNeg</ValueName>
+        <ValueDisplayName>AutoNeg</ValueDisplayName>
+        <ValueDescription>AutoNeg</ValueDescription>
+      </AttributeValue>
+      <GroupName>NICConfig</GroupName>
+      <GroupDisplayName>NIC Configuration</GroupDisplayName>
+      <DisplayOrder>1106</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>WakeOnLan</AttributeName>
+      <DisplayName>Preboot Wake on LAN (WOL) for Managed Boot Agent..</DisplayName>
+      <HelpText />
+      <AttributeDescription>Preboot Wake on LAN (WOL) for Managed Boot Agent..</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Enabled</ValueName>
+        <ValueDisplayName>Enabled</ValueDisplayName>
+        <ValueDescription>Enabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>NICConfig</GroupName>
+      <GroupDisplayName>NIC Configuration</GroupDisplayName>
+      <DisplayOrder>1109</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>VLanMode</AttributeName>
+      <DisplayName>Virtual LAN mode for Managed Boot Agent.</DisplayName>
+      <HelpText />
+      <AttributeDescription>Virtual LAN mode for Managed Boot Agent.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Enabled</ValueName>
+        <ValueDisplayName>Enabled</ValueDisplayName>
+        <ValueDescription>Enabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>NICConfig</GroupName>
+      <GroupDisplayName>NIC Configuration</GroupDisplayName>
+      <DisplayOrder>1108</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>UseIndTgtPortal</AttributeName>
+      <DisplayName>Use independent target portal when multipath I/O is enabled.</DisplayName>
+      <HelpText />
+      <AttributeDescription>Use independent target portal when multipath I/O is enabled.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Enabled</ValueName>
+        <ValueDisplayName>Enabled</ValueDisplayName>
+        <ValueDescription>Enabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiSecondaryDeviceParams</GroupName>
+      <GroupDisplayName>iSCSI Secondary Device Parameters</GroupDisplayName>
+      <DisplayOrder>903</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>UseIndTgtName</AttributeName>
+      <DisplayName>Use independent target name when multipath I/O is enabled.</DisplayName>
+      <HelpText />
+      <AttributeDescription>Use independent target name when multipath I/O is enabled.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Enabled</ValueName>
+        <ValueDisplayName>Enabled</ValueDisplayName>
+        <ValueDescription>Enabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiSecondaryDeviceParams</GroupName>
+      <GroupDisplayName>iSCSI Secondary Device Parameters</GroupDisplayName>
+      <DisplayOrder>902</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>WakeOnLanLnkSpeed</AttributeName>
+      <DisplayName>WOL Link Speed**</DisplayName>
+      <HelpText />
+      <AttributeDescription>WOL Link Speed**</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>AutoNeg</ValueName>
+        <ValueDisplayName>AutoNeg</ValueDisplayName>
+        <ValueDescription>AutoNeg</ValueDescription>
+      </AttributeValue>
+      <GroupName>NICConfig</GroupName>
+      <GroupDisplayName>NIC Configuration</GroupDisplayName>
+      <DisplayOrder>1110</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>TcpIpViaDHCP</AttributeName>
+      <DisplayName>TCP/IP configuration via DHCP</DisplayName>
+      <HelpText />
+      <AttributeDescription>TCP/IP configuration via DHCP</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Enabled</ValueName>
+        <ValueDisplayName>Enabled</ValueDisplayName>
+        <ValueDescription>Enabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiGenParams</GroupName>
+      <GroupDisplayName>iSCSI General Parameters</GroupDisplayName>
+      <DisplayOrder>709</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>IpAutoConfig</AttributeName>
+      <DisplayName>TCP/IP Configuration via Stateful or Stateless AutoConfiguration</DisplayName>
+      <HelpText />
+      <AttributeDescription>TCP/IP Configuration via Stateful or Stateless AutoConfiguration</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Enabled</ValueName>
+        <ValueDisplayName>Enabled</ValueDisplayName>
+        <ValueDescription>Enabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiGenParams</GroupName>
+      <GroupDisplayName>iSCSI General Parameters</GroupDisplayName>
+      <DisplayOrder>710</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>IscsiViaDHCP</AttributeName>
+      <DisplayName>iSCSI parameters via DHCP</DisplayName>
+      <HelpText />
+      <AttributeDescription>iSCSI parameters via DHCP</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Enabled</ValueName>
+        <ValueDisplayName>Enabled</ValueDisplayName>
+        <ValueDescription>Enabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiGenParams</GroupName>
+      <GroupDisplayName>iSCSI General Parameters</GroupDisplayName>
+      <DisplayOrder>705</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>ChapAuthEnable</AttributeName>
+      <DisplayName>CHAP Authentication</DisplayName>
+      <HelpText />
+      <AttributeDescription>CHAP Authentication</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Enabled</ValueName>
+        <ValueDisplayName>Enabled</ValueDisplayName>
+        <ValueDescription>Enabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiGenParams</GroupName>
+      <GroupDisplayName>iSCSI General Parameters</GroupDisplayName>
+      <DisplayOrder>702</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>TcpTimestmp</AttributeName>
+      <DisplayName>TCP Timestamp</DisplayName>
+      <HelpText />
+      <AttributeDescription>TCP Timestamp</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Enabled</ValueName>
+        <ValueDisplayName>Enabled</ValueDisplayName>
+        <ValueDescription>Enabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiGenParams</GroupName>
+      <GroupDisplayName>iSCSI General Parameters</GroupDisplayName>
+      <DisplayOrder>708</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>IpVer</AttributeName>
+      <DisplayName>IP Version support.</DisplayName>
+      <HelpText />
+      <AttributeDescription>IP Version support.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>IPv4</ValueName>
+        <ValueDisplayName>IPv4</ValueDisplayName>
+        <ValueDescription>IPv4</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiGenParams</GroupName>
+      <GroupDisplayName>iSCSI General Parameters</GroupDisplayName>
+      <DisplayOrder>704</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>MTUParams</AttributeName>
+      <DisplayName>CNA MTU Setting</DisplayName>
+      <HelpText />
+      <AttributeDescription>CNA MTU Setting</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Global</ValueName>
+        <ValueDisplayName>Global</ValueDisplayName>
+        <ValueDescription>Global</ValueDescription>
+      </AttributeValue>
+      <GroupName>FCoEConfiguration</GroupName>
+      <GroupDisplayName>FCoE Configuration</GroupDisplayName>
+      <DisplayOrder>410</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DCBXSupport</AttributeName>
+      <DisplayName>DCB XSupport</DisplayName>
+      <HelpText />
+      <AttributeDescription>DCB XSupport</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1204</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FCoEOffloadSupport</AttributeName>
+      <DisplayName>FCoE offload support</DisplayName>
+      <HelpText />
+      <AttributeDescription>FCoE offload support</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1209</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>iSCSIOffloadSupport</AttributeName>
+      <DisplayName>iSCSI offload support</DisplayName>
+      <HelpText />
+      <AttributeDescription>iSCSI offload support</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1215</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>OnChipThermalSensor</AttributeName>
+      <DisplayName>On-Chip Thermal Sensor</DisplayName>
+      <HelpText />
+      <AttributeDescription>On-Chip Thermal Sensor</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1221</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FlexAddressing</AttributeName>
+      <DisplayName>Flex Addressing</DisplayName>
+      <HelpText />
+      <AttributeDescription>Flex Addressing</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1212</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>iSCSIBootSupport</AttributeName>
+      <DisplayName>iSCSI Boot Support</DisplayName>
+      <HelpText />
+      <AttributeDescription>iSCSI Boot Support</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1213</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>TOESupport</AttributeName>
+      <DisplayName>TOE Support</DisplayName>
+      <HelpText />
+      <AttributeDescription>TOE Support</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1227</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FCoEBootSupport</AttributeName>
+      <DisplayName>FCoE Boot Support</DisplayName>
+      <HelpText />
+      <AttributeDescription>FCoE Boot Support</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1207</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>PXEBootSupport</AttributeName>
+      <DisplayName>PXE Boot Support</DisplayName>
+      <HelpText />
+      <AttributeDescription>PXE Boot Support</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1224</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>NWManagementPassThrough</AttributeName>
+      <DisplayName>NW Management Pass Through</DisplayName>
+      <HelpText />
+      <AttributeDescription>NW Management Pass Through</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1220</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>EnergyEfficientEthernet</AttributeName>
+      <DisplayName>Energy efficient Ethernet (EEE)</DisplayName>
+      <HelpText />
+      <AttributeDescription>Energy efficient Ethernet (EEE)</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1206</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>NicPartitioningSupport</AttributeName>
+      <DisplayName>Nic Partitioning Support</DisplayName>
+      <HelpText />
+      <AttributeDescription>Nic Partitioning Support</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1219</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>RemotePHY</AttributeName>
+      <DisplayName>RemotePHY</DisplayName>
+      <HelpText />
+      <AttributeDescription>RemotePHY</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1225</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FeatureLicensingSupport</AttributeName>
+      <DisplayName>Feature Licensing Support</DisplayName>
+      <HelpText />
+      <AttributeDescription>Feature Licensing Support</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1210</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>VirtualLinkControl</AttributeName>
+      <DisplayName>Virtual Link Control</DisplayName>
+      <HelpText />
+      <AttributeDescription>Virtual Link Control</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1234</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>RXFlowControl</AttributeName>
+      <DisplayName>RX Flow Control</DisplayName>
+      <HelpText />
+      <AttributeDescription>RX Flow Control</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1226</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>TXFlowControl</AttributeName>
+      <DisplayName>TX Flow Control</DisplayName>
+      <HelpText />
+      <AttributeDescription>TX Flow Control</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Available</ValueName>
+        <ValueDisplayName>Available</ValueDisplayName>
+        <ValueDescription>Available</ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1230</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>TXBandwidthControlMaximum</AttributeName>
+      <DisplayName>TX Bandwidth Control Maximum</DisplayName>
+      <HelpText />
+      <AttributeDescription>TX Bandwidth Control Maximum</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Available</ValueName>
+        <ValueDisplayName>Available</ValueDisplayName>
+        <ValueDescription>Available</ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1229</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>TXBandwidthControlMinimum</AttributeName>
+      <DisplayName>TX Bandwidth Control Minimum</DisplayName>
+      <HelpText />
+      <AttributeDescription>TX Bandwidth Control Minimum</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Available</ValueName>
+        <ValueDisplayName>Available</ValueDisplayName>
+        <ValueDescription>Available</ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1228</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>OSBMCManagementPassThrough</AttributeName>
+      <DisplayName>OS BMC Management Pass Through</DisplayName>
+      <HelpText />
+      <AttributeDescription>OS BMC Management Pass Through</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1222</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>VFSRIOVSupport</AttributeName>
+      <DisplayName>VF/SR-IOV Support</DisplayName>
+      <HelpText />
+      <AttributeDescription>VF/SR-IOV Support</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>DeviceLevelConfig</GroupName>
+      <GroupDisplayName>Device Level Configuration</GroupDisplayName>
+      <DisplayOrder>302</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>EVBModesSupport</AttributeName>
+      <DisplayName>EVB Modes Support</DisplayName>
+      <HelpText />
+      <AttributeDescription>EVB Modes Support</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>DeviceLevelConfig</GroupName>
+      <GroupDisplayName>Device Level Configuration</GroupDisplayName>
+      <DisplayOrder>301</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>EnhancedTransmissionSelection</AttributeName>
+      <DisplayName>Enhanced Transmission Selection</DisplayName>
+      <HelpText />
+      <AttributeDescription>Enhanced Transmission Selection</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>DCBSettings</GroupName>
+      <GroupDisplayName>DCB Settings</GroupDisplayName>
+      <DisplayOrder>203</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>PriorityFlowControl</AttributeName>
+      <DisplayName>Priority Flow Control</DisplayName>
+      <HelpText />
+      <AttributeDescription>Priority Flow Control</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>DCBSettings</GroupName>
+      <GroupDisplayName>DCB Settings</GroupDisplayName>
+      <DisplayOrder>204</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DCBExchangeProtocol</AttributeName>
+      <DisplayName>DCB Exchange Protocol</DisplayName>
+      <HelpText />
+      <AttributeDescription>DCB Exchange Protocol</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>DCBSettings</GroupName>
+      <GroupDisplayName>DCB Settings</GroupDisplayName>
+      <DisplayOrder>202</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>CongestionNotification</AttributeName>
+      <DisplayName>Congestion Notification</DisplayName>
+      <HelpText />
+      <AttributeDescription>Congestion Notification</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>DCBSettings</GroupName>
+      <GroupDisplayName>DCB Settings</GroupDisplayName>
+      <DisplayOrder>201</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>MTUReconfigurationSupport</AttributeName>
+      <DisplayName>MTU Reconfiguration Support</DisplayName>
+      <HelpText />
+      <AttributeDescription>MTU Reconfiguration Support</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>FCOECapabilities</GroupName>
+      <GroupDisplayName>FCoE Capabilities</GroupDisplayName>
+      <DisplayOrder>409</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>AddressingMode</AttributeName>
+      <DisplayName>Addressing Mode</DisplayName>
+      <HelpText />
+      <AttributeDescription>Addressing Mode</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>FCOECapabilities</GroupName>
+      <GroupDisplayName>FCoE Capabilities</GroupDisplayName>
+      <DisplayOrder>401</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>VirtFIPMacAddr</AttributeName>
+      <DisplayName>Virtual FIP Mac Address</DisplayName>
+      <HelpText />
+      <AttributeDescription>Virtual FIP Mac Address</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1231</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DeviceClassCode</AttributeName>
+      <DisplayName>Device Class Code</DisplayName>
+      <HelpText />
+      <AttributeDescription>Device Class Code</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>ConfigureForm1</GroupName>
+      <GroupDisplayName>Partition 1 Configuration</GroupDisplayName>
+      <DisplayOrder>101</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DhcpVndorID</AttributeName>
+      <DisplayName>Vendor ID for DHCP configuration</DisplayName>
+      <HelpText />
+      <AttributeDescription>Vendor ID for DHCP configuration</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiGenParams</GroupName>
+      <GroupDisplayName>iSCSI General Parameters</GroupDisplayName>
+      <DisplayOrder>711</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>IscsiInitiatorIpAddr</AttributeName>
+      <DisplayName>iSCSI initiator IP address.</DisplayName>
+      <HelpText />
+      <AttributeDescription>iSCSI initiator IP address.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiInitiatorParams</GroupName>
+      <GroupDisplayName>iSCSI Initiator Parameters</GroupDisplayName>
+      <DisplayOrder>806</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>IscsiInitiatorSubnet</AttributeName>
+      <DisplayName>iSCSI initiator subnet mask.</DisplayName>
+      <HelpText />
+      <AttributeDescription>iSCSI initiator subnet mask.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiInitiatorParams</GroupName>
+      <GroupDisplayName>iSCSI Initiator Parameters</GroupDisplayName>
+      <DisplayOrder>809</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>IscsiInitiatorGateway</AttributeName>
+      <DisplayName>iSCSI initiator default gateway IP address.</DisplayName>
+      <HelpText />
+      <AttributeDescription>iSCSI initiator default gateway IP address.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiInitiatorParams</GroupName>
+      <GroupDisplayName>iSCSI Initiator Parameters</GroupDisplayName>
+      <DisplayOrder>805</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>IscsiInitiatorPrimDns</AttributeName>
+      <DisplayName>iSCSI initiator primary DNS IP address.</DisplayName>
+      <HelpText />
+      <AttributeDescription>iSCSI initiator primary DNS IP address.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiInitiatorParams</GroupName>
+      <GroupDisplayName>iSCSI Initiator Parameters</GroupDisplayName>
+      <DisplayOrder>807</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>IscsiInitiatorSecDns</AttributeName>
+      <DisplayName>iSCSI initiator secondary DNS IP address.</DisplayName>
+      <HelpText />
+      <AttributeDescription>iSCSI initiator secondary DNS IP address.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiInitiatorParams</GroupName>
+      <GroupDisplayName>iSCSI Initiator Parameters</GroupDisplayName>
+      <DisplayOrder>808</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>IscsiInitiatorName</AttributeName>
+      <DisplayName>iSCSI initiator  name.</DisplayName>
+      <HelpText />
+      <AttributeDescription>iSCSI initiator  name.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiInitiatorParams</GroupName>
+      <GroupDisplayName>iSCSI Initiator Parameters</GroupDisplayName>
+      <DisplayOrder>803</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>IscsiInitiatorChapId</AttributeName>
+      <DisplayName>iSCSI initiator CHAP ID.</DisplayName>
+      <HelpText />
+      <AttributeDescription>iSCSI initiator CHAP ID.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiInitiatorParams</GroupName>
+      <GroupDisplayName>iSCSI Initiator Parameters</GroupDisplayName>
+      <DisplayOrder>804</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FirstTgtIpAddress</AttributeName>
+      <DisplayName>iSCSI first target IP address.</DisplayName>
+      <HelpText />
+      <AttributeDescription>iSCSI first target IP address.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiFirstTgtParams</GroupName>
+      <GroupDisplayName>iSCSI First Target Parameters</GroupDisplayName>
+      <DisplayOrder>605</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FirstTgtIscsiName</AttributeName>
+      <DisplayName>iSCSI first target name.</DisplayName>
+      <HelpText />
+      <AttributeDescription>iSCSI first target name.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiFirstTgtParams</GroupName>
+      <GroupDisplayName>iSCSI First Target Parameters</GroupDisplayName>
+      <DisplayOrder>606</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FirstTgtChapId</AttributeName>
+      <DisplayName>iSCSI first target CHAP ID.</DisplayName>
+      <HelpText />
+      <AttributeDescription>iSCSI first target CHAP ID.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiFirstTgtParams</GroupName>
+      <GroupDisplayName>iSCSI First Target Parameters</GroupDisplayName>
+      <DisplayOrder>604</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>SecondTgtIpAddress</AttributeName>
+      <DisplayName>iSCSI second target IP address.</DisplayName>
+      <HelpText />
+      <AttributeDescription>iSCSI second target IP address.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiSecondTgtParams</GroupName>
+      <GroupDisplayName>iSCSI Second Target Parameters</GroupDisplayName>
+      <DisplayOrder>1004</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>SecondTgtIscsiName</AttributeName>
+      <DisplayName>iSCSI second target name.</DisplayName>
+      <HelpText />
+      <AttributeDescription>iSCSI second target name.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiSecondTgtParams</GroupName>
+      <GroupDisplayName>iSCSI Second Target Parameters</GroupDisplayName>
+      <DisplayOrder>1005</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>SecondTgtChapId</AttributeName>
+      <DisplayName>iSCSI second target CHAP ID.</DisplayName>
+      <HelpText />
+      <AttributeDescription>iSCSI second target CHAP ID.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiSecondTgtParams</GroupName>
+      <GroupDisplayName>iSCSI Second Target Parameters</GroupDisplayName>
+      <DisplayOrder>1003</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>SecondaryDeviceMacAddr</AttributeName>
+      <DisplayName>Secondary device MAC address.</DisplayName>
+      <HelpText />
+      <AttributeDescription>Secondary device MAC address.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiSecondaryDeviceParams</GroupName>
+      <GroupDisplayName>iSCSI Secondary Device Parameters</GroupDisplayName>
+      <DisplayOrder>901</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FirstFCoEWWPNTarget</AttributeName>
+      <DisplayName>World Wide Port Name FCoe Target</DisplayName>
+      <HelpText />
+      <AttributeDescription>World Wide Port Name FCoe Target</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>FCoEConfiguration</GroupName>
+      <GroupDisplayName>FCoE Configuration</GroupDisplayName>
+      <DisplayOrder>414</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>ChipMdl</AttributeName>
+      <DisplayName>Chip Type/Revision</DisplayName>
+      <HelpText />
+      <AttributeDescription>Chip Type/Revision</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1203</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>BusDeviceFunction</AttributeName>
+      <DisplayName>Bus, Device, Function values</DisplayName>
+      <HelpText />
+      <AttributeDescription>Bus, Device, Function values</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1202</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>DeviceName</AttributeName>
+      <DisplayName>This name should be consistent with the name displayed in the operating system.</DisplayName>
+      <HelpText />
+      <AttributeDescription>This name should be consistent with the name displayed in the operating system.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1205</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>PCIDeviceID</AttributeName>
+      <DisplayName>PCI Device ID</DisplayName>
+      <HelpText />
+      <AttributeDescription>PCI Device ID</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1223</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>MacAddr</AttributeName>
+      <DisplayName>CNA MAC Address</DisplayName>
+      <HelpText />
+      <AttributeDescription>CNA MAC Address</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1217</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>VirtMacAddr</AttributeName>
+      <DisplayName>CNA Part1 Virtual MAC Address</DisplayName>
+      <HelpText />
+      <AttributeDescription>CNA Part1 Virtual MAC Address</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1233</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FIPMacAddr</AttributeName>
+      <DisplayName>CNA FIP MAC Address</DisplayName>
+      <HelpText />
+      <AttributeDescription>CNA FIP MAC Address</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1211</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>IscsiMacAddr</AttributeName>
+      <DisplayName>iSCSI MAC Address</DisplayName>
+      <HelpText />
+      <AttributeDescription>iSCSI MAC Address</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiInitiatorParams</GroupName>
+      <GroupDisplayName>iSCSI Initiator Parameters</GroupDisplayName>
+      <DisplayOrder>810</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>VirtIscsiMacAddr</AttributeName>
+      <DisplayName>Virtual iSCSI MAC Address</DisplayName>
+      <HelpText />
+      <AttributeDescription>Virtual iSCSI MAC Address</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1232</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>IscsiInitiatorSubnetPrefix</AttributeName>
+      <DisplayName>Initiator IP Subnet Mask Prefix</DisplayName>
+      <HelpText />
+      <AttributeDescription>Initiator IP Subnet Mask Prefix</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiInitiatorParams</GroupName>
+      <GroupDisplayName>iSCSI Initiator Parameters</GroupDisplayName>
+      <DisplayOrder>802</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>IscsiInitiatorChapPwd</AttributeName>
+      <DisplayName>Initiator CHAP Secret (12 to 16 characters in length).Note: this attribute can either take a value of 0 or 12 to 16.</DisplayName>
+      <HelpText />
+      <AttributeDescription>Initiator CHAP Secret (12 to 16 characters in length).Note: this attribute can either take a value of 0 or 12 to 16.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiInitiatorParams</GroupName>
+      <GroupDisplayName>iSCSI Initiator Parameters</GroupDisplayName>
+      <DisplayOrder>801</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>WWN</AttributeName>
+      <DisplayName>CNA World Wide Name</DisplayName>
+      <HelpText />
+      <AttributeDescription>CNA World Wide Name</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1237</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>WWPN</AttributeName>
+      <DisplayName>CNA World Wide Part Name</DisplayName>
+      <HelpText />
+      <AttributeDescription>CNA World Wide Part Name</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1238</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>VirtWWN</AttributeName>
+      <DisplayName>CNA Virtual World Wide Name</DisplayName>
+      <HelpText />
+      <AttributeDescription>CNA Virtual World Wide Name</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1235</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>VirtWWPN</AttributeName>
+      <DisplayName>CNA Virtual World Wide Part Name</DisplayName>
+      <HelpText />
+      <AttributeDescription>CNA Virtual World Wide Part Name</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1236</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>MaxBandwidth</AttributeName>
+      <DisplayName>Maximum bandwidth of current partition of this NIC or Converged Network Adapter.</DisplayName>
+      <HelpText />
+      <AttributeDescription>Maximum bandwidth of current partition of this NIC or Converged Network Adapter.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>GlobalBandwidthAllocation</GroupName>
+      <GroupDisplayName>Global Bandwidth Allocation</GroupDisplayName>
+      <DisplayOrder>501</DisplayOrder>
+      <AttributeType>DCIM_NICInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>MinBandwidth</AttributeName>
+      <DisplayName>Minimum bandwidth of current partition of this NIC or Converged Network Adapter.</DisplayName>
+      <HelpText />
+      <AttributeDescription>Minimum bandwidth of current partition of this NIC or Converged Network Adapter.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>GlobalBandwidthAllocation</GroupName>
+      <GroupDisplayName>Global Bandwidth Allocation</GroupDisplayName>
+      <DisplayOrder>502</DisplayOrder>
+      <AttributeType>DCIM_NICInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>BlnkLeds</AttributeName>
+      <DisplayName>Blink LEDs for a duration up to 15 seconds.</DisplayName>
+      <HelpText />
+      <AttributeDescription>Blink LEDs for a duration up to 15 seconds.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1201</DisplayOrder>
+      <AttributeType>DCIM_NICInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>NParNumberPartitions</AttributeName>
+      <DisplayName>Number of Partitions Supported per port.</DisplayName>
+      <HelpText />
+      <AttributeDescription>Number of Partitions Supported per port.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>NICPartitioningConfig</GroupName>
+      <GroupDisplayName>NIC Partitioning Configuration</GroupDisplayName>
+      <DisplayOrder>1111</DisplayOrder>
+      <AttributeType>DCIM_NICInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>NumberPCIEFunctionsSupported</AttributeName>
+      <DisplayName>Number of PCI-e functions supported per port</DisplayName>
+      <HelpText />
+      <AttributeDescription>Number of PCI-e functions supported per port</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>NICPartitioningConfig</GroupName>
+      <GroupDisplayName>NIC Partitioning Configuration</GroupDisplayName>
+      <DisplayOrder>1103</DisplayOrder>
+      <AttributeType>DCIM_NICInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>NumberPCIEFunctionsEnabled</AttributeName>
+      <DisplayName>Number of Functions currently enabled per port</DisplayName>
+      <HelpText />
+      <AttributeDescription>Number of Functions currently enabled per port</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>NICPartitioningConfig</GroupName>
+      <GroupDisplayName>NIC Partitioning Configuration</GroupDisplayName>
+      <DisplayOrder>1102</DisplayOrder>
+      <AttributeType>DCIM_NICInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>MaxFrameSize</AttributeName>
+      <DisplayName>Max Frame Size</DisplayName>
+      <HelpText />
+      <AttributeDescription>Max Frame Size</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>FCOECapabilities</GroupName>
+      <GroupDisplayName>FCoE Capabilities</GroupDisplayName>
+      <DisplayOrder>402</DisplayOrder>
+      <AttributeType>DCIM_NICInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>MaxIOsPerSession</AttributeName>
+      <DisplayName>Max Number of IOs per session supported</DisplayName>
+      <HelpText />
+      <AttributeDescription>Max Number of IOs per session supported</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>FCOECapabilities</GroupName>
+      <GroupDisplayName>FCoE Capabilities</GroupDisplayName>
+      <DisplayOrder>407</DisplayOrder>
+      <AttributeType>DCIM_NICInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>MaxNumberLogins</AttributeName>
+      <DisplayName>Max Number  LOGINs per port</DisplayName>
+      <HelpText />
+      <AttributeDescription>Max Number  LOGINs per port</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>FCOECapabilities</GroupName>
+      <GroupDisplayName>FCoE Capabilities</GroupDisplayName>
+      <DisplayOrder>404</DisplayOrder>
+      <AttributeType>DCIM_NICInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>MaxNumberExchanges</AttributeName>
+      <DisplayName>Max Number of exchanges</DisplayName>
+      <HelpText />
+      <AttributeDescription>Max Number of exchanges</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>FCOECapabilities</GroupName>
+      <GroupDisplayName>FCoE Capabilities</GroupDisplayName>
+      <DisplayOrder>405</DisplayOrder>
+      <AttributeType>DCIM_NICInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>MaxNPIVPerPort</AttributeName>
+      <DisplayName>Max NPIV WWN per port</DisplayName>
+      <HelpText />
+      <AttributeDescription>Max NPIV WWN per port</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>FCOECapabilities</GroupName>
+      <GroupDisplayName>FCoE Capabilities</GroupDisplayName>
+      <DisplayOrder>403</DisplayOrder>
+      <AttributeType>DCIM_NICInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>MaxNumberOfFCTargets</AttributeName>
+      <DisplayName>Max Number of FC Targets Supported</DisplayName>
+      <HelpText />
+      <AttributeDescription>Max Number of FC Targets Supported</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>FCOECapabilities</GroupName>
+      <GroupDisplayName>FCoE Capabilities</GroupDisplayName>
+      <DisplayOrder>406</DisplayOrder>
+      <AttributeType>DCIM_NICInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>MaxNumberOutStandingCommands</AttributeName>
+      <DisplayName>Max Number of outstanding commands supported across all sessions</DisplayName>
+      <HelpText />
+      <AttributeDescription>Max Number of outstanding commands supported across all sessions</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>FCOECapabilities</GroupName>
+      <GroupDisplayName>FCoE Capabilities</GroupDisplayName>
+      <DisplayOrder>408</DisplayOrder>
+      <AttributeType>DCIM_NICInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>PortNumber</AttributeName>
+      <DisplayName>Port Number</DisplayName>
+      <HelpText />
+      <AttributeDescription>Port Number</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>ConfigureForm1</GroupName>
+      <GroupDisplayName>Partition 1 Configuration</GroupDisplayName>
+      <DisplayOrder>103</DisplayOrder>
+      <AttributeType>DCIM_NICInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>InstanceNumber</AttributeName>
+      <DisplayName>Instance Number</DisplayName>
+      <HelpText />
+      <AttributeDescription>Instance Number</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>ConfigureForm1</GroupName>
+      <GroupDisplayName>Partition 1 Configuration</GroupDisplayName>
+      <DisplayOrder>102</DisplayOrder>
+      <AttributeType>DCIM_NICInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>VLanId</AttributeName>
+      <DisplayName>Virtual LAN ID</DisplayName>
+      <HelpText />
+      <AttributeDescription>Virtual LAN ID</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>NICConfig</GroupName>
+      <GroupDisplayName>NIC Configuration</GroupDisplayName>
+      <DisplayOrder>1107</DisplayOrder>
+      <AttributeType>DCIM_NICInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>LunBusyRetryCnt</AttributeName>
+      <DisplayName>Number of retries in 2 sec intervals when LUN is busy (0..60)</DisplayName>
+      <HelpText />
+      <AttributeDescription>Number of retries in 2 sec intervals when LUN is busy (0..60)</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiGenParams</GroupName>
+      <GroupDisplayName>iSCSI General Parameters</GroupDisplayName>
+      <DisplayOrder>707</DisplayOrder>
+      <AttributeType>DCIM_NICInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FirstTgtTcpPort</AttributeName>
+      <DisplayName>First Target TCP Port number (1..65535)</DisplayName>
+      <HelpText />
+      <AttributeDescription>First Target TCP Port number (1..65535)</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiFirstTgtParams</GroupName>
+      <GroupDisplayName>iSCSI First Target Parameters</GroupDisplayName>
+      <DisplayOrder>603</DisplayOrder>
+      <AttributeType>DCIM_NICInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FirstTgtBootLun</AttributeName>
+      <DisplayName>First Target Boot LUN number (0 .. 255)</DisplayName>
+      <HelpText />
+      <AttributeDescription>First Target Boot LUN number (0 .. 255)</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiFirstTgtParams</GroupName>
+      <GroupDisplayName>iSCSI First Target Parameters</GroupDisplayName>
+      <DisplayOrder>602</DisplayOrder>
+      <AttributeType>DCIM_NICInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>SecondTgtTcpPort</AttributeName>
+      <DisplayName>Second Target TCP Port number (1..65535)</DisplayName>
+      <HelpText />
+      <AttributeDescription>Second Target TCP Port number (1..65535)</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiSecondTgtParams</GroupName>
+      <GroupDisplayName>iSCSI Second Target Parameters</GroupDisplayName>
+      <DisplayOrder>1007</DisplayOrder>
+      <AttributeType>DCIM_NICInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>SecondTgtBootLun</AttributeName>
+      <DisplayName>Second Target Boot LUN number (0 .. 255)</DisplayName>
+      <HelpText />
+      <AttributeDescription>Second Target Boot LUN number (0 .. 255)</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiSecondTgtParams</GroupName>
+      <GroupDisplayName>iSCSI Second Target Parameters</GroupDisplayName>
+      <DisplayOrder>1006</DisplayOrder>
+      <AttributeType>DCIM_NICInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FirstFCoEBootTargetLUN</AttributeName>
+      <DisplayName>FCoE Boot Lun Target</DisplayName>
+      <HelpText />
+      <AttributeDescription>FCoE Boot Lun Target</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>FCoEConfiguration</GroupName>
+      <GroupDisplayName>FCoE Configuration</GroupDisplayName>
+      <DisplayOrder>412</DisplayOrder>
+      <AttributeType>DCIM_NICInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FirstFCoEFCFVLANID</AttributeName>
+      <DisplayName>FCoE FCF VLAN ID</DisplayName>
+      <HelpText />
+      <AttributeDescription>FCoE FCF VLAN ID</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>FCoEConfiguration</GroupName>
+      <GroupDisplayName>FCoE Configuration</GroupDisplayName>
+      <DisplayOrder>413</DisplayOrder>
+      <AttributeType>DCIM_NICInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>NicMode</AttributeName>
+      <DisplayName>Enable/Disable NIC personality on the partition.</DisplayName>
+      <HelpText />
+      <AttributeDescription>Enable/Disable NIC personality on the partition.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Disabled</ValueName>
+        <ValueDisplayName>Disabled</ValueDisplayName>
+        <ValueDescription>Disabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1218</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FCoEOffloadMode</AttributeName>
+      <DisplayName>Enable/Disable FC personality on the partition.</DisplayName>
+      <HelpText />
+      <AttributeDescription>Enable/Disable FC personality on the partition.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Disabled</ValueName>
+        <ValueDisplayName>Disabled</ValueDisplayName>
+        <ValueDescription>Disabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1208</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>iScsiOffloadMode</AttributeName>
+      <DisplayName>iSCSI personality on the partition.</DisplayName>
+      <HelpText />
+      <AttributeDescription>iSCSI personality on the partition.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Disabled</ValueName>
+        <ValueDisplayName>Disabled</ValueDisplayName>
+        <ValueDescription>Disabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1214</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>LinkStatus</AttributeName>
+      <DisplayName>Link Status</DisplayName>
+      <HelpText />
+      <AttributeDescription>Link Status</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Disconnected</ValueName>
+        <ValueDisplayName>Disconnected</ValueDisplayName>
+        <ValueDescription>Disconnected</ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1216</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FlowControlSetting</AttributeName>
+      <DisplayName>Flow Control Setting</DisplayName>
+      <HelpText />
+      <AttributeDescription>Flow Control Setting</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>TX Flow Control</ValueName>
+        <ValueDisplayName>TX Flow Control</ValueDisplayName>
+        <ValueDescription>TX Flow Control</ValueDescription>
+      </AttributeValue>
+      <GroupName>NICPartitioningConfig</GroupName>
+      <GroupDisplayName>NIC Partitioning Configuration</GroupDisplayName>
+      <DisplayOrder>1101</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>NicPartitioning</AttributeName>
+      <DisplayName>NIC Partitioning</DisplayName>
+      <HelpText />
+      <AttributeDescription>NIC Partitioning</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Disabled</ValueName>
+        <ValueDisplayName>Disabled</ValueDisplayName>
+        <ValueDescription>Disabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>NICPartitioningConfig</GroupName>
+      <GroupDisplayName>NIC Partitioning Configuration</GroupDisplayName>
+      <DisplayOrder>1101</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>PartitionState</AttributeName>
+      <DisplayName>Partition State</DisplayName>
+      <HelpText />
+      <AttributeDescription>Partition State</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Disabled</ValueName>
+        <ValueDisplayName>Disabled</ValueDisplayName>
+        <ValueDescription>Disabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>NICPartitioningConfig</GroupName>
+      <GroupDisplayName>NIC Partitioning Configuration</GroupDisplayName>
+      <DisplayOrder>1104</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>BootToTarget</AttributeName>
+      <DisplayName>Boot to iSCSI target after connection</DisplayName>
+      <HelpText />
+      <AttributeDescription>Boot to iSCSI target after connection</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Disabled</ValueName>
+        <ValueDisplayName>Disabled</ValueDisplayName>
+        <ValueDescription>Disabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiGenParams</GroupName>
+      <GroupDisplayName>iSCSI General Parameters</GroupDisplayName>
+      <DisplayOrder>701</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>WindowsHBABootMode</AttributeName>
+      <DisplayName>Windows HBA Boot Mode</DisplayName>
+      <HelpText />
+      <AttributeDescription>Windows HBA Boot Mode</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Disabled</ValueName>
+        <ValueDisplayName>Disabled</ValueDisplayName>
+        <ValueDescription>Disabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiGenParams</GroupName>
+      <GroupDisplayName>iSCSI General Parameters</GroupDisplayName>
+      <DisplayOrder>712</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>ConnectFirstFCoETarget</AttributeName>
+      <DisplayName>Connect</DisplayName>
+      <HelpText />
+      <AttributeDescription>Connect</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Disabled</ValueName>
+        <ValueDisplayName>Disabled</ValueDisplayName>
+        <ValueDescription>Disabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>FCoEConfiguration</GroupName>
+      <GroupDisplayName>FCoE Configuration</GroupDisplayName>
+      <DisplayOrder>411</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>ConnectFirstTgt</AttributeName>
+      <DisplayName>First target establishment for iSCSI.</DisplayName>
+      <HelpText />
+      <AttributeDescription>First target establishment for iSCSI.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Disabled</ValueName>
+        <ValueDisplayName>Disabled</ValueDisplayName>
+        <ValueDescription>Disabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiFirstTgtParams</GroupName>
+      <GroupDisplayName>iSCSI First Target Parameters</GroupDisplayName>
+      <DisplayOrder>601</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>ConnectSecondTgt</AttributeName>
+      <DisplayName>First target establishment for iSCSI.</DisplayName>
+      <HelpText />
+      <AttributeDescription>First target establishment for iSCSI.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Disabled</ValueName>
+        <ValueDisplayName>Disabled</ValueDisplayName>
+        <ValueDescription>Disabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiSecondTgtParams</GroupName>
+      <GroupDisplayName>iSCSI Second Target Parameters</GroupDisplayName>
+      <DisplayOrder>1002</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>LegacyBootProto</AttributeName>
+      <DisplayName>Legacy Boot Protocol</DisplayName>
+      <HelpText />
+      <AttributeDescription>Legacy Boot Protocol</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>iSCSI</ValueName>
+        <ValueDisplayName>iSCSI</ValueDisplayName>
+        <ValueDescription>iSCSI</ValueDescription>
+      </AttributeValue>
+      <GroupName>NICConfig</GroupName>
+      <GroupDisplayName>NIC Configuration</GroupDisplayName>
+      <DisplayOrder>1105</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>LnkSpeed</AttributeName>
+      <DisplayName>Configure link speed for Managed Boot Agent.</DisplayName>
+      <HelpText />
+      <AttributeDescription>Configure link speed for Managed Boot Agent.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>10Mbps Half</ValueName>
+        <ValueDisplayName>10Mbps Half</ValueDisplayName>
+        <ValueDescription>10Mbps Half</ValueDescription>
+      </AttributeValue>
+      <GroupName>NICConfig</GroupName>
+      <GroupDisplayName>NIC Configuration</GroupDisplayName>
+      <DisplayOrder>1106</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>WakeOnLan</AttributeName>
+      <DisplayName>Preboot Wake on LAN (WOL) for Managed Boot Agent..</DisplayName>
+      <HelpText />
+      <AttributeDescription>Preboot Wake on LAN (WOL) for Managed Boot Agent..</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Disabled</ValueName>
+        <ValueDisplayName>Disabled</ValueDisplayName>
+        <ValueDescription>Disabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>NICConfig</GroupName>
+      <GroupDisplayName>NIC Configuration</GroupDisplayName>
+      <DisplayOrder>1109</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>VLanMode</AttributeName>
+      <DisplayName>Virtual LAN mode for Managed Boot Agent.</DisplayName>
+      <HelpText />
+      <AttributeDescription>Virtual LAN mode for Managed Boot Agent.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Disabled</ValueName>
+        <ValueDisplayName>Disabled</ValueDisplayName>
+        <ValueDescription>Disabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>NICConfig</GroupName>
+      <GroupDisplayName>NIC Configuration</GroupDisplayName>
+      <DisplayOrder>1108</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>UseIndTgtPortal</AttributeName>
+      <DisplayName>Use independent target portal when multipath I/O is enabled.</DisplayName>
+      <HelpText />
+      <AttributeDescription>Use independent target portal when multipath I/O is enabled.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Disabled</ValueName>
+        <ValueDisplayName>Disabled</ValueDisplayName>
+        <ValueDescription>Disabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiSecondaryDeviceParams</GroupName>
+      <GroupDisplayName>iSCSI Secondary Device Parameters</GroupDisplayName>
+      <DisplayOrder>903</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>UseIndTgtName</AttributeName>
+      <DisplayName>Use independent target name when multipath I/O is enabled.</DisplayName>
+      <HelpText />
+      <AttributeDescription>Use independent target name when multipath I/O is enabled.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Disabled</ValueName>
+        <ValueDisplayName>Disabled</ValueDisplayName>
+        <ValueDescription>Disabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiSecondaryDeviceParams</GroupName>
+      <GroupDisplayName>iSCSI Secondary Device Parameters</GroupDisplayName>
+      <DisplayOrder>902</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>WakeOnLanLnkSpeed</AttributeName>
+      <DisplayName>WOL Link Speed**</DisplayName>
+      <HelpText />
+      <AttributeDescription>WOL Link Speed**</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>10MbpsHalf</ValueName>
+        <ValueDisplayName>10MbpsHalf</ValueDisplayName>
+        <ValueDescription>10MbpsHalf</ValueDescription>
+      </AttributeValue>
+      <GroupName>NICConfig</GroupName>
+      <GroupDisplayName>NIC Configuration</GroupDisplayName>
+      <DisplayOrder>1110</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>TcpIpViaDHCP</AttributeName>
+      <DisplayName>TCP/IP configuration via DHCP</DisplayName>
+      <HelpText />
+      <AttributeDescription>TCP/IP configuration via DHCP</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Disabled</ValueName>
+        <ValueDisplayName>Disabled</ValueDisplayName>
+        <ValueDescription>Disabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiGenParams</GroupName>
+      <GroupDisplayName>iSCSI General Parameters</GroupDisplayName>
+      <DisplayOrder>709</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>IpAutoConfig</AttributeName>
+      <DisplayName>TCP/IP Configuration via Stateful or Stateless AutoConfiguration</DisplayName>
+      <HelpText />
+      <AttributeDescription>TCP/IP Configuration via Stateful or Stateless AutoConfiguration</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Disabled</ValueName>
+        <ValueDisplayName>Disabled</ValueDisplayName>
+        <ValueDescription>Disabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiGenParams</GroupName>
+      <GroupDisplayName>iSCSI General Parameters</GroupDisplayName>
+      <DisplayOrder>710</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>IscsiViaDHCP</AttributeName>
+      <DisplayName>iSCSI parameters via DHCP</DisplayName>
+      <HelpText />
+      <AttributeDescription>iSCSI parameters via DHCP</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Disabled</ValueName>
+        <ValueDisplayName>Disabled</ValueDisplayName>
+        <ValueDescription>Disabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiGenParams</GroupName>
+      <GroupDisplayName>iSCSI General Parameters</GroupDisplayName>
+      <DisplayOrder>705</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>ChapAuthEnable</AttributeName>
+      <DisplayName>CHAP Authentication</DisplayName>
+      <HelpText />
+      <AttributeDescription>CHAP Authentication</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Disabled</ValueName>
+        <ValueDisplayName>Disabled</ValueDisplayName>
+        <ValueDescription>Disabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiGenParams</GroupName>
+      <GroupDisplayName>iSCSI General Parameters</GroupDisplayName>
+      <DisplayOrder>702</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>TcpTimestmp</AttributeName>
+      <DisplayName>TCP Timestamp</DisplayName>
+      <HelpText />
+      <AttributeDescription>TCP Timestamp</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Disabled</ValueName>
+        <ValueDisplayName>Disabled</ValueDisplayName>
+        <ValueDescription>Disabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiGenParams</GroupName>
+      <GroupDisplayName>iSCSI General Parameters</GroupDisplayName>
+      <DisplayOrder>708</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>IpVer</AttributeName>
+      <DisplayName>IP Version support.</DisplayName>
+      <HelpText />
+      <AttributeDescription>IP Version support.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>IPv6</ValueName>
+        <ValueDisplayName>IPv6</ValueDisplayName>
+        <ValueDescription>IPv6</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiGenParams</GroupName>
+      <GroupDisplayName>iSCSI General Parameters</GroupDisplayName>
+      <DisplayOrder>704</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>MTUParams</AttributeName>
+      <DisplayName>CNA MTU Setting</DisplayName>
+      <HelpText />
+      <AttributeDescription>CNA MTU Setting</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Per DCB Priority</ValueName>
+        <ValueDisplayName>Per DCB Priority</ValueDisplayName>
+        <ValueDescription>Per DCB Priority</ValueDescription>
+      </AttributeValue>
+      <GroupName>FCoEConfiguration</GroupName>
+      <GroupDisplayName>FCoE Configuration</GroupDisplayName>
+      <DisplayOrder>410</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>LegacyBootProto</AttributeName>
+      <DisplayName>Legacy Boot Protocol</DisplayName>
+      <HelpText />
+      <AttributeDescription>Legacy Boot Protocol</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>FCoE</ValueName>
+        <ValueDisplayName>FCoE</ValueDisplayName>
+        <ValueDescription>FCoE</ValueDescription>
+      </AttributeValue>
+      <GroupName>NICConfig</GroupName>
+      <GroupDisplayName>NIC Configuration</GroupDisplayName>
+      <DisplayOrder>1105</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>WakeOnLanLnkSpeed</AttributeName>
+      <DisplayName>WOL Link Speed**</DisplayName>
+      <HelpText />
+      <AttributeDescription>WOL Link Speed**</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>10MbpsFull</ValueName>
+        <ValueDisplayName>10MbpsFull</ValueDisplayName>
+        <ValueDescription>10MbpsFull</ValueDescription>
+      </AttributeValue>
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>100MbpsHalf</ValueName>
+        <ValueDisplayName>100MbpsHalf</ValueDisplayName>
+        <ValueDescription>100MbpsHalf</ValueDescription>
+      </AttributeValue>
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>100MbpsFull</ValueName>
+        <ValueDisplayName>100MbpsFull</ValueDisplayName>
+        <ValueDescription>100MbpsFull</ValueDescription>
+      </AttributeValue>
+      <GroupName>NICConfig</GroupName>
+      <GroupDisplayName>NIC Configuration</GroupDisplayName>
+      <DisplayOrder>1110</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FlowControlSetting</AttributeName>
+      <DisplayName>Flow Control Setting</DisplayName>
+      <HelpText />
+      <AttributeDescription>Flow Control Setting</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>RX Flow Control</ValueName>
+        <ValueDisplayName>RX Flow Control</ValueDisplayName>
+        <ValueDescription>RX Flow Control</ValueDescription>
+      </AttributeValue>
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>TX / RX Flow Control</ValueName>
+        <ValueDisplayName>TX / RX Flow Control</ValueDisplayName>
+        <ValueDescription>TX / RX Flow Control</ValueDescription>
+      </AttributeValue>
+      <GroupName>NICPartitioningConfig</GroupName>
+      <GroupDisplayName>NIC Partitioning Configuration</GroupDisplayName>
+      <DisplayOrder>1101</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>LnkSpeed</AttributeName>
+      <DisplayName>Configure link speed for Managed Boot Agent.</DisplayName>
+      <HelpText />
+      <AttributeDescription>Configure link speed for Managed Boot Agent.</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>10Mbps Full</ValueName>
+        <ValueDisplayName>10Mbps Full</ValueDisplayName>
+        <ValueDescription>10Mbps Full</ValueDescription>
+      </AttributeValue>
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>100Mbps Half</ValueName>
+        <ValueDisplayName>100Mbps Half</ValueDisplayName>
+        <ValueDescription>100Mbps Half</ValueDescription>
+      </AttributeValue>
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>100Mbps Full</ValueName>
+        <ValueDisplayName>100Mbps Full</ValueDisplayName>
+        <ValueDescription>100Mbps Full</ValueDescription>
+      </AttributeValue>
+      <GroupName>NICConfig</GroupName>
+      <GroupDisplayName>NIC Configuration</GroupDisplayName>
+      <DisplayOrder>1106</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>MTUParams</AttributeName>
+      <DisplayName>CNA MTU Setting</DisplayName>
+      <HelpText />
+      <AttributeDescription>CNA MTU Setting</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Per VLAN</ValueName>
+        <ValueDisplayName>Per VLAN</ValueDisplayName>
+        <ValueDescription>Per VLAN</ValueDescription>
+      </AttributeValue>
+      <GroupName>FCoEConfiguration</GroupName>
+      <GroupDisplayName>FCoE Configuration</GroupDisplayName>
+      <DisplayOrder>410</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>SRIOVConfigure</AttributeName>
+      <DisplayName>SRIOV Configure</DisplayName>
+      <HelpText />
+      <AttributeDescription>SRIOV Configure</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Enabled</ValueName>
+        <ValueDisplayName>Enabled</ValueDisplayName>
+        <ValueDescription>Enabled</ValueDescription>
+      </AttributeValue>
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Disabled</ValueName>
+        <ValueDisplayName>Disabled</ValueDisplayName>
+        <ValueDescription>Disabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>ConfigureForm1</GroupName>
+      <GroupDisplayName>Partition 1 Configuration</GroupDisplayName>
+      <DisplayOrder>104</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>ChapMutualAuth</AttributeName>
+      <DisplayName>CHAP Mutual Authentication</DisplayName>
+      <HelpText />
+      <AttributeDescription>CHAP Mutual Authentication</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Enabled</ValueName>
+        <ValueDisplayName>Enabled</ValueDisplayName>
+        <ValueDescription>Enabled</ValueDescription>
+      </AttributeValue>
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Disabled</ValueName>
+        <ValueDisplayName>Disabled</ValueDisplayName>
+        <ValueDescription>Disabled</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiGenParams</GroupName>
+      <GroupDisplayName>iSCSI General Parameters</GroupDisplayName>
+      <DisplayOrder>703</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>FamilyVersion</AttributeName>
+      <DisplayName>Family Version</DisplayName>
+      <HelpText />
+      <AttributeDescription>Family Version</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>FrmwImgMenu</GroupName>
+      <GroupDisplayName>Firmware Image Properties</GroupDisplayName>
+      <DisplayOrder>415</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>LegacyBootProto</AttributeName>
+      <DisplayName>Legacy Boot Protocol</DisplayName>
+      <HelpText />
+      <AttributeDescription>Legacy Boot Protocol</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>NONE</ValueName>
+        <ValueDisplayName>NONE</ValueDisplayName>
+        <ValueDescription>NONE</ValueDescription>
+      </AttributeValue>
+      <GroupName>NICConfig</GroupName>
+      <GroupDisplayName>NIC Configuration</GroupDisplayName>
+      <DisplayOrder>1105</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>ChapMutualAuth</AttributeName>
+      <DisplayName>CHAP Mutual Authentication</DisplayName>
+      <HelpText />
+      <AttributeDescription>CHAP Mutual Authentication</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>NONE</ValueName>
+        <ValueDisplayName>NONE</ValueDisplayName>
+        <ValueDescription>NONE</ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiGenParams</GroupName>
+      <GroupDisplayName>iSCSI General Parameters</GroupDisplayName>
+      <DisplayOrder>703</DisplayOrder>
+      <AttributeType>DCIM_NICEnumeration</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>LinkUpDelayTime</AttributeName>
+      <DisplayName>Link Up Delay Time</DisplayName>
+      <HelpText />
+      <AttributeDescription>Link Up Delay Time</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiGenParams</GroupName>
+      <GroupDisplayName>iSCSI General Parameters</GroupDisplayName>
+      <DisplayOrder>706</DisplayOrder>
+      <AttributeType>DCIM_NICInteger</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>SecondTgtChapPwd</AttributeName>
+      <DisplayName>CHAP Secret</DisplayName>
+      <HelpText />
+      <AttributeDescription>CHAP Secret</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName></ValueName>
+        <ValueDisplayName></ValueDisplayName>
+        <ValueDescription></ValueDescription>
+      </AttributeValue>
+      <GroupName>IscsiSecondTgtParams</GroupName>
+      <GroupDisplayName>iSCSI Second Target Parameters</GroupDisplayName>
+      <DisplayOrder>1001</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>TXBandwidthControlMaximum</AttributeName>
+      <DisplayName>TX Bandwidth Control Maximum</DisplayName>
+      <HelpText />
+      <AttributeDescription>TX Bandwidth Control Maximum</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Unavailable</ValueName>
+        <ValueDisplayName>Unavailable</ValueDisplayName>
+        <ValueDescription>Unavailable</ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1229</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+    <Attribute xsi:type="typeAttributeRoot">
+      <AttributeName>TXBandwidthControlMinimum</AttributeName>
+      <DisplayName>TX Bandwidth Control Minimum</DisplayName>
+      <HelpText />
+      <AttributeDescription>TX Bandwidth Control Minimum</AttributeDescription>
+      <ModelCorrespondence />
+      <AttributeValue xsi:type="typeValueAtomic">    
+        <ValueID />
+        <ValueName>Unavailable</ValueName>
+        <ValueDisplayName>Unavailable</ValueDisplayName>
+        <ValueDescription>Unavailable</ValueDescription>
+      </AttributeValue>
+      <GroupName>VndrConfigPage</GroupName>
+      <GroupDisplayName>Main Configuration Page</GroupDisplayName>
+      <DisplayOrder>1228</DisplayOrder>
+      <AttributeType>DCIM_NICString</AttributeType>
+    </Attribute> 
+  </REGISTRY_ENTRIES>
+</REGISTRY>

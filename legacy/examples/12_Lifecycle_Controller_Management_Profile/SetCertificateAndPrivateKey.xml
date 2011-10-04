@@ -1,0 +1,13 @@
+<p:SetCertificateAndPrivateKey_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_LCService">
+<p:Type>server</p:Type>
+<p:PKCS12>
+MIIPUQIBAzCCDxcGCSqGSIb3DQEHAaCCDwgEgg8EMIIPADCCBTcGCSqGSIb3DQEH
+BqCCBSgwggUkAgEAMIIFHQYJKoZIhvcNAQcBMBwGCiqGSIb3DQEMAQYwDgQIySf0
+.
+.
+.
+CSqGSIb3DQEJFTEWBBQQycEruoYBo9ayA3csqSZO6x70NTAxMCEwCQYFKw4DAhoF
+AAQU+yOoD76JK1t4yzDgnOE562Cv9AQECM9hIXYFEgiLAgIIAA==
+</p:PKCS12>
+<p:PKCS12pin>7654321</p:PKCS12pin>
+</p:SetCertificateAndPrivateKey_INPUT>

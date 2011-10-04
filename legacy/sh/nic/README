@@ -1,0 +1,51 @@
+# #############################################################################
+#
+#  (C) 2011 Dell Inc.  All rights reserved.
+#
+#  THIS SOFTWARE IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL, BUT IS
+#  PROVIDED "AS IS" WITHOUT ANY WARRANTY, EXPRESS, IMPLIED OR OTHERWISE,
+#  INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTY OF MERCHANTABILITY OR
+#  FITNESS FOR A PARTICULAR PURPOSE OR ANY WARRANTY REGARDING TITLE OR
+#  AGAINST INFRINGEMENT.  IN NO EVENT SHALL DELL BE LIABLE FOR ANY DIRECT,
+#  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+#  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTUTUTE GOODS OR
+#  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+#  HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+#  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+#  IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+#  POSSIBILITY OF SUCH DAMAGE.
+#
+#  This sample script is provided as an example only, and is not warranted
+#  in any way by Dell; Dell disclaims any liability in connection therewith.
+#  Dell provides no technical support with regard to content herein. For
+#  more information on libraries and tools used in this example, refer to
+#  applicable documentation
+#
+# #############################################################################
+# Version 1.0
+
+The scripts informational are held in the  
+  NOTES_LEGACY
+  NOTES_NIC
+  NOTES_SETUP
+
+NOTES_SETUP
+===========
+Sets the environment for the scripts.
+
+NOTES_NIC
+=========
+NOTES_NIC describes the process to
+  1) Set or change the values of a group of NIC attributes
+  2) Troubleshooting
+
+NOTES_LEGACY
+============
+NOTES_NIC describes the process to 
+  1) Set or change the values of the NIC attribute LegacyBootProto
+  2) Troubleshooting
+
+
+
+
+[End of Content]

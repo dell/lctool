@@ -1,0 +1,4 @@
+<p:ChangeBootOrderByInstanceID_INPUT xmlns:p="http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BootConfigSetting">
+<p:source>IPL:HardDisk.List.1-1:c9203080df84781e2ca3d512883dee6f</p:source>
+<p:source>IPL:Optical.SATAEmbedded.A-1:eb8aeb15796fb85f8e1447f0cfb8a68e</p:source>
+</p:ChangeBootOrderByInstanceID_INPUT>

@@ -1,0 +1,5 @@
+<p:ApplyAttributes_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_iDRACCardService">
+  <p:Target>iDRAC.Embedded.1</p:Target> 
+  <p:AttributeName>Users.4#UserName</p:AttributeName> 
+  <p:AttributeValue>HELLO</p:AttributeValue> 
+</p:ApplyAttributes_INPUT>

@@ -1,0 +1,7 @@
+ <p:CreatePartition_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_PersistentStorageService">
+   <p:PartitionIndex>1</p:PartitionIndex>
+   <p:Size>50</p:Size> 
+   <p:SizeUnit>1</p:SizeUnit> 
+   <p:PartitionType>2</p:PartitionType> 
+   <p:OSVolumeLabel>label3</p:OSVolumeLabel>
+</p:CreatePartition_INPUT> 

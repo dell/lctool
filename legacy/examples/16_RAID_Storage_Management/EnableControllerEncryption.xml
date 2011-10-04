@@ -1,0 +1,6 @@
+<p:EnableControllerEncryption_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_RAIDService">
+  <p:Target>RAID.Integrated.1-1</p:Target>
+    <p:Mode>1</p:Mode>
+     <p:Key>Abcd@123</p:Key>
+      <p:Keyid>LKM</p:Keyid>
+</p:EnableControllerEncryption_INPUT>  

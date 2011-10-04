@@ -1,0 +1,3 @@
+<p:UnassignSpare_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_RAIDService">
+  <p:Target>Disk.Bay.0:Enclosure.Internal.0-0:RAID.Integrated.1-1</p:Target>
+</p:UnassignSpare_INPUT>

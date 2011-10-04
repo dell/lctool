@@ -1,0 +1,4 @@
+<p:CreateConfigJob_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_LCService">
+  <p:ScheduledStartTime>TIME_NOW</p:ScheduledStartTime>
+  <p:RebootIfRequired>false</p:RebootIfRequired>
+</p:CreateConfigJob_INPUT>

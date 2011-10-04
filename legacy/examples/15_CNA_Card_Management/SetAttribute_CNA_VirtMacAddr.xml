@@ -1,0 +1,5 @@
+<p:SetAttribute_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_NICService">
+<p:Target>NIC.Integrated.1-1-2</p:Target>
+  <p:AttributeName>VirtMacAddr</p:AttributeName>
+  <p:AttributeValue>11:22:33:44:55:66</p:AttributeValue>  
+</p:SetAttribute_INPUT> 

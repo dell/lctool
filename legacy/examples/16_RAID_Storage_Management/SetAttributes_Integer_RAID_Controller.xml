@@ -1,0 +1,11 @@
+<p:SetAttributes_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_RAIDService">
+  <p:Target>RAID.Integrated.1-1</p:Target>
+  <p:AttributeName>RAIDrebuildRate</p:AttributeName>
+	<p:AttributeValue>60</p:AttributeValue>
+  <p:AttributeName>RAIDccRate</p:AttributeName>
+	<p:AttributeValue>60</p:AttributeValue>
+  <p:AttributeName>RAIDreconstructRate</p:AttributeName>
+	<p:AttributeValue>60</p:AttributeValue>
+<p:AttributeName>RAIDbgiRate</p:AttributeName>
+	<p:AttributeValue>65</p:AttributeValue>
+ </p:SetAttributes_INPUT>

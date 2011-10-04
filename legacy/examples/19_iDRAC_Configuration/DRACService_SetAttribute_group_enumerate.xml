@@ -1,0 +1,8 @@
+<p:ApplyAttributes_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_iDRACCardService">
+  <p:Target>iDRAC.Embedded.1</p:Target> 
+  <p:AttributeName>NIC.1#Enable</p:AttributeName> 
+  <p:AttributeValue>Enabled</p:AttributeValue> 
+</p:ApplyAttributes_INPUT> 
+
+
+

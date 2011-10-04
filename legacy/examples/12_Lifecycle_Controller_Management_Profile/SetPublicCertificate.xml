@@ -1,0 +1,16 @@
+<p:SetPublicCertificate_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_LCService">
+<p:Type>directoryCA</p:Type>
+<p:Certificate>
+-----BEGIN CERTIFICATE-----
+MIID9DCCA12gAwIBAgIBADANBgkqhkiG9w0BAQQFADCBszELMAkGA1UEBhMCVVMx
+CzAJBgNVBAgTAlRYMQ8wDQYDVQQHEwZBdXN0aW4xDTALBgNVBAoTBERlbGwxFjAU
+.
+.
+.
+H/ea71Ltbr/Au2QFhqcHkeUEbQ4qXSXTmDEgeKAImKjoCAaWHcDqEwvUcxGI4ekG
+LaUEGQhQIcLe+03RDp05j+YPoIv/N10OGMflhWg/lJ3EoV1Zba2tXnCp8XvCukJC
+ROncFRPIp7c=
+-----END CERTIFICATE-----
+</p:Certificate>
+
+</p:SetPublicCertificate_INPUT>

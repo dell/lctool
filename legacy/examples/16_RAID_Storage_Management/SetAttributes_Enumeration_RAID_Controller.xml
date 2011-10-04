@@ -1,0 +1,13 @@
+<p:SetAttributes_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_RAIDService">
+  <p:Target>RAID.Integrated.1-1</p:Target>
+  <p:AttributeName>RAIDloadBalancedMode</p:AttributeName>
+	<p:AttributeValue>Disabled</p:AttributeValue>
+  <p:AttributeName>RAIDBatteryLearnMode</p:AttributeName>
+	<p:AttributeValue>Warn only</p:AttributeValue>
+  <p:AttributeName>RAIDccMode</p:AttributeName>
+	<p:AttributeValue>Normal</p:AttributeValue>
+  <p:AttributeName>RAIDprMode</p:AttributeName>
+	<p:AttributeValue>Disabled</p:AttributeValue>
+  <p:AttributeName>RAIDcopybackMode</p:AttributeName>
+	<p:AttributeValue>SMART</p:AttributeValue>
+</p:SetAttributes_INPUT>

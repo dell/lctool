@@ -1,0 +1,6 @@
+<p:GetRAIDLevels_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_RAIDService">
+ <p:Target>RAID.Integrated.1-1</p:Target>
+ <p:DiskType>0</p:DiskType>
+ <p:Diskprotocol>0</p:Diskprotocol>
+ <p:DiskEncrypt>0</p:DiskEncrypt>
+</p:GetRAIDLevels_INPUT>

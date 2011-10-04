@@ -1,0 +1,4 @@
+<p:ChangeBootSourceState_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BootConfigSetting">
+  <p:EnabledState>1</p:EnabledState>
+  <p:source>IPL:HardDisk.List.1-1:c9203080df84781e2ca3d512883dee6f</p:source>
+</p:ChangeBootSourceState_INPUT>

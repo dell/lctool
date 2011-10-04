@@ -1,0 +1,7 @@
+<p:GetAvailableDisks_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_RAIDService">
+<p:Target>FQDD of the DCIM_ControllerView HERE</p:Target>
+<p:DiskType>0</p:DiskType>
+<p:Diskprotocol>0</p:Diskprotocol>
+<p:DiskEncrypt>0</p:DiskEncrypt>
+<p:Raidlevel>2</p:Raidlevel>
+</p:GetAvailableDisks_INPUT>

@@ -1,0 +1,13 @@
+<p:CheckVDValues_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_RAIDService">
+  <p:Target>RAID.Integrated.1-1</p:Target>
+  <p:PDArray>Disk.Bay.0:Enclosure.Internal.0-0:RAID.Integrated.1-1</p:PDArray>
+  <p:PDArray>Disk.Bay.1:Enclosure.Internal.0-0:RAID.Integrated.1-1</p:PDArray>
+  <p:PDArray>Disk.Bay.2:Enclosure.Internal.0-0:RAID.Integrated.1-1</p:PDArray>
+  <p:PDArray>Disk.Bay.3:Enclosure.Internal.0-0:RAID.Integrated.1-1</p:PDArray>
+  <p:VDPropNameArrayIn>Size</p:VDPropNameArrayIn>
+  <p:VDPropValueArrayIn>10000</p:VDPropValueArrayIn>
+  <p:VDPropNameArrayIn>RAIDLevel</p:VDPropNameArrayIn>
+  <p:VDPropValueArrayIn>2048</p:VDPropValueArrayIn>
+  <p:VDPropNameArrayIn>SpanDepth</p:VDPropNameArrayIn>
+  <p:VDPropValueArrayIn>1</p:VDPropValueArrayIn>
+</p:CheckVDValues_INPUT>

@@ -1,0 +1,15 @@
+<p:RequestPowerStateChange_INPUT xmlns:p="http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_PowerManagementService">
+  <p:PowerState>6</p:PowerState>
+  <p:ManagedElement xmlns:a="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:w="http://schemas.dmtf.org/wbem/wsman/1/wsman.xsd">
+    <a:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</a:Address>
+    <a:ReferenceParameters>
+      <w:ResourceURI>http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_HostComputerSystem</w:ResourceURI>
+      <w:SelectorSet>
+        <w:Selector Name="Name">srv:system</w:Selector>
+        <w:Selector Name="__cimnamespace">root/dcim</w:Selector>
+        <w:Selector Name="CreationClassName">DCIM_HostComputerSystem</w:Selector>
+      </w:SelectorSet>
+    </a:ReferenceParameters>
+  </p:ManagedElement>
+</p:RequestPowerStateChange_INPUT>
+

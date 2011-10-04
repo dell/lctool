@@ -1,0 +1,135 @@
+# #############################################################################
+#
+#  (C) 2011 Dell Inc.  All rights reserved.
+#
+#  THIS SOFTWARE IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL, BUT IS
+#  PROVIDED "AS IS" WITHOUT ANY WARRANTY, EXPRESS, IMPLIED OR OTHERWISE,
+#  INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTY OF MERCHANTABILITY OR
+#  FITNESS FOR A PARTICULAR PURPOSE OR ANY WARRANTY REGARDING TITLE OR
+#  AGAINST INFRINGEMENT.  IN NO EVENT SHALL DELL BE LIABLE FOR ANY DIRECT,
+#  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+#  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTUTUTE GOODS OR
+#  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+#  HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+#  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+#  IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+#  POSSIBILITY OF SUCH DAMAGE.
+#
+#  This sample script is provided as an example only, and is not warranted
+#  in any way by Dell; Dell disclaims any liability in connection therewith.
+#  Dell provides no technical support with regard to content herein. For
+#  more information on libraries and tools used in this example, refer to
+#  applicable documentation
+#
+# #############################################################################
+# Version 1.0
+
+REQUIREMENTS:
+=============
+The following programs are needed.
+Python 2.7
+XML-PARSER
+XML-Twig
+The desired image to be flashed must be an executable image for Windows
+
+FEATURES:
+=========
+* Issue WSMan Identify
+* Get list of Jobs
+* Schedule a Job for now or at a specified time
+* Delete all Jobs
+* List software inventory
+* Perform firmware update from URI or existing element
+* Get system time
+* Request a reboot
+
+COMPATIBILITY:
+==============
+For iDRAC 1.2 (monolithic) and 2.2 (modular) versions and earlier:
+The "Software Update" profile supports only the inventory. Hence the
+job, reboot and update scripts will not work.
+
+
+
+
+SCRIPTS INTRO:
+==============
+There are three different type of scripts.  The setup scripts (1st type)
+are scripts that setup the environment for the system the scripts will 
+run under to the idrac.  The information scripts (2nd type) monitor the
+job status and obtain information of wsman such as the wsman inventory.
+The running scripts (3rd type) are the scripts that run a desired process
+of the user such as flashing the Bios, iDRAC or other software components.
+  
+
+A) InstanceID
+   The InstanceID can be found by executing ./ws-inventory.sh.  Each numbered
+   section has properties about a held image and the currently installed image
+   version.  One of the properties is named instanceid.  The value assigned to 
+   the instanceid is the argument needed for the ./ws-updateid.sh and 
+   ws-updateid.sh.   
+
+   The process to find the InstanceID for the script ./ws-update.sh is the same
+   as the script ./ws-updateid.sh.
+   
+B) SourceURI
+   The SourceURI consists of the method of transfer, the ip address that holds
+   the image, and the image's name. 
+
+   Example SourceURI:
+       tftp://192.168.0.100/BIOS-2011.exe
+       nfs://192.168.0.100/BIOS-2011.exe;mountpoint=/pub
+       cifs://DOMAIN\\\\USER:PASS@192.168.0.100/pub/BIOS-2011.exe;mountpoint=E
+       http://192.168.0.100/BIOS-2011.exe
+       ftp://192.168.0.100/BIOS-2011.exe
+
+   
+C) RUNNING SCRIPTS:
+The scripts contained in this directory can flash any item outputted by 
+the execution of ./ws-inventory.sh. You can either do a rollback, restoring the 
+previously flashed image onto the system, or update to a different image 
+held via tftp, nfs, cifs, http, or ftp.  
+
+    STEPS to flash an image:
+    Details are in the introduction of Running Scripts. 
+    1) ./ws-inventory.sh 
+        The ws-inventory outputs the images and the images properties held
+        within the idrac.  You will need the instanceID found here for the
+        next script.  
+    2) ./ws-updateid.sh InstanceID or ./ws-update.sh InstanceID SourceURI
+
+       ./ws-updateid.sh is used to create a job to do a rollback, internally 
+       updating the image to a previous image flashed on the idrac.
+   
+       ./ws-update.sh InstanceID SourceURI is used to create a job to update 
+       the image externally by an outside source.
+   
+       The JID, Job ID number,  is outputed by the ws-updateid.sh and
+       update.sh. It is the value assigned to the InstanceID.  The JID will
+       be used to run this job in the next step. 
+
+    3) ./ws-jobnow.sh JID
+       The ws-jobnow.sh runs the job created in the previous step. 
+
+    4) ./ws-rebootnow.sh
+       A job is created to reboot the system.  The JID is collected for the
+       next step.
+
+    5) ./ws-jobnow.sh JID
+       The job using the JID obtained from ws-rebootnow.sh is executed.
+
+    6) ./ws-jobgetall.sh
+       The most recently installed image will be displayed on the top.
+
+D) Toubleshooting
+If any problems occur the following scripts can be used.
+ 
+   1) ./ws-jobclear.sh
+      All the jobs will be cleared.  Try once more to flash the image.
+   2) ./ws-jobgetall.sh
+      The status of the jobs can be viewed using the ws-jobgetall.sh script.
+   3) If you schedule for a reboot and a reboot does not occur, please try
+      logging off from your system.  
+
+
+[End of Content]
