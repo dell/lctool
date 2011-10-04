@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<REGISTRY xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.dell.com/wbem/biosattributeregistry/1 file:///C:/work/12G/Attribute%20Registry/DCIM_AttributeRegistry.xsd" xmlns="http://schemas.dell.com/wbem/biosattributeregistry/1">
+	<!-- Registry XML Generated 2011-03-25 ; input file should be in csv format -->
+	<!--Copyright(C)2010 Dell Inc.  All rights reserved-->
+	<REGISTRY_DECLARATION>
+		<IDENTIFICATION NAME="Dell Attribute Registry" VERSION="1.0.0" LANGUAGE="en"/>
+		<SPECIFICATION NAME="DCIM BIOS, Boot Management" VERSION="1.2.0"/>
+		<SPECIFICATION NAME="Simple NIC Profile, Simple RAID Profile, iDRAC Card" VERSION="1.1.0"/>
+		<CIM_SCHEMA VERSION="2.17.0"/>
+		<OWNING_ENTITY NAME="Dell"/>
+		<EDITOR EMAIL="Dell_Support@Dell.com" NAME="Dell Support" ORGANIZATION="Dell"/>
+		<DESCRIPTION>This Registry defines a representation of system hardware or firmware Attribute instances, such as BIOS or NIC Attributes, as defined by Dell.</DESCRIPTION>
+	</REGISTRY_DECLARATION>
+	<REGISTRY_ENTRIES>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>DiskCachePolicy</AttributeName>
+			<DisplayName>DiskCachePolicy</DisplayName>
+			<HelpText/>
+			<AttributeDescription>DiskCachePolicy</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName/>
+				<ValueDisplayName/>
+				<ValueDescription/>
+			</AttributeValue>
+			<GroupName/>
+			<GroupDisplayName/>
+			<DisplayOrder>301</DisplayOrder>
+			<AttributeType>DCIM_RAIDEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>Name</AttributeName>
+			<DisplayName>Name</DisplayName>
+			<HelpText/>
+			<AttributeDescription>Name</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName/>
+				<ValueDisplayName/>
+				<ValueDescription/>
+			</AttributeValue>
+			<GroupName/>
+			<GroupDisplayName/>
+			<DisplayOrder>302</DisplayOrder>
+			<AttributeType>DCIM_RAIDEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>RAIDAssetTag</AttributeName>
+			<DisplayName>RAIDAssetTag</DisplayName>
+			<HelpText/>
+			<AttributeDescription>RAIDAssetTag</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName/>
+				<ValueDisplayName/>
+				<ValueDescription/>
+			</AttributeValue>
+			<GroupName/>
+			<GroupDisplayName/>
+			<DisplayOrder>201</DisplayOrder>
+			<AttributeType>DCIM_RAIDEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>RAIDbatteryLearnMode</AttributeName>
+			<DisplayName>RAID battery Learn Mode</DisplayName>
+			<HelpText/>
+			<AttributeDescription>RAID battery Learn Mode</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName/>
+				<ValueDisplayName/>
+				<ValueDescription/>
+			</AttributeValue>
+			<GroupName/>
+			<GroupDisplayName/>
+			<DisplayOrder>101</DisplayOrder>
+			<AttributeType>DCIM_RAIDEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>RAIDbgiRate</AttributeName>
+			<DisplayName>RAIDbgiRate</DisplayName>
+			<HelpText/>
+			<AttributeDescription>RAIDbgiRate</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName/>
+				<ValueDisplayName/>
+				<ValueDescription/>
+			</AttributeValue>
+			<GroupName/>
+			<GroupDisplayName/>
+			<DisplayOrder>102</DisplayOrder>
+			<AttributeType>DCIM_RAIDEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>RAIDccMode</AttributeName>
+			<DisplayName>RAID cc Mode</DisplayName>
+			<HelpText/>
+			<AttributeDescription>RAID cc Mode</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName/>
+				<ValueDisplayName/>
+				<ValueDescription/>
+			</AttributeValue>
+			<GroupName/>
+			<GroupDisplayName/>
+			<DisplayOrder>103</DisplayOrder>
+			<AttributeType>DCIM_RAIDEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>RAIDccRate</AttributeName>
+			<DisplayName>RAID cc Rate</DisplayName>
+			<HelpText/>
+			<AttributeDescription>RAID cc Rate</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName/>
+				<ValueDisplayName/>
+				<ValueDescription/>
+			</AttributeValue>
+			<GroupName/>
+			<GroupDisplayName/>
+			<DisplayOrder>104</DisplayOrder>
+			<AttributeType>DCIM_RAIDEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>RAIDcopybackMode</AttributeName>
+			<DisplayName>RAID copyback Mode</DisplayName>
+			<HelpText/>
+			<AttributeDescription>RAID copyback Mode</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName/>
+				<ValueDisplayName/>
+				<ValueDescription/>
+			</AttributeValue>
+			<GroupName/>
+			<GroupDisplayName/>
+			<DisplayOrder>105</DisplayOrder>
+			<AttributeType>DCIM_RAIDEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>RAIDdefaultReadPolicy</AttributeName>
+			<DisplayName>RAID default Read Policy</DisplayName>
+			<HelpText/>
+			<AttributeDescription>RAID default Read Policy</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName/>
+				<ValueDisplayName/>
+				<ValueDescription/>
+			</AttributeValue>
+			<GroupName/>
+			<GroupDisplayName/>
+			<DisplayOrder>303</DisplayOrder>
+			<AttributeType>DCIM_RAIDEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>RAIDdefaultWritePolicy</AttributeName>
+			<DisplayName>RAID default Write Policy</DisplayName>
+			<HelpText/>
+			<AttributeDescription>RAID default Write Policy</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName/>
+				<ValueDisplayName/>
+				<ValueDescription/>
+			</AttributeValue>
+			<GroupName/>
+			<GroupDisplayName/>
+			<DisplayOrder>304</DisplayOrder>
+			<AttributeType>DCIM_RAIDEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>RAIDloadBalancedMode</AttributeName>
+			<DisplayName>RAID load Balanced Mode</DisplayName>
+			<HelpText/>
+			<AttributeDescription>RAID load Balanced Mode</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName/>
+				<ValueDisplayName/>
+				<ValueDescription/>
+			</AttributeValue>
+			<GroupName/>
+			<GroupDisplayName/>
+			<DisplayOrder>106</DisplayOrder>
+			<AttributeType>DCIM_RAIDEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>RAIDMaxCapableSpeed</AttributeName>
+			<DisplayName>RAID Max Capable Speed</DisplayName>
+			<HelpText/>
+			<AttributeDescription>RAID Max Capable Speed</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName/>
+				<ValueDisplayName/>
+				<ValueDescription/>
+			</AttributeValue>
+			<GroupName/>
+			<GroupDisplayName/>
+			<DisplayOrder>107</DisplayOrder>
+			<AttributeType>DCIM_RAIDEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>RAIDmaxPDsInSpan</AttributeName>
+			<DisplayName>RAIDmaxPDsInSpan</DisplayName>
+			<HelpText/>
+			<AttributeDescription>RAIDmaxPDsInSpan</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName/>
+				<ValueDisplayName/>
+				<ValueDescription/>
+			</AttributeValue>
+			<GroupName/>
+			<GroupDisplayName/>
+			<DisplayOrder>108</DisplayOrder>
+			<AttributeType>DCIM_RAIDEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>RAIDmaxSpansInVD</AttributeName>
+			<DisplayName>RAIDmaxSpansInVD</DisplayName>
+			<HelpText/>
+			<AttributeDescription>RAIDmaxSpansInVD</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName/>
+				<ValueDisplayName/>
+				<ValueDescription/>
+			</AttributeValue>
+			<GroupName/>
+			<GroupDisplayName/>
+			<DisplayOrder>109</DisplayOrder>
+			<AttributeType>DCIM_RAIDEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>RAIDmaxSupportedVD</AttributeName>
+			<DisplayName>RAIDmaxSupportedVD</DisplayName>
+			<HelpText/>
+			<AttributeDescription>RAIDmaxSupportedVD</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName/>
+				<ValueDisplayName/>
+				<ValueDescription/>
+			</AttributeValue>
+			<GroupName/>
+			<GroupDisplayName/>
+			<DisplayOrder>110</DisplayOrder>
+			<AttributeType>DCIM_RAIDEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>RAIDprMode</AttributeName>
+			<DisplayName>RAID pr Mode</DisplayName>
+			<HelpText/>
+			<AttributeDescription>RAID pr Mode</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName/>
+				<ValueDisplayName/>
+				<ValueDescription/>
+			</AttributeValue>
+			<GroupName/>
+			<GroupDisplayName/>
+			<DisplayOrder>111</DisplayOrder>
+			<AttributeType>DCIM_RAIDEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>RAIDprRate</AttributeName>
+			<DisplayName>RAID pr Rate</DisplayName>
+			<HelpText/>
+			<AttributeDescription>RAID pr Rate</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName/>
+				<ValueDisplayName/>
+				<ValueDescription/>
+			</AttributeValue>
+			<GroupName/>
+			<GroupDisplayName/>
+			<DisplayOrder>112</DisplayOrder>
+			<AttributeType>DCIM_RAIDEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>RAIDrebuildRate</AttributeName>
+			<DisplayName>RAIDrebuildRate</DisplayName>
+			<HelpText/>
+			<AttributeDescription>RAIDrebuildRate</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName/>
+				<ValueDisplayName/>
+				<ValueDescription/>
+			</AttributeValue>
+			<GroupName/>
+			<GroupDisplayName/>
+			<DisplayOrder>113</DisplayOrder>
+			<AttributeType>DCIM_RAIDEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>RAIDreconstructRate</AttributeName>
+			<DisplayName>RAIDreconstructRate</DisplayName>
+			<HelpText/>
+			<AttributeDescription>RAIDreconstructRate</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName/>
+				<ValueDisplayName/>
+				<ValueDescription/>
+			</AttributeValue>
+			<GroupName/>
+			<GroupDisplayName/>
+			<DisplayOrder>114</DisplayOrder>
+			<AttributeType>DCIM_RAIDEnumeration</AttributeType>
+		</Attribute>
+		<Attribute xsi:type="typeAttributeRoot">
+			<AttributeName>RAIDsupportedDiskProt</AttributeName>
+			<DisplayName>RAID supported Disk Prot</DisplayName>
+			<HelpText/>
+			<AttributeDescription>RAID supported Disk Prot</AttributeDescription>
+			<ModelCorrespondence/>
+			<AttributeValue xsi:type="typeValueAtomic">
+				<ValueID/>
+				<ValueName/>
+				<ValueDisplayName/>
+				<ValueDescription/>
+			</AttributeValue>
+			<GroupName/>
+			<GroupDisplayName/>
+			<DisplayOrder>115</DisplayOrder>
+			<AttributeType>DCIM_RAIDEnumeration</AttributeType>
+		</Attribute>
+	</REGISTRY_ENTRIES>
+</REGISTRY>

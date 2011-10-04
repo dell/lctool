@@ -49,10 +49,11 @@ setup(name='lcctool',
       entry_points={
         'console_scripts': [ 'lcctool = lcctool:main', ],
         'lcctool_cli_extensions': [
-            'sample = stdcli.plugins.builtin:SamplePlugin',
-            'dump-config = stdcli.plugins.builtin:DumpConfigPlugin',
+# these are only useful for testing/debugging. dont enable by default.
+#            'sample = stdcli.plugins.builtin:SamplePlugin',
+#            'dump-config = stdcli.plugins.builtin:DumpConfigPlugin',
+#            'sample-raccfg-test = lcctool.plugins.raccfg:SampleTestRacCfg',
             'raccfg = lcctool.plugins.raccfg:RacCfg',
-            'sample-raccfg-test = lcctool.plugins.raccfg:SampleTestRacCfg',
             'enumerate = lcctool.plugins.enumerate:Enumerate',
             ],
         },

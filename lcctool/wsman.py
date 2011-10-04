@@ -57,24 +57,30 @@ basic_wsman_cmd = ["wsman", "-P", "443", "-V", "-v", "-c", "dummy.cert", "-j", "
 unit_test_mode = False
 test_data_dir = ""
 
+def get_subsystems():
+    return dell_uri_list.keys()
+
 dell_uri_list = {
     "bios":  [ "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSEnumeration",
         "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSString",
         "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSinteger",],
     'nic': ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_NICAttribute"],
     'idrac': ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_iDRACCardAttribute"],
+    'raid': ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_RAIDAttribute"],
     }
 
 order_files = {
     'bios': "BIOS0.01.xml",
     'idrac':"IDRAC0.01.xml",
     'nic':  "NIC0.01.xml",
+    'raid':  "NIC0.01.xml",
     }
 
 service_names = {
     'bios':  ["BIOS", "BIOSService"],
     'nic':   ["NIC",  "NICService"],
     'idrac': ["iDRACCard", "iDRACCardService"],
+    'raid': ["RAID", "RAIDService"],
     }
 
 @traceLog()
@@ -121,6 +127,10 @@ class MockWsman(Wsman):
 
 @traceLog()
 def settings_from_ini(host, ini, setting):
+    pass
+
+@traceLog()
+def commit_settings(host, setting):
     pass
 
 @traceLog()
