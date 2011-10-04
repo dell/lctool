@@ -171,7 +171,8 @@ def add_options_to_ini(ini, wsman_xml, setting):
         if not ini.has_section(fqdd):
             ini.add_section(fqdd)
         ini.set(fqdd, name, value)
-        ini.set("breadcrumbs", setting, section_list.keys())
+        for section in section_list.keys():
+            ini.set("breadcrumbs", section, setting)
 
 # Take the XML which has the ordering of Attributes and extract the order
 # apparently unused, need to remove at the end if we dont end up using this
