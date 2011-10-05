@@ -30,7 +30,6 @@ import os
 import re
 import sys
 import copy
-import xml.dom.minidom
 import ConfigParser
 
 from stdcli.trace_decorator import traceLog, getLog
@@ -38,6 +37,42 @@ from stdcli.pycompat import call_output
 
 moduleLog = getLog()
 moduleVerboseLog = getLog(prefix="verbose.")
+
+#The ultra-compatible way to import lxml
+# yes. it is gross.
+try:
+  from lxml import etree
+  moduleVerboseLog.debug("running with lxml.etree")
+except ImportError:
+  try:
+    # Python 2.5
+    import xml.etree.cElementTree as etree
+    moduleVerboseLog.debug("running with cElementTree on Python 2.5+")
+  except ImportError:
+    try:
+      # Python 2.5
+      import xml.etree.ElementTree as etree
+      moduleVerboseLog.debug("running with ElementTree on Python 2.5+")
+    except ImportError:
+      try:
+        # normal cElementTree install
+        import cElementTree as etree
+        moduleVerboseLog.debug("running with cElementTree")
+      except ImportError:
+        try:
+          # normal ElementTree install
+          import elementtree.ElementTree as etree
+          moduleVerboseLog.debug("running with ElementTree")
+        except ImportError:
+          moduleVerboseLog.debug("Failed to import ElementTree from any known place")
+          raise
+
+try:
+    register_namespace = etree.register_namespace
+except AttributeError:
+    def register_namespace(prefix, uri):
+        etree._namespace_map[uri] = prefix
+
 
 basic_wsman_cmd = ["wsman", "-P", "443", "-V", "-v", "-c", "dummy.cert", "-j", "utf-8", "-y", "basic", "-o", "-m", "512"]
 
@@ -57,30 +92,43 @@ basic_wsman_cmd = ["wsman", "-P", "443", "-V", "-v", "-c", "dummy.cert", "-j", "
 unit_test_mode = False
 test_data_dir = ""
 
+std_xml_namespaces = {
+    "soap":  "http://www.w3.org/2003/05/soap-envelope",
+    "wsen":  "http://schemas.xmlsoap.org/ws/2004/09/enumeration",
+    "wsman": "http://schemas.dmtf.org/wbem/wsman/1/wsman.xsd",
+    "xsi":   "http://www.w3.org/2001/XMLSchema-instance",
+
+    'raid_attr': "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_RAIDAttribute",
+    'idrac_attr':"http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_iDRACCardAttribute",
+    'nic_attr':  "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_NICAttribute",
+    'bios_enum': "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSEnumeration",
+    'bios_str':  "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSString",
+    'bios_int':  "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSinteger",
+
+    'bios_srv': "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSService",
+    'nic_srv':  "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_NICService",
+    'idrac_srv':"http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_iDRACCardService",
+    'raid_srv': "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_RAIDService",
+    'lc_srv': "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_LCService",
+
+    'lc_job': "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_LifecycleJob",
+    }
+
 def get_subsystems():
     return dell_schema_list.keys()
 
 dell_schema_list = {
-    "bios":  [ "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSEnumeration",
-        "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSString",
-        "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSinteger",],
-    'nic': ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_NICAttribute"],
-    'idrac': ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_iDRACCardAttribute"],
-    'raid': ["http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_RAIDAttribute"],
-    }
-
-order_files = {
-    'bios': "BIOS0.01.xml",
-    'idrac':"IDRAC0.01.xml",
-    'nic':  "NIC0.01.xml",
-    'raid':  "NIC0.01.xml",
+    "bios":  [ std_xml_namespaces["bios_enum"], std_xml_namespaces["bios_str"], std_xml_namespaces["bios_int"], ],
+    'nic': [ std_xml_namespaces["nic_attr"] ],
+    'idrac': [ std_xml_namespaces["idrac_attr"] ],
+    'raid': [ std_xml_namespaces["raid_attr"] ],
     }
 
 service_names = {
-    'bios':  ["BIOS", "BIOSService"],
-    'nic':   ["NIC",  "NICService"],
-    'idrac': ["iDRACCard", "iDRACCardService"],
-    'raid': ["RAID", "RAIDService"],
+    'bios':  { "set_elem": "SetAttributes_INPUT", "ns": std_xml_namespaces['bios_srv'],},
+    'nic':   { "set_elem": "SetAttributes_INPUT", "ns": std_xml_namespaces['nic_srv'],},
+    'idrac': { "set_elem": "ApplyAttributes_INPUT", "ns": std_xml_namespaces['idrac_srv'],},
+    'raid':  { "set_elem": "SetAttributes_INPUT", "ns": std_xml_namespaces['raid_srv'],},
     }
 
 @traceLog()
@@ -93,129 +141,103 @@ def wsman_factory(*args, **kargs):
 class Wsman(object):
     def __init__(self, host):
         self.host = host
-        opts = { "-h": self.get_host, "-u": self.get_user, "-p": self.get_password }
+        opts = { "-h": self._get_host, "-u": self._get_user, "-p": self._get_password }
         self.wsman_cmd = copy.copy(basic_wsman_cmd)
         for k,v in opts.items():
             if v() is not None:
                 self.wsman_cmd.extend([k,v()])
 
-    def get_host(self):
+    def _get_host(self):
         return self.host.get("host", None)
 
-    def get_user(self):
+    def _get_user(self):
         return self.host.get("user", None)
 
-    def get_password(self):
+    def _get_password(self):
         return self.host.get("password", None)
 
-    def get_xml_for_schema(self, schema_list):
+    def enumerate(self, schema_list, filter=None):
         for schema in schema_list:
             moduleLog.info("retrieving info for schema: %s" % schema)
             yield call_output( self.wsman_cmd + ["enumerate", schema], raise_exc=False )
+
+    def invoke(self, schema, *args, **kargs):
+        pass
+
+    def get(self, schema_list, *args, **kargs):
+        pass
+
 
 class MockWsman(Wsman):
     def makesafe(self, pth):
         p = re.compile( '[^a-zA-Z0-9]')
         return p.sub( '_', pth)
 
-    def get_xml_for_schema(self, schema_list):
+    def enumerate(self, schema_list):
         for schema in schema_list:
-            xml_file = open(os.path.join(test_data_dir, self.makesafe(self.get_host()), self.makesafe(schema)), "r")
+            xml_file = open(os.path.join(test_data_dir, self.makesafe(self._get_host()), self.makesafe(schema)), "r")
             xml_str = xml_file.read()
             xml_file.close()
             yield xml_str
-
-@traceLog()
-def settings_from_ini(host, ini):
-    pass
 
 @traceLog()
 def commit_settings(host, setting):
     pass
 
 @traceLog()
+def settings_from_ini(host, ini):
+    wsman = wsman_factory(host)
+    for section in ini.sections():
+        if not ini.has_option("main", section):
+            continue
+        moduleLog.info("processing %s" % section)
+        subsys = ini.get("main", section)
+        ns = service_names[subsys]["ns"]
+        set_elem = service_names[subsys]["set_elem"]
+        root = etree.Element("{%s}%s" % (ns, set_elem))
+        for opt in ini.options(section):
+            etree.SubElement(root, "{%s}Target" % ns).text = section
+            etree.SubElement(root, "{%s}AttributeName" % ns).text = opt
+            etree.SubElement(root, "{%s}AttributeValue" % ns).text = ini.get(section, opt)
+
+        wsman.invoke(ns, input_xml=root)
+
+
+@traceLog()
 def stuff_xml_into_ini(host, ini, setting):
     # run each wsman command in turn, and add the info to the INI object
     schema_list = dell_schema_list[setting]
     wsman = wsman_factory(host)
-    if not ini.has_section("breadcrumbs"):
-        ini.add_section("breadcrumbs")
-    for wsman_xml in wsman.get_xml_for_schema(schema_list):
+    for wsman_xml in wsman.enumerate(schema_list):
         add_options_to_ini(ini, wsman_xml, setting)
 
 
 # Create the ini file for BIOS or NIC by parsing the XML file from wsman
 @traceLog()
 def add_options_to_ini(ini, wsman_xml, setting):
-    iniDict = {}
-    DOMTree = xml.dom.minidom.parseString(wsman_xml)
-    item_list = DOMTree.documentElement.getElementsByTagNameNS('*', 'Items')[0]
-    element_node_type = xml.dom.minidom.Node.ELEMENT_NODE
-
+    root = etree.fromstring(wsman_xml)
     section_list = {}
 
     # iterate over all <Items> sub elements, we dont know what their names are
-    for elem in [ e for e in item_list.childNodes if e.nodeType == element_node_type]:
-        name  = getNodeText(elem.getElementsByTagNameNS('*', 'AttributeName')[0])
-        fqdd  = getNodeText(elem.getElementsByTagNameNS('*', 'FQDD')[0])
-        value = getNodeText(elem.getElementsByTagNameNS('*', 'CurrentValue')[0])
+    for item_list in  root.iter("{%(wsman)s}Items" % std_xml_namespaces):
+      for elem in list(item_list):
+        ns = elem.tag.split("}")[0][1:]
+        name = elem.find("{%s}AttributeName" % ns).text
+        fqdd = elem.find("{%s}FQDD" % ns).text
+        value = elem.find("{%s}CurrentValue" % ns).text
+
         moduleVerboseLog.info("Processing element: %s" % name)
 
-        # something peculiar to idrac, no idea what at this point
-        # just emulating old behaviour for now
-        grpid = elem.getElementsByTagNameNS('*', 'GroupID')
+        # something peculiar to idrac
+        grpid = elem.find('{%s}GroupID' % ns)
         if grpid:
-            name = getNodeText(grpid[0]) + "#" + name
+            name = grpid.text + "#" + name
 
         section_list[fqdd] = None
         if not ini.has_section(fqdd):
             ini.add_section(fqdd)
         ini.set(fqdd, name, value)
-        for section in section_list.keys():
-            ini.set("breadcrumbs", section, setting)
 
-
-
-
-
-
-
-# HELPER FUNCTIONS FOR PARSING XML BELOW
-def getText(nodelist):
-    rc = ""
-    if nodelist is not None:
-        for node in nodelist:
-            if node.nodeType == node.TEXT_NODE:
-                rc = rc + node.data
-    return rc
-
-def getNodeText( node, *args ):
-    rc = ""
-    node = getNodeElement(node, *args)
-    if node is not None:
-        rc = getText( node.childNodes )
-    return rc
-
-def getNodeElement( node, *args ):
-    if len(args) == 0:
-        return node
-
-    if node is not None:
-        for search in node.childNodes:
-            if isinstance(args[0], types.StringTypes):
-                if search.nodeName == args[0]:
-                    candidate = getNodeElement( search, *args[1:] )
-                    if candidate is not None:
-                        return candidate
-            else:
-                if search.nodeName == args[0][0]:
-                    attrHash = args[0][1]
-                    found = 1
-                    for (key, value) in attrHash.items():
-                        if search.getAttribute( key ) != value:
-                            found = 0
-                    if found:
-                        candidate = getNodeElement( search, *args[1:] )
-                        if candidate is not None:
-                            return candidate
+    for section in section_list.keys():
+        ini.set("main", section, setting)
 

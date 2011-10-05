@@ -71,11 +71,14 @@ class Enumerate(Plugin):
     @traceLog()
     def enumerateCtl(self, ctx):
         if not ctx.args.subsystems:
-            moduleLog.warning("No subsystems given to enumerate! See --with-settings-for option for details.")
+            moduleLog.warning("No subsystems given to enumerate! See --subsystem option for details.")
 
         for host in ctx.raccfg.iterSpecfiedRacs():
             ini = ConfigParser.ConfigParser()
             ini.optionxform = str # need to be case sensitive
+            # save host name in INI
+            ini.add_section("main")
+            ini.set("main", "host", host["host"])
 
             for enum in ctx.args.subsystems:
                 lcctool.wsman.stuff_xml_into_ini(host, ini, enum)
@@ -94,7 +97,7 @@ class Enumerate(Plugin):
             ini = ConfigParser.ConfigParser()
             ini.optionxform = str # need to be case sensitive
             ini.readfp(infile)
-            ini.close()
+            infile.close()
 
             lcctool.wsman.settings_from_ini(host, ini)
 
