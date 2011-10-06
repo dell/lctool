@@ -94,11 +94,14 @@ unit_test_mode = False
 test_data_dir = ""
 
 std_xml_namespaces = {
+    # standards based namespaces we will be working with
     "soap":  "http://www.w3.org/2003/05/soap-envelope",
     "wsen":  "http://schemas.xmlsoap.org/ws/2004/09/enumeration",
     "wsman": "http://schemas.dmtf.org/wbem/wsman/1/wsman.xsd",
+    "wsa":   "http://schemas.xmlsoap.org/ws/2004/08/addressing",
     "xsi":   "http://www.w3.org/2001/XMLSchema-instance",
 
+    # configuration namespaces
     'raid_attr': "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_RAIDAttribute",
     'idrac_attr':"http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_iDRACCardAttribute",
     'nic_attr':  "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_NICAttribute",
@@ -106,12 +109,14 @@ std_xml_namespaces = {
     'bios_str':  "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSString",
     'bios_int':  "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSinteger",
 
+    # service namespaces
     'bios_srv': "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSService",
     'nic_srv':  "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_NICService",
     'idrac_srv':"http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_iDRACCardService",
     'raid_srv': "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_RAIDService",
     'lc_srv': "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_LCService",
 
+    # lifecycle controller misc
     'lc_job': "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_LifecycleJob",
     }
 
@@ -172,13 +177,12 @@ class Wsman(object):
             os.close(fd)
             wsman_cmd.extend(["-J", fn])
 
-        wsman_cmd.extend(["invoke", "-a", cmd, schema])
-        print "REPR: %s" % wsman_cmd
-        print "JOIN: %s" % " ".join(wsman_cmd)
-
-#        if input_xml:
-#            os.unlink(fn)
-
+        try:
+            wsman_cmd.extend(["invoke", "-a", cmd, schema])
+            return call_output(wsman_cmd, raise_exc=False)
+        finally:
+            if input_xml:
+                os.unlink(fn)
 
     def get(self, schema_list, *args, **kargs):
         pass
@@ -196,8 +200,12 @@ class MockWsman(Wsman):
             xml_file.close()
             yield xml_str
 
-    def invoke(self, *args, **kargs):
-        pass
+    def invoke(self, schema, cmd, input_xml, *args, **kargs):
+        # probably ought to have some sort of callback registered so that unit test framework can inspect the input_xml
+        xml_file = open(os.path.join(test_data_dir, self.makesafe(self._get_host()), cmd + "_" + self.makesafe(schema)), "r")
+        xml_str = xml_file.read()
+        xml_file.close()
+        return xml_str
 
     def get(self, *args, **kargs):
         pass
@@ -209,6 +217,7 @@ def commit_settings(host, setting):
 @traceLog()
 def settings_from_ini(host, ini):
     wsman = wsman_factory(host)
+    instance_ids = []
     for section in ini.sections():
         if not ini.has_option("main", section):
             continue
@@ -222,8 +231,20 @@ def settings_from_ini(host, ini):
             etree.SubElement(root, "{%s}AttributeName" % ns).text = opt
             etree.SubElement(root, "{%s}AttributeValue" % ns).text = ini.get(section, opt)
 
-        wsman.invoke(service_names[subsys]["invoke_url"], set_elem, input_xml=root)
+        ret_xml = wsman.invoke(service_names[subsys]["invoke_url"], set_elem, input_xml=root)
+        instance_ids.extend(parse_instance_ids(ret_xml))
+    return instance_ids, ret_xml
 
+
+@traceLog()
+def parse_instance_ids(xml):
+    root = etree.fromstring(xml)
+    # std_xml_namespaces["wsa"]
+    ids = []
+    for selector in  root.iter("{%(wsman)s}Selector" % std_xml_namespaces):
+        if selector.get("Name", None) == "InstanceID":
+            ids.append(selector.text)
+    return ids
 
 @traceLog()
 def stuff_xml_into_ini(host, ini, setting):

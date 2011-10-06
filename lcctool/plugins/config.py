@@ -58,19 +58,34 @@ class Config(Plugin):
         p.add_argument('--output', '-O', action="store", dest="output_filename", default=default_filename, help=_("Change the name of the default filename for saving settings. Use '-' to display on stdout. (Default: %(default)s)"))
         p.add_argument('--subsystem', action="append", dest="subsystems", choices=lcctool.wsman.get_subsystems(), default=[], help=_("List of the different subsystems to dump settings. May be specified multiple times."))
         p.add_argument('--all-subsystems', action="store_const", dest="subsystems", const=lcctool.wsman.get_subsystems(), help=_("Dump settings for all subsystems."))
+        p.add_argument('--unit-test', action="store", dest="unit_test", default=None, help=_("Run in unit test mode."))
         p.set_defaults(func=self.getConfig)
 
         # apply settings from an INI file
         p = ctx.subparsers.add_parser("stage-config", help=_("Stage system settings using values from an INI file."))
         p.add_argument('--input', '-O', action="store", dest="input_filename", default=default_filename, help=_("Change the name of the input INI file (Default: %(default)s)."))
         p.add_argument('--now',    action="store_const", const="now",    dest="flag", help=_("Commit changes after successful staging. THIS WILL REBOOT THE SERVER."))
+        p.add_argument('--unit-test', action="store", dest="unit_test", default=None, help=_("Run in unit test mode."))
         p.set_defaults(func=self.stageConfig)
 
         p = ctx.subparsers.add_parser("commit-config", help=_("Commit previously staged attributes. THIS WILL REBOOT THE SERVER."))
         p.add_argument('--subsystem', action="append", dest="subsystems", choices=lcctool.wsman.get_subsystems(), default=[], help=_("List of the different subsystems to dump settings. May be specified multiple times."))
         p.add_argument('--all-subsystems', action="store_const", dest="subsystems", const=lcctool.wsman.get_subsystems(), help=_("Dump settings for all subsystems."))
+        p.add_argument('--unit-test', action="store", dest="unit_test", default=None, help=_("Run in unit test mode."))
         p.set_defaults(func=self.commit)
 
+        # apply settings from an INI file
+        p = ctx.subparsers.add_parser("set", help=_("Stage system settings using CLI options."))
+        p.add_argument('--now',    action="store_const", const="now",    dest="flag", help=_("Commit changes after successful staging. THIS WILL REBOOT THE SERVER."))
+        p.add_argument('--unit-test', action="store", dest="unit_test", default=None, help=_("Run in unit test mode."))
+        p.set_defaults(func=self.setConfig)
+
+
+    @traceLog()
+    def finishedCliParsing(self, ctx):
+        if hasattr(ctx.args, "unit_test") and ctx.args.unit_test:
+            lcctool.wsman.unit_test_mode = True
+            lcctool.wsman.test_data_dir = ctx.args.unit_test
 
     @traceLog()
     def getConfig(self, ctx):
@@ -103,7 +118,12 @@ class Config(Plugin):
             ini.readfp(infile)
             infile.close()
 
-            lcctool.wsman.settings_from_ini(host, ini)
+            job_ids, ret_xml = lcctool.wsman.settings_from_ini(host, ini)
+
+            if len(job_ids) > 1:
+                moduleLog.info("Some settings were queued for immediate commit in config job IDs: %s" % job_ids)
+            if len(job_ids) == 1:
+                moduleLog.info("Some settings were queued for immediate commit in config job ID: %s" % job_ids[0])
 
         if ctx.args.flag in ("set", "now"):
             self.commit(ctx)
