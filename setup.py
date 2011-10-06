@@ -54,7 +54,7 @@ setup(name='lcctool',
 #            'dump-config = stdcli.plugins.builtin:DumpConfigPlugin',
 #            'sample-raccfg-test = lcctool.plugins.raccfg:SampleTestRacCfg',
             'raccfg = lcctool.plugins.raccfg:RacCfg',
-            'enumerate = lcctool.plugins.enumerate:Enumerate',
+            'enumerate = lcctool.plugins.config:Config',
             ],
         },
       )

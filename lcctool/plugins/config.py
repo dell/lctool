@@ -44,34 +44,34 @@ _ = lcctool._
 
 default_filename = "config-%(host)s.ini"
 
-class Enumerate(Plugin):
+class Config(Plugin):
     @traceLog()
     def __init__(self, ctx):
         moduleVerboseLog.debug("initializing plugin: %s" % self.__class__.__name__)
 
         # enumerate into an INI file or stdout
-        p = ctx.subparsers.add_parser("generate-ini", help=_("Query target system settings and save in an INI-style file."))
+        p = ctx.subparsers.add_parser("get-config", help=_("Query target system settings and save in an INI-style file."))
         p.add_argument('--output', '-O', action="store", dest="output_filename", default=default_filename, help=_("Change the name of the default filename for saving settings. Use '-' to display on stdout. (Default: %(default)s)"))
         p.add_argument('--subsystem', action="append", dest="subsystems", choices=lcctool.wsman.get_subsystems(), default=[], help=_("List of the different subsystems to dump settings. May be specified multiple times."))
         p.add_argument('--all-subsystems', action="store_const", dest="subsystems", const=lcctool.wsman.get_subsystems(), help=_("Dump settings for all subsystems."))
-        p.set_defaults(func=self.enumerateCtl)
+        p.set_defaults(func=self.getConfig)
 
         # apply settings from an INI file
-        p = ctx.subparsers.add_parser("stage-from-ini", help=_("Stage system settings using values from an INI file."))
+        p = ctx.subparsers.add_parser("stage-config", help=_("Stage system settings using values from an INI file."))
         p.add_argument('--input', '-O', action="store", dest="input_filename", default=default_filename, help=_("Change the name of the input INI file (Default: %(default)s)."))
         p.add_argument('--now',    action="store_const", const="now",    dest="flag", help=_("Commit changes after successful staging. THIS WILL REBOOT THE SERVER."))
-        p.set_defaults(func=self.stageCtl)
+        p.set_defaults(func=self.stageConfig)
 
-        p = ctx.subparsers.add_parser("commit", help=_("Commit previously staged attributes. THIS WILL REBOOT THE SERVER."))
+        p = ctx.subparsers.add_parser("commit-config", help=_("Commit previously staged attributes. THIS WILL REBOOT THE SERVER."))
         p.add_argument('--subsystem', action="append", dest="subsystems", choices=lcctool.wsman.get_subsystems(), default=[], help=_("List of the different subsystems to dump settings. May be specified multiple times."))
         p.add_argument('--all-subsystems', action="store_const", dest="subsystems", const=lcctool.wsman.get_subsystems(), help=_("Dump settings for all subsystems."))
-        p.set_defaults(func=self.commitCtl)
+        p.set_defaults(func=self.commit)
 
 
     @traceLog()
-    def enumerateCtl(self, ctx):
+    def getConfig(self, ctx):
         if not ctx.args.subsystems:
-            moduleLog.warning("No subsystems given to enumerate! See --subsystem option for details.")
+            moduleLog.warning("No subsystems specified! See the --subsystem option for details.")
 
         for host in ctx.raccfg.iterSpecfiedRacs():
             ini = ConfigParser.ConfigParser()
@@ -91,7 +91,7 @@ class Enumerate(Plugin):
                 outfile.close()
 
     @traceLog()
-    def stageCtl(self, ctx):
+    def stageConfig(self, ctx):
         for host in ctx.raccfg.iterSpecfiedRacs():
             infile = open(ctx.args.input_filename % { "host": host["host"] }, "r")
             ini = ConfigParser.ConfigParser()
@@ -102,10 +102,10 @@ class Enumerate(Plugin):
             lcctool.wsman.settings_from_ini(host, ini)
 
         if ctx.args.flag in ("set", "now"):
-            self.commitCtl(ctx)
+            self.commit(ctx)
 
     @traceLog()
-    def commitCtl(self, ctx):
+    def commit(self, ctx):
         for host in ctx.raccfg.iterSpecfiedRacs():
             for enum in ctx.args.subsystems:
                 lcctool.wsman.commit_settings(host, enum)

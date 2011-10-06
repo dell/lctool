@@ -30,6 +30,7 @@ import os
 import re
 import sys
 import copy
+import tempfile
 import ConfigParser
 
 from stdcli.trace_decorator import traceLog, getLog
@@ -124,11 +125,13 @@ dell_schema_list = {
     'raid': [ std_xml_namespaces["raid_attr"] ],
     }
 
+_urlpart = "%(ns)s?SystemCreationClassName=DCIM_ComputerSystem,CreationClassName=DCIM_%(service)sService,SystemName=DCIM:ComputerSystem,Name=DCIM:%(service)sService"
+
 service_names = {
-    'bios':  { "set_elem": "SetAttributes_INPUT", "ns": std_xml_namespaces['bios_srv'],},
-    'nic':   { "set_elem": "SetAttributes_INPUT", "ns": std_xml_namespaces['nic_srv'],},
-    'idrac': { "set_elem": "ApplyAttributes_INPUT", "ns": std_xml_namespaces['idrac_srv'],},
-    'raid':  { "set_elem": "SetAttributes_INPUT", "ns": std_xml_namespaces['raid_srv'],},
+    'bios':  {"set_elem": "SetAttributes",   "ns": std_xml_namespaces['bios_srv'], "invoke_url": _urlpart % {"service": "BIOS", "ns": std_xml_namespaces['bios_srv']},},
+    'nic':   {"set_elem": "SetAttributes",   "ns": std_xml_namespaces['nic_srv'],  "invoke_url": _urlpart % {"service": "NIC", "ns": std_xml_namespaces['nic_srv']},},
+    'idrac': {"set_elem": "ApplyAttributes", "ns": std_xml_namespaces['idrac_srv'],"invoke_url": _urlpart % {"service": "iDRACCard", "ns": std_xml_namespaces['idrac_srv']},},
+    'raid':  {"set_elem": "SetAttributes",   "ns": std_xml_namespaces['raid_srv'], "invoke_url": _urlpart % {"service": "RAID", "ns": std_xml_namespaces['raid_srv']},},
     }
 
 @traceLog()
@@ -161,8 +164,21 @@ class Wsman(object):
             moduleLog.info("retrieving info for schema: %s" % schema)
             yield call_output( self.wsman_cmd + ["enumerate", schema], raise_exc=False )
 
-    def invoke(self, schema, *args, **kargs):
-        pass
+    def invoke(self, schema, cmd, input_xml, *args, **kargs):
+        wsman_cmd = copy.copy(self.wsman_cmd)
+        if input_xml:
+            fd, fn = tempfile.mkstemp(suffix=".xml")
+            os.write(fd, etree.tostring(input_xml))
+            os.close(fd)
+            wsman_cmd.extend(["-J", fn])
+
+        wsman_cmd.extend(["invoke", "-a", cmd, schema])
+        print "REPR: %s" % wsman_cmd
+        print "JOIN: %s" % " ".join(wsman_cmd)
+
+#        if input_xml:
+#            os.unlink(fn)
+
 
     def get(self, schema_list, *args, **kargs):
         pass
@@ -180,6 +196,12 @@ class MockWsman(Wsman):
             xml_file.close()
             yield xml_str
 
+    def invoke(self, *args, **kargs):
+        pass
+
+    def get(self, *args, **kargs):
+        pass
+
 @traceLog()
 def commit_settings(host, setting):
     pass
@@ -194,13 +216,13 @@ def settings_from_ini(host, ini):
         subsys = ini.get("main", section)
         ns = service_names[subsys]["ns"]
         set_elem = service_names[subsys]["set_elem"]
-        root = etree.Element("{%s}%s" % (ns, set_elem))
+        root = etree.Element("{%s}%s_INPUT" % (ns, set_elem))
         for opt in ini.options(section):
             etree.SubElement(root, "{%s}Target" % ns).text = section
             etree.SubElement(root, "{%s}AttributeName" % ns).text = opt
             etree.SubElement(root, "{%s}AttributeValue" % ns).text = ini.get(section, opt)
 
-        wsman.invoke(ns, input_xml=root)
+        wsman.invoke(service_names[subsys]["invoke_url"], set_elem, input_xml=root)
 
 
 @traceLog()
@@ -230,7 +252,7 @@ def add_options_to_ini(ini, wsman_xml, setting):
 
         # something peculiar to idrac
         grpid = elem.find('{%s}GroupID' % ns)
-        if grpid:
+        if grpid is not None:
             name = grpid.text + "#" + name
 
         section_list[fqdd] = None
