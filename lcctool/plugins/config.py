@@ -26,9 +26,13 @@
 
 import os
 import sys
-import argparse
 import ConfigParser
 import pkg_resources
+
+try:
+    import argparse
+except (ImportError,), e:
+    import stdcli.argparse as argparse
 
 import lcctool
 from stdcli.trace_decorator import traceLog, getLog
