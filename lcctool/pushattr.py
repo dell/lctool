@@ -69,35 +69,6 @@ class CNARunner:
       tempOrderedList = config
       jobs = []
       if len(config) >= 1:
-        # now
-        # set
-        if (self.flagSet == "set" || self.flagSet == "now"):
-          print "\n"
-          print "Now setting attributes..."
-          print "\n"
-          for nic in tempOrderedList:
-            attNames = config[nic][0]
-            attValues = config[nic][1]
-            f = self.setNICAttributes(nic, attNames, attValues, service, self.settings)
-            if (self.settings == "idrac"):
-              command = "wsman invoke -a ApplyAttributes http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_" + service + "Service?SystemCreationClassName=DCIM_ComputerSystem,CreationClassName=DCIM_" + service + "Service,SystemName=DCIM:ComputerSystem,Name=DCIM:" + service + "Service -J " + f.name + " -h " + self.idracIp + " -P 443 -u " + self.idracUser + " -p " + self.idracPass + " -V -v -c dummy.cert -j utf-8 -y basic -m 512 -O AttList.xml"
-              msg_string = "ApplyAttributes_OUTPUT"
-              tmpList2 = self.runCommand(command)
-              outlines = open('AttList.xml', 'U').readlines()
-              idrac_job = self.parseInstanceID(outlines)
-              if idrac_job != None:
-                print "Config job id:" + idrac_job + " for:" + nic + " has been created."
-                jobs.append(idrac_job)
-            else:
-              command = "wsman invoke -a SetAttributes http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_" + service + "Service?SystemCreationClassName=DCIM_ComputerSystem,CreationClassName=DCIM_" + service + "Service,SystemName=DCIM:ComputerSystem,Name=DCIM:" + service + "Service -J " + f.name + " -h " + self.idracIp + " -P 443 -u " + self.idracUser + " -p " + self.idracPass + " -V -v -c dummy.cert -j utf-8 -y basic -m 512 -O AttList.xml"
-              msg_string = "SetAttributes_OUTPUT"
-              tmpList2 = self.runCommand(command)
-
-            self.msgOutput(nic, msg_string)
-          print "\n"
-
-        # commit
-        # now
         if (self.flagSet != "Set" and self.settings != "idrac"):
           jobs = []
           count = 0
@@ -288,25 +259,6 @@ class CNARunner:
         r = self.runCommand(command)
         return r
         
-    def parseInstanceID(self, data):  # Return string following InstanceID in the given data.
-        ''' Pull the instance id from the given data.
-        >>> print wsman().parseInstanceID(["blah", "blah", "                Selector: InstanceID = JID_001247818173, __cimnamespace ", "blah"])
-        JID_001247818173
-        '''
-        if type("") == type(data):
-            data = data.split("\n")
-            
-        if type([]) == type(data):
-            marker = "InstanceID"
-            for l in data:
-                ndx = l.find(marker)
-                if not -1 == ndx:
-                    ndx2 = l[(ndx + 2 + len(marker)):].find("<")
-                    if -1 == ndx2:
-                        return None
-                    else:
-                        return l[(ndx + 2 + len(marker)):((ndx + 2 + len(marker)) + ndx2)]
-        return None
       
     # Gets the RSSTATUS from the LC after the Job is complete and reboot starts.
 
@@ -397,40 +349,6 @@ class CNARunner:
                                                 
         return None
       
-    # Go through the output of Set Attributs and print the error messages
-    def msgOutput(self, fqdd, msg_string):
-
-       DOMTree = xml.dom.minidom.parse("AttList.xml")
-       root_elem = DOMTree.documentElement
-
-       attoutput_tag = root_elem.getElementsByTagNameNS('*', msg_string)
-       if len(attoutput_tag) == 0:
-         print "No Attributes To Set. Exiting the Program"
-         sys.exit(-1)
-
-       # Get the Namespace prefix and use that to get output data
-
-       for attr_out in attoutput_tag:
-         prefix = attr_out.prefix
-
-         msglist  = root_elem.getElementsByTagName(prefix + ':Message')
-         msgargslist  = root_elem.getElementsByTagName(prefix + ':MessageArguments')
-         msgidlist    = root_elem.getElementsByTagName(prefix + ':MessageID')
-
-         if len(msgargslist) == 0: 
-           print "No Attributes To Set. Exiting the Program"
-           sys.exit(-1)
-
-         print fqdd
-         i = 0
-         marker = " success"
-         for msgid in msgidlist:
-            l =  msglist[i].childNodes[0].data
-            ndx = l.find(marker)
-            if -1 == ndx:
-               print "   " + msgid.childNodes[0].data + ":" + msglist[i].childNodes[0].data
-            i = i + 1
-  
 
     def parseConfig(self, masterConfig):
       '''
