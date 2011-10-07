@@ -44,7 +44,7 @@ setup(name='lcctool',
       package_data = { 'lcctool': ['pkg/lcctool.ini',] },
       zip_safe=False,
       install_requires=[
-          # -*- Extra requirements: -*-
+          "stdcli >= 0.9.1",
       ],
       entry_points={
         'console_scripts': [ 'lcctool = lcctool:main', ],
