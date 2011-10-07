@@ -61,8 +61,13 @@ class MockWsman(lcctool.BaseWsman):
     def invoke(self, schema, cmd, input_xml, *args, **kargs):
         # probably ought to have some sort of callback registered so that unit test framework can inspect the input_xml
         xml_file = open(os.path.join(self.test_data_dir, self.makesafe(self.get_host()), cmd + "_" + self.makesafe(schema)), "r")
-        xml_str = xml_file.read()
+        xml_out = etree.fromstring(xml_file.read())
         xml_file.close()
+
+        for body_elements in xml_out.iter("{%(soap)s}Body" % schemas.std_xml_namespaces):
+            # ASSUMPTION: <ns:BODY> will only ever have one child, so far we've seen <SetAttributes_OUTPUT> and <ApplyAttributes_OUTPUT>
+            return list(body_elements)[0]
+
         return xml_str
 
     @traceLog()

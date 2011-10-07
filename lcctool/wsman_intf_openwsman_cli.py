@@ -77,7 +77,12 @@ class OpenWSManCLI(lcctool.BaseWsman):
 
         try:
             wsman_cmd.extend(["invoke", "-a", cmd, schema])
-            return etree.fromstring(call_output(wsman_cmd, raise_exc=False))
+            xml_out = etree.fromstring(call_output(wsman_cmd, raise_exc=False))
+            # ASSUMPTION: there will only ever be one <ns:BODY> ... </ns:BODY> element
+            for body_elements in xml_out.iter("{%(soap)s}Body" % schemas.std_xml_namespaces):
+                # ASSUMPTION: <ns:BODY> will only ever have one child, so far we've seen <SetAttributes_OUTPUT> and <ApplyAttributes_OUTPUT>
+                return list(body_elements)[0]
+                # IFF either of these assumptions turns out to be incorrect, we will need to change this API
         finally:
             if input_xml:
                 os.unlink(fn)

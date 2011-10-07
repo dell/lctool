@@ -89,6 +89,28 @@ class TestCase(unittest.TestCase):
     def testCombined(self):
         self.dotestIni(["bios", "idrac", "nic"], main_ini_testdata + bios_ini_testdata + nic_ini_testdata + idrac_ini_testdata)
 
+    def testChangeSettingBios(self):
+        import lcctool, lcctool.config
+        host = {'host': 'testhost'}
+        ini_str = """\
+[main]
+host = testhost
+BIOS.Setup.1-1 = bios
+
+[BIOS.Setup.1-1]
+SataPortB = Auto
+NumLock = Off
+"""
+
+        # read in known-good INI data
+        change_ini = ConfigParser.ConfigParser()
+        change_ini.optionxform = str # need to be case sensitive
+        fh = cStringIO.StringIO(ini_str)
+        change_ini.readfp(fh)
+        fh.close()
+
+        for job_ids, ret_xml in lcctool.config.settings_from_ini(host, change_ini):
+            self.assertEquals(len(job_ids), 0)
 
 
 ## test data

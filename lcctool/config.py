@@ -30,17 +30,17 @@
 from stdcli.trace_decorator import traceLog, getLog
 
 from lcctool import wsman_factory
+import schemas
 
 moduleLog = getLog()
 moduleVerboseLog = getLog(prefix="verbose.")
 
-import schemas
 etree = schemas.etree
 
 @traceLog()
 def commit_settings(host, target, setting, reboot=False):
     wsman = wsman_factory(host)
-    ns = service_names[setting]["ns"]
+    ns = schemas.service_names[setting]["ns"]
     job_in = "CreateTargetedConfigJob"
     root = etree.Element("{%s}%s_INPUT" % (ns, job_in))
     etree.SubElement(root, "{%s}Target" % ns).text = target
@@ -48,7 +48,7 @@ def commit_settings(host, target, setting, reboot=False):
         etree.SubElement(root, "{%s}RebootJobType" % ns).text = "1"
     etree.SubElement(root, "{%s}ScheduledStartTime" % ns).text = "TIME_NOW"
     etree.SubElement(root, "{%s}UntilTime" % ns).text = "20121111111111"
-    ret_xml = wsman.invoke(service_names[setting]["invoke_url"], job_in, input_xml=root)
+    ret_xml = wsman.invoke(schemas.service_names[setting]["invoke_url"], job_in, input_xml=root)
     return ret_xml
 
 
@@ -61,17 +61,17 @@ def settings_from_ini(host, ini):
             continue
         moduleLog.info("processing %s" % section)
         subsys = ini.get("main", section)
-        ns = service_names[subsys]["ns"]
-        set_elem = service_names[subsys]["set_elem"]
+        ns = schemas.service_names[subsys]["ns"]
+        set_elem = schemas.service_names[subsys]["set_elem"]
         root = etree.Element("{%s}%s_INPUT" % (ns, set_elem))
         for opt in ini.options(section):
             etree.SubElement(root, "{%s}Target" % ns).text = section
             etree.SubElement(root, "{%s}AttributeName" % ns).text = opt
             etree.SubElement(root, "{%s}AttributeValue" % ns).text = ini.get(section, opt)
 
-        ret_xml = wsman.invoke(service_names[subsys]["invoke_url"], set_elem, input_xml=root)
+        ret_xml = wsman.invoke(schemas.service_names[subsys]["invoke_url"], set_elem, input_xml=root)
         instance_ids.extend(parse_instance_ids(ret_xml))
-    return instance_ids, ret_xml
+        yield instance_ids, ret_xml
 
 
 @traceLog()

@@ -132,18 +132,20 @@ class Config(Plugin):
             ini.readfp(infile)
             infile.close()
 
-            job_ids, ret_xml = lcctool.config.settings_from_ini(host, ini)
+            for job_ids, ret_xml in lcctool.config.settings_from_ini(host, ini):
+                if len(job_ids) > 1:
+                    moduleLog.info("Some settings were queued for immediate commit in config job IDs: %s" % job_ids)
+                if len(job_ids) == 1:
+                    moduleLog.info("Some settings were queued for immediate commit in config job ID: %s" % job_ids[0])
 
-            if len(job_ids) > 1:
-                moduleLog.info("Some settings were queued for immediate commit in config job IDs: %s" % job_ids)
-            if len(job_ids) == 1:
-                moduleLog.info("Some settings were queued for immediate commit in config job ID: %s" % job_ids[0])
+                #for reboot_elem in  ret_xml.iter("{%(wsman)s}RebootRequired" % schemas.std_xml_namespaces):
+                #reboot_required = 
 
         if ctx.args.flag in ("set", "now"):
             self.commit(ctx)
 
     @traceLog()
-    def commit(self, ctx):
+    def commit(self, ctx, subsys=None):
         for host in ctx.raccfg.iterSpecfiedRacs():
             for enum in ctx.args.subsystems:
                 lcctool.config.commit_settings(host, enum)

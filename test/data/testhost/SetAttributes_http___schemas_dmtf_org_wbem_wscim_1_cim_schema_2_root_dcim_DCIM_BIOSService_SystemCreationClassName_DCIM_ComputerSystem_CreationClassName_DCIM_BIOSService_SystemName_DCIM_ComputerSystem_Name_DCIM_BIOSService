@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:n1="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSService">
+    <s:Header>
+        <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+        <wsa:Action>http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSService/SetAttributesResponse</wsa:Action>
+        <wsa:RelatesTo>uuid:feeff335-aebb-1ebb-8002-f5f65ac51500</wsa:RelatesTo>
+        <wsa:MessageID>uuid:ef5c0832-aebb-1ebb-8158-1d9967e82400</wsa:MessageID>
+    </s:Header>
+    <s:Body>
+        <n1:SetAttributes_OUTPUT>
+            <n1:Message>The command was successful</n1:Message>
+            <n1:MessageID>BIOS001</n1:MessageID>
+            <n1:RebootRequired>Yes</n1:RebootRequired>
+            <n1:ReturnValue>0</n1:ReturnValue>
+            <n1:SetResult>Set PendingValue</n1:SetResult>
+        </n1:SetAttributes_OUTPUT>
+    </s:Body>
+</s:Envelope>
+                                                                        
