@@ -76,36 +76,31 @@ def settings_from_ini(host, ini):
 
 @traceLog()
 def parse_instance_ids(xml):
-    root = etree.fromstring(xml)
     # schemas.std_xml_namespaces["wsa"]
     ids = []
-    for selector in  root.iter("{%(wsman)s}Selector" % schemas.std_xml_namespaces):
+    for selector in  xml.iter("{%(wsman)s}Selector" % schemas.std_xml_namespaces):
         if selector.get("Name", None) == "InstanceID":
             ids.append(selector.text)
     return ids
 
 @traceLog()
-def stuff_xml_into_ini(host, ini, subsystems):
+def stuff_xml_into_ini(host, ini, subsys):
     # run each wsman command in turn, and add the info to the INI object
     wsman = wsman_factory(host)
-    ret_xml_str = etree.Element("xml_return")
-    for subsys in subsystems:
-        schema_list = schemas.dell_schema_list[subsys]
-        for wsman_xml in wsman.enumerate(schema_list):
-            ret_xml_str.append(wsman_xml)
-            add_options_to_ini(ini, wsman_xml, subsys)
-    return ret_xml_str
+    schema_list = schemas.dell_schema_list[subsys]
+    for item_list in wsman.enumerate(schema_list):
+        item_list.attrib["lcctool_subsys"] = subsys
+        add_options_to_ini(ini, item_list, subsys)
+        yield item_list
 
 
 # Create the ini file for BIOS or NIC by parsing the XML file from wsman
 @traceLog()
-def add_options_to_ini(ini, wsman_xml, setting):
-    root = etree.fromstring(wsman_xml)
+def add_options_to_ini(ini, item_list, subsys):
     section_list = {}
 
-    # iterate over all <Items> sub elements, we dont know what their names are
-    for item_list in  root.iter("{%(wsman)s}Items" % schemas.std_xml_namespaces):
-      for elem in list(item_list):
+    for elem in list(item_list):
+        subsys = item_list.attrib["lcctool_subsys"]
         ns = elem.tag.split("}")[0][1:]
         name = elem.find("{%s}AttributeName" % ns).text
         fqdd = elem.find("{%s}FQDD" % ns).text
@@ -126,4 +121,4 @@ def add_options_to_ini(ini, wsman_xml, setting):
         ini.set(fqdd, name, value)
 
     for section in section_list.keys():
-        ini.set("main", section, setting)
+        ini.set("main", section, subsys)

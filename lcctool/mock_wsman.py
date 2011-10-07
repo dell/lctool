@@ -31,6 +31,8 @@ import re
 
 from stdcli.trace_decorator import traceLog, getLog
 import lcctool
+import schemas
+etree = schemas.etree
 
 moduleLog = getLog()
 moduleVerboseLog = getLog(prefix="verbose.")
@@ -49,9 +51,11 @@ class MockWsman(lcctool.BaseWsman):
     def enumerate(self, schema_list):
         for schema in schema_list:
             xml_file = open(os.path.join(self.test_data_dir, self.makesafe(self.get_host()), self.makesafe(schema)), "r")
-            xml_str = xml_file.read()
+            xml_out = etree.fromstring(xml_file.read())
             xml_file.close()
-            yield xml_str
+            for item_list in  xml_out.iter("{%(wsman)s}Items" % schemas.std_xml_namespaces):
+                yield item_list
+
 
     @traceLog()
     def invoke(self, schema, cmd, input_xml, *args, **kargs):

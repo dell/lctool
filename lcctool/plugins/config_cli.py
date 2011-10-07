@@ -47,7 +47,7 @@ moduleVerboseLog.debug("loading plugin module: %s" % __name__)
 
 _ = lcctool._
 
-default_filename = "config-%(host)s.ini"
+default_filename = "config-%(host)s.%(output_format)s"
 
 class Config(Plugin):
     @traceLog()
@@ -56,7 +56,7 @@ class Config(Plugin):
 
         # enumerate into an INI file or stdout
         p = ctx.subparsers.add_parser("get-config", help=_("Query target system settings and save in an INI-style file."))
-        p.add_argument('--output-format', action="store", dest="format", default="ini", choices=["ini","xml"], help=_("Specify output format. Default is '%(default)s'"))
+        p.add_argument('--output-format', action="store", dest="output_format", default="ini", choices=["ini","xml"], help=_("Specify output format. Default is '%(default)s'"))
         p.add_argument('--output', '-O', action="store", dest="output_filename", default=default_filename, help=_("Change the name of the default filename for saving settings. Use '-' to display on stdout. (Default: %(default)s)"))
         p.add_argument('--subsystem', action="append", dest="subsystems", choices=lcctool.schemas.get_subsystems(), default=[], help=_("List of the different subsystems to dump settings. May be specified multiple times."))
         p.add_argument('--all-subsystems', action="store_const", dest="subsystems", const=lcctool.schemas.get_subsystems(), help=_("Dump settings for all subsystems."))
@@ -102,14 +102,26 @@ class Config(Plugin):
             ini.set("main", "host", host["host"])
             ini.set("main", "alias", host.get("alias", ""))
 
-            xml = lcctool.config.stuff_xml_into_ini(host, ini, ctx.args.subsystems)
+            xml = lcctool.schemas.etree.Element("xml_return")
+            for subsys in ctx.args.subsystems:
+                for xml_ret in lcctool.config.stuff_xml_into_ini(host, ini, subsys):
+                    xml.append(xml_ret)
 
-            if ctx.args.output_filename == "-":
-                ini.write( sys.stdout )
-            else:
-                outfile = open(ctx.args.output_filename % { "host": host.get("alias", host["host"]) }, "w+")
-                ini.write( outfile )
-                outfile.close()
+            fn_subst = { "output_format": ctx.args.output_format, "host": host.get("alias", host["host"]) }
+            if ctx.args.output_format == "ini":
+                if ctx.args.output_filename == "-":
+                    ini.write( sys.stdout )
+                else:
+                    outfile = open(ctx.args.output_filename % fn_subst, "w+")
+                    ini.write( outfile )
+                    outfile.close()
+            elif ctx.args.output_format == "xml":
+                if ctx.args.output_filename == "-":
+                    sys.stdout.write( lcctool.schemas.etree.tostring(xml) )
+                else:
+                    outfile = open(ctx.args.output_filename % fn_subst, "w+")
+                    outfile.write( lcctool.schemas.etree.tostring(xml) )
+                    outfile.close()
 
     @traceLog()
     def stageConfig(self, ctx):

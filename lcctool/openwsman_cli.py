@@ -57,11 +57,14 @@ class OpenWSManCLI(lcctool.BaseWsman):
             if v() is not None:
                 self.wsman_cmd.extend([k,v()])
 
+    # generates <Items> element from each schema call, sequentially
     @traceLog()
     def enumerate(self, schema_list, filter=None):
         for schema in schema_list:
             moduleLog.info("retrieving info for schema: %s" % schema)
-            yield etree.fromstring(call_output( self.wsman_cmd + ["enumerate", schema], raise_exc=False ))
+            xml_out = etree.fromstring(call_output( self.wsman_cmd + ["enumerate", schema], raise_exc=False ))
+            for item_list in  xml_out.iter("{%(wsman)s}Items" % schemas.std_xml_namespaces):
+                yield item_list
 
     @traceLog()
     def invoke(self, schema, cmd, input_xml, *args, **kargs):

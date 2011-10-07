@@ -53,7 +53,9 @@ class TestCase(unittest.TestCase):
         ini = ConfigParser.ConfigParser()
         ini.optionxform = str # need to be case sensitive
         ini.add_section('main')
-        lcctool.config.stuff_xml_into_ini(host, ini, subsystems)
+        for subsys in subsystems:
+            for xml_ret in lcctool.config.stuff_xml_into_ini(host, ini, subsys):
+                pass
 
         # read in known-good INI data
         good_ini = ConfigParser.ConfigParser()
