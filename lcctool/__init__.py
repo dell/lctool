@@ -52,6 +52,7 @@ except:
         """pass given string as-is"""
         return str
 
+class NotImplementedException(Exception): pass
 
 unit_test_mode = False
 test_data_dir = ""
@@ -59,17 +60,16 @@ test_data_dir = ""
 @traceLog()
 def wsman_factory(*args, **kargs):
     if unit_test_mode:
-        import mock_wsman
-        return mock_wsman.MockWsman(test_data_dir, *args, **kargs)
+        import wsman_intf_mock
+        return wsman_intf_mock.MockWsman(test_data_dir, *args, **kargs)
 
-    # check linux here?
-    import openwsman_cli
-    return openwsman_cli.OpenWSManCLI(*args, **kargs)
-    # this should all work on Windows, too, if we make a WindowsWSManCLI class.
+    if sys.platform.startswith("linux"):
+        import wsman_intf_openwsman_cli
+        return wsman_intf_openwsman_cli.OpenWSManCLI(*args, **kargs)
 
-
-class NotImplementedException(Exception): pass
-
+    if sys.platform.startswith("win"):
+        import wsman_intf_windows
+        return wsman_intf_windows.WsmanWindows(*args, **kargs)
 
 # Notes:
 #  all input xml and all output xml from these functions is defined as etree Element objects or equivalent. NO XML STRINGS!
