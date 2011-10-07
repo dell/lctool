@@ -88,11 +88,11 @@ def parse_instance_ids(xml):
 def stuff_xml_into_ini(host, ini, subsystems):
     # run each wsman command in turn, and add the info to the INI object
     wsman = wsman_factory(host)
-    ret_xml_str = ""
+    ret_xml_str = etree.Element("xml_return")
     for subsys in subsystems:
         schema_list = schemas.dell_schema_list[subsys]
         for wsman_xml in wsman.enumerate(schema_list):
-            ret_xml_str = ret_xml_str + wsman_xml
+            ret_xml_str.append(wsman_xml)
             add_options_to_ini(ini, wsman_xml, subsys)
     return ret_xml_str
 

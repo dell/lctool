@@ -47,7 +47,6 @@ basic_wsman_cmd = ["wsman", "-P", "443", "-V", "-v", "-c", "dummy.cert", "-j", "
 "wsman get http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_LifecycleJob?InstanceID=%(job_id)s"
 "wsman get http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_LifecycleJob?InstanceID=%(job_id)s"
 
-
 class OpenWSManCLI(lcctool.BaseWsman):
     def __init__(self, host, *args, **kargs):
         super(OpenWSManCLI, self).__init__(host, *args, **kargs)
@@ -62,7 +61,7 @@ class OpenWSManCLI(lcctool.BaseWsman):
     def enumerate(self, schema_list, filter=None):
         for schema in schema_list:
             moduleLog.info("retrieving info for schema: %s" % schema)
-            yield call_output( self.wsman_cmd + ["enumerate", schema], raise_exc=False )
+            yield etree.fromstring(call_output( self.wsman_cmd + ["enumerate", schema], raise_exc=False ))
 
     @traceLog()
     def invoke(self, schema, cmd, input_xml, *args, **kargs):
@@ -75,7 +74,7 @@ class OpenWSManCLI(lcctool.BaseWsman):
 
         try:
             wsman_cmd.extend(["invoke", "-a", cmd, schema])
-            return call_output(wsman_cmd, raise_exc=False)
+            return etree.fromstring(call_output(wsman_cmd, raise_exc=False))
         finally:
             if input_xml:
                 os.unlink(fn)

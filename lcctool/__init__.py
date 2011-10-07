@@ -70,6 +70,9 @@ def wsman_factory(*args, **kargs):
 
 class NotImplementedException(Exception): pass
 
+
+# Notes:
+#  all input xml and all output xml from these functions is defined as etree Element objects or equivalent. NO XML STRINGS!
 class BaseWsman(object):
     def __init__(self, host):
         self.host = host
