@@ -37,9 +37,9 @@ import ConfigParser
 
 class TestCase(unittest.TestCase):
     def setUp(self):
-        import lcctool, lcctool.wsman_factory
-        lcctool.wsman_factory.unit_test_mode = 1
-        lcctool.wsman_factory.test_data_dir = os.path.join(os.path.dirname(__file__), "data")
+        import lcctool
+        lcctool.unit_test_mode = 1
+        lcctool.test_data_dir = os.path.join(os.path.dirname(__file__), "data")
 
     def tearDown(self):
         if globals().get('lcctool'): del(lcctool)

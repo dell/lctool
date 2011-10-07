@@ -32,7 +32,7 @@ import tempfile
 
 from stdcli.trace_decorator import traceLog, getLog
 from stdcli.pycompat import call_output
-import wsman_factory
+import lcctool
 import schemas
 etree = schemas.etree
 
@@ -48,7 +48,7 @@ basic_wsman_cmd = ["wsman", "-P", "443", "-V", "-v", "-c", "dummy.cert", "-j", "
 "wsman get http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_LifecycleJob?InstanceID=%(job_id)s"
 
 
-class OpenWSManCLI(wsman_factory.BaseWsman):
+class OpenWSManCLI(lcctool.BaseWsman):
     def __init__(self, host, *args, **kargs):
         super(OpenWSManCLI, self).__init__(host, *args, **kargs)
         self.host = host

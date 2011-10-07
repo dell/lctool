@@ -29,7 +29,7 @@
 
 from stdcli.trace_decorator import traceLog, getLog
 
-from wsman_factory import wsman_factory
+from lcctool import wsman_factory
 
 moduleLog = getLog()
 moduleVerboseLog = getLog(prefix="verbose.")

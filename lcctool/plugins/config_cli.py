@@ -40,7 +40,6 @@ from stdcli.plugin import Plugin
 
 import lcctool.config
 import lcctool.schemas
-import lcctool.wsman_factory
 
 moduleLog = getLog()
 moduleVerboseLog = getLog(prefix="verbose.")
@@ -87,8 +86,8 @@ class Config(Plugin):
     @traceLog()
     def finishedCliParsing(self, ctx):
         if hasattr(ctx.args, "unit_test") and ctx.args.unit_test:
-            lcctool.wsman_factory.unit_test_mode = True
-            lcctool.wsman_factory.test_data_dir = ctx.args.unit_test
+            lcctool.unit_test_mode = True
+            lcctool.test_data_dir = ctx.args.unit_test
 
     @traceLog()
     def getConfig(self, ctx):

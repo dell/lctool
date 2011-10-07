@@ -32,10 +32,14 @@ import pkg_resources
 dist = pkg_resources.get_distribution(__name__)
 __VERSION__=dist.version
 
+from stdcli.trace_decorator import traceLog, getLog
 import stdcli.cli_main
 stdcli.cli_main.__VERSION__ = __VERSION__
 stdcli.cli_main.moduleName = __name__
 main = stdcli.cli_main.main
+
+moduleLog = getLog()
+moduleVerboseLog = getLog(prefix="verbose.")
 
 try:
     import gettext
@@ -47,3 +51,46 @@ except:
     def _(str):
         """pass given string as-is"""
         return str
+
+
+unit_test_mode = False
+test_data_dir = ""
+
+@traceLog()
+def wsman_factory(*args, **kargs):
+    if unit_test_mode:
+        import mock_wsman
+        return mock_wsman.MockWsman(test_data_dir, *args, **kargs)
+
+    # check linux here?
+    import openwsman_cli
+    return openwsman_cli.OpenWSManCLI(*args, **kargs)
+    # this should all work on Windows, too, if we make a WindowsWSManCLI class.
+
+
+class NotImplementedException(Exception): pass
+
+class BaseWsman(object):
+    def __init__(self, host):
+        self.host = host
+
+    def get_host(self):
+        return self.host.get("host", None)
+
+    def get_user(self):
+        return self.host.get("user", None)
+
+    def get_password(self):
+        return self.host.get("password", None)
+
+    @traceLog()
+    def enumerate(self, schema_list, filter=None):
+        raise NotImplementedException
+
+    @traceLog()
+    def invoke(self, schema, cmd, input_xml, *args, **kargs):
+        raise NotImplementedException
+
+    @traceLog()
+    def get(self, schema_list, *args, **kargs):
+        raise NotImplementedException

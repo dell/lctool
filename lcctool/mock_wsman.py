@@ -30,13 +30,13 @@ import os
 import re
 
 from stdcli.trace_decorator import traceLog, getLog
-import wsman_factory
+import lcctool
 
 moduleLog = getLog()
 moduleVerboseLog = getLog(prefix="verbose.")
 
 
-class MockWsman(wsman_factory.BaseWsman):
+class MockWsman(lcctool.BaseWsman):
     def __init__(self, test_data_dir, *args, **kargs):
         self.test_data_dir = test_data_dir
         super(MockWsman, self).__init__(*args, **kargs)
