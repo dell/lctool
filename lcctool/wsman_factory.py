@@ -72,4 +72,3 @@ class BaseWsman(object):
     @traceLog()
     def get(self, schema_list, *args, **kargs):
         raise NotImplementedException
-

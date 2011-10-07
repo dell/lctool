@@ -83,4 +83,3 @@ class OpenWSManCLI(wsman_factory.BaseWsman):
     #@traceLog()
     #def get(self, schema_list, *args, **kargs):
     #    pass
-

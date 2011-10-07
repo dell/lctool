@@ -34,7 +34,7 @@ import sys
 import os, time
 from xml.dom.minidom import parse
 import xml.dom.minidom
-from iniparse import ConfigParser 
+from iniparse import ConfigParser
 from os import system, popen3
 
 # =============================================================================
@@ -54,7 +54,7 @@ class CNARunner:
         self.settings = attrSet
         self.flagSet  = flag
         self.run()
-        
+
     def run(self):
       if (self.settings == 'bios'):
         service = "BIOS"
@@ -75,7 +75,7 @@ class CNARunner:
           for keys in tempOrderedList:
             count = count + 1
             if count == len(config):
-              print "Setting up config job for " + keys  
+              print "Setting up config job for " + keys
               resp = self.createNICConfigJob(job_service, keys, '1')
               jid =self.parseInstanceID(resp[1])
             else:
@@ -86,9 +86,9 @@ class CNARunner:
             else:
               print "Config job id:" + jid + " for:" + keys + " has been created."
               jobs.append(jid)
-        
+
           print "\n" + "Restarting target server to execute configuration jobs."
-          print "\n"    
+          print "\n"
 
           self.processJobids(jobs, 10)
           print 'Restarting server.'
@@ -116,8 +116,8 @@ class CNARunner:
         elif (self.settings == "idrac"):
           if (len(jobs) != 0):
              self.processJobids(jobs, 5)
-  
-          
+
+
     def processJobids(self, jobs, sleep_time):
        total_jobs = 0
        total_jobs = len(jobs)
@@ -169,7 +169,7 @@ class CNARunner:
        ofile.close()
 
 
-    # Runs the input wsman  command  
+    # Runs the input wsman  command
     def runCommand(self, command):
         '''
         Executes command and returns a dictionary.
@@ -182,7 +182,7 @@ class CNARunner:
         commandOutList.append(fout.read.strip().split('\n'))
         commandOutList.append(ferr.read())
         return commandOutList
-        
+
     # Creates the Bios or NIC set attributes file
 
     def setNICAttributes(self, nic, attnames, attvalues, service, settings):
@@ -199,7 +199,7 @@ class CNARunner:
             attnamestring = attnamestring + "<p:AttributeName>" + att + "</p:AttributeName>\r\n"
         for attvalue in attvalues:
 #            attvalue = self.specialCharacters(attvalue) #This handels special characters
-            attvaluestring = attvaluestring + "<p:AttributeValue>" + attvalue + "</p:AttributeValue>\r\n"    
+            attvaluestring = attvaluestring + "<p:AttributeValue>" + attvalue + "</p:AttributeValue>\r\n"
         f = open(nic + "_setatts.xml", "w")
         if (settings == 'idrac'):
           setatt = '''<p:ApplyAttributes_INPUT xmlns:p="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_''' + service + '''Service">''' + "\r\n" + '''<p:Target>''' + nic + '''</p:Target>''' + "\r\n" + attnamestring + attvaluestring + '''</p:ApplyAttributes_INPUT>'''
@@ -209,22 +209,22 @@ class CNARunner:
         f.write(setatt)
         f.close()
         return f
-        
-      
+
+
     def specialCharacters(self, XMLstring = 'example greater than > less than < ampersand & single quote "'):#Handles strings with characters that cause problems for XML files.
         '''
         Filter the input to XML files.  Certain characters need to be translated for XML input.
         config.ini Input    Change to
-        <                     &lt;  
+        <                     &lt;
         >                     &gt;
-        "                     &quot;  
-        &                     &amp;  
+        "                     &quot;
+        &                     &amp;
         see link http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references
         '''
         #& must be first as all will introduce more &s.  If ; is added this will cause a problem.
         XMLstring = XMLstring.replace('&','&' + 'amp' + ';')
         #do not put anything above this & MUST be first!!!!
-        
+
         XMLstring = XMLstring.replace('<','&' + 'lt' + ';')
         XMLstring = XMLstring.replace('>','&' + 'gt' + ';')
         XMLstring = XMLstring.replace('"','&' + 'quot' + ';')
@@ -233,17 +233,17 @@ class CNARunner:
         XMLstring = XMLstring.replace('|','&' + 'brvbar' + ';')
         XMLstring = XMLstring.replace('-','&' + 'macr' + ';')
         XMLstring = XMLstring.replace('~','&' + 'tilde' + ';')
-        XMLstring = XMLstring.replace('-','&' + 'ndash' + ';') 
+        XMLstring = XMLstring.replace('-','&' + 'ndash' + ';')
         XMLstring = XMLstring.replace('^','&' + 'circ' + ';')
         return XMLstring
-      
+
     # Creates the targeted config job for BIOS or NIC
-    def createNICConfigJob(self, jobService, nic=None, rebootType=None): 
+    def createNICConfigJob(self, jobService, nic=None, rebootType=None):
         '''
         Create a job to set configuration attributes for attribute - "nic".
         '''
         return self.createTargetedConfigJobMethod(jobService, nic, rebootType)
-      
+
     def createTargetedConfigJobMethod(self, jobService, jobType=None, rebootType=None):
         rebootjobstring = ''
         if rebootType != None:
@@ -258,14 +258,14 @@ class CNARunner:
         command = "wsman invoke -a CreateTargetedConfigJob http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_" + jobService + "?SystemCreationClassName=DCIM_ComputerSystem,CreationClassName=DCIM_" + jobService + ",SystemName=DCIM:ComputerSystem,Name=DCIM:" + jobService + " -J " + f.name + " -h " + self.idracIp + " -P 443 -u " + self.idracUser + " -p " + self.idracPass + " -V -v -c dummy.cert -j utf-8 -y basic"
         r = self.runCommand(command)
         return r
-        
-      
+
+
     # Gets the RSSTATUS from the LC after the Job is complete and reboot starts.
 
     def parseRSStatus(self, data):  # Return string following Status in the given data.
         if type("") == type(data):
            data = data.split("\n")
-            
+
         if type([]) == type(data):
             marker = "<n1:Status>"
             for l in data:
@@ -294,9 +294,9 @@ class CNARunner:
             jn = self.valueFor("Name>", r)
             ms = self.valueFor("Message>", r)
             msid = self.valueFor("MessageID>", r)
-            
+
             if None == js:
-                print "iDRAC connectivity might be lost while updating. Please wait till it gets back."                        
+                print "iDRAC connectivity might be lost while updating. Please wait till it gets back."
             else:
                 print str(jid) +" has status:- "  + str(js) + ", Message:- " + str(ms) + ", and MessageID:- " + str(msid)
             return r
@@ -322,15 +322,15 @@ class CNARunner:
                     else:
                         return_list.append(r)
                     if jid.index(j) == (len(jid) - 1): #FIXME : checking if all the jobs are done, changes depending on the number of updates to be scheduled
-                        break 
+                        break
             return return_list
-          
+
     def valueFor(self, key, resp):
       ''' Return the value that matches the given key in the command output.
       >>> r = Response(None, ["blah", "Message = success"], None, None)
       >>> print r.valueFor("Message =")
       success
-      ''' 
+      '''
       # FIXME : delete this after taking the calls to it out of wsman
       x = resp[1]
       key = key.lstrip()
@@ -345,17 +345,17 @@ class CNARunner:
               return line[ndx+len(key):].lstrip()
             else:
               continue
-                        
-                                                
+
+
         return None
-      
+
 
     def parseConfig(self, masterConfig):
       '''
       >>> parseConfig('bogus.file')
       {}
 
-      I would expect to see the message in the log... how do I see that here?    
+      I would expect to see the message in the log... how do I see that here?
       '''
       config = {}
       tmpList = ["",""]
@@ -375,10 +375,10 @@ class CNARunner:
                s = tmpList[1] + "," + tmpStr
                tmpList[1] = s
             else:
-               tmpList[1] = tmpStr 
+               tmpList[1] = tmpStr
         tmpList[1] = tmpList[1].split(",")
         config[sec] = tmpList
         tmpList = ["",""]
-      return config 
-  
+      return config
+
 

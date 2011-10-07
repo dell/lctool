@@ -64,4 +64,3 @@ class MockWsman(wsman_factory.BaseWsman):
     @traceLog()
     def get(self, *args, **kargs):
         pass
-

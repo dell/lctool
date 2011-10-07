@@ -127,4 +127,3 @@ def add_options_to_ini(ini, wsman_xml, setting):
 
     for section in section_list.keys():
         ini.set("main", section, setting)
-

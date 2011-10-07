@@ -120,5 +120,3 @@ service_names = {
 # cant trace this one as it gets called during CLI option setup
 def get_subsystems():
     return dell_schema_list.keys()
-
-
