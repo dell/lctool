@@ -37,9 +37,9 @@ import ConfigParser
 
 class TestCase(unittest.TestCase):
     def setUp(self):
-        import lcctool, lcctool.wsman
-        lcctool.wsman.unit_test_mode = 1
-        lcctool.wsman.test_data_dir = os.path.join(os.path.dirname(__file__), "data")
+        import lcctool, lcctool.wsman_factory
+        lcctool.wsman_factory.unit_test_mode = 1
+        lcctool.wsman_factory.test_data_dir = os.path.join(os.path.dirname(__file__), "data")
 
     def tearDown(self):
         if globals().get('lcctool'): del(lcctool)
@@ -47,13 +47,13 @@ class TestCase(unittest.TestCase):
             if k.startswith("lcctool"):
                 del(sys.modules[k])
 
-    def dotestIni(self, enum, ini_data_string):
-        import lcctool, lcctool.wsman
+    def dotestIni(self, subsystems, ini_data_string):
+        import lcctool, lcctool.config
         host = {'host': 'testhost'}
         ini = ConfigParser.ConfigParser()
         ini.optionxform = str # need to be case sensitive
-        for i in enum:
-            lcctool.wsman.stuff_xml_into_ini(host, ini, i)
+        ini.add_section('main')
+        lcctool.config.stuff_xml_into_ini(host, ini, subsystems)
 
         # read in known-good INI data
         good_ini = ConfigParser.ConfigParser()
@@ -64,30 +64,42 @@ class TestCase(unittest.TestCase):
 
         # check that each entry in good_ini corresponds with ini under test
         for sec in good_ini.sections():
+            # GOOD ini has 'extra' sections that may not be there for single-subsystem exports, skip
+            if sec == "main": continue
             for opt in good_ini.options(sec):
-                print "check GOOD [%s] %s = %s" % (sec, opt, good_ini.get(sec, opt))
+                #print "check GOOD [%s] %s = %s" % (sec, opt, good_ini.get(sec, opt))
                 self.assertEquals(good_ini.get(sec, opt), ini.get(sec, opt))
         # and the reverse, to ensure we dont miss any
         for sec in ini.sections():
             for opt in ini.options(sec):
-                print "check SUT  [%s] %s = %s" % (sec, opt, ini.get(sec, opt))
+                #print "check SUT  [%s] %s = %s" % (sec, opt, ini.get(sec, opt))
                 self.assertEquals(good_ini.get(sec, opt), ini.get(sec, opt))
 
     def testNic(self):
-        self.dotestIni(["nic"], nic_ini_testdata)
+        self.dotestIni(["nic"], main_ini_testdata + nic_ini_testdata)
 
     def testIdrac(self):
-        self.dotestIni(["idrac"], idrac_ini_testdata)
+        self.dotestIni(["idrac"], main_ini_testdata + idrac_ini_testdata)
 
     def testBios(self):
-        self.dotestIni(["bios"], bios_ini_testdata)
+        self.dotestIni(["bios"], main_ini_testdata + bios_ini_testdata)
 
     def testCombined(self):
-        self.dotestIni(["bios", "idrac", "nic"], bios_ini_testdata + nic_ini_testdata + idrac_ini_testdata)
+        self.dotestIni(["bios", "idrac", "nic"], main_ini_testdata + bios_ini_testdata + nic_ini_testdata + idrac_ini_testdata)
 
 
 
 ## test data
+main_ini_testdata = """
+[main]
+iDRAC.Embedded.1 = idrac
+BIOS.Setup.1-1 = bios
+NIC.Embedded.4-1 = nic
+NIC.Embedded.3-1 = nic
+NIC.Embedded.2-1 = nic
+NIC.Embedded.1-1 = nic
+"""
+
 idrac_ini_testdata = """
 [iDRAC.Embedded.1]
 NIC.1#DNSRacName = idrac-8HDPBK1

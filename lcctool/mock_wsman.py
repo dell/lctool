@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # vim:expandtab:autoindent:tabstop=4:shiftwidth=4:filetype=python:tw=0
 # Copyright (c) 2011, Dell Inc.
 # All rights reserved.
@@ -12,7 +13,7 @@
 #     * Neither the name of the Dell, Inc. nor the
 #       names of its contributors may be used to endorse or promote products
 #       derived from this software without specific prior written permission.
-# 
+#
 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 # ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 # WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -23,38 +24,44 @@
 # LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
 
-from setuptools import setup, find_packages
-import sys, os
+import os
+import re
 
-version = '0.1'
+from stdcli.trace_decorator import traceLog, getLog
+import wsman_factory
 
-setup(name='lcctool',
-      version=version,
-      description="Tool to manage Lifecycle Controller",
-      long_description="""This is the long description of the tool to manage Lifecycle Controller""",
-      classifiers=[], # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
-      keywords='dell',
-      author='Michael Brown',
-      author_email='Michael_E_Brown@Dell.com',
-      url='',
-      license='LGPL',
-      packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
-      include_package_data=True,
-      package_data = { 'lcctool': ['pkg/lcctool.ini',] },
-      zip_safe=False,
-      install_requires=[
-          # -*- Extra requirements: -*-
-      ],
-      entry_points={
-        'console_scripts': [ 'lcctool = lcctool:main', ],
-        'lcctool_cli_extensions': [
-# these are only useful for testing/debugging. dont enable by default.
-#            'sample = stdcli.plugins.builtin:SamplePlugin',
-#            'dump-config = stdcli.plugins.builtin:DumpConfigPlugin',
-#            'sample-raccfg-test = lcctool.plugins.raccfg:SampleTestRacCfg',
-            'raccfg = lcctool.plugins.raccfg:RacCfg',
-            'enumerate = lcctool.plugins.config_cli:Config',
-            ],
-        },
-      )
+moduleLog = getLog()
+moduleVerboseLog = getLog(prefix="verbose.")
+
+
+class MockWsman(wsman_factory.BaseWsman):
+    def __init__(self, test_data_dir, *args, **kargs):
+        self.test_data_dir = test_data_dir
+        super(MockWsman, self).__init__(*args, **kargs)
+
+    def makesafe(self, pth):
+        p = re.compile( '[^a-zA-Z0-9]')
+        return p.sub( '_', pth)
+
+    @traceLog()
+    def enumerate(self, schema_list):
+        for schema in schema_list:
+            xml_file = open(os.path.join(self.test_data_dir, self.makesafe(self.get_host()), self.makesafe(schema)), "r")
+            xml_str = xml_file.read()
+            xml_file.close()
+            yield xml_str
+
+    @traceLog()
+    def invoke(self, schema, cmd, input_xml, *args, **kargs):
+        # probably ought to have some sort of callback registered so that unit test framework can inspect the input_xml
+        xml_file = open(os.path.join(self.test_data_dir, self.makesafe(self.get_host()), cmd + "_" + self.makesafe(schema)), "r")
+        xml_str = xml_file.read()
+        xml_file.close()
+        return xml_str
+
+    @traceLog()
+    def get(self, *args, **kargs):
+        pass
+

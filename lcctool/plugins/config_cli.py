@@ -38,7 +38,9 @@ import lcctool
 from stdcli.trace_decorator import traceLog, getLog
 from stdcli.plugin import Plugin
 
-import lcctool.wsman
+import lcctool.config
+import lcctool.schemas
+import lcctool.wsman_factory
 
 moduleLog = getLog()
 moduleVerboseLog = getLog(prefix="verbose.")
@@ -55,22 +57,23 @@ class Config(Plugin):
 
         # enumerate into an INI file or stdout
         p = ctx.subparsers.add_parser("get-config", help=_("Query target system settings and save in an INI-style file."))
+        p.add_argument('--output-format', action="store", dest="format", default="ini", choices=["ini","xml"], help=_("Specify output format. Default is '%(default)s'"))
         p.add_argument('--output', '-O', action="store", dest="output_filename", default=default_filename, help=_("Change the name of the default filename for saving settings. Use '-' to display on stdout. (Default: %(default)s)"))
-        p.add_argument('--subsystem', action="append", dest="subsystems", choices=lcctool.wsman.get_subsystems(), default=[], help=_("List of the different subsystems to dump settings. May be specified multiple times."))
-        p.add_argument('--all-subsystems', action="store_const", dest="subsystems", const=lcctool.wsman.get_subsystems(), help=_("Dump settings for all subsystems."))
+        p.add_argument('--subsystem', action="append", dest="subsystems", choices=lcctool.schemas.get_subsystems(), default=[], help=_("List of the different subsystems to dump settings. May be specified multiple times."))
+        p.add_argument('--all-subsystems', action="store_const", dest="subsystems", const=lcctool.schemas.get_subsystems(), help=_("Dump settings for all subsystems."))
         p.add_argument('--unit-test', action="store", dest="unit_test", default=None, help=_("Run in unit test mode."))
         p.set_defaults(func=self.getConfig)
 
         # apply settings from an INI file
         p = ctx.subparsers.add_parser("stage-config", help=_("Stage system settings using values from an INI file."))
-        p.add_argument('--input', '-O', action="store", dest="input_filename", default=default_filename, help=_("Change the name of the input INI file (Default: %(default)s)."))
+        p.add_argument('--input-ini', '-O', action="store", dest="input_filename", default=default_filename, help=_("Change the name of the input INI file (Default: %(default)s)."))
         p.add_argument('--now',    action="store_const", const="now",    dest="flag", help=_("Commit changes after successful staging. THIS WILL REBOOT THE SERVER."))
         p.add_argument('--unit-test', action="store", dest="unit_test", default=None, help=_("Run in unit test mode."))
         p.set_defaults(func=self.stageConfig)
 
         p = ctx.subparsers.add_parser("commit-config", help=_("Commit previously staged attributes. THIS WILL REBOOT THE SERVER."))
-        p.add_argument('--subsystem', action="append", dest="subsystems", choices=lcctool.wsman.get_subsystems(), default=[], help=_("List of the different subsystems to dump settings. May be specified multiple times."))
-        p.add_argument('--all-subsystems', action="store_const", dest="subsystems", const=lcctool.wsman.get_subsystems(), help=_("Dump settings for all subsystems."))
+        p.add_argument('--subsystem', action="append", dest="subsystems", choices=lcctool.schemas.get_subsystems(), default=[], help=_("List of the different subsystems to dump settings. May be specified multiple times."))
+        p.add_argument('--all-subsystems', action="store_const", dest="subsystems", const=lcctool.schemas.get_subsystems(), help=_("Dump settings for all subsystems."))
         p.add_argument('--unit-test', action="store", dest="unit_test", default=None, help=_("Run in unit test mode."))
         p.set_defaults(func=self.commit)
 
@@ -78,14 +81,14 @@ class Config(Plugin):
         p = ctx.subparsers.add_parser("set", help=_("Stage system settings using CLI options."))
         p.add_argument('--now',    action="store_const", const="now",    dest="flag", help=_("Commit changes after successful staging. THIS WILL REBOOT THE SERVER."))
         p.add_argument('--unit-test', action="store", dest="unit_test", default=None, help=_("Run in unit test mode."))
-        p.set_defaults(func=self.setConfig)
+        p.set_defaults(func=self.stageConfig)
 
 
     @traceLog()
     def finishedCliParsing(self, ctx):
         if hasattr(ctx.args, "unit_test") and ctx.args.unit_test:
-            lcctool.wsman.unit_test_mode = True
-            lcctool.wsman.test_data_dir = ctx.args.unit_test
+            lcctool.wsman_factory.unit_test_mode = True
+            lcctool.wsman_factory.test_data_dir = ctx.args.unit_test
 
     @traceLog()
     def getConfig(self, ctx):
@@ -98,14 +101,14 @@ class Config(Plugin):
             # save host name in INI
             ini.add_section("main")
             ini.set("main", "host", host["host"])
+            ini.set("main", "alias", host.get("alias", ""))
 
-            for enum in ctx.args.subsystems:
-                lcctool.wsman.stuff_xml_into_ini(host, ini, enum)
+            xml = lcctool.config.stuff_xml_into_ini(host, ini, ctx.args.subsystems)
 
             if ctx.args.output_filename == "-":
                 ini.write( sys.stdout )
             else:
-                outfile = open(ctx.args.output_filename % { "host": host["host"] }, "w+")
+                outfile = open(ctx.args.output_filename % { "host": host.get("alias", host["host"]) }, "w+")
                 ini.write( outfile )
                 outfile.close()
 
@@ -118,7 +121,7 @@ class Config(Plugin):
             ini.readfp(infile)
             infile.close()
 
-            job_ids, ret_xml = lcctool.wsman.settings_from_ini(host, ini)
+            job_ids, ret_xml = lcctool.config.settings_from_ini(host, ini)
 
             if len(job_ids) > 1:
                 moduleLog.info("Some settings were queued for immediate commit in config job IDs: %s" % job_ids)
@@ -132,7 +135,7 @@ class Config(Plugin):
     def commit(self, ctx):
         for host in ctx.raccfg.iterSpecfiedRacs():
             for enum in ctx.args.subsystems:
-                lcctool.wsman.commit_settings(host, enum)
+                lcctool.config.commit_settings(host, enum)
 
 
 

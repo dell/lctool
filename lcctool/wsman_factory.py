@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # vim:expandtab:autoindent:tabstop=4:shiftwidth=4:filetype=python:tw=0
 # Copyright (c) 2011, Dell Inc.
 # All rights reserved.
@@ -12,7 +13,7 @@
 #     * Neither the name of the Dell, Inc. nor the
 #       names of its contributors may be used to endorse or promote products
 #       derived from this software without specific prior written permission.
-# 
+#
 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 # ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 # WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -23,38 +24,52 @@
 # LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
 
-from setuptools import setup, find_packages
-import sys, os
+from stdcli.trace_decorator import traceLog, getLog
 
-version = '0.1'
+moduleLog = getLog()
+moduleVerboseLog = getLog(prefix="verbose.")
 
-setup(name='lcctool',
-      version=version,
-      description="Tool to manage Lifecycle Controller",
-      long_description="""This is the long description of the tool to manage Lifecycle Controller""",
-      classifiers=[], # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
-      keywords='dell',
-      author='Michael Brown',
-      author_email='Michael_E_Brown@Dell.com',
-      url='',
-      license='LGPL',
-      packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
-      include_package_data=True,
-      package_data = { 'lcctool': ['pkg/lcctool.ini',] },
-      zip_safe=False,
-      install_requires=[
-          # -*- Extra requirements: -*-
-      ],
-      entry_points={
-        'console_scripts': [ 'lcctool = lcctool:main', ],
-        'lcctool_cli_extensions': [
-# these are only useful for testing/debugging. dont enable by default.
-#            'sample = stdcli.plugins.builtin:SamplePlugin',
-#            'dump-config = stdcli.plugins.builtin:DumpConfigPlugin',
-#            'sample-raccfg-test = lcctool.plugins.raccfg:SampleTestRacCfg',
-            'raccfg = lcctool.plugins.raccfg:RacCfg',
-            'enumerate = lcctool.plugins.config_cli:Config',
-            ],
-        },
-      )
+unit_test_mode = False
+test_data_dir = ""
+
+@traceLog()
+def wsman_factory(*args, **kargs):
+    if unit_test_mode:
+        import mock_wsman
+        return mock_wsman.MockWsman(test_data_dir, *args, **kargs)
+
+    # check linux here?
+    import openwsman_cli
+    return openwsman_cli.OpenWSManCLI(*args, **kargs)
+    # this should all work on Windows, too, if we make a WindowsWSManCLI class.
+
+
+class NotImplementedException(Exception): pass
+
+class BaseWsman(object):
+    def __init__(self, host):
+        self.host = host
+
+    def get_host(self):
+        return self.host.get("host", None)
+
+    def get_user(self):
+        return self.host.get("user", None)
+
+    def get_password(self):
+        return self.host.get("password", None)
+
+    @traceLog()
+    def enumerate(self, schema_list, filter=None):
+        raise NotImplementedException
+
+    @traceLog()
+    def invoke(self, schema, cmd, input_xml, *args, **kargs):
+        raise NotImplementedException
+
+    @traceLog()
+    def get(self, schema_list, *args, **kargs):
+        raise NotImplementedException
+
