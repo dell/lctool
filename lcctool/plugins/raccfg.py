@@ -143,7 +143,7 @@ class RacCfg(Plugin):
             host = self.ctx.args.rac_host
             user = self.ctx.args.rac_user
             password = self.ctx.args.rac_password
-            yield {"alias": "cli_specified", "host":host, "user":user, "password":password}
+            yield {"host":host, "user":user, "password":password}
 
         # uri parsing not yet implemented
         #elif self.ctx.args.rac_uri is not None:
