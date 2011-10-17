@@ -83,22 +83,22 @@ std_xml_namespaces = {
     "xsi":   "http://www.w3.org/2001/XMLSchema-instance",
 
     # configuration namespaces
-    'raid_attr': "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_RAIDAttribute",
-    'idrac_attr':"http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_iDRACCardAttribute",
-    'nic_attr':  "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_NICAttribute",
-    'bios_enum': "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSEnumeration",
-    'bios_str':  "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSString",
-    'bios_int':  "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSinteger",
+    'raid_attr': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_RAIDAttribute",
+    'idrac_attr':"http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_iDRACCardAttribute",
+    'nic_attr':  "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_NICAttribute",
+    'bios_enum': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSEnumeration",
+    'bios_str':  "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSString",
+    'bios_int':  "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSinteger",
 
     # service namespaces
-    'bios_srv': "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSService",
-    'nic_srv':  "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_NICService",
-    'idrac_srv':"http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_iDRACCardService",
-    'raid_srv': "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_RAIDService",
-    'lc_srv': "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_LCService",
+    'bios_srv': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSService",
+    'nic_srv':  "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_NICService",
+    'idrac_srv':"http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_iDRACCardService",
+    'raid_srv': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_RAIDService",
+    'lc_srv':   "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_LCService",
 
     # lifecycle controller misc
-    'lc_job': "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_LifecycleJob",
+    'lc_job': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_LifecycleJob",
     }
 
 dell_schema_list = {
