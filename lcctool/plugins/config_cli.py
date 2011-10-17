@@ -126,7 +126,8 @@ class Config(Plugin):
     @traceLog()
     def stageConfig(self, ctx):
         for host in ctx.raccfg.iterSpecfiedRacs():
-            infile = open(ctx.args.input_filename % { "host": host["host"] }, "r")
+            fn_subst = { "output_format": "ini", "host": host.get("alias", host["host"]) }
+            infile = open(ctx.args.input_filename % fn_subst, "r")
             ini = ConfigParser.ConfigParser()
             ini.optionxform = str # need to be case sensitive
             ini.readfp(infile)
