@@ -42,16 +42,130 @@ class TestCase(unittest.TestCase):
         lcctool.test_data_dir = os.path.join(os.path.dirname(__file__), "data")
 
     def tearDown(self):
-        if globals().get('lcctool'): del(lcctool)
-        for k in sys.modules.keys():
-            if k.startswith("lcctool"):
-                del(sys.modules[k])
+        pass
 
     def testFactory(self):
         import lcctool.cim
         from lcctool.schemas import etree
 
-        test_xml_str = """\
+        xml = etree.fromstring(test_xml_str_int)
+         
+        i = lcctool.cim.single_attribute_from_xml_factory(xml)
+
+        self.assertEquals( i['AttributeName'], 'AcPwrRcvryUserDelay' )
+        self.assertEquals( i['CurrentValue'], '30' )
+        self.assertEquals( i['DefaultValue'], None )
+        self.assertEquals( i['FQDD'], 'BIOS.Setup.1-1' )
+        self.assertEquals( i['InstanceID'], 'BIOS.Setup.1-1:AcPwrRcvryUserDelay' )
+        self.assertEquals( i['IsReadOnly'], 'true')
+        self.assertEquals( i['LowerBound'], 30 )
+        self.assertEquals( i['PendingValue'], None )
+        self.assertEquals( i['UpperBound'], 240 )
+
+
+
+    def testSerialize(self):
+        import lcctool.cim
+        from lcctool.schemas import etree
+
+        c = ConfigParser.ConfigParser()
+        c.optionxform = str
+        xml = etree.fromstring("<Items>" + test_xml_str_enums + test_xml_str_int + "</Items>")
+        instancelist = []
+        for item_list in xml.iter("Items"):
+            for i in lcctool.cim.attributes_from_xml_factory(item_list):
+                i.serialize_ini(c)
+                instancelist.append(i)
+
+        c.write(sys.stdout)
+        for i in instancelist:
+            print i.tocimxml().toprettyxml()
+
+    def testUnserialize(self):
+        import pywbem.cimxml_parse
+        c = pywbem.cimxml_parse.parse_any(cim_xml_str)
+        
+
+cim_xml_str = """\
+<INSTANCE CLASSNAME="DCIM_BIOSInteger">
+    <PROPERTY NAME="CurrentValue" TYPE="string">
+        <VALUE>
+            30
+        </VALUE>
+    </PROPERTY>
+    <PROPERTY NAME="LowerBound" TYPE="uint64">
+        <VALUE>
+            30
+        </VALUE>
+    </PROPERTY>
+    <PROPERTY NAME="ScalarIncrement" TYPE="uint32"/>
+    <PROPERTY NAME="Description" TYPE="string"/>
+    <PROPERTY NAME="FQDD" TYPE="string">
+        <VALUE>
+            BIOS.Setup.1-1
+        </VALUE>
+    </PROPERTY>
+    <PROPERTY NAME="IsReadOnly" TYPE="string">
+        <VALUE>
+            true
+        </VALUE>
+    </PROPERTY>
+    <PROPERTY NAME="InstanceID" TYPE="string">
+        <VALUE>
+            BIOS.Setup.1-1:AcPwrRcvryUserDelay
+        </VALUE>
+    </PROPERTY>
+    <PROPERTY NAME="DefaultValue" TYPE="string"/>
+    <PROPERTY NAME="AttributeName" TYPE="string">
+        <VALUE>
+            AcPwrRcvryUserDelay
+        </VALUE>
+    </PROPERTY>
+    <PROPERTY NAME="ElementName" TYPE="string"/>
+    <PROPERTY NAME="UpperBound" TYPE="uint64">
+        <VALUE>
+            240
+        </VALUE>
+    </PROPERTY>
+    <PROPERTY NAME="Caption" TYPE="string"/>
+    <PROPERTY NAME="IsOrderedList" TYPE="string"/>
+    <PROPERTY NAME="ProgrammaticUnit" TYPE="string"/>
+    <PROPERTY NAME="PendingValue" TYPE="string"/>
+</INSTANCE>
+"""
+
+
+test_xml_str_enums = """\
+        <n1:DCIM_BIOSEnumeration
+                xmlns:n1="http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSEnumeration"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                >
+          <n1:AttributeName>NumLock</n1:AttributeName>
+          <n1:CurrentValue>On</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>BIOS.Setup.1-1</n1:FQDD>
+          <n1:InstanceID>BIOS.Setup.1-1:NumLock</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:PendingValue xsi:nil="true"/>
+          <n1:PossibleValues>On</n1:PossibleValues>
+          <n1:PossibleValues>Off</n1:PossibleValues>
+        </n1:DCIM_BIOSEnumeration>
+        <n1:DCIM_BIOSEnumeration
+                xmlns:n1="http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSEnumeration"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                >
+          <n1:AttributeName>ReportKbdErr</n1:AttributeName>
+          <n1:CurrentValue>NoReport</n1:CurrentValue>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>BIOS.Setup.1-1</n1:FQDD>
+          <n1:InstanceID>BIOS.Setup.1-1:ReportKbdErr</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:PendingValue xsi:nil="true"/>
+          <n1:PossibleValues>Report</n1:PossibleValues>
+          <n1:PossibleValues>NoReport</n1:PossibleValues>
+        </n1:DCIM_BIOSEnumeration>
+"""
+test_xml_str_int = """\
         <n1:DCIM_BIOSinteger 
                 xmlns:n1="http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSinteger"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -65,19 +179,5 @@ class TestCase(unittest.TestCase):
           <n1:LowerBound>30</n1:LowerBound>
           <n1:PendingValue xsi:nil="true"/>
           <n1:UpperBound>240</n1:UpperBound>
-        </n1:DCIM_BIOSinteger>"""
-        
-        xml = etree.fromstring(test_xml_str)
-         
-        i = lcctool.cim.single_attribute_from_xml_factory(xml)
-
-        #self.assertEquals( i['namespace'], 'http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSinteger' )
-        self.assertEquals( i['AttributeName'], 'AcPwrRcvryUserDelay' )
-        self.assertEquals( i['CurrentValue'], '30' )
-        self.assertEquals( i['DefaultValue'], None )
-        self.assertEquals( i['FQDD'], 'BIOS.Setup.1-1' )
-        self.assertEquals( i['InstanceID'], 'BIOS.Setup.1-1:AcPwrRcvryUserDelay' )
-        self.assertEquals( i['IsReadOnly'], 'true')
-        self.assertEquals( i['LowerBound'], 30 )
-        self.assertEquals( i['PendingValue'], None )
-        self.assertEquals( i['UpperBound'], 240 )
+        </n1:DCIM_BIOSinteger>
+"""
