@@ -45,12 +45,13 @@ class TestCase(unittest.TestCase):
         pass
 
     def testFactory(self):
-        import lcctool.cim
+        import lcctool.wscim
+        import lcctool.wscim_classes
         from lcctool.schemas import etree
 
         xml = etree.fromstring(test_xml_str_int)
          
-        i = lcctool.cim.single_attribute_from_xml_factory(xml)
+        i = lcctool.wscim.single_attribute_from_xml_factory(xml)
 
         self.assertEquals( i['AttributeName'], 'AcPwrRcvryUserDelay' )
         self.assertEquals( i['CurrentValue'], '30' )
@@ -65,7 +66,8 @@ class TestCase(unittest.TestCase):
 
 
     def testSerialize(self):
-        import lcctool.cim
+        import lcctool.wscim
+        import lcctool.wscim_classes
         from lcctool.schemas import etree
 
         c = ConfigParser.ConfigParser()
@@ -73,7 +75,7 @@ class TestCase(unittest.TestCase):
         xml = etree.fromstring("<Items>" + test_xml_str_enums + test_xml_str_int + "</Items>")
         instancelist = []
         for item_list in xml.iter("Items"):
-            for i in lcctool.cim.attributes_from_xml_factory(item_list):
+            for i in lcctool.wscim.attributes_from_xml_factory(item_list):
                 i.serialize_ini(c)
                 instancelist.append(i)
 
@@ -87,52 +89,7 @@ class TestCase(unittest.TestCase):
         
 
 cim_xml_str = """\
-<INSTANCE CLASSNAME="DCIM_BIOSInteger">
-    <PROPERTY NAME="CurrentValue" TYPE="string">
-        <VALUE>
-            30
-        </VALUE>
-    </PROPERTY>
-    <PROPERTY NAME="LowerBound" TYPE="uint64">
-        <VALUE>
-            30
-        </VALUE>
-    </PROPERTY>
-    <PROPERTY NAME="ScalarIncrement" TYPE="uint32"/>
-    <PROPERTY NAME="Description" TYPE="string"/>
-    <PROPERTY NAME="FQDD" TYPE="string">
-        <VALUE>
-            BIOS.Setup.1-1
-        </VALUE>
-    </PROPERTY>
-    <PROPERTY NAME="IsReadOnly" TYPE="string">
-        <VALUE>
-            true
-        </VALUE>
-    </PROPERTY>
-    <PROPERTY NAME="InstanceID" TYPE="string">
-        <VALUE>
-            BIOS.Setup.1-1:AcPwrRcvryUserDelay
-        </VALUE>
-    </PROPERTY>
-    <PROPERTY NAME="DefaultValue" TYPE="string"/>
-    <PROPERTY NAME="AttributeName" TYPE="string">
-        <VALUE>
-            AcPwrRcvryUserDelay
-        </VALUE>
-    </PROPERTY>
-    <PROPERTY NAME="ElementName" TYPE="string"/>
-    <PROPERTY NAME="UpperBound" TYPE="uint64">
-        <VALUE>
-            240
-        </VALUE>
-    </PROPERTY>
-    <PROPERTY NAME="Caption" TYPE="string"/>
-    <PROPERTY NAME="IsOrderedList" TYPE="string"/>
-    <PROPERTY NAME="ProgrammaticUnit" TYPE="string"/>
-    <PROPERTY NAME="PendingValue" TYPE="string"/>
-</INSTANCE>
-"""
+<INSTANCE CLASSNAME="DCIM_BIOSInteger"><PROPERTY NAME="CurrentValue" TYPE="string"><VALUE>30</VALUE></PROPERTY><PROPERTY NAME="LowerBound" TYPE="uint64"><VALUE>30</VALUE></PROPERTY><PROPERTY NAME="ScalarIncrement" TYPE="uint32"/><PROPERTY NAME="Description" TYPE="string"/><PROPERTY NAME="FQDD" TYPE="string"><VALUE>BIOS.Setup.1-1</VALUE></PROPERTY><PROPERTY NAME="IsReadOnly" TYPE="string"><VALUE>true</VALUE></PROPERTY><PROPERTY NAME="InstanceID" TYPE="string"><VALUE>BIOS.Setup.1-1:AcPwrRcvryUserDelay</VALUE></PROPERTY><PROPERTY NAME="DefaultValue" TYPE="string"/><PROPERTY NAME="AttributeName" TYPE="string"><VALUE>AcPwrRcvryUserDelay</VALUE></PROPERTY><PROPERTY NAME="ElementName" TYPE="string"/><PROPERTY NAME="UpperBound" TYPE="uint64"><VALUE>240</VALUE></PROPERTY><PROPERTY NAME="Caption" TYPE="string"/><PROPERTY NAME="IsOrderedList" TYPE="string"/><PROPERTY NAME="ProgrammaticUnit" TYPE="string"/><PROPERTY NAME="PendingValue" TYPE="string"/></INSTANCE>"""
 
 
 test_xml_str_enums = """\
