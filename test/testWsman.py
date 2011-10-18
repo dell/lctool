@@ -51,7 +51,7 @@ class TestCase(unittest.TestCase):
 
         xml = etree.fromstring(test_xml_str_int)
          
-        i = lcctool.wscim.single_attribute_from_xml_factory(xml)
+        i = lcctool.wscim.cim_instance_from_wsxml(xml)
 
         self.assertEquals( i['AttributeName'], 'AcPwrRcvryUserDelay' )
         self.assertEquals( i['CurrentValue'], '30' )
@@ -75,7 +75,7 @@ class TestCase(unittest.TestCase):
         xml = etree.fromstring("<Items>" + test_xml_str_enums + test_xml_str_int + "</Items>")
         instancelist = []
         for item_list in xml.iter("Items"):
-            for i in lcctool.wscim.attributes_from_xml_factory(item_list):
+            for i in lcctool.wscim.parse_wsxml_instance_list(item_list):
                 i.serialize_ini(c)
                 instancelist.append(i)
 
