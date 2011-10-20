@@ -35,6 +35,9 @@ import unittest
 import cStringIO
 import ConfigParser
 
+import pywbem.cimxml_parse
+import pywbem.cim_xml
+
 class TestCase(unittest.TestCase):
     def setUp(self):
         import lcctool
@@ -72,7 +75,9 @@ class TestCase(unittest.TestCase):
 
         c = ConfigParser.ConfigParser()
         c.optionxform = str
+
         xml = etree.fromstring("<Items>" + test_xml_str_enums + test_xml_str_int + "</Items>")
+
         instancelist = []
         for item_list in xml.iter("Items"):
             for i in lcctool.wscim.parse_wsxml_instance_list(item_list):
@@ -80,16 +85,40 @@ class TestCase(unittest.TestCase):
                 instancelist.append(i)
 
         c.write(sys.stdout)
-        for i in instancelist:
-            print i.tocimxml().toprettyxml()
+
+        retval = pywbem.cim_xml.CIMElement("Instances")
+        retval.appendChildren([i.tocimxml() for i in instancelist])
+
+        print retval.toxml()
+
+        tt = pywbem.tupletree.xml_to_tupletree(retval.toxml())
+        for t_inst in tt[2]:
+            instance = pywbem.tupleparse.parse_any(t_inst)
+            print "INSTANCE: %s" % instance
+            
+
+
+
 
     def testUnserialize(self):
-        import pywbem.cimxml_parse
-        c = pywbem.cimxml_parse.parse_any(cim_xml_str)
+        import lcctool.wscim
+#        import lcctool.wscim_classes
+##        #c1 = pywbem.cimxml_parse.parse_any(cim_xml_str)
+#        tt = pywbem.tupleparse.parse_any(pywbem.tupletree.xml_to_tupletree(cim_xml_str2))
+
+#        for i in pywbem.tupleparse.parse_any(tt):
+#            print "parsed: %s" % repr(i)
+#
+#        for instance in lcctool.wscim.get_instances(tt):
+#            print "instance: %s" % repr(instance)
+            
         
 
 cim_xml_str = """\
 <INSTANCE CLASSNAME="DCIM_BIOSInteger"><PROPERTY NAME="CurrentValue" TYPE="string"><VALUE>30</VALUE></PROPERTY><PROPERTY NAME="LowerBound" TYPE="uint64"><VALUE>30</VALUE></PROPERTY><PROPERTY NAME="ScalarIncrement" TYPE="uint32"/><PROPERTY NAME="Description" TYPE="string"/><PROPERTY NAME="FQDD" TYPE="string"><VALUE>BIOS.Setup.1-1</VALUE></PROPERTY><PROPERTY NAME="IsReadOnly" TYPE="string"><VALUE>true</VALUE></PROPERTY><PROPERTY NAME="InstanceID" TYPE="string"><VALUE>BIOS.Setup.1-1:AcPwrRcvryUserDelay</VALUE></PROPERTY><PROPERTY NAME="DefaultValue" TYPE="string"/><PROPERTY NAME="AttributeName" TYPE="string"><VALUE>AcPwrRcvryUserDelay</VALUE></PROPERTY><PROPERTY NAME="ElementName" TYPE="string"/><PROPERTY NAME="UpperBound" TYPE="uint64"><VALUE>240</VALUE></PROPERTY><PROPERTY NAME="Caption" TYPE="string"/><PROPERTY NAME="IsOrderedList" TYPE="string"/><PROPERTY NAME="ProgrammaticUnit" TYPE="string"/><PROPERTY NAME="PendingValue" TYPE="string"/></INSTANCE>"""
+
+cim_xml_str2 = """\
+<CIM CIMVERSION="2.0" DTDVERSION="1"><DECLARATION><INSTANCE CLASSNAME="DCIM_BIOSEnumeration"><PROPERTY NAME="CurrentValue" TYPE="string"><VALUE>On</VALUE></PROPERTY><PROPERTY NAME="Description" TYPE="string"/><PROPERTY NAME="FQDD" TYPE="string"><VALUE>BIOS.Setup.1-1</VALUE></PROPERTY><PROPERTY NAME="IsReadOnly" TYPE="string"><VALUE>false</VALUE></PROPERTY><PROPERTY NAME="InstanceID" TYPE="string"><VALUE>BIOS.Setup.1-1:NumLock</VALUE></PROPERTY><PROPERTY NAME="PossibleValuesDescription" TYPE="string"/><PROPERTY NAME="AttributeName" TYPE="string"><VALUE>NumLock</VALUE></PROPERTY><PROPERTY NAME="ElementName" TYPE="string"/><PROPERTY NAME="Caption" TYPE="string"/><PROPERTY NAME="IsOrderedList" TYPE="string"/><PROPERTY NAME="PendingValue" TYPE="string"/><PROPERTY NAME="PossibleValues" TYPE="string"><VALUE>Off</VALUE></PROPERTY><PROPERTY NAME="DefaultValue" TYPE="string"/></INSTANCE><INSTANCE CLASSNAME="DCIM_BIOSEnumeration"><PROPERTY NAME="CurrentValue" TYPE="string"><VALUE>NoReport</VALUE></PROPERTY><PROPERTY NAME="Description" TYPE="string"/><PROPERTY NAME="FQDD" TYPE="string"><VALUE>BIOS.Setup.1-1</VALUE></PROPERTY><PROPERTY NAME="IsReadOnly" TYPE="string"><VALUE>false</VALUE></PROPERTY><PROPERTY NAME="InstanceID" TYPE="string"><VALUE>BIOS.Setup.1-1:ReportKbdErr</VALUE></PROPERTY><PROPERTY NAME="PossibleValuesDescription" TYPE="string"/><PROPERTY NAME="AttributeName" TYPE="string"><VALUE>ReportKbdErr</VALUE></PROPERTY><PROPERTY NAME="ElementName" TYPE="string"/><PROPERTY NAME="Caption" TYPE="string"/><PROPERTY NAME="IsOrderedList" TYPE="string"/><PROPERTY NAME="PendingValue" TYPE="string"/><PROPERTY NAME="PossibleValues" TYPE="string"><VALUE>NoReport</VALUE></PROPERTY><PROPERTY NAME="DefaultValue" TYPE="string"/></INSTANCE><INSTANCE CLASSNAME="DCIM_BIOSinteger"><PROPERTY NAME="CurrentValue" TYPE="string"><VALUE>30</VALUE></PROPERTY><PROPERTY NAME="LowerBound" TYPE="uint64"><VALUE>30</VALUE></PROPERTY><PROPERTY NAME="ScalarIncrement" TYPE="uint32"/><PROPERTY NAME="Description" TYPE="string"/><PROPERTY NAME="FQDD" TYPE="string"><VALUE>BIOS.Setup.1-1</VALUE></PROPERTY><PROPERTY NAME="IsReadOnly" TYPE="string"><VALUE>true</VALUE></PROPERTY><PROPERTY NAME="InstanceID" TYPE="string"><VALUE>BIOS.Setup.1-1:AcPwrRcvryUserDelay</VALUE></PROPERTY><PROPERTY NAME="DefaultValue" TYPE="string"/><PROPERTY NAME="AttributeName" TYPE="string"><VALUE>AcPwrRcvryUserDelay</VALUE></PROPERTY><PROPERTY NAME="ElementName" TYPE="string"/><PROPERTY NAME="UpperBound" TYPE="uint64"><VALUE>240</VALUE></PROPERTY><PROPERTY NAME="Caption" TYPE="string"/><PROPERTY NAME="IsOrderedList" TYPE="string"/><PROPERTY NAME="ProgrammaticUnit" TYPE="string"/><PROPERTY NAME="PendingValue" TYPE="string"/></INSTANCE></DECLARATION></CIM>"""
 
 
 test_xml_str_enums = """\

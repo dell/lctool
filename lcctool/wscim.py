@@ -21,6 +21,9 @@ from stdcli.trace_decorator import traceLog, getLog
 ##
 ## first up, some new methods for CIMInstance that we will monkey-patch in
 ##
+
+# This is a method that will serialize "CurrentValue" to an INI file.
+@traceLog()
 def serialize_ini(self, ini):
     name = self["attributename"]
     if self.has_key("groupid") and self["groupid"]:
@@ -36,41 +39,13 @@ if not hasattr(cobj.CIMInstance, "serialize_ini"):
     cobj.CIMInstance.serialize_ini  = serialize_ini
 
 
-# monkeypatch CIMInstance __init__ because it doesnt use super() and this will
-# screw us up also, old __init__ doesnt take *args, **kargs, so we have to
-# manually clean up arg list
-def newinit(self, *args, **kargs):
-    newkargs = {}
-    index = 0
-    # remove all the args that we consume from kargs potential bug here
-    # depending on class heirarchy, in cases of multiple inheritance, __init__
-    # calls on the wrong side of the tree won't get args/kargs, which could be
-    # problematic. Not sure how to fix that except possibly by detecting when
-    # object() is the next in line and not passing anything to it
-    for argname in ["classname", "properties", "qualifiers", "path", "property_list"]:
-        newkargs[argname] = kargs.get(argname)
-        if kargs.has_key(argname):
-            del(kargs[argname])
-        if len(args) > index:
-            newkargs[argname] = args[index]
-        index = index + 1
-    super(cobj.CIMInstance,self).__init__(**kargs)
-    # CIMInstance.__init__() always needs to run last
-    self.oldinit(**newkargs)
-
-if not hasattr(cobj.CIMInstance, "oldinit"):
-    # monkey-patch CIMInstance to fix __init__ method
-    cobj.CIMInstance.oldinit  = cobj.CIMInstance.__init__
-    cobj.CIMInstance.__init__  = newinit
-
-
 class WSInstance(cobj.CIMInstance):
     def __init__(self, *args, **kargs):
         # look up all the classes in our inheritance heirarchy and add the
         # property_list parameters
         for cls in self.__class__.mro():
             self.set_class_vals(cls, args, kargs)
-        super(WSInstance, self).__init__(*args, **kargs)
+        cobj.CIMInstance.__init__(self, *args, **kargs)
 
     # set up property_list parameter based on class _property_list attribute
     def set_class_vals(self, cls, args, kargs):
@@ -134,3 +109,23 @@ def itersubclasses(cls, _seen=None):
             yield sub
             for sub in itersubclasses(sub, _seen):
                 yield sub
+
+# extra stuff for pywbem
+def parse_declaration(tt):
+    pywbem.tupleparse.check_node(tt, 'DECLARATION')
+    decls = pywbem.tupleparse.list_of_various(tt, ['INSTANCE','INSTANCENAME','INSTANCEPATH','CLASSPATH','CLASS'])
+    if type(decls) is not list:
+        # make single and multi forms consistent
+        decls = [decls]
+    return pywbem.tupleparse.name(tt), pywbem.tupleparse.attrs(tt), decls
+
+import pywbem.tupleparse
+if not hasattr(pywbem.tupleparse, "parse_declaration"):
+    pywbem.tupleparse.parse_declaration = parse_declaration
+
+def get_instances(tt):
+    pywbem.tupleparse.check_node(tt, 'CIM', ['CIMVERSION', "DTDVERSION"])
+    for declnode in pywbem.tupleparse.kids(tt):
+        pywbem.tupleparse.check_node(declnode, 'DECLARATION', [])
+        for i in pywbem.tupleparse.kids(declnode):
+            yield i

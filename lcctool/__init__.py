@@ -86,14 +86,53 @@ class BaseWsman(object):
     def get_password(self):
         return self.host.get("password", None)
 
-    @traceLog()
-    def enumerate(self, schema_list, filter=None):
-        raise NotImplementedException
+# why are these all here but commented out? Good question. These are all methods in the base openwsman Client class that we should implement in some fashion.
+#    @traceLog()
+#    def get(self, *args, **kargs):
+#        raise NotImplementedException
+#
+#    @traceLog()
+#    def put(self, *args, **kargs):
+#        raise NotImplementedException
+#
+#    @traceLog()
+#    def create(self, *args, **kargs):
+#        raise NotImplementedException
+#
+#    @traceLog()
+#    def delete(self, *args, **kargs):
+#        raise NotImplementedException
+#
+#    @traceLog()
+#    def fragment_get(self, *args, **kargs):
+#        raise NotImplementedException
+#
+#    @traceLog()
+#    def fragment_put(self, *args, **kargs):
+#        raise NotImplementedException
+#
+#    @traceLog()
+#    def fragment_create(self, *args, **kargs):
+#        raise NotImplementedException
+#
+#    @traceLog()
+#    def fragment_delete(self, *args, **kargs):
+#        raise NotImplementedException
+#
+#    @traceLog()
+#    def enumerate(self, schema, filter=None):
+#        raise NotImplementedException
+#
+#    @traceLog()
+#    def pull(self, schema, filter=None):
+#        raise NotImplementedException
+#
+#    @traceLog()
+#    def release(self, schema, filter=None):
+#        raise NotImplementedException
+#
+#    @traceLog()
+#    def invoke_method(self, methodname, objname, *args, **kargs):
+#        raise NotImplementedException
 
-    @traceLog()
-    def invoke(self, schema, cmd, input_xml, *args, **kargs):
-        raise NotImplementedException
 
-    @traceLog()
-    def get(self, schema_list, *args, **kargs):
-        raise NotImplementedException

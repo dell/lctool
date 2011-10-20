@@ -29,12 +29,14 @@
 import os
 import copy
 import tempfile
+import pywsman
 
 from stdcli.trace_decorator import traceLog, getLog
 from stdcli.pycompat import call_output
 import lcctool
 import schemas
 etree = schemas.etree
+import wscim
 
 moduleLog = getLog()
 moduleVerboseLog = getLog(prefix="verbose.")
@@ -50,43 +52,47 @@ basic_wsman_cmd = ["wsman", "-P", "443", "-V", "-v", "-c", "dummy.cert", "-j", "
 class OpenWSManCLI(lcctool.BaseWsman):
     def __init__(self, host, *args, **kargs):
         super(OpenWSManCLI, self).__init__(host, *args, **kargs)
-        self.host = host
-        opts = { "-h": self.get_host, "-u": self.get_user, "-p": self.get_password }
-        self.wsman_cmd = copy.copy(basic_wsman_cmd)
-        for k,v in opts.items():
-            if v() is not None:
-                self.wsman_cmd.extend([k,v()])
+
+        self.client = pywsman.Client( "https://%(user)s:%(pass)@%(host):%(port)/wsman" %
+            {'user': self.get_user(), 'pass': self.get_password(), 'host': self.get_host(), 'port': 443})
+
+        assert client is not None
+        # required transport characteristics to talk to drac
+        self.client.transport().set_auth_method(BASIC_AUTH_STR) # Windows winrm needs this
+        # we can implement verification later (need to save certs and pass them in
+        self.client.transport().set_verify_peer(False)
+        self.client.transport().set_verify_host(False)
+
+        self.options = pywsman.ClientOptions()
+        assert options is not None
+        self.options.set_flags(FLAG_ENUMERATION_OPTIMIZATION)
+
+        # for debugging
+        self.options.set_dump_request()
+        doc = self.client.identify( options )
+        print "Document [%s]" % doc
+
 
     # generates <Items> element from each schema call, sequentially
     @traceLog()
-    def enumerate(self, schema_list, filter=None):
-        for schema in schema_list:
-            moduleLog.info("retrieving info for schema: %s" % schema)
-            xml_out = etree.fromstring(call_output( self.wsman_cmd + ["enumerate", schema], raise_exc=False ))
+    def enumerate(self, schema, filter=None):
+        filt = pywsman.Filter()
+        doc = client.enumerate(options, filt, schema)
+        root=doc.root()
+        context = doc.context()
+
+        while 1:
+            xml_out = etree.fromstring(doc.body().string())
             for item_list in  xml_out.iter("{%(wsman)s}Items" % schemas.std_xml_namespaces):
-                yield item_list
+                for item in list(item_list):
+                    yield wscim.cim_instance_from_wsxml(elem)
 
-    @traceLog()
-    def invoke(self, schema, cmd, input_xml, *args, **kargs):
-        wsman_cmd = copy.copy(self.wsman_cmd)
-        if input_xml:
-            fd, fn = tempfile.mkstemp(suffix=".xml")
-            os.write(fd, etree.tostring(input_xml))
-            os.close(fd)
-            wsman_cmd.extend(["-J", fn])
+            if not context:
+                break
 
-        try:
-            wsman_cmd.extend(["invoke", "-a", cmd, schema])
-            xml_out = etree.fromstring(call_output(wsman_cmd, raise_exc=False))
-            # ASSUMPTION: there will only ever be one <ns:BODY> ... </ns:BODY> element
-            for body_elements in xml_out.iter("{%(soap)s}Body" % schemas.std_xml_namespaces):
-                # ASSUMPTION: <ns:BODY> will only ever have one child, so far we've seen <SetAttributes_OUTPUT> and <ApplyAttributes_OUTPUT>
-                return list(body_elements)[0]
-                # IFF either of these assumptions turns out to be incorrect, we will need to change this API
-        finally:
-            if input_xml:
-                os.unlink(fn)
+            doc = client.pull(options, filt, schema, context)
+            context = doc.context()
+            if client.response_code() not in [200, 400, 500]:
+                break
 
-    #@traceLog()
-    #def get(self, schema_list, *args, **kargs):
-    #    pass
+

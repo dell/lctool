@@ -74,6 +74,8 @@ except AttributeError:
     def register_namespace(prefix, uri):
         etree._namespace_map[uri] = prefix
 
+dell_base = "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/"
+
 std_xml_namespaces = {
     # standards based namespaces we will be working with
     "soap":  "http://www.w3.org/2003/05/soap-envelope",
