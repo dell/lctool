@@ -20,13 +20,26 @@ class CIM_BIOSInteger(CIM_BIOSAttribute):
 class DCIM_Mixin(object):
     _property_list  = {"FQDD": "string"}
 
+class DCIM_BIOSAttribute(CIM_BIOSAttribute, DCIM_Mixin):
+    _ns = schemas.std_xml_namespaces['bios_attr']
 class DCIM_BIOSString(CIM_BIOSString, DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['bios_str']
-
 class DCIM_BIOSInteger(CIM_BIOSInteger, DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['bios_int']
-
 class DCIM_BIOSEnumeration(CIM_BIOSEnumeration, DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['bios_enum']
+
+class DCIM_RAIDAttribute(CIM_BIOSAttribute, DCIM_Mixin):
+    _ns = schemas.std_xml_namespaces['raid_attr']
+
+class DCIM_NICAttribute(CIM_BIOSAttribute, DCIM_Mixin):
+    _ns = schemas.std_xml_namespaces['nic_attr']
+
+class DCIM_iDRACCardString(CIM_BIOSString, DCIM_Mixin):
+    _ns = schemas.std_xml_namespaces['idrac_str']
+class DCIM_iDRACCardInteger(CIM_BIOSInteger, DCIM_Mixin):
+    _ns = schemas.std_xml_namespaces['idrac_int']
+class DCIM_iDRACCardEnumeration(CIM_BIOSEnumeration, DCIM_Mixin):
+    _ns = schemas.std_xml_namespaces['idrac_enum']
 
 

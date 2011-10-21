@@ -103,25 +103,29 @@ class Config(Plugin):
             ini.set("main", "alias", host.get("alias", ""))
 
             xml = lcctool.schemas.etree.Element("xml_return")
+            wsman = lcctool.wsman_factory(host)
             for subsys in ctx.args.subsystems:
-                for xml_ret in lcctool.config.stuff_xml_into_ini(host, ini, subsys):
-                    xml.append(xml_ret)
+                for schema in lcctool.schemas.dell_schema_list[subsys]:
+                    for item in wsman.enumerate(schema):
+                        print "ITEM: %s" % item
+                        print "     properties: %s" % item.properties
+                        item.serialize_ini(ini)
+                        xml.append(item.raw_xml)
 
             fn_subst = { "output_format": ctx.args.output_format, "host": host.get("alias", host["host"]) }
+
+            do_close = ctx.args.output_filename != "-"
+            outfile = sys.stdout
+            if do_close:
+                outfile = open(ctx.args.output_filename % fn_subst, "w+")
+
             if ctx.args.output_format == "ini":
-                if ctx.args.output_filename == "-":
-                    ini.write( sys.stdout )
-                else:
-                    outfile = open(ctx.args.output_filename % fn_subst, "w+")
-                    ini.write( outfile )
-                    outfile.close()
+                ini.write( outfile )
             elif ctx.args.output_format == "xml":
-                if ctx.args.output_filename == "-":
-                    sys.stdout.write( lcctool.schemas.etree.tostring(xml) )
-                else:
-                    outfile = open(ctx.args.output_filename % fn_subst, "w+")
-                    outfile.write( lcctool.schemas.etree.tostring(xml) )
-                    outfile.close()
+                outfile.write( lcctool.schemas.etree.tostring(xml) )
+
+            if do_close:
+                outfile.close()
 
     @traceLog()
     def stageConfig(self, ctx):

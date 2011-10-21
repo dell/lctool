@@ -1,6 +1,6 @@
 import pywbem.cim_obj as cobj
 import schemas
-from schemas import std_xml_namespaces
+from schemas import std_xml_namespaces, etree
 from stdcli.trace_decorator import traceLog, getLog
 
 # Outline:
@@ -33,7 +33,6 @@ def serialize_ini(self, ini):
         if not ini.has_section(sec):
             ini.add_section(sec)
     ini.set(self["fqdd"], name, self["currentvalue"])
-    #ini.set("main", self["fqdd"], 'subsys')
 
 if not hasattr(cobj.CIMInstance, "serialize_ini"):
     cobj.CIMInstance.serialize_ini  = serialize_ini
@@ -63,19 +62,6 @@ class WSInstance(cobj.CIMInstance):
             if not kargs["properties"].has_key(i):
                 kargs["properties"][i] = cobj.CIMProperty(i, None, type=typ)
             
-
-@traceLog()
-def find_class(namespace):
-    for cls in itersubclasses(WSInstance):
-        if getattr(cls, "_ns", None) == namespace:
-            return cls
-    return WSInstance
-
-@traceLog()
-def parse_wsxml_instance_list(item_list):
-    for elem in list(item_list):
-        yield cim_instance_from_wsxml(elem)
-
 @traceLog()
 def cim_instance_from_wsxml(elem):
     namespace = elem.tag.split("}")[0][1:]
@@ -88,10 +74,24 @@ def cim_instance_from_wsxml(elem):
             continue
         kargs[attr] = child.text
 
-    i = find_class(namespace)(classname=cls)
-    i.update_existing(kargs)
+    i = find_class(namespace, cls)(classname=cls)
+    i.update(kargs)
+    i.raw_xml = etree.tostring(elem)
     return i
 
+class ClassNotFound(Exception): pass
+
+@traceLog()
+def find_class(namespace, classname):
+    for cls in itersubclasses(WSInstance):
+        print "namespace %s == %s ?" % (getattr(cls, "_ns", None), namespace)
+        print "    class %s == %s ?" % (cls.__name__, classname)
+        if getattr(cls, "_ns", None) == namespace:
+            if cls.__name__ == classname:
+                return cls
+
+    raise ClassNotFound("Could not find match for class: %s in namespace %s" % (classname, namespace))
+    #return WSInstance
 
 ## helper function to iterate subclasses
 @traceLog()
@@ -110,22 +110,4 @@ def itersubclasses(cls, _seen=None):
             for sub in itersubclasses(sub, _seen):
                 yield sub
 
-# extra stuff for pywbem
-def parse_declaration(tt):
-    pywbem.tupleparse.check_node(tt, 'DECLARATION')
-    decls = pywbem.tupleparse.list_of_various(tt, ['INSTANCE','INSTANCENAME','INSTANCEPATH','CLASSPATH','CLASS'])
-    if type(decls) is not list:
-        # make single and multi forms consistent
-        decls = [decls]
-    return pywbem.tupleparse.name(tt), pywbem.tupleparse.attrs(tt), decls
-
-import pywbem.tupleparse
-if not hasattr(pywbem.tupleparse, "parse_declaration"):
-    pywbem.tupleparse.parse_declaration = parse_declaration
-
-def get_instances(tt):
-    pywbem.tupleparse.check_node(tt, 'CIM', ['CIMVERSION', "DTDVERSION"])
-    for declnode in pywbem.tupleparse.kids(tt):
-        pywbem.tupleparse.check_node(declnode, 'DECLARATION', [])
-        for i in pywbem.tupleparse.kids(declnode):
-            yield i
+import wscim_classes

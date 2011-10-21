@@ -86,11 +86,15 @@ std_xml_namespaces = {
 
     # configuration namespaces
     'raid_attr': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_RAIDAttribute",
-    'idrac_attr':"http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_iDRACCardAttribute",
     'nic_attr':  "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_NICAttribute",
+    'bios_attr': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSAttribute",
     'bios_enum': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSEnumeration",
     'bios_str':  "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSString",
     'bios_int':  "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSinteger",
+    'idrac_attr':"http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_iDRACCardAttribute",
+    'idrac_str':"http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_iDRACCardString",
+    'idrac_int':"http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_iDRACCardInteger",
+    'idrac_enum':"http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_iDRACCardEnumeration",
 
     # service namespaces
     'bios_srv': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSService",
@@ -104,7 +108,8 @@ std_xml_namespaces = {
     }
 
 dell_schema_list = {
-    "bios":  [ std_xml_namespaces["bios_enum"], std_xml_namespaces["bios_str"], std_xml_namespaces["bios_int"], ],
+    #"bios":  [ std_xml_namespaces["bios_enum"], std_xml_namespaces["bios_str"], std_xml_namespaces["bios_int"], ],
+    "bios":  [ std_xml_namespaces["bios_attr"], ],
     'nic': [ std_xml_namespaces["nic_attr"] ],
     'idrac': [ std_xml_namespaces["idrac_attr"] ],
     'raid': [ std_xml_namespaces["raid_attr"] ],

@@ -53,46 +53,54 @@ class OpenWSManCLI(lcctool.BaseWsman):
     def __init__(self, host, *args, **kargs):
         super(OpenWSManCLI, self).__init__(host, *args, **kargs)
 
-        self.client = pywsman.Client( "https://%(user)s:%(pass)@%(host):%(port)/wsman" %
+        self.client = pywsman.Client( "https://%(user)s:%(pass)s@%(host)s:%(port)s/wsman" %
             {'user': self.get_user(), 'pass': self.get_password(), 'host': self.get_host(), 'port': 443})
 
-        assert client is not None
+        self.debug = kargs.get("debug", False)
+
+        assert self.client is not None
         # required transport characteristics to talk to drac
-        self.client.transport().set_auth_method(BASIC_AUTH_STR) # Windows winrm needs this
+        self.client.transport().set_auth_method(pywsman.BASIC_AUTH_STR) # Windows winrm needs this
         # we can implement verification later (need to save certs and pass them in
         self.client.transport().set_verify_peer(False)
         self.client.transport().set_verify_host(False)
 
         self.options = pywsman.ClientOptions()
-        assert options is not None
-        self.options.set_flags(FLAG_ENUMERATION_OPTIMIZATION)
+        assert self.options is not None
 
         # for debugging
-        self.options.set_dump_request()
-        doc = self.client.identify( options )
-        print "Document [%s]" % doc
+        if self.debug:
+            self.options.set_dump_request()
+
+        self._identify_result = self.client.identify( self.options )
+        if self.debug:
+            print "Identify: \n%s" % self._identify_result
 
 
     # generates <Items> element from each schema call, sequentially
     @traceLog()
     def enumerate(self, schema, filter=None):
         filt = pywsman.Filter()
-        doc = client.enumerate(options, filt, schema)
+        #self.options.set_flags(pywsman.FLAG_ENUMERATION_OPTIMIZATION)
+        doc = self.client.enumerate(self.options, filt, schema)
         root=doc.root()
         context = doc.context()
 
         while 1:
             xml_out = etree.fromstring(doc.body().string())
-            for item_list in  xml_out.iter("{%(wsman)s}Items" % schemas.std_xml_namespaces):
+            #print "got some xml: %s" % etree.tostring(xml_out)
+            for item_list in  xml_out.iter("{%(wsen)s}Items" % schemas.std_xml_namespaces):
+                #print "Got item_list: %s" % item_list
                 for item in list(item_list):
-                    yield wscim.cim_instance_from_wsxml(elem)
+                    #print "Got item: %s" % item
+                    yield wscim.cim_instance_from_wsxml(item)
 
             if not context:
                 break
 
-            doc = client.pull(options, filt, schema, context)
+            doc = self.client.pull(self.options, filt, schema, context)
             context = doc.context()
-            if client.response_code() not in [200, 400, 500]:
+            if self.client.response_code() not in [200, 400, 500]:
                 break
 
 
