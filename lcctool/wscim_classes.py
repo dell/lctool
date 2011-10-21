@@ -35,6 +35,8 @@ class DCIM_RAIDAttribute(CIM_BIOSAttribute, DCIM_Mixin):
 class DCIM_NICAttribute(CIM_BIOSAttribute, DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['nic_attr']
 
+class DCIM_iDRACCardAttribute(CIM_BIOSAttribute, DCIM_Mixin):
+    _ns = schemas.std_xml_namespaces['idrac_attr']
 class DCIM_iDRACCardString(CIM_BIOSString, DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['idrac_str']
 class DCIM_iDRACCardInteger(CIM_BIOSInteger, DCIM_Mixin):

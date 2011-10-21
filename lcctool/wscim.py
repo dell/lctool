@@ -75,8 +75,9 @@ def cim_instance_from_wsxml(elem):
         kargs[attr] = child.text
 
     i = find_class(namespace, cls)(classname=cls)
-    i.update(kargs)
-    i.raw_xml = etree.tostring(elem)
+    i.update_existing(kargs)
+    i.raw_xml_str = etree.tostring(elem)
+    i.raw_xml_elem = elem
     return i
 
 class ClassNotFound(Exception): pass
@@ -84,8 +85,6 @@ class ClassNotFound(Exception): pass
 @traceLog()
 def find_class(namespace, classname):
     for cls in itersubclasses(WSInstance):
-        print "namespace %s == %s ?" % (getattr(cls, "_ns", None), namespace)
-        print "    class %s == %s ?" % (cls.__name__, classname)
         if getattr(cls, "_ns", None) == namespace:
             if cls.__name__ == classname:
                 return cls

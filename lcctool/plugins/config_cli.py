@@ -110,7 +110,7 @@ class Config(Plugin):
                         print "ITEM: %s" % item
                         print "     properties: %s" % item.properties
                         item.serialize_ini(ini)
-                        xml.append(item.raw_xml)
+                        xml.append(item.raw_xml_elem)
 
             fn_subst = { "output_format": ctx.args.output_format, "host": host.get("alias", host["host"]) }
 
