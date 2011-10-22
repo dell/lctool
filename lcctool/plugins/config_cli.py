@@ -60,6 +60,7 @@ class Config(Plugin):
         p.add_argument('--output', '-O', action="store", dest="output_filename", default=default_filename, help=_("Change the name of the default filename for saving settings. Use '-' to display on stdout. (Default: %(default)s)"))
         p.add_argument('--subsystem', action="append", dest="subsystems", choices=lcctool.schemas.get_subsystems(), default=[], help=_("List of the different subsystems to dump settings. May be specified multiple times."))
         p.add_argument('--all-subsystems', action="store_const", dest="subsystems", const=lcctool.schemas.get_subsystems(), help=_("Dump settings for all subsystems."))
+        p.add_argument('--debug', action="store_true", dest="debug", default=False, help=_("Turn on debugging output."))
         p.add_argument('--unit-test', action="store", dest="unit_test", default=None, help=_("Run in unit test mode."))
         p.set_defaults(func=self.getConfig)
 
@@ -102,13 +103,15 @@ class Config(Plugin):
             ini.set("main", "host", host["host"])
             ini.set("main", "alias", host.get("alias", ""))
 
-            xml = lcctool.schemas.etree.Element("xml_return")
             wsman = lcctool.wsman_factory(host)
+            if ctx.args.debug:
+                wsman.debug=1
+
+            xml = lcctool.schemas.etree.Element("xml_return")
             for subsys in ctx.args.subsystems:
                 for schema in lcctool.schemas.dell_schema_list[subsys]:
                     for item in wsman.enumerate(schema):
-                        print "ITEM: %s" % item
-                        print "     properties: %s" % item.properties
+                        moduleLog.info("storing %s" % item["attributename"])
                         item.serialize_ini(ini)
                         xml.append(item.raw_xml_elem)
 
