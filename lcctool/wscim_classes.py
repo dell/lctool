@@ -7,13 +7,10 @@ class CIM_ManagedElement(wscim.WSInstance):
 
 class CIM_BIOSAttribute(CIM_ManagedElement):
     _property_list  = {"AttributeName": "string", "CurrentValue": "string", "PendingValue": "string", "IsOrderedList": "string", "IsReadOnly": "string", "DefaultValue": "string"}
-
 class CIM_BIOSEnumeration(CIM_BIOSAttribute):
     _property_list  = {"PossibleValues":"string", "PossibleValuesDescription": "string"}
-
 class CIM_BIOSString(CIM_BIOSAttribute):
     _property_list  = {"StringType": "uint32", "MinLength": "uint64", "MaxLength": "uint64", "ValueExpression": "string",}
-
 class CIM_BIOSInteger(CIM_BIOSAttribute):
     _property_list  = {"LowerBound": "uint64", "UpperBound": "uint64", "ProgrammaticUnit": "string", "ScalarIncrement": "uint32"}
 
@@ -24,24 +21,40 @@ class DCIM_BIOSAttribute(CIM_BIOSAttribute, DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['bios_attr']
 class DCIM_BIOSString(CIM_BIOSString, DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['bios_str']
-class DCIM_BIOSInteger(CIM_BIOSInteger, DCIM_Mixin):
+class DCIM_BIOSinteger(CIM_BIOSInteger, DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['bios_int']
 class DCIM_BIOSEnumeration(CIM_BIOSEnumeration, DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['bios_enum']
 
 class DCIM_RAIDAttribute(CIM_BIOSAttribute, DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['raid_attr']
+class DCIM_RAIDString(CIM_BIOSString, DCIM_Mixin):
+    _ns = schemas.std_xml_namespaces['raid_str']
+class DCIM_RAIDInteger(CIM_BIOSInteger, DCIM_Mixin):
+    _ns = schemas.std_xml_namespaces['raid_int']
+class DCIM_RAIDEnumeration(CIM_BIOSEnumeration, DCIM_Mixin):
+    _ns = schemas.std_xml_namespaces['raid_enum']
 
 class DCIM_NICAttribute(CIM_BIOSAttribute, DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['nic_attr']
+class DCIM_NICString(CIM_BIOSString, DCIM_Mixin):
+    _ns = schemas.std_xml_namespaces['nic_str']
+class DCIM_NICInteger(CIM_BIOSInteger, DCIM_Mixin):
+    _ns = schemas.std_xml_namespaces['nic_int']
+class DCIM_NICEnumeration(CIM_BIOSEnumeration, DCIM_Mixin):
+    _ns = schemas.std_xml_namespaces['nic_enum']
 
 class DCIM_iDRACCardAttribute(CIM_BIOSAttribute, DCIM_Mixin):
+    _property_list  = {"GroupID": "string"}
     _ns = schemas.std_xml_namespaces['idrac_attr']
 class DCIM_iDRACCardString(CIM_BIOSString, DCIM_Mixin):
+    _property_list  = {"GroupID": "string"}
     _ns = schemas.std_xml_namespaces['idrac_str']
 class DCIM_iDRACCardInteger(CIM_BIOSInteger, DCIM_Mixin):
+    _property_list  = {"GroupID": "string"}
     _ns = schemas.std_xml_namespaces['idrac_int']
 class DCIM_iDRACCardEnumeration(CIM_BIOSEnumeration, DCIM_Mixin):
+    _property_list  = {"GroupID": "string"}
     _ns = schemas.std_xml_namespaces['idrac_enum']
 
 
