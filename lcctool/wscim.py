@@ -32,7 +32,12 @@ def serialize_ini(self, ini):
     for sec in ("main", self["fqdd"]):
         if not ini.has_section(sec):
             ini.add_section(sec)
+
+    if self.has_key("isreadonly") and self["isreadonly"].lower() == "true":
+        name = "#readonly#  %s" % name
+
     ini.set(self["fqdd"], name, self["currentvalue"])
+    ini.set("main", self["fqdd"], self._ns)
 
 if not hasattr(cobj.CIMInstance, "serialize_ini"):
     cobj.CIMInstance.serialize_ini  = serialize_ini
