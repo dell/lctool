@@ -45,8 +45,21 @@ class WSInstance(cobj.CIMInstance):
             if not kargs["properties"].has_key(i):
                 kargs["properties"][i] = cobj.CIMProperty(i, None, type=typ)
 
+
+    # this should really use CIMArgument, et al.
     @traceLog()
-    def getName(self):
+    def call_method(self, uri, schema, method, *args, **kargs):
+        xml_input_etree = etree.Element("{%s}%s_INPUT" % (schema, method))
+        for name, value in kargs.items():
+            etree.SubElement(xml_input_etree, "{%s}%s" % (schema,name)).text = value
+        xml_out = self.wsman.invoke(uri, method, xml_input_etree)
+        ret = {}
+        #ret = xml_out.find("{%s}%s_OUTPUT" % (schema, method))
+        return ret
+
+
+    @traceLog()
+    def get_name(self):
         name = self["attributename"]
         if self.has_key("groupid") and self["groupid"]:
             name = self["groupid"] + "#" + name
@@ -55,22 +68,22 @@ class WSInstance(cobj.CIMInstance):
     @traceLog()
     def deserialize_ini(self, ini):
         retval = False
-        if ini.has_section(self["fqdd"]) and ini.has_option(self["fqdd"], self.getName()):
-            newval = ini.get(self["fqdd"], self.getName())
+        if ini.has_section(self["fqdd"]) and ini.has_option(self["fqdd"], self.get_name()):
+            newval = ini.get(self["fqdd"], self.get_name())
             if newval != self["currentvalue"]:
-                moduleVerboseLog.debug("setPending: [%s] %s = %s" % (self["fqdd"], self.getName(), newval))
+                moduleVerboseLog.debug("setPending: [%s] %s = %s" % (self["fqdd"], self.get_name(), newval))
                 self.update_existing({'PendingValue': newval})
                 retval = True
             else:
-                moduleVerboseLog.debug("Option has not changed: [%s] %s" % (self["fqdd"], self.getName()))
+                moduleVerboseLog.debug("Option has not changed: [%s] %s" % (self["fqdd"], self.get_name()))
         else:
-            moduleVerboseLog.debug("could not find new section/option: [%s] %s" % (self["fqdd"], self.getName()))
+            moduleVerboseLog.debug("could not find new section/option: [%s] %s" % (self["fqdd"], self.get_name()))
 
         return retval
 
     @traceLog()
     def serialize_ini(self, ini):
-        name = self.getName()
+        name = self.get_name()
         for sec in ("main", self["fqdd"]):
             if not ini.has_section(sec):
                 ini.add_section(sec)
@@ -82,7 +95,7 @@ class WSInstance(cobj.CIMInstance):
 
 
 @traceLog()
-def cim_instance_from_wsxml(elem):
+def cim_instance_from_wsxml(wsman, elem):
     namespace = elem.tag.split("}")[0][1:]
     cls = elem.tag.split("}")[1]
     kargs = {}
@@ -97,6 +110,7 @@ def cim_instance_from_wsxml(elem):
     i.update_existing(kargs)
     i.raw_xml_str = etree.tostring(elem)
     i.raw_xml_elem = elem
+    i.wsman = wsman
     return i
 
 class ClassNotFound(Exception): pass

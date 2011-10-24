@@ -153,26 +153,33 @@ class Config(Plugin):
             if ctx.args.debug:
                 wsman.debug=1
 
-            foopy = {}
+            pending = {}
             for fqdd in ini.sections():
                 if not ini.has_option("main", fqdd):
                     continue
+                pending[fqdd] = {}
                 schema_list = eval(ini.get("main", fqdd))
                 moduleVerboseLog.info("schema list: %s" % repr(schema_list))
                 for schema in schema_list:
                     moduleVerboseLog.info("Getting current options for schema: %s" % schema)
-                    foopy[fqdd] = {}
                     for item in wsman.enumerate(schema):
                         moduleVerboseLog.info("  getting %s" % item["attributename"])
                         if item.deserialize_ini(ini):
-                            foopy[fqdd][item['attributename']] = item
+                            pending[fqdd][item['attributename']] = item
 
-        if ctx.args.flag in ("set", "now"):
-            self.commit(ctx)
+            last_attribute = None
+            for fqdd in pending.keys():
+                moduleVerboseLog.info("save pending for fqdd %s" % fqdd)
+                for attribute_name, item in pending[fqdd].items():
+                    moduleVerboseLog.info("save pending for attribute %s" % attribute_name)
+                    last_attribute=item
+                    res = item.save_pending() # calls setAttribute (or applyAttribute)
+
+            # use last attribute to commit the whole fqdd
+            if ctx.args.flag in ("set", "now") and last_attribute:
+                moduleVerboseLog.info("commit pending for attribute %s" % last_attribute["attributename"])
+                last_attribute.commit_pending()
 
     @traceLog()
-    def commit(self, ctx, subsys=None):
+    def commit(self, ctx, *args, **kargs):
         pass
-#        for host in ctx.raccfg.iterSpecfiedRacs():
-#            for enum in ctx.args.subsystems:
-#                lcctool.config.commit_settings(host, enum)

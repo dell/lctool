@@ -40,6 +40,7 @@ import wscim
 
 moduleLog = getLog()
 moduleVerboseLog = getLog(prefix="verbose.")
+moduleDebugLog = getLog(prefix="debug.")
 
 basic_wsman_cmd = ["wsman", "-P", "443", "-V", "-v", "-c", "dummy.cert", "-j", "utf-8", "-y", "basic", "-o", "-m", "512"]
 
@@ -74,7 +75,7 @@ class OpenWSManCLI(lcctool.BaseWsman):
 
         self._identify_result = self.client.identify( self.options )
         if self.debug:
-            print "Identify: \n%s" % self._identify_result
+            moduleDebugLog.info("Identify: \n%s" % self._identify_result)
 
 
     # generates <Items> element from each schema call, sequentially
@@ -85,6 +86,8 @@ class OpenWSManCLI(lcctool.BaseWsman):
         doc = self.client.enumerate(self.options, filt, schema)
         root=doc.root()
         context = doc.context()
+        moduleDebugLog.info("enumerate(schema='%s')" % schema)
+        moduleDebugLog.info("enumerate result xml: \n%s" % doc.body().string())
 
         while 1:
             xml_out = etree.fromstring(doc.body().string())
@@ -93,14 +96,21 @@ class OpenWSManCLI(lcctool.BaseWsman):
                 #print "Got item_list: %s" % item_list
                 for item in list(item_list):
                     #print "Got item: %s" % item
-                    yield wscim.cim_instance_from_wsxml(item)
+                    yield wscim.cim_instance_from_wsxml(self, item)
 
             if not context:
                 break
 
             doc = self.client.pull(self.options, filt, schema, context)
+            moduleDebugLog.info("enumerate result xml: \n%s" % doc.body().string())
             context = doc.context()
             if self.client.response_code() not in [200, 400, 500]:
                 break
 
-
+    @traceLog()
+    def invoke(self, schema, method, xml_input_etree):
+        doc = self.client.invoke(self.options, schema, method, etree.tostring(xml_input_etree))
+        xml_out = etree.fromstring(doc.body().string())
+        if self.client.response_code() not in [200, 400, 500]:
+            raise Exception("invalid response code from server: %s" % self.client.response_code())
+        return xml_out

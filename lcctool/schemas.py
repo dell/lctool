@@ -121,15 +121,6 @@ dell_schema_list = {
     'raid': [ std_xml_namespaces["raid_attr"] ],
     }
 
-_urlpart = "%(ns)s?SystemCreationClassName=DCIM_ComputerSystem,CreationClassName=DCIM_%(service)sService,SystemName=DCIM:ComputerSystem,Name=DCIM:%(service)sService"
-
-service_names = {
-    'bios':  {"set_elem": "SetAttributes",   "ns": std_xml_namespaces['bios_srv'], "invoke_url": _urlpart % {"service": "BIOS", "ns": std_xml_namespaces['bios_srv']},},
-    'nic':   {"set_elem": "SetAttributes",   "ns": std_xml_namespaces['nic_srv'],  "invoke_url": _urlpart % {"service": "NIC", "ns": std_xml_namespaces['nic_srv']},},
-    'idrac': {"set_elem": "ApplyAttributes", "ns": std_xml_namespaces['idrac_srv'],"invoke_url": _urlpart % {"service": "iDRACCard", "ns": std_xml_namespaces['idrac_srv']},},
-    'raid':  {"set_elem": "SetAttributes",   "ns": std_xml_namespaces['raid_srv'], "invoke_url": _urlpart % {"service": "RAID", "ns": std_xml_namespaces['raid_srv']},},
-    }
-
 # cant trace this one as it gets called during CLI option setup
 def get_subsystems():
     return dell_schema_list.keys()
