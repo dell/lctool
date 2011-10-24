@@ -5,6 +5,23 @@ import schemas
 class CIM_ManagedElement(wscim.WSInstance):
     _property_list  = {"InstanceID": "string", "Caption": "string", "Description": "string", "ElementName": "string"}
 
+class CIM_ManagedSystemElement(CIM_ManagedElement):
+    _property_list  = {"InstallDate": 'datetime', 'Name': 'string', 'OperationalStatus': 'uint16', 'StatusDescriptions': 'string', 'Status': 'string', "HealthState": 'uint16', "CommunicationStatus": 'uint16', "DetailedStatus": 'uint16', 'OperatingStatus': 'uint16', "PrimaryStatus": 'uint16'}
+
+class CIM_LogicalElement(CIM_ManagedSystemElement): pass
+
+class CIM_EnabledLogicalElement(CIM_LogicalElement):
+    _property_list  = {"EnabledState": 'uint16', "OtherEnabledState": 'string', "RequestedState": 'uint16', "EnabledDefault": 'uint16', "TimeOfLastStateChange": 'datetime', "AvailableRequestedStates": 'uint16', "TransitioningToState": 'uint16'}
+    _methods = {"RequestStateChange": []}
+
+class CIM_Service(CIM_EnabledLogicalElement):
+    _property_list  = {"SystemCreationClassName": 'string', "SystemName": 'string', "CreationClassName": "string", "PrimaryOwnerName": "string", "PrimaryOwnerContact": "string", "StartMode": "string", "Started": "boolean", }
+    _methods = { "StartService": [], "StopService": [] }
+
+class CIM_BIOSService(CIM_Service):
+    _methods = { "SetBIOSAttribute": [], "SetBIOSAttributeEmbeddedInstance": [], "ReadRawBIOSData": [], "WriteRawBIOSData": [], }
+
+
 class CIM_BIOSAttribute(CIM_ManagedElement):
     _property_list  = {"AttributeName": "string", "CurrentValue": "string", "PendingValue": "string", "IsOrderedList": "string", "IsReadOnly": "string", "DefaultValue": "string"}
 
