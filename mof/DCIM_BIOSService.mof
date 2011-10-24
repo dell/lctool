@@ -1,0 +1,203 @@
+// Copyright (c) 2010 Dell Inc.  All rights reserved.
+// ==================================================================
+// DCIM_BIOSService
+// ==================================================================
+   [Version ("1.1.0"),Description(
+      "DCIM_BIOSService is a derivation of CIM_BIOSService "
+      "with extrinsic method extensions to support "
+      "BIOS functionality")]
+class DCIM_BIOSService : CIM_BIOSService {
+      [Description (
+          "This method is called to modify instance of "
+          "BIOSAttribute." ),
+       ValueMap { "0", "1", "2", "3..32767", "32768..65535" },
+       Values { "Completed with No Error", "Not Supported", "Error",
+          "DMTF Reserved", "Vendor Specified" }]
+   uint32 SetAttribute(
+         [Required, IN, Description (
+             "This parameter is the FQDD of the BIOSAttribute instances." )]
+      string Target,
+         [Required, IN, Description (
+             "A reference to a BIOSAttribute specified by "
+             "AttributeName of the BIOSAttribute to be modified." )]
+      string AttributeName,
+         [Required, IN, Description (
+             "A new value to assign to the specified "
+             "BIOSAttribute. If this value is valid, it will be "
+             "applied to the PendingValue property or the Currentvalue "
+             "property of the specified BIOSAttribute." )]
+      string AttributeValue[],
+         [OUT, Description (
+             "Invoking the SetAttribute may result in a set "
+             "to CurrentValue property or the PendingValue "
+             "property. SetResult returns \"Set CurrentValue property\" if "
+             "CurrentValue is set or \"Set PendingValue property\" if "
+             "PendingValue is set." )]
+      string SetResult,
+         [OUT, Description (
+             "Invoking the SetAttribute may require "
+             "a reboot for the set to be effective. "
+             "Value \"Yes\" means a reboot is required. "
+             "Value \"No\" means a reboot is not required")]
+      string RebootRequired,
+         [OUT, Description (
+             "Error MessageID is returned if the method fails "
+             "to execute." )]
+      string MessageID,
+         [OUT, Description (
+             "Error Message in english corresponding to the "
+             "MessageID" )]
+      string Message,
+         [OUT, Description (
+             "Any dynamic string substitutions for the Message" )]
+      string MessageArguments[]);
+
+      [Description (
+          "This method is called to modify instances of "
+          "BIOS attributes." ),
+       ValueMap { "0", "1", "2", "3..32767", "32768..65535" },
+       Values { "Completed with No Error", "Not Supported", "Error",
+          "DMTF Reserved", "Vendor Specified" }]
+   uint32 SetAttributes(
+         [Required, IN, Description (
+             "This parameter is the FQDD of the BIOSAttribute instances." )]
+      string Target,
+         [Required, IN, Description (
+             "A reference to a BIOSAttribute specified by "
+             "AttributeName of the BIOSAttribute to be modified." )]
+      string AttributeName[],
+         [Required, IN, Description (
+             "A new value to assign to the specified "
+             "BIOSAttribute. If this value is valid, it will be "
+             "applied to the PendingValue property or the Currentvalue "
+             "property of the specified BIOSAttribute." )]
+      string AttributeValue[],
+         [OUT, Description (
+             "Invoking the SetAttribute may result in a set "
+             "to CurrentValue property or the PendingValue "
+             "property. SetResult returns \"Set CurrentValue property\" if "
+             "CurrentValue is set or \"Set PendingValue property\" if "
+             "PendingValue is set." )]
+      string SetResult[],
+         [OUT, Description (
+             "Invoking the SetAttribute may require "
+             "a reboot for the set to be effective. "
+             "Value \"Yes\" means a reboot is required. "
+             "Value \"No\" means a reboot is not required")]
+      string RebootRequired[],
+         [OUT, Description (
+             "Error MessageID is returned if the method fails "
+             "to execute." )]
+      string MessageID[],
+         [OUT, Description (
+             "Error Message in english corresponding to the "
+             "MessageID" )]
+      string Message[],
+         [OUT, Description (
+             "Any dynamic string substitutions for the Message" )]
+      string MessageArguments[]);
+
+      [Description (
+          "This method is called to apply the pending values created "
+          "by the SetAttribute and SetAttributes methods" ),
+       ValueMap { "0", "1", "2", "4096"},
+       Values   { "Success", "Not Supported", "Failed", "Job Created"}]
+   uint32 CreateTargetedConfigJob(
+        [Required,IN, Description(
+           "This Parameter is the FQDD of the BIOSAttribute instances.")]
+      string Target,
+
+        [IN, Description(
+           "Input Parameter represents the type of Reboot "
+           "1 - PowerCycle "
+           "2 - Graceful Reboot without forced shutdown "
+           "3 - Graceful Reboot with forced shutdown. ")]
+      uint16 RebootJobType,
+
+       [IN, Description(
+           "Start Time of job in datetime format:yyyymmddhhmmss. "
+           "The string \"TIME_NOW\" means immediate.")]
+      string ScheduledStartTime,
+
+        [IN, Description(
+           "Scheduled end time for job execution in datetime "
+           "format:yyyymmddhhmmss. If StartTimeInterval is specified, "
+           "UntilTime has to be specified and vice versa. ")]
+      string UntilTime,
+
+        [OUT, Description (
+             "A reference to the ConcreteJob is returned" )]
+      CIM_ConcreteJob REF Job,
+
+        [OUT, Description (
+             "Error MessageID is returned if the method fails "
+             "to execute." )]
+      string MessageID,
+
+        [OUT, Description (
+             "Error Message in english corresponding to the "
+             "MessageID" )]
+      string Message,
+
+        [OUT, Description (
+             "Any dynamic string substitutions for the Message" )]
+      string MessageArguments[]);
+
+      [Description (
+          "This method is called to cancel the pending values created "
+          "by the SetAttribute and SetAttributes methods." ),
+       ValueMap { "0", "1", "2", "4096"},
+       Values   { "Success", "Not Supported", "Failed", "Job Created"}]
+  uint32 DeletePendingConfiguration (
+        [Required,IN, Description(
+           "This Parameter is the FQDD of the BIOSAttribute instances.")]
+      string Target,
+
+        [OUT, Description (
+             "Error MessageID is returned if the method fails "
+             "to execute." )]
+      string MessageID,
+
+        [OUT, Description (
+             "Error Message in english corresponding to the "
+             "MessageID" )]
+      string Message,
+
+        [OUT, Description (
+             "Any dynamic string substitutions for the Message" )]
+      string MessageArguments[]);
+
+  uint32 ChangePassword (
+        [Required,IN, Description(
+           "This Parameter is the FQDD of the BIOSAttribute instances.")]
+      string Target,
+
+        [Required,IN, Description(
+           "Password Type"
+           "1 - System Password "
+           "2 - Setup Password ")]
+      uint16 PasswordType,
+
+        [Required,IN, Description(
+           "Old Password")]
+      string OldPassword,
+
+        [Required,IN, Description(
+           "New Password")]
+      string NewPassword,
+
+        [OUT, Description (
+             "Error MessageID is returned if the method fails "
+             "to execute." )]
+      string MessageID,
+
+        [OUT, Description (
+             "Error Message in english corresponding to the "
+             "MessageID" )]
+      string Message,
+
+        [OUT, Description (
+             "Any dynamic string substitutions for the Message" )]
+      string MessageArguments[]);  
+};
+
