@@ -68,6 +68,7 @@ class Config(Plugin):
         p = ctx.subparsers.add_parser("stage-config", help=_("Stage system settings using values from an INI file."))
         p.add_argument('--input-ini', '-O', action="store", dest="input_filename", default=default_filename, help=_("Change the name of the input INI file (Default: %(default)s)."))
         p.add_argument('--now',    action="store_const", const="now",    dest="flag", help=_("Commit changes after successful staging. THIS WILL REBOOT THE SERVER."))
+        p.add_argument('--debug', action="store_true", dest="debug", default=False, help=_("Turn on debugging output."))
         p.add_argument('--unit-test', action="store", dest="unit_test", default=None, help=_("Run in unit test mode."))
         p.set_defaults(func=self.stageConfig)
 
@@ -107,53 +108,71 @@ class Config(Plugin):
             if ctx.args.debug:
                 wsman.debug=1
 
-            xml = lcctool.schemas.etree.Element("xml_return")
-            for subsys in ctx.args.subsystems:
-                for schema in lcctool.schemas.dell_schema_list[subsys]:
-                    for item in wsman.enumerate(schema):
-                        moduleLog.info("storing %s" % item["attributename"])
-                        item.serialize_ini(ini)
-                        xml.append(item.raw_xml_elem)
-
-            fn_subst = { "output_format": ctx.args.output_format, "host": host.get("alias", host["host"]) }
-
             do_close = ctx.args.output_filename != "-"
+            fn_subst = { "output_format": ctx.args.output_format, "host": host.get("alias", host["host"]) }
             outfile = sys.stdout
             if do_close:
                 outfile = open(ctx.args.output_filename % fn_subst, "w+")
 
-            if ctx.args.output_format == "ini":
-                ini.write( outfile )
-            elif ctx.args.output_format == "xml":
-                outfile.write( lcctool.schemas.etree.tostring(xml) )
+            def sync(full=True):
+                # only sync when we are not using stdout (or, if using stdout, when we have full output to write)
+                if full or do_close:
+                    outfile.seek(0)
+                    outfile.truncate()
+                    if ctx.args.output_format == "ini":
+                        ini.write( outfile )
+                    elif ctx.args.output_format == "xml":
+                        outfile.write( lcctool.schemas.etree.tostring(xml) )
 
+            xml = lcctool.schemas.etree.Element("xml_return")
+            for subsys in ctx.args.subsystems:
+                for schema in lcctool.schemas.dell_schema_list[subsys]:
+                    moduleLog.info("Getting config for schema %s" % schema)
+                    for item in wsman.enumerate(schema):
+                        moduleVerboseLog.info("  storing %s" % item["attributename"])
+                        item.serialize_ini(ini)
+                        ini.set("main", item["fqdd"], lcctool.schemas.dell_schema_list[subsys])
+                        xml.append(item.raw_xml_elem)
+                        #sync(full=False)
+
+
+            sync(full=True)
             if do_close:
                 outfile.close()
 
     @traceLog()
     def stageConfig(self, ctx):
         for host in ctx.raccfg.iterSpecfiedRacs():
-            fn_subst = { "output_format": "ini", "host": host.get("alias", host["host"]) }
-            infile = open(ctx.args.input_filename % fn_subst, "r")
             ini = ConfigParser.ConfigParser()
             ini.optionxform = str # need to be case sensitive
-            ini.readfp(infile)
-            infile.close()
 
-            for job_ids, ret_xml in lcctool.config.settings_from_ini(host, ini):
-                if len(job_ids) > 1:
-                    moduleLog.info("Some settings were queued for immediate commit in config job IDs: %s" % job_ids)
-                if len(job_ids) == 1:
-                    moduleLog.info("Some settings were queued for immediate commit in config job ID: %s" % job_ids[0])
+            fn_subst = { "output_format": "ini", "host": host.get("alias", host["host"]) }
+            ini.read(ctx.args.input_filename % fn_subst)
 
-                #for reboot_elem in  ret_xml.iter("{%(wsman)s}RebootRequired" % schemas.std_xml_namespaces):
-                #reboot_required = 
+            wsman = lcctool.wsman_factory(host)
+            if ctx.args.debug:
+                wsman.debug=1
+
+            foopy = {}
+            for fqdd in ini.sections():
+                if not ini.has_option("main", fqdd):
+                    continue
+                schema_list = eval(ini.get("main", fqdd))
+                moduleVerboseLog.info("schema list: %s" % repr(schema_list))
+                for schema in schema_list:
+                    moduleVerboseLog.info("Getting current options for schema: %s" % schema)
+                    foopy[fqdd] = {}
+                    for item in wsman.enumerate(schema):
+                        moduleVerboseLog.info("  getting %s" % item["attributename"])
+                        if item.deserialize_ini(ini):
+                            foopy[fqdd][item['attributename']] = item
 
         if ctx.args.flag in ("set", "now"):
             self.commit(ctx)
 
     @traceLog()
     def commit(self, ctx, subsys=None):
-        for host in ctx.raccfg.iterSpecfiedRacs():
-            for enum in ctx.args.subsystems:
-                lcctool.config.commit_settings(host, enum)
+        pass
+#        for host in ctx.raccfg.iterSpecfiedRacs():
+#            for enum in ctx.args.subsystems:
+#                lcctool.config.commit_settings(host, enum)

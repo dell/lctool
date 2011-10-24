@@ -3,8 +3,11 @@ import schemas
 from schemas import std_xml_namespaces, etree
 from stdcli.trace_decorator import traceLog, getLog
 
+moduleLog = getLog()
+moduleVerboseLog = getLog(prefix="verbose.")
+
 # Outline:
-#  The idea with this module is that we should be able to use the python pywbem 
+#  The idea with this module is that we should be able to use the python pywbem
 # module to save ourselves a lot of work. Unfortunately, the schema for WSMAN
 # CIM objects is completely different from WBEM CIM objects, even though they
 # use the same underlying class layout.
@@ -16,31 +19,6 @@ from stdcli.trace_decorator import traceLog, getLog
 # layout instead of manually specifying them. Manual specification is sort of a
 # hack to get everything up and running quickly.)
 #
-
-
-##
-## first up, some new methods for CIMInstance that we will monkey-patch in
-##
-
-# This is a method that will serialize "CurrentValue" to an INI file.
-@traceLog()
-def serialize_ini(self, ini):
-    name = self["attributename"]
-    if self.has_key("groupid") and self["groupid"]:
-        name = self["groupid"] + "#" + name
-
-    for sec in ("main", self["fqdd"]):
-        if not ini.has_section(sec):
-            ini.add_section(sec)
-
-    if self.has_key("isreadonly") and self["isreadonly"].lower() == "true":
-        name = "#readonly#  %s" % name
-
-    ini.set(self["fqdd"], name, self["currentvalue"])
-    ini.set("main", self["fqdd"], self._ns)
-
-if not hasattr(cobj.CIMInstance, "serialize_ini"):
-    cobj.CIMInstance.serialize_ini  = serialize_ini
 
 
 class WSInstance(cobj.CIMInstance):
@@ -66,7 +44,43 @@ class WSInstance(cobj.CIMInstance):
             # if no property present, add an empty none-type version
             if not kargs["properties"].has_key(i):
                 kargs["properties"][i] = cobj.CIMProperty(i, None, type=typ)
-            
+
+    @traceLog()
+    def getName(self):
+        name = self["attributename"]
+        if self.has_key("groupid") and self["groupid"]:
+            name = self["groupid"] + "#" + name
+        return name
+
+    @traceLog()
+    def deserialize_ini(self, ini):
+        retval = False
+        if ini.has_section(self["fqdd"]) and ini.has_option(self["fqdd"], self.getName()):
+            newval = ini.get(self["fqdd"], self.getName())
+            if newval != self["currentvalue"] and hasattr(self, "setPending"):
+                moduleVerboseLog.debug("setPending: [%s] %s = %s" % (self["fqdd"], self.getName(), newval))
+                self.setPending(newval)
+                retval = True
+            else:
+                moduleVerboseLog.debug("Option has not changed: [%s] %s" % (self["fqdd"], self.getName()))
+        else:
+            moduleVerboseLog.debug("could not find new section/option: [%s] %s" % (self["fqdd"], self.getName()))
+
+        return retval
+
+    @traceLog()
+    def serialize_ini(self, ini):
+        name = self.getName()
+        for sec in ("main", self["fqdd"]):
+            if not ini.has_section(sec):
+                ini.add_section(sec)
+
+        if self.has_key("isreadonly") and self["isreadonly"].lower() == "true":
+            name = "#readonly#  %s" % name
+
+        ini.set(self["fqdd"], name, self["currentvalue"])
+
+
 @traceLog()
 def cim_instance_from_wsxml(elem):
     namespace = elem.tag.split("}")[0][1:]
