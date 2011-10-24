@@ -57,9 +57,9 @@ class WSInstance(cobj.CIMInstance):
         retval = False
         if ini.has_section(self["fqdd"]) and ini.has_option(self["fqdd"], self.getName()):
             newval = ini.get(self["fqdd"], self.getName())
-            if newval != self["currentvalue"] and hasattr(self, "setPending"):
+            if newval != self["currentvalue"]:
                 moduleVerboseLog.debug("setPending: [%s] %s = %s" % (self["fqdd"], self.getName(), newval))
-                self.setPending(newval)
+                self.update_existing({'PendingValue': newval})
                 retval = True
             else:
                 moduleVerboseLog.debug("Option has not changed: [%s] %s" % (self["fqdd"], self.getName()))

@@ -7,8 +7,6 @@ class CIM_ManagedElement(wscim.WSInstance):
 
 class CIM_BIOSAttribute(CIM_ManagedElement):
     _property_list  = {"AttributeName": "string", "CurrentValue": "string", "PendingValue": "string", "IsOrderedList": "string", "IsReadOnly": "string", "DefaultValue": "string"}
-    def setPending(self, newval, *args, **kargs):
-        self.update_existing({'PendingValue': newval})
 
 
 class CIM_BIOSEnumeration(CIM_BIOSAttribute):
