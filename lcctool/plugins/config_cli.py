@@ -34,11 +34,9 @@ try:
 except (ImportError,), e:
     import stdcli.argparse as argparse
 
-import lcctool
 from stdcli.trace_decorator import traceLog, getLog
 from stdcli.plugin import Plugin
-
-import lcctool.config
+import lcctool
 import lcctool.schemas
 
 moduleLog = getLog()
@@ -133,7 +131,7 @@ class Config(Plugin):
                         item.serialize_ini(ini)
                         ini.set("main", item["fqdd"], lcctool.schemas.dell_schema_list[subsys])
                         xml.append(item.raw_xml_elem)
-                        #sync(full=False)
+                        sync(full=False)
 
 
             sync(full=True)
@@ -167,18 +165,25 @@ class Config(Plugin):
                         if item.deserialize_ini(ini):
                             pending[fqdd][item['attributename']] = item
 
-            last_attribute = None
+            need_reboot = False
             for fqdd in pending.keys():
-                moduleVerboseLog.info("save pending for fqdd %s" % fqdd)
+                last_attribute = None
+                moduleVerboseLog.info("save all pending for fqdd %s" % fqdd)
                 for attribute_name, item in pending[fqdd].items():
-                    moduleVerboseLog.info("save pending for attribute %s" % attribute_name)
+                    moduleVerboseLog.info("  attribute %s" % attribute_name)
                     last_attribute=item
                     res = item.save_pending() # calls setAttribute (or applyAttribute)
+                    moduleVerboseLog.info("    attribute set. ReturnValue: %s" % res.get("returnvalue", []))
+                    moduleVerboseLog.info("    attribute set. Message was: %s" % res.get("message", []))
+                    moduleVerboseLog.info("    attribute set. SetResult was: %s" % res.get("setresult", []))
+                    if "yes" in [ i.lower for i in res.get("rebootrequired", [])]:
+                        need_reboot = True
+                        moduleVerboseLog.info("       Reboot required to enable setting.")
 
-            # use last attribute to commit the whole fqdd
-            if ctx.args.flag in ("set", "now") and last_attribute:
-                moduleVerboseLog.info("commit pending for attribute %s" % last_attribute["attributename"])
-                last_attribute.commit_pending()
+                # use last attribute to commit the whole fqdd
+                if ctx.args.flag in ("set", "now") and last_attribute:
+                    moduleVerboseLog.info("commit pending for attribute %s" % last_attribute["attributename"])
+                    last_attribute.commit_pending()
 
     @traceLog()
     def commit(self, ctx, *args, **kargs):

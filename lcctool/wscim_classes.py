@@ -163,73 +163,47 @@ class CIM_BIOSString(CIM_BIOSAttribute):
 class CIM_BIOSInteger(CIM_BIOSAttribute):
     _property_list  = {"LowerBound": "uint64", "UpperBound": "uint64", "ProgrammaticUnit": "string", "ScalarIncrement": "uint32"}
 
-class DCIM_Mixin(object):
-    _property_list  = {"FQDD": "string"}
-    @traceLog()
-    def save_pending(self):
-        uri = ""
-        service_cls = self.associated_service_class["name"]
-        for item in self.wsman.enumerate(service_cls._ns):
-            moduleVerboseLog.info("  SERVICE ENUMERATE: %s" % item)
-            moduleVerboseLog.info("  SERVICE ENUMERATE properties: %s" % item.properties)
-            uri = "%s?%s" % (
-                self.associated_service_class["name"]._ns,
-                ",".join(["SystemCreationClassName=%s" % item["SystemCreationClassName"],
-                          "CreationClassName=%s" % item["CreationClassName"],
-                          "SystemName=%s" % item["SystemName"],
-                          "Name=%s" % item["Name"]]))
-        method = self.associated_service_class["set_method"]
-        self.call_method(uri, self.associated_service_class["name"]._ns, method, Target=self["fqdd"], AttributeName=self["attributename"], AttributeValue=self["pendingvalue"])
-
-    @traceLog()
-    def commit_pending(self):
-        reboot_type=0
-        #if reboot:
-        #    reboot_type=1
-        #self.wsman.call_method(self._ns, "CreateTargetedConfigJob", Target="FOO", ScheduledStartTime="TIME_NOW", UntilTime="20121111111111", RebootJobType=reboot_type)
-        pass
-
-class DCIM_BIOSAttribute(CIM_BIOSAttribute, DCIM_Mixin):
+class DCIM_BIOSAttribute(CIM_BIOSAttribute, wscim.DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['bios_attr']
     associated_service_class = {'name': DCIM_BIOSService, 'set_method': 'SetAttribute'}
-class DCIM_BIOSString(CIM_BIOSString, DCIM_Mixin):
+class DCIM_BIOSString(CIM_BIOSString, wscim.DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['bios_str']
     associated_service_class = {'name': DCIM_BIOSService, 'set_method': 'SetAttribute'}
-class DCIM_BIOSinteger(CIM_BIOSInteger, DCIM_Mixin):
+class DCIM_BIOSinteger(CIM_BIOSInteger, wscim.DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['bios_int']
     associated_service_class = {'name': DCIM_BIOSService, 'set_method': 'SetAttribute'}
-class DCIM_BIOSEnumeration(CIM_BIOSEnumeration, DCIM_Mixin):
+class DCIM_BIOSEnumeration(CIM_BIOSEnumeration, wscim.DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['bios_enum']
     associated_service_class = {'name': DCIM_BIOSService, 'set_method': 'SetAttribute'}
 
-class DCIM_RAIDAttribute(CIM_BIOSAttribute, DCIM_Mixin):
+class DCIM_RAIDAttribute(CIM_BIOSAttribute, wscim.DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['raid_attr']
-class DCIM_RAIDString(CIM_BIOSString, DCIM_Mixin):
+class DCIM_RAIDString(CIM_BIOSString, wscim.DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['raid_str']
-class DCIM_RAIDInteger(CIM_BIOSInteger, DCIM_Mixin):
+class DCIM_RAIDInteger(CIM_BIOSInteger, wscim.DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['raid_int']
-class DCIM_RAIDEnumeration(CIM_BIOSEnumeration, DCIM_Mixin):
+class DCIM_RAIDEnumeration(CIM_BIOSEnumeration, wscim.DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['raid_enum']
 
-class DCIM_NICAttribute(CIM_BIOSAttribute, DCIM_Mixin):
+class DCIM_NICAttribute(CIM_BIOSAttribute, wscim.DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['nic_attr']
-class DCIM_NICString(CIM_BIOSString, DCIM_Mixin):
+class DCIM_NICString(CIM_BIOSString, wscim.DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['nic_str']
-class DCIM_NICInteger(CIM_BIOSInteger, DCIM_Mixin):
+class DCIM_NICInteger(CIM_BIOSInteger, wscim.DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['nic_int']
-class DCIM_NICEnumeration(CIM_BIOSEnumeration, DCIM_Mixin):
+class DCIM_NICEnumeration(CIM_BIOSEnumeration, wscim.DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['nic_enum']
 
-class DCIM_iDRACCardAttribute(CIM_BIOSAttribute, DCIM_Mixin):
+class DCIM_iDRACCardAttribute(CIM_BIOSAttribute, wscim.DCIM_Mixin):
     _property_list  = {"GroupID": "string"}
     _ns = schemas.std_xml_namespaces['idrac_attr']
-class DCIM_iDRACCardString(CIM_BIOSString, DCIM_Mixin):
+class DCIM_iDRACCardString(CIM_BIOSString, wscim.DCIM_Mixin):
     _property_list  = {"GroupID": "string"}
     _ns = schemas.std_xml_namespaces['idrac_str']
-class DCIM_iDRACCardInteger(CIM_BIOSInteger, DCIM_Mixin):
+class DCIM_iDRACCardInteger(CIM_BIOSInteger, wscim.DCIM_Mixin):
     _property_list  = {"GroupID": "string"}
     _ns = schemas.std_xml_namespaces['idrac_int']
-class DCIM_iDRACCardEnumeration(CIM_BIOSEnumeration, DCIM_Mixin):
+class DCIM_iDRACCardEnumeration(CIM_BIOSEnumeration, wscim.DCIM_Mixin):
     _property_list  = {"GroupID": "string"}
     _ns = schemas.std_xml_namespaces['idrac_enum']
 

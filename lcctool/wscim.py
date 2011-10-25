@@ -54,9 +54,13 @@ class WSInstance(cobj.CIMInstance):
             etree.SubElement(xml_input_etree, "{%s}%s" % (schema,name)).text = value
         xml_out = self.wsman.invoke(uri, method, xml_input_etree)
         ret = {}
-        #ret = xml_out.find("{%s}%s_OUTPUT" % (schema, method))
+        for elem  in list(xml_out):
+            # chop out namespace
+            tagname = elem.tag.split("}")[1].lower()
+            arr = ret.get(tagname, [])
+            arr.append(elem.text)
+            ret[tagname] = arr
         return ret
-
 
     @traceLog()
     def get_name(self):
@@ -92,6 +96,38 @@ class WSInstance(cobj.CIMInstance):
             name = "#readonly#  %s" % name
 
         ini.set(self["fqdd"], name, self["currentvalue"])
+
+
+# Dell-specfic mixin class that implements some standard methods that are
+# useful for setting bios/nic/drac/raid settings. Also, all the dell classes
+# have the "FQDD" property.
+class DCIM_Mixin(object):
+    _property_list  = {"FQDD": "string"}
+
+    @traceLog()
+    def _setup_service_call(self):
+        uri = ""
+        service_cls = self.associated_service_class["name"]
+        for item in self.wsman.enumerate(service_cls._ns):
+            uri = "%s?%s" % (
+                self.associated_service_class["name"]._ns,
+                ",".join(["SystemCreationClassName=%s" % item["SystemCreationClassName"],
+                          "CreationClassName=%s" % item["CreationClassName"],
+                          "SystemName=%s" % item["SystemName"],
+                          "Name=%s" % item["Name"]]))
+        method = self.associated_service_class["set_method"]
+        return (uri, method)
+
+    @traceLog()
+    def save_pending(self):
+        uri, method = self._setup_service_call()
+        return self.call_method(uri, self.associated_service_class["name"]._ns, method, Target=self["fqdd"], AttributeName=self["attributename"], AttributeValue=self["pendingvalue"])
+
+    @traceLog()
+    def commit_pending(self, reboot_type=1):
+        uri, method = self._setup_service_call()
+        return self.call_method(uri, self.associated_service_class["name"]._ns, method,
+                Target=self["fqdd"], ScheduledStartTime="TIME_NOW", UntilTime="20121111111111", RebootJobType=reboot_type)
 
 
 @traceLog()

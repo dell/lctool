@@ -141,9 +141,13 @@ class OpenWSManCLI(lcctool.BaseWsman):
 
     @traceLog()
     def _invoke_pywsman(self, schema, method, xml_input_etree):
-        doc = self.client.invoke(self.options, schema, method, etree.tostring(xml_input_etree))
+        ## THIS DOES NOT YET WORK!! (we can't create an xmldoc to pass into
+        ## this method due to inadequacies in the python xml API
+        #doc = self.client.invoke(self.options, schema, method, etree.tostring(xml_input_etree))
+        doc = self.client.invoke(self.options, schema, method)
         xml_out = etree.fromstring(doc.body().string())
         if self.client.response_code() not in [200, 400, 500]:
             raise Exception("invalid response code from server: %s" % self.client.response_code())
-        return xml_out
+        for body_elements in xml_out.iter("{%(soap)s}Body" % schemas.std_xml_namespaces):
+            return list(body_elements)[0]
 
