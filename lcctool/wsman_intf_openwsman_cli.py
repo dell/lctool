@@ -42,18 +42,25 @@ moduleLog = getLog()
 moduleVerboseLog = getLog(prefix="verbose.")
 moduleDebugLog = getLog(prefix="debug.")
 
-basic_wsman_cmd = ["wsman", "-P", "443", "-V", "-v", "-c", "dummy.cert", "-j", "utf-8", "-y", "basic", "-o", "-m", "512"]
-
-# more wsman commands we need to implement
-"wsman invoke -a GetRSStatus http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_LCService?SystemCreationClassName=DCIM_ComputerSystem,CreationClassName=DCIM_LCService,SystemName=DCIM:ComputerSystem,Name=DCIM:LCService"
-"wsman invoke -a CreateTargetedConfigJob http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_%(jobservice)s?SystemCreationClassName=DCIM_ComputerSystem,CreationClassName=DCIM_%(jobservice)s,SystemName=DCIM:ComputerSystem,Name=DCIM:%(jobservice)s -J %(f_name)s"
-"wsman get http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_LifecycleJob?InstanceID=%(job_id)s"
-"wsman get http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_LifecycleJob?InstanceID=%(job_id)s"
-
 class OpenWSManCLI(lcctool.BaseWsman):
     def __init__(self, host, *args, **kargs):
         super(OpenWSManCLI, self).__init__(host, *args, **kargs)
+        self.init_pywsman(host, *args, **kargs)
+        self.init_wsmancli(host, *args, **kargs)
+        #self.invoke = self._invoke_pywsman
+        self.invoke = self._invoke_wsmancli
+        #self.enumerate = self._enumerate_pywsman
+        self.enumerate = self._enumerate_wsmancli
 
+    def init_wsmancli(self, host, *args, **kargs):
+        self.wsman_cmd = ["wsman", "-P", "443", "-V", "-v", "-c", "dummy.cert", "-j", "utf-8", "-y", "basic", "-o", "-m", "512"]
+        self.host = host
+        opts = { "-h": self.get_host, "-u": self.get_user, "-p": self.get_password }
+        for k,v in opts.items():
+            if v() is not None:
+                self.wsman_cmd.extend([k,v()])
+
+    def init_pywsman(self, host, *args, **kargs):
         self.client = pywsman.Client( "https://%(user)s:%(pass)s@%(host)s:%(port)s/wsman" %
             {'user': self.get_user(), 'pass': self.get_password(), 'host': self.get_host(), 'port': 443})
 
@@ -77,10 +84,17 @@ class OpenWSManCLI(lcctool.BaseWsman):
         if self.debug:
             moduleDebugLog.info("Identify: \n%s" % self._identify_result)
 
-
-    # generates <Items> element from each schema call, sequentially
     @traceLog()
-    def enumerate(self, schema, filter=None):
+    def _enumerate_wsmancli(self, schema, filter=None):
+        moduleLog.info("retrieving info for schema: %s" % schema)
+        xml_out = etree.fromstring(call_output( self.wsman_cmd + ["enumerate", schema], raise_exc=False ))
+        for item_list in  xml_out.iter("{%(wsman)s}Items" % schemas.std_xml_namespaces):
+            for item in list(item_list):
+                yield wscim.cim_instance_from_wsxml(self, item)
+
+
+    @traceLog()
+    def _enumerate_pywsman(self, schema, filter=None):
         filt = pywsman.Filter()
         #self.options.set_flags(pywsman.FLAG_ENUMERATION_OPTIMIZATION)
         doc = self.client.enumerate(self.options, filt, schema)
@@ -108,9 +122,28 @@ class OpenWSManCLI(lcctool.BaseWsman):
                 break
 
     @traceLog()
-    def invoke(self, schema, method, xml_input_etree):
+    def _invoke_wsmancli(self, schema, method, xml_input_etree):
+        wsman_cmd = self.wsman_cmd[:]
+        if xml_input_etree:
+            fd, fn = tempfile.mkstemp(suffix=".xml")
+            os.write(fd, etree.tostring(xml_input_etree))
+            os.close(fd)
+            wsman_cmd.extend(["-J", fn])
+
+        try:
+            wsman_cmd.extend(["invoke", "-a", method, schema])
+            xml_out = etree.fromstring(call_output(wsman_cmd, raise_exc=False))
+            for body_elements in xml_out.iter("{%(soap)s}Body" % schemas.std_xml_namespaces):
+                return list(body_elements)[0]
+        finally:
+            if xml_input_etree:
+                os.unlink(fn)
+
+    @traceLog()
+    def _invoke_pywsman(self, schema, method, xml_input_etree):
         doc = self.client.invoke(self.options, schema, method, etree.tostring(xml_input_etree))
         xml_out = etree.fromstring(doc.body().string())
         if self.client.response_code() not in [200, 400, 500]:
             raise Exception("invalid response code from server: %s" % self.client.response_code())
         return xml_out
+
