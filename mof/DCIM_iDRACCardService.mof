@@ -1,0 +1,53 @@
+// Copyright (c) 2010 Dell Inc.  All rights reserved.
+// ==================================================================
+// DCIM_iDRACCardService 
+// ================================================================== 
+[Version ( "1.0.0" ),Description(
+       "DCIM_iDRACCardService is a derivation of CIM_BIOSService "
+       "with extrinsic method extensions to support "
+       "NIC functionality")]
+class DCIM_iDRACCardService : CIM_BIOSService {
+      [Description (
+          "This method is called to modify instances of "
+          "iDRACCardCAttribute." ),
+       ValueMap { "0", "1", "2", "4096"},
+       Values { "Completed with No Error", "Not Supported", "Error", "Job created"}]
+   uint32 ApplyAttributes(
+   
+        [Required, IN, Description (
+             "This parameter is the FQDD of the iDRACCardAttribute instances." )]
+      string Target,
+      
+         [Required, IN, Description (
+             "A reference to a iDRACCardAttribute specified by "
+             "AttributeName of the iDRACCardAttribute to be modified." )]
+      string AttributeName[],
+      
+         [Required, IN, Description (
+             "A new value to assign to the specified "
+             "iDRACCardAttribute. If this value is valid, it will be "
+             "applied to the PendingValue property or the Currentvalue "
+             "property of the specified iDRACCardAttribute." )]
+      string AttributeValue[],
+      
+        [OUT, Description (
+             "A reference to the ConcreteJob is returned" )]
+      CIM_ConcreteJob REF Job,
+      
+         [OUT, Description (
+             "Error MessageID is returned if the method fails "
+             "to execute." )]
+      string MessageID[],
+      
+         [OUT, Description (
+             "Error Message in english corresponding to the "
+             "MessageID" )]
+      string Message[],
+      
+         [OUT, Description (
+             "Any dynamic string substitutions for the Message" )]
+      string MessageArguments[]);
+};
+
+
+

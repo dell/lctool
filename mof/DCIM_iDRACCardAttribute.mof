@@ -1,0 +1,41 @@
+// Copyright (c) 2010 Dell Inc.  All rights reserved.
+// ==================================================================
+// DCIM_iDRACCardAttribute
+// ==================================================================
+
+[Version ( "1.0.0" ),Description(
+       "DCIM_iDRACCardAttribute is a derivation of "
+       "CIM_BIOSAttribute.")]
+class DCIM_iDRACCardAttribute : CIM_BIOSAttribute
+{
+      [Description (
+          "A string containing the Fully Qualified Device Description"
+          "A user-friendly name for the object. This property allows each"
+          " instance to define a user-friendly name in addition to its key"
+          " properties, identity data, and description information."
+          )]
+   string FQDD;
+      [Description (
+          "A string containing the Group display name"
+          "A user-friendly name for the Group."
+          )]
+   string GroupDisplayName;
+      [Description (
+          "A string containing the GroupID"
+          )]
+   string GroupID;
+      [Description (
+          "A string containing the Attribute display name"
+          "A user-friendly name for the Attribute."
+          )]
+   string AttributeDisplayName;
+      [Description (
+          "To be determined in 12G implementation"
+          )]
+   uint16 DisplayOrder;
+      [Description (
+          "To be determined in 12G implementation"
+          )]
+   string Dependency;
+};
+

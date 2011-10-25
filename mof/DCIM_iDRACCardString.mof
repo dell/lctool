@@ -1,0 +1,26 @@
+// Copyright (c) 2010 Dell Inc.  All rights reserved.
+// ==================================================================
+// DCIM_iDRACCardString 
+// ==================================================================
+
+[Version ( "1.0.0" ), Description(
+       "The DCIM_iDRACCardString object may be used to instantiate "
+       "string-based iDRAC attributes.")]
+class DCIM_iDRACCardString : DCIM_iDRACCardAttribute {
+      [Description (
+          "This property specifies the minimum string length "
+          "allowed when modifying this BIOS attribute. A value of "
+          "NULL SHALL be defined as zero." ),
+       ModelCorrespondence { "CIM_BIOSString.MaxLength" }]
+   uint64 MinLength;
+
+      [Description (
+          "This property specifies the maximum string length "
+          "allowed when modifying this BIOS attribute. A value of "
+          "NULL defines the maximum length is unknown. A value of 0 "
+          "defines the maximum length as 18446744073709551615, the "
+          "limitation of the property definition as uint64." ),
+       ModelCorrespondence { "CIM_BIOSString.MinLength" }]
+   uint64 MaxLength;
+};
+
