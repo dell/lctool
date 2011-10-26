@@ -148,8 +148,12 @@ class DCIM_BIOSService(CIM_Service):
             }
         },
     }
-
-
+class DCIM_RAIDService(CIM_Service):
+    _ns = schemas.std_xml_namespaces['raid_srv']
+class DCIM_NICService(CIM_Service):
+    _ns = schemas.std_xml_namespaces['nic_srv']
+class DCIM_iDRACCardService(CIM_Service):
+    _ns = schemas.std_xml_namespaces['idrac_srv']
 
 
 class CIM_BIOSAttribute(CIM_ManagedElement):
@@ -165,45 +169,57 @@ class CIM_BIOSInteger(CIM_BIOSAttribute):
 
 class DCIM_BIOSAttribute(CIM_BIOSAttribute, wscim.DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['bios_attr']
-    associated_service_class = {'name': DCIM_BIOSService, 'set_method': 'SetAttribute'}
+    associated_service_class = {'name': DCIM_BIOSService, 'set_method': 'SetAttribute', 'multi_set_method': 'SetAttributes'}
 class DCIM_BIOSString(CIM_BIOSString, wscim.DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['bios_str']
-    associated_service_class = {'name': DCIM_BIOSService, 'set_method': 'SetAttribute'}
+    associated_service_class = {'name': DCIM_BIOSService, 'set_method': 'SetAttribute', 'multi_set_method': 'SetAttributes'}
 class DCIM_BIOSinteger(CIM_BIOSInteger, wscim.DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['bios_int']
-    associated_service_class = {'name': DCIM_BIOSService, 'set_method': 'SetAttribute'}
+    associated_service_class = {'name': DCIM_BIOSService, 'set_method': 'SetAttribute', 'multi_set_method': 'SetAttributes'}
 class DCIM_BIOSEnumeration(CIM_BIOSEnumeration, wscim.DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['bios_enum']
-    associated_service_class = {'name': DCIM_BIOSService, 'set_method': 'SetAttribute'}
+    associated_service_class = {'name': DCIM_BIOSService, 'set_method': 'SetAttribute', 'multi_set_method': 'SetAttributes'}
 
 class DCIM_RAIDAttribute(CIM_BIOSAttribute, wscim.DCIM_Mixin):
+    associated_service_class = {'name': DCIM_RAIDService, 'set_method': 'SetAttribute', 'multi_set_method': 'SetAttributes'}
     _ns = schemas.std_xml_namespaces['raid_attr']
 class DCIM_RAIDString(CIM_BIOSString, wscim.DCIM_Mixin):
+    associated_service_class = {'name': DCIM_RAIDService, 'set_method': 'SetAttribute', 'multi_set_method': 'SetAttributes'}
     _ns = schemas.std_xml_namespaces['raid_str']
 class DCIM_RAIDInteger(CIM_BIOSInteger, wscim.DCIM_Mixin):
+    associated_service_class = {'name': DCIM_RAIDService, 'set_method': 'SetAttribute', 'multi_set_method': 'SetAttributes'}
     _ns = schemas.std_xml_namespaces['raid_int']
 class DCIM_RAIDEnumeration(CIM_BIOSEnumeration, wscim.DCIM_Mixin):
+    associated_service_class = {'name': DCIM_RAIDService, 'set_method': 'SetAttribute', 'multi_set_method': 'SetAttributes'}
     _ns = schemas.std_xml_namespaces['raid_enum']
 
 class DCIM_NICAttribute(CIM_BIOSAttribute, wscim.DCIM_Mixin):
+    associated_service_class = {'name': DCIM_NICService, 'set_method': 'SetAttribute', 'multi_set_method': 'SetAttributes'}
     _ns = schemas.std_xml_namespaces['nic_attr']
 class DCIM_NICString(CIM_BIOSString, wscim.DCIM_Mixin):
+    associated_service_class = {'name': DCIM_NICService, 'set_method': 'SetAttribute', 'multi_set_method': 'SetAttributes'}
     _ns = schemas.std_xml_namespaces['nic_str']
 class DCIM_NICInteger(CIM_BIOSInteger, wscim.DCIM_Mixin):
+    associated_service_class = {'name': DCIM_NICService, 'set_method': 'SetAttribute', 'multi_set_method': 'SetAttributes'}
     _ns = schemas.std_xml_namespaces['nic_int']
 class DCIM_NICEnumeration(CIM_BIOSEnumeration, wscim.DCIM_Mixin):
+    associated_service_class = {'name': DCIM_NICService, 'set_method': 'SetAttribute', 'multi_set_method': 'SetAttributes'}
     _ns = schemas.std_xml_namespaces['nic_enum']
 
 class DCIM_iDRACCardAttribute(CIM_BIOSAttribute, wscim.DCIM_Mixin):
+    associated_service_class = {'name': DCIM_iDRACCardService, 'set_method': 'ApplyAttributes', 'multi_set_method': 'ApplyAttributes'}
     _property_list  = {"GroupID": "string"}
     _ns = schemas.std_xml_namespaces['idrac_attr']
 class DCIM_iDRACCardString(CIM_BIOSString, wscim.DCIM_Mixin):
+    associated_service_class = {'name': DCIM_iDRACCardService, 'set_method': 'ApplyAttributes', 'multi_set_method': 'ApplyAttributes'}
     _property_list  = {"GroupID": "string"}
     _ns = schemas.std_xml_namespaces['idrac_str']
 class DCIM_iDRACCardInteger(CIM_BIOSInteger, wscim.DCIM_Mixin):
+    associated_service_class = {'name': DCIM_iDRACCardService, 'set_method': 'ApplyAttributes', 'multi_set_method': 'ApplyAttributes'}
     _property_list  = {"GroupID": "string"}
     _ns = schemas.std_xml_namespaces['idrac_int']
 class DCIM_iDRACCardEnumeration(CIM_BIOSEnumeration, wscim.DCIM_Mixin):
+    associated_service_class = {'name': DCIM_iDRACCardService, 'set_method': 'ApplyAttributes', 'multi_set_method': 'ApplyAttributes'}
     _property_list  = {"GroupID": "string"}
     _ns = schemas.std_xml_namespaces['idrac_enum']
 

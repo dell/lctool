@@ -1,0 +1,50 @@
+// Copyright (c) 2009 Dell Inc.  All rights reserved.
+// ==================================================================
+// DCIM_LCString
+// ==================================================================
+  [Version ( "1.0.0" ),Description(
+       "The DCIM_LCString object may be used to instantiate "
+       "string-based LC attributes.")]
+class DCIM_LCString : DCIM_LCAttribute {
+      [Description ( 
+          "The StringType property provides management applications "
+          "with information defining implementation\'s capabilities "
+          "regarding string values. A value of ASCII indicates a "
+          "plain text formatting with no tabs formating or bolds, "
+          "plain text. A value of hex indicates a simple encoding "
+          "of the numerals 0 to 9 and the letters A to F and is not "
+          "case sensitive. A value of unicode indicates fully "
+          "multi-lingual text support. A string LC Attribute with "
+          "value of regex is a regular expression and the "
+          "DCIM_LCString.ValueExpression shall be applied to "
+          "values represented and any value that is attempted to be "
+          "set by invoking SetAttribute()." ), 
+       ValueMap { "0", "2", "3", "4", "5", "30..65535", 
+          "65536..4294967295" }, 
+       Values { "Unknown", "ASCII", "hex", "unicode", "regex", 
+          "DMTF-Reserved", "Vendor-Specific" }]
+   uint32 StringType;
+
+      [Description ( 
+          "This property specifies the minimum string length "
+          "allowed when modifying this BIOS attribute. A value of "
+          "NULL SHALL be defined as zero." ), 
+       ModelCorrespondence { "DCIM_LCString.MaxLength" }]
+   uint64 MinLength;
+
+      [Description ( 
+          "This property specifies the maximum string length "
+          "allowed when modifying this LC attribute. A value of "
+          "NULL defines the maximum length is unknown. A value of 0 "
+          "defines the maximum length as 18446744073709551615, the "
+          "limitation of the property definition as uint64." ), 
+       ModelCorrespondence { "DCIM_LCString.MinLength" }]
+   uint64 MaxLength;
+
+      [Description ( 
+          "The property denotes a Perl-compatible regular "
+          "expression (PCRE) syntax to use in validating Attribute "
+          "values. For a string Attribute where StringType=\"regex\" "
+          "this property shall have a value." )]
+   string ValueExpression;
+};

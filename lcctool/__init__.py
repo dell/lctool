@@ -38,6 +38,8 @@ stdcli.cli_main.__VERSION__ = __VERSION__
 stdcli.cli_main.moduleName = __name__
 main = stdcli.cli_main.main
 
+from schemas import std_xml_namespaces, etree
+
 moduleLog = getLog()
 moduleVerboseLog = getLog(prefix="verbose.")
 
@@ -74,8 +76,10 @@ def wsman_factory(*args, **kargs):
 # Notes:
 #  all input xml and all output xml from these functions is defined as etree Element objects or equivalent. NO XML STRINGS!
 class BaseWsman(object):
-    def __init__(self, host):
+    def __init__(self, host, debug=False, *args, **kargs):
         self.host = host
+        self.debug = debug
+        super(BaseWsman, self).__init__(*args, **kargs)
 
     def get_host(self):
         return self.host.get("host", None)
@@ -134,5 +138,43 @@ class BaseWsman(object):
 #    @traceLog()
 #    def invoke_method(self, methodname, objname, *args, **kargs):
 #        raise NotImplementedException
+
+
+
+
+# Helper functions that don't really need to be part of the class
+
+@traceLog()
+def call_method(wsman, uri, schema, method, *args, **kargs):
+    xml_input_etree = etree.Element("{%s}%s_INPUT" % (schema, method))
+    for arg in args:
+        name = arg[0]
+        value = arg[1]
+        etree.SubElement(xml_input_etree, "{%s}%s" % (schema,name)).text = value
+    for name, value in kargs.items():
+        etree.SubElement(xml_input_etree, "{%s}%s" % (schema,name)).text = value
+    xml_out = wsman.invoke(uri, method, xml_input_etree)
+    ret = {}
+    for elem  in list(xml_out):
+        # chop out namespace
+        tagname = elem.tag.split("}")[1].lower()
+
+        arr = ret.get(tagname, [])
+        arr.append(elem.text.strip())
+        ret[tagname] = arr
+
+        arr = ret.get("%s_children" % tagname, [])
+        arr.append(list(elem))
+        ret["%s_children" % tagname] = arr
+
+    return ret
+
+@traceLog()
+def get_service_uri(wsman, ns):
+     for item in wsman.enumerate(ns):
+        return "%s?%s" % (ns, ",".join(["SystemCreationClassName=%s" % item["SystemCreationClassName"],
+                                        "CreationClassName=%s" % item["CreationClassName"],
+                                        "SystemName=%s" % item["SystemName"],
+                                        "Name=%s" % item["Name"]]))
 
 

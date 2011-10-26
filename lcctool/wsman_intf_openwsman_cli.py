@@ -45,12 +45,15 @@ moduleDebugLog = getLog(prefix="debug.")
 class OpenWSManCLI(lcctool.BaseWsman):
     def __init__(self, host, *args, **kargs):
         super(OpenWSManCLI, self).__init__(host, *args, **kargs)
-        self.init_pywsman(host, *args, **kargs)
-        self.init_wsmancli(host, *args, **kargs)
-        #self.invoke = self._invoke_pywsman
-        self.invoke = self._invoke_wsmancli
-        #self.enumerate = self._enumerate_pywsman
-        self.enumerate = self._enumerate_wsmancli
+
+        if kargs.get("use_wsman_cli", True):
+            self.init_wsmancli(host, *args, **kargs)
+            self.invoke = self._invoke_wsmancli
+            self.enumerate = self._enumerate_wsmancli
+        else:
+            self.init_pywsman(host, *args, **kargs)
+            self.invoke = self._invoke_pywsman
+            self.enumerate = self._enumerate_pywsman
 
     def init_wsmancli(self, host, *args, **kargs):
         self.wsman_cmd = ["wsman", "-P", "443", "-V", "-v", "-c", "dummy.cert", "-j", "utf-8", "-y", "basic", "-o", "-m", "512"]
@@ -59,12 +62,58 @@ class OpenWSManCLI(lcctool.BaseWsman):
         for k,v in opts.items():
             if v() is not None:
                 self.wsman_cmd.extend([k,v()])
+        if self.debug:
+            self.wsman_cmd.append("--debug=6")
+            moduleDebugLog.info("wsman basic cli: %s" % " ".join(self.wsman_cmd))
+
+    @traceLog()
+    def _retry_wsmancli(self, cmd, retries=3):
+        # sometimes wsman cli will just fail for no discernable reason. Retry a reasonable number of times
+        xml_out = None
+        retries = retries
+        while 1:
+            try:
+                s = call_output( cmd, raise_exc=False )
+                if self.debug:
+                    moduleDebugLog.info("xml output from wsmancli:\n%s" % s)
+                return etree.fromstring(s)
+            except Exception:
+                retries = retries - 1
+                if retries == 0:
+                    raise
+
+    @traceLog()
+    def _enumerate_wsmancli(self, schema, filter=None):
+        moduleLog.info("retrieving info for schema: %s" % schema)
+        xml_out = self._retry_wsmancli(self.wsman_cmd + ["enumerate", schema])
+        for item_list in  xml_out.iter("{%(wsman)s}Items" % schemas.std_xml_namespaces):
+            for item in list(item_list):
+                yield wscim.cim_instance_from_wsxml(self, item)
+
+    @traceLog()
+    def _invoke_wsmancli(self, schema, method, xml_input_etree):
+        wsman_cmd = self.wsman_cmd[:]
+        if xml_input_etree:
+            fd, fn = tempfile.mkstemp(suffix=".xml")
+            os.write(fd, etree.tostring(xml_input_etree))
+            os.close(fd)
+            wsman_cmd.extend(["-J", fn])
+            if self.debug:
+                moduleDebugLog.info("invoke input xml: \n%s" %  etree.tostring(xml_input_etree))
+
+        try:
+            wsman_cmd.extend(["invoke", "-a", method, schema])
+            xml_out = self._retry_wsmancli(wsman_cmd)
+            for body_elements in xml_out.iter("{%(soap)s}Body" % schemas.std_xml_namespaces):
+                return list(body_elements)[0]
+        finally:
+            if xml_input_etree:
+                os.unlink(fn)
+
 
     def init_pywsman(self, host, *args, **kargs):
         self.client = pywsman.Client( "https://%(user)s:%(pass)s@%(host)s:%(port)s/wsman" %
             {'user': self.get_user(), 'pass': self.get_password(), 'host': self.get_host(), 'port': 443})
-
-        self.debug = kargs.get("debug", False)
 
         assert self.client is not None
         # required transport characteristics to talk to drac
@@ -85,23 +134,15 @@ class OpenWSManCLI(lcctool.BaseWsman):
             moduleDebugLog.info("Identify: \n%s" % self._identify_result)
 
     @traceLog()
-    def _enumerate_wsmancli(self, schema, filter=None):
-        moduleLog.info("retrieving info for schema: %s" % schema)
-        xml_out = etree.fromstring(call_output( self.wsman_cmd + ["enumerate", schema], raise_exc=False ))
-        for item_list in  xml_out.iter("{%(wsman)s}Items" % schemas.std_xml_namespaces):
-            for item in list(item_list):
-                yield wscim.cim_instance_from_wsxml(self, item)
-
-
-    @traceLog()
     def _enumerate_pywsman(self, schema, filter=None):
+        # THIS API SUCKS! Dont use it. There is no way that I can tell to do
+        # the OPTIMIZATION that wsman cli does to pull multiple records at
+        # once. That makes this api painfully, painfully slow.
         filt = pywsman.Filter()
         #self.options.set_flags(pywsman.FLAG_ENUMERATION_OPTIMIZATION)
         doc = self.client.enumerate(self.options, filt, schema)
         root=doc.root()
         context = doc.context()
-        moduleDebugLog.info("enumerate(schema='%s')" % schema)
-        moduleDebugLog.info("enumerate result xml: \n%s" % doc.body().string())
 
         while 1:
             xml_out = etree.fromstring(doc.body().string())
@@ -120,24 +161,6 @@ class OpenWSManCLI(lcctool.BaseWsman):
             context = doc.context()
             if self.client.response_code() not in [200, 400, 500]:
                 break
-
-    @traceLog()
-    def _invoke_wsmancli(self, schema, method, xml_input_etree):
-        wsman_cmd = self.wsman_cmd[:]
-        if xml_input_etree:
-            fd, fn = tempfile.mkstemp(suffix=".xml")
-            os.write(fd, etree.tostring(xml_input_etree))
-            os.close(fd)
-            wsman_cmd.extend(["-J", fn])
-
-        try:
-            wsman_cmd.extend(["invoke", "-a", method, schema])
-            xml_out = etree.fromstring(call_output(wsman_cmd, raise_exc=False))
-            for body_elements in xml_out.iter("{%(soap)s}Body" % schemas.std_xml_namespaces):
-                return list(body_elements)[0]
-        finally:
-            if xml_input_etree:
-                os.unlink(fn)
 
     @traceLog()
     def _invoke_pywsman(self, schema, method, xml_input_etree):

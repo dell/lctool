@@ -2,6 +2,7 @@ import pywbem.cim_obj as cobj
 import schemas
 from schemas import std_xml_namespaces, etree
 from stdcli.trace_decorator import traceLog, getLog
+import lcctool
 
 moduleLog = getLog()
 moduleVerboseLog = getLog(prefix="verbose.")
@@ -22,7 +23,8 @@ moduleVerboseLog = getLog(prefix="verbose.")
 
 
 class WSInstance(cobj.CIMInstance):
-    def __init__(self, *args, **kargs):
+    def __init__(self, wsman=None, *args, **kargs):
+        self.wsman=wsman
         # look up all the classes in our inheritance heirarchy and add the
         # property_list parameters
         for cls in self.__class__.mro():
@@ -49,18 +51,24 @@ class WSInstance(cobj.CIMInstance):
     # this should really use CIMArgument, et al.
     @traceLog()
     def call_method(self, uri, schema, method, *args, **kargs):
-        xml_input_etree = etree.Element("{%s}%s_INPUT" % (schema, method))
-        for name, value in kargs.items():
-            etree.SubElement(xml_input_etree, "{%s}%s" % (schema,name)).text = value
-        xml_out = self.wsman.invoke(uri, method, xml_input_etree)
-        ret = {}
-        for elem  in list(xml_out):
-            # chop out namespace
-            tagname = elem.tag.split("}")[1].lower()
-            arr = ret.get(tagname, [])
-            arr.append(elem.text)
-            ret[tagname] = arr
-        return ret
+        return lcctool.call_method(self.wsman, uri, schema, method, *args, **kargs)
+
+
+# Dell-specfic mixin class that implements some standard methods that are
+# useful for setting bios/nic/drac/raid settings. Also, all the dell classes
+# have the "FQDD" property.
+class DCIM_Mixin(object):
+    _property_list  = {"FQDD": "string"}
+
+    @traceLog()
+    def get_service_uri(self):
+        # cache the uri
+        if not self.associated_service_class.get("uri", None):
+            self.associated_service_class["uri"] = lcctool.get_service_uri(self.wsman, self.associated_service_class["name"]._ns)
+        method = self.associated_service_class["set_method"]
+        multi_method = self.associated_service_class["multi_set_method"]
+        uri = self.associated_service_class["uri"]
+        return {'uri': uri, 'ns': self.associated_service_class["name"]._ns, 'set_method': method, 'multi_set_method': multi_method}
 
     @traceLog()
     def get_name(self):
@@ -95,39 +103,11 @@ class WSInstance(cobj.CIMInstance):
         if self.has_key("isreadonly") and self["isreadonly"].lower() == "true":
             name = "#readonly#  %s" % name
 
-        ini.set(self["fqdd"], name, self["currentvalue"])
+        value = self["currentvalue"]
+        if value is None:
+            value = ''
 
-
-# Dell-specfic mixin class that implements some standard methods that are
-# useful for setting bios/nic/drac/raid settings. Also, all the dell classes
-# have the "FQDD" property.
-class DCIM_Mixin(object):
-    _property_list  = {"FQDD": "string"}
-
-    @traceLog()
-    def _setup_service_call(self):
-        uri = ""
-        service_cls = self.associated_service_class["name"]
-        for item in self.wsman.enumerate(service_cls._ns):
-            uri = "%s?%s" % (
-                self.associated_service_class["name"]._ns,
-                ",".join(["SystemCreationClassName=%s" % item["SystemCreationClassName"],
-                          "CreationClassName=%s" % item["CreationClassName"],
-                          "SystemName=%s" % item["SystemName"],
-                          "Name=%s" % item["Name"]]))
-        method = self.associated_service_class["set_method"]
-        return (uri, method)
-
-    @traceLog()
-    def save_pending(self):
-        uri, method = self._setup_service_call()
-        return self.call_method(uri, self.associated_service_class["name"]._ns, method, Target=self["fqdd"], AttributeName=self["attributename"], AttributeValue=self["pendingvalue"])
-
-    @traceLog()
-    def commit_pending(self, reboot_type=1):
-        uri, method = self._setup_service_call()
-        return self.call_method(uri, self.associated_service_class["name"]._ns, method,
-                Target=self["fqdd"], ScheduledStartTime="TIME_NOW", UntilTime="20121111111111", RebootJobType=reboot_type)
+        ini.set(self["fqdd"], name, value)
 
 
 @traceLog()
@@ -142,20 +122,19 @@ def cim_instance_from_wsxml(wsman, elem):
             continue
         kargs[attr] = child.text
 
-    i = find_class(namespace, cls)(classname=cls)
+    i = find_class(namespace, cls)(classname=cls, wsman=wsman)
     i.update_existing(kargs)
     i.raw_xml_str = etree.tostring(elem)
     i.raw_xml_elem = elem
-    i.wsman = wsman
     return i
 
 class ClassNotFound(Exception): pass
 
 @traceLog()
-def find_class(namespace, classname):
+def find_class(namespace, classname=None):
     for cls in itersubclasses(WSInstance):
         if getattr(cls, "_ns", None) == namespace:
-            if cls.__name__ == classname:
+            if classname is None or cls.__name__ == classname:
                 return cls
 
     raise ClassNotFound("Could not find match for class: %s in namespace %s" % (classname, namespace))

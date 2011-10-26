@@ -101,6 +101,9 @@ std_xml_namespaces = {
     'idrac_str': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_iDRACCardString",
     'idrac_int': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_iDRACCardInteger",
     'idrac_enum':"http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_iDRACCardEnumeration",
+    'lc_attr': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_LCAttribute",
+    'lc_str':  "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_LCString",
+    'lc_enum': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_LCEnumeration",
 
     # service namespaces
     'bios_srv': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSService",
@@ -114,11 +117,16 @@ std_xml_namespaces = {
     }
 
 dell_schema_list = {
+    # bios classes are not derived from bios_attr, so we have to individually list them
     "bios":  [ std_xml_namespaces["bios_enum"], std_xml_namespaces["bios_str"], std_xml_namespaces["bios_int"], ],
-    #"bios":  [ std_xml_namespaces["bios_attr"], ],
+
+    # nic/idrac/raid/lc are all derived from their respective _attr classes, so we can get them all just by specifying attr
     'nic': [ std_xml_namespaces["nic_attr"] ],
     'idrac': [ std_xml_namespaces["idrac_attr"] ],
     'raid': [ std_xml_namespaces["raid_attr"] ],
+
+    # we dont have classes defined for this yet
+    #'lc': [ std_xml_namespaces["lc_attr"] ],
     }
 
 # cant trace this one as it gets called during CLI option setup
