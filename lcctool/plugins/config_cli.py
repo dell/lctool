@@ -112,8 +112,6 @@ class Config(Plugin):
             ini.set("main", "host", host["host"])
             ini.set("main", "alias", host.get("alias", ""))
 
-            wsman = lcctool.wsman_factory(host, debug=ctx.args.debug)
-
             do_close = ctx.args.output_filename != "-"
             fn_subst = { "output_format": ctx.args.output_format, "host": host.get("alias", host["host"]) }
             outfile = sys.stdout
@@ -130,6 +128,7 @@ class Config(Plugin):
                     elif ctx.args.output_format == "xml":
                         outfile.write( lcctool.schemas.etree.tostring(xml) )
 
+            wsman = lcctool.wsman_factory(host, debug=ctx.args.debug)
             xml = lcctool.schemas.etree.Element("xml_return")
             for subsys in ctx.args.subsystems:
                 for schema in lcctool.schemas.dell_schema_list[subsys]:
