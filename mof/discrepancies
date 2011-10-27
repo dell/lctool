@@ -1,5 +1,6 @@
 List of wierd stuff I've found.
 
+techcenter website: "linux" link is to the windows doc
 LCC WSIG 1.2 PDF:  section 17.3, page 191 says "TARGET: Obtained from the InstanceID field", but it is actually the FQDD.
 
 MOFs:
