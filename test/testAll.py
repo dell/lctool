@@ -29,6 +29,11 @@
 import os
 import sys
 import glob
+import logging
+try:
+    import argparse
+except ImportError:
+    import lcctool.argparse
 
 # all of the variables below are substituted by the build system
 __VERSION__="1.0.0"
@@ -42,8 +47,76 @@ top_builddir = os.getcwd()
 sys.path.insert(0,top_srcdir)
 sys.path.insert(0,"%s/lcctool/" % top_srcdir)
 
+def setupLogging(log_file=None, config_file=None, verbosity=1, trace=0, debug=0):
+    # set up logging
+    try:
+        logging.config.fileConfig(config_file)
+    except:
+        # manually set up basic logging if not present in cfg file
+        root_log = logging.getLogger()
+        root_log.setLevel(logging.NOTSET)
+        hdlr = logging.StreamHandler(sys.stderr)
+        hdlr.setLevel(logging.INFO)
+        formatter = logging.Formatter('%(message)s')
+        hdlr.setFormatter(formatter)
+        root_log.addHandler(hdlr)
+
+    root_log        = logging.getLogger()
+    module_log         = logging.getLogger("test")
+    module_debug_log   = logging.getLogger("debug")
+    module_verbose_log = logging.getLogger("verbose")
+    module_trace_log   = logging.getLogger("trace")
+
+    # if logfile is specified, it will get everything
+    root_log_hdlr = None
+    if log_file:
+        root_log_hdlr = logging.FileHandler(log_file)
+        root_log.addHandler(root_log_hdlr)
+
+    module_log.propagate = 0
+    module_trace_log.propagate = 0
+    module_verbose_log.propagate = 0
+    module_debug_log.propagate = 0
+
+    # debug stuff doesnt go to default root log, unless requested
+    if debug >= 1:
+        module_debug_log.propagate = 1
+
+    # debug stuff doesnt go to default root log, unless requested
+    if trace:
+        module_trace_log.propagate = 1
+
+    # verbose stuff always goes to logfile if configured
+    if verbosity >= 1:
+        module_log.propagate = 1
+    elif root_log_hdlr:
+        module_log.addHandler(root_log_hdlr)
+
+    if verbosity >= 2:
+        module_verbose_log.propagate = 1
+    elif root_log_hdlr:
+        module_verbose_log.addHandler(root_log_hdlr)
+
+    if verbosity >= 3:
+        for hdlr in root_log.handlers:
+            hdlr.setLevel(logging.DEBUG)
+
+def _(s): return s
+
 # runs all modules TestCase() classes in files that match test*.py
 if __name__ == "__main__":
+
+    p = argparse.ArgumentParser(add_help=False)
+    p.add_argument('--version', action='version', version='%(prog)s ' + __VERSION__)
+    p.add_argument("-v", "--verbose", action="count", dest="verbosity", help=_("Display more verbose output."))
+    p.add_argument("-q", "--quiet", action="store_const", const=0, dest="verbosity", help=_("Minimize program output. Only errors and warnings are displayed."))
+    p.add_argument("--debug", action="count", dest="debug", help=_("Enable debugging output."))
+    p.add_argument("--trace", action="store_true", dest="trace", help=_("Enable verbose function tracing."))
+    p.add_argument("--trace-off", action="store_false", dest="trace", help=_("Disable verbose function tracing."))
+    p.add_argument("--logfile", action="store", dest="logfile", help=_("Specify a file to log all operations to"))
+    args = p.parse_args()
+    setupLogging(verbosity=args.verbosity, trace=args.trace, debug=args.debug, log_file=args.logfile)
+
     testModulePath="%s/test/" % top_srcdir
 
     moduleNames = glob.glob( "%s/test*.py" % testModulePath )
