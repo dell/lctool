@@ -35,33 +35,54 @@ import unittest
 import cStringIO
 import ConfigParser
 
+from stdcli.trace_decorator import traceLog, getLog
+
+moduleVerboseLog = getLog(prefix="verbose")
+
 class TestCase(unittest.TestCase):
+    @traceLog()
     def setUp(self):
         import lcctool
         lcctool.unit_test_mode = 1
         lcctool.test_data_dir = os.path.join(os.path.dirname(__file__), "data")
 
+    @traceLog()
     def tearDown(self):
         if globals().get('lcctool'): del(lcctool)
         for k in sys.modules.keys():
             if k.startswith("lcctool"):
                 del(sys.modules[k])
 
+    @traceLog()
     def dotestIni(self, subsystems, ini_data_string):
-        import lcctool, lcctool.config
+        import lcctool
         host = {'host': 'testhost'}
         ini = ConfigParser.ConfigParser()
         ini.optionxform = str # need to be case sensitive
         ini.add_section('main')
+
+        wsman = lcctool.wsman_factory(host)
         for subsys in subsystems:
-            for xml_ret in lcctool.config.stuff_xml_into_ini(host, ini, subsys):
-                pass
+            for schema in lcctool.schemas.dell_schema_list[subsys]:
+                for item in wsman.enumerate(schema):
+                    item.serialize_ini(ini)
+                    ini.set("main", item["fqdd"], lcctool.schemas.dell_schema_list[subsys])
 
         # read in known-good INI data
         good_ini = ConfigParser.ConfigParser()
         good_ini.optionxform = str # need to be case sensitive
         fh = cStringIO.StringIO(ini_data_string)
         good_ini.readfp(fh)
+        fh.close()
+
+        fh = cStringIO.StringIO()
+        ini.write(fh)
+        moduleVerboseLog.info("GENERATED INI DUMP:\n%s" % fh.getvalue())
+        fh.close()
+
+        fh = cStringIO.StringIO()
+        good_ini.write(fh)
+        moduleVerboseLog.info("GOOD INI DUMP:\n%s" % fh.getvalue())
         fh.close()
 
         # check that each entry in good_ini corresponds with ini under test
@@ -73,6 +94,7 @@ class TestCase(unittest.TestCase):
                 self.assertEquals(good_ini.get(sec, opt), ini.get(sec, opt))
         # and the reverse, to ensure we dont miss any
         for sec in ini.sections():
+            if sec == "main": continue
             for opt in ini.options(sec):
                 #print "check SUT  [%s] %s = %s" % (sec, opt, ini.get(sec, opt))
                 self.assertEquals(good_ini.get(sec, opt), ini.get(sec, opt))
@@ -116,12 +138,12 @@ NumLock = Off
 ## test data
 main_ini_testdata = """
 [main]
-iDRAC.Embedded.1 = idrac
-BIOS.Setup.1-1 = bios
-NIC.Embedded.4-1 = nic
-NIC.Embedded.3-1 = nic
-NIC.Embedded.2-1 = nic
-NIC.Embedded.1-1 = nic
+BIOS.Setup.1-1 = ['http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSEnumeration', 'http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSString', 'http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSinteger']
+iDRAC.Embedded.1 = ['http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_iDRACCardAttribute']
+NIC.Embedded.4-1 = ['http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_NICAttribute']
+NIC.Embedded.3-1 = ['http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_NICAttribute']
+NIC.Embedded.2-1 = ['http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_NICAttribute']
+NIC.Embedded.1-1 = ['http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_NICAttribute']
 """
 
 idrac_ini_testdata = """
@@ -133,7 +155,7 @@ IPv4.1#Netmask = 255.255.254.0
 IPv4.1#Gateway = 10.208.46.1
 IPv4.1#DNS1 = 0.0.0.0
 IPv4.1#DNS2 = 0.0.0.0
-Users.1#UserName = 
+;readonly#  Users.1#UserName = 
 Users.2#UserName = root
 Users.3#UserName = 
 Users.4#UserName = 
@@ -149,7 +171,7 @@ Users.13#UserName =
 Users.14#UserName = 
 Users.15#UserName = 
 Users.16#UserName = 
-Users.1#Password = ******
+;readonly#  Users.1#Password = ******
 Users.2#Password = ******
 Users.3#Password = ******
 Users.4#Password = ******
@@ -167,7 +189,7 @@ Users.15#Password = ******
 Users.16#Password = ******
 NIC.1#VLanPriority = 0
 NIC.1#VLanID = 1
-Users.1#Privilege = 0
+;readonly#  Users.1#Privilege = 0
 Users.2#Privilege = 511
 Users.3#Privilege = 0
 Users.4#Privilege = 0
@@ -195,9 +217,9 @@ VirtualMedia.1#Attached = Attached
 IPv4.1#Enable = Enabled
 IPv4.1#DHCPEnable = Enabled
 IPv4.1#DNSFromDHCP = Disabled
-Users.1#IpmiLanPrivilege = NoAccess
-Users.1#IpmiSerialPrivilege = NoAccess
-Users.1#Enable = Disabled
+;readonly#  Users.1#IpmiLanPrivilege = NoAccess
+;readonly#  Users.1#IpmiSerialPrivilege = NoAccess
+;readonly#  Users.1#Enable = Disabled
 Users.2#IpmiLanPrivilege = Administrator
 Users.2#IpmiSerialPrivilege = Administrator
 Users.2#Enable = Enabled
@@ -250,7 +272,7 @@ bios_ini_testdata = """
 MemTest = Enabled
 MemOpMode = OptimizerMode
 NodeInterleave = Disabled
-MemVolt = AutoVolt
+;readonly#  MemVolt = AutoVolt
 LogicalProc = Enabled
 ProcVirtualization = Enabled
 ProcAdjCacheLine = Enabled
@@ -268,7 +290,7 @@ BootSeqRetry = Disabled
 IntegratedRaid = Enabled
 UsbPorts = AllOn
 InternalUsb = On
-InternalSdCard = Off
+;readonly#  InternalSdCard = Off
 EmbNic1Nic2 = Enabled
 EmbNic1 = EnabledPxe
 EmbNic2 = Enabled
@@ -277,7 +299,7 @@ EmbNic3 = Enabled
 EmbNic4 = Enabled
 OsWatchdogTimer = Disabled
 IoatEngine = Disabled
-EmbVideo = Enabled
+;readonly#  EmbVideo = Enabled
 SriovGlobalEnable = Disabled
 SerialComm = OnConRedirCom1
 SerialPortAddress = Serial1Com1Serial2Com2
@@ -285,15 +307,15 @@ ExtSerialConnector = RemoteAccDevice
 FailSafeBaud = 115200
 ConTermType = Vt100Vt220
 RedirAfterBoot = Enabled
-FrontLcd = Advanced
+;readonly#  FrontLcd = Advanced
 PowerMgmt = OsCtrl
-ProcPwrPerf = OsDbpm
-FanPwrPerf = MinPwr
-MemPwrPerf = MaxPerf
+;readonly#  ProcPwrPerf = OsDbpm
+;readonly#  FanPwrPerf = MinPwr
+;readonly#  MemPwrPerf = MaxPerf
 PasswordStatus = Unlocked
 TpmSecurity = Off
-TpmActivation = NoChange
-TpmClear = No
+;readonly#  TpmActivation = NoChange
+;readonly#  TpmClear = No
 PwrButton = Enabled
 NmiButton = Disabled
 AcPwrRcvry = Last
@@ -303,16 +325,16 @@ ReportKbdErr = NoReport
 ErrPrompt = Disabled
 UserLcdStr = 
 AssetTag = 
-AcPwrRcvryUserDelay = 30
+;readonly#  AcPwrRcvryUserDelay = 30
 """
 
 nic_ini_testdata = """
 [NIC.Embedded.4-1]
-ChipMdl = BCM5709 C0
-MacAddr = 00:24:E8:67:99:1B
-VirtMacAddr = 00:24:E8:67:99:1B
-IscsiMacAddr = 00:24:E8:67:99:1C
-VirtIscsiMacAddr = 00:24:E8:67:99:1C
+;readonly#  ChipMdl = BCM5709 C0
+;readonly#  MacAddr = 00:24:E8:67:99:1B
+;readonly#  VirtMacAddr = 00:24:E8:67:99:1B
+;readonly#  IscsiMacAddr = 00:24:E8:67:99:1C
+;readonly#  VirtIscsiMacAddr = 00:24:E8:67:99:1C
 DhcpVendId = BRCM ISAN
 IscsiInitiatorIpAddr = ::
 IscsiInitiatorSubnetPrefix = 0
@@ -338,7 +360,7 @@ FirstTgtTcpPort = 3260
 FirstTgtBootLun = 0
 SecondTgtTcpPort = 3260
 SecondTgtBootLun = 0
-VLanId = 0
+;readonly#  VLanId = 0
 TcpIpViaDHCP = Enabled
 IscsiViaDHCP = Enabled
 ChapAuthEnable = Disabled
@@ -358,11 +380,11 @@ UseIndTgtPortal = Disabled
 UseIndTgtName = Disabled
 
 [NIC.Embedded.3-1]
-ChipMdl = BCM5709 C0
-MacAddr = 00:24:E8:67:99:19
-VirtMacAddr = 00:24:E8:67:99:19
-IscsiMacAddr = 00:24:E8:67:99:1A
-VirtIscsiMacAddr = 00:24:E8:67:99:1A
+;readonly#  ChipMdl = BCM5709 C0
+;readonly#  MacAddr = 00:24:E8:67:99:19
+;readonly#  VirtMacAddr = 00:24:E8:67:99:19
+;readonly#  IscsiMacAddr = 00:24:E8:67:99:1A
+;readonly#  VirtIscsiMacAddr = 00:24:E8:67:99:1A
 DhcpVendId = BRCM ISAN
 IscsiInitiatorIpAddr = 0.0.0.0
 IscsiInitiatorSubnet = 0.0.0.0
@@ -388,7 +410,7 @@ FirstTgtTcpPort = 3260
 FirstTgtBootLun = 0
 SecondTgtTcpPort = 3260
 SecondTgtBootLun = 0
-VLanId = 0
+;readonly#  VLanId = 0
 TcpIpViaDHCP = Enabled
 IscsiViaDHCP = Enabled
 ChapAuthEnable = Disabled
@@ -408,11 +430,11 @@ UseIndTgtPortal = Disabled
 UseIndTgtName = Disabled
 
 [NIC.Embedded.2-1]
-ChipMdl = BCM5709 C0
-MacAddr = 00:24:E8:67:99:17
-VirtMacAddr = 00:24:E8:67:99:17
-IscsiMacAddr = 00:24:E8:67:99:18
-VirtIscsiMacAddr = 00:24:E8:67:99:18
+;readonly#  ChipMdl = BCM5709 C0
+;readonly#  MacAddr = 00:24:E8:67:99:17
+;readonly#  VirtMacAddr = 00:24:E8:67:99:17
+;readonly#  IscsiMacAddr = 00:24:E8:67:99:18
+;readonly#  VirtIscsiMacAddr = 00:24:E8:67:99:18
 DhcpVendId = BRCM ISAN
 IscsiInitiatorIpAddr = 172.17.11.4
 IscsiInitiatorSubnet = 255.255.0.0
@@ -438,7 +460,7 @@ FirstTgtTcpPort = 3260
 FirstTgtBootLun = 0
 SecondTgtTcpPort = 3260
 SecondTgtBootLun = 0
-VLanId = 0
+;readonly#  VLanId = 0
 TcpIpViaDHCP = Disabled
 IscsiViaDHCP = Disabled
 ChapAuthEnable = Disabled
@@ -458,11 +480,11 @@ UseIndTgtPortal = Disabled
 UseIndTgtName = Disabled
 
 [NIC.Embedded.1-1]
-ChipMdl = BCM5709 C0
-MacAddr = 00:24:E8:67:99:15
-VirtMacAddr = 00:24:E8:67:99:15
-IscsiMacAddr = 00:24:E8:67:99:16
-VirtIscsiMacAddr = 00:24:E8:67:99:16
+;readonly#  ChipMdl = BCM5709 C0
+;readonly#  MacAddr = 00:24:E8:67:99:15
+;readonly#  VirtMacAddr = 00:24:E8:67:99:15
+;readonly#  IscsiMacAddr = 00:24:E8:67:99:16
+;readonly#  VirtIscsiMacAddr = 00:24:E8:67:99:16
 DhcpVendId = BRCM ISAN
 IscsiInitiatorIpAddr = 0.0.0.0
 IscsiInitiatorSubnet = 0.0.0.0
@@ -488,7 +510,7 @@ FirstTgtTcpPort = 3260
 FirstTgtBootLun = 0
 SecondTgtTcpPort = 3260
 SecondTgtBootLun = 0
-VLanId = 0
+;readonly#  VLanId = 0
 TcpIpViaDHCP = Enabled
 IscsiViaDHCP = Enabled
 ChapAuthEnable = Disabled
