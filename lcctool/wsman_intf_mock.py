@@ -32,26 +32,48 @@ import re
 from stdcli.trace_decorator import traceLog, getLog
 import lcctool
 import schemas
+import wscim
 etree = schemas.etree
 
 moduleLog = getLog()
 moduleVerboseLog = getLog(prefix="verbose.")
 
+@traceLog()
+def _makesafe(*args):
+    p = re.compile( '[^a-zA-Z0-9]')
+    return p.sub( '_', "_".join(args))
 
 class MockWsman(lcctool.BaseWsman):
     def __init__(self, test_data_dir, *args, **kargs):
         self.test_data_dir = test_data_dir
         super(MockWsman, self).__init__(*args, **kargs)
 
-    def _makesafe(self, pth):
-        p = re.compile( '[^a-zA-Z0-9]')
-        return p.sub( '_', pth)
+    @traceLog()
+    def _mkpath(self, *args):
+        return os.path.join(self.test_data_dir, _makesafe(self.get_host()), _makesafe(*args))
+
+    @traceLog()
+    def _open_ro(self, *args):
+        return open(self._mkpath(*args), "r")
 
     @traceLog()
     def enumerate(self, schema):
-        xml_file = open(os.path.join(self.test_data_dir, self._makesafe(self.get_host()), self._makesafe(schema)), "r")
+        xml_file = self._open_ro("enumerate_%s" % schema)
         xml_out = etree.fromstring(xml_file.read())
         xml_file.close()
         for item_list in  xml_out.iter("{%(wsman)s}Items" % schemas.std_xml_namespaces):
-            yield item_list
+            for item in list(item_list):
+                yield wscim.cim_instance_from_wsxml(self, item)
 
+    @traceLog()
+    def invoke(self, schema, method, xml_input_etree):
+        if xml_input_etree:
+            fd, fn = tempfile.mkstemp(suffix=".xml")
+            os.write(fd, etree.tostring(xml_input_etree))
+            os.close(fd)
+
+        xml_file = self._open_ro("invoke_%s_s" % (schema, method))
+        xml_out = etree.fromstring(xml_file.read())
+        xml_file.close()
+        for body_elements in xml_out.iter("{%(soap)s}Body" % schemas.std_xml_namespaces):
+            return list(body_elements)[0]
