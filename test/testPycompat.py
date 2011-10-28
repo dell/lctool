@@ -96,6 +96,7 @@ class TestCase(unittest.TestCase):
         for sec in ini.sections():
             if sec == "main": continue
             for opt in ini.options(sec):
+                if opt.startswith("#"): continue
                 #print "check SUT  [%s] %s = %s" % (sec, opt, ini.get(sec, opt))
                 self.assertEquals(good_ini.get(sec, opt), ini.get(sec, opt))
 
