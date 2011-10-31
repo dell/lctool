@@ -56,16 +56,9 @@ class TestCase(unittest.TestCase):
         import lcctool
         import lcctool.wscim_dell_classes
         host = {'host': 'testhost'}
-        ini = ConfigParser.ConfigParser()
-        ini.optionxform = str # need to be case sensitive
-        ini.add_section('main')
 
-        wsman = lcctool.wsman_factory(host)
-        for subsys in subsystems:
-            for schema in lcctool.schemas.dell_schema_list[subsys]:
-                for item in wsman.enumerate(schema):
-                    item.serialize_ini(ini)
-                    ini.set("main", item["fqdd"], lcctool.schemas.dell_schema_list[subsys])
+        import lcctool.plugins.config_cli
+        ini, xml = lcctool.plugins.config_cli.get_host_config(host, subsystems, output_filename=None, output_format='ini', debug=0)
 
         # read in known-good INI data
         good_ini = ConfigParser.ConfigParser()
@@ -101,9 +94,6 @@ class TestCase(unittest.TestCase):
     def testCombined(self):
         self.dotestIni(["bios", "idrac", "nic"], main_ini_testdata + bios_ini_testdata + nic_ini_testdata + idrac_ini_testdata)
 
-
-
-
     def testChangeSettingBios(self):
         import lcctool
         import lcctool.wscim_dell_classes
@@ -117,56 +107,21 @@ BIOS.Setup.1-1 = ['http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSEn
 SataPortB = Auto
 NumLock = Off
 """
-
-        # read in known-good INI data
-        ini = ConfigParser.ConfigParser()
-        ini.optionxform = str # need to be case sensitive
         fh = cStringIO.StringIO(ini_str)
-        ini.readfp(fh)
-        fh.close()
-
         wsman = lcctool.wsman_factory(host)
-
-        pending = {}
-        for fqdd in ini.sections():
-            if not ini.has_option("main", fqdd):
-                continue
-            pending[fqdd] = {}
-            schema_list = eval(ini.get("main", fqdd))
-            moduleVerboseLog.info("schema list: %s" % repr(schema_list))
-            for schema in schema_list:
-                moduleVerboseLog.info("Getting current options for schema: %s" % schema)
-                for item in wsman.enumerate(schema):
-                    moduleVerboseLog.info("  getting %s" % item["instanceid"])
-                    if item.deserialize_ini(ini):
-                        pending[fqdd][item['instanceid']] = item
-
-        last_attribute = None
-        need_reboot = False
-        jobs = []
-        for fqdd in pending.keys():
-            if not pending[fqdd].values():
-                continue
-
-            moduleVerboseLog.info("save all pending for fqdd %s" % fqdd)
-            items = pending[fqdd].values()
-            meth_details = items[0].get_service_uri()
-            names = [ ("AttributeName", i.get_name()) for i in pending[fqdd].values() ]
-            values = [ ("AttributeValue", i["pendingvalue"]) for i in pending[fqdd].values() ]
-            margs = names + values
-            res = items[0].call_method(meth_details['uri'], meth_details['ns'], meth_details['multi_set_method'], ("Target", fqdd), *margs)
-            moduleVerboseLog.info("  RES: %s" % repr(res))
-
-            if "yes" in [ i.lower() for i in res.get("rebootrequired", [])]:
-                moduleVerboseLog.info("       Reboot required to enable setting.")
-                need_reboot = True
-
-
+        import lcctool.plugins.config_cli
+        ret = lcctool.plugins.config_cli.stage_config(wsman=wsman, host=host, input_fh=fh, debug=False)
+        for service_ns in ret['service_ns_to_fqdd_map'].keys():
+            fqdd_list = dict([ (i, None) for i in ret['service_ns_to_fqdd_map'][service_ns]])
+            lcctool.plugins.config_cli.run_method_for_each_fqdd(wsman=wsman, method="CreateTargetedConfigJob",
+                                     service_ns=service_ns, fqdd_list=fqdd_list, msg="Committing config for %(fqdd)s",
+                                     ScheduledStartTime="TIME_NOW",
+                                     UntilTime="20121111111111",   # no idea what that number is....
+                                     RebootJobType=1)
 
     def testFactory(self):
-        import lcctool.wscim
+        import lcctool
         import lcctool.wscim_dell_classes
-        import lcctool.wscim_classes
         from lcctool.schemas import etree
 
         xml = etree.fromstring(test_xml_str_int)
