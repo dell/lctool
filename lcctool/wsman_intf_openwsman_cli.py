@@ -50,6 +50,7 @@ class OpenWSManCLI(lcctool.BaseWsman):
             self.init_wsmancli(host, *args, **kargs)
             self.invoke = self._invoke_wsmancli
             self.enumerate = self._enumerate_wsmancli
+            self.get_instance_id = self._get_instance_id_wsmancli
         else:
             self.init_pywsman(host, *args, **kargs)
             self.invoke = self._invoke_pywsman
@@ -84,7 +85,7 @@ class OpenWSManCLI(lcctool.BaseWsman):
 
     @traceLog()
     def _enumerate_wsmancli(self, schema, filter=None):
-        moduleLog.info("retrieving info for schema: %s" % schema)
+        moduleDebugLog.info("retrieving info for schema: %s" % schema)
         xml_out = self._retry_wsmancli(self.wsman_cmd + ["enumerate", schema])
         for item_list in  xml_out.iter("{%(wsman)s}Items" % schemas.std_xml_namespaces):
             for item in list(item_list):
@@ -109,6 +110,15 @@ class OpenWSManCLI(lcctool.BaseWsman):
         finally:
             if xml_input_etree:
                 os.unlink(fn)
+
+    @traceLog()
+    def _get_instance_id_wsmancli(self, schema, instance_id):
+        wsman_cmd = self.wsman_cmd[:]
+
+        wsman_cmd.extend(["get", "%s?InstanceID=%s" % (schema, schema)])
+        xml_out = self._retry_wsmancli(wsman_cmd)
+        for body_elements in xml_out.iter("{%(soap)s}Body" % schemas.std_xml_namespaces):
+            return list(body_elements)[0]
 
 
     def init_pywsman(self, host, *args, **kargs):
@@ -173,4 +183,5 @@ class OpenWSManCLI(lcctool.BaseWsman):
             raise Exception("invalid response code from server: %s" % self.client.response_code())
         for body_elements in xml_out.iter("{%(soap)s}Body" % schemas.std_xml_namespaces):
             return list(body_elements)[0]
+
 
