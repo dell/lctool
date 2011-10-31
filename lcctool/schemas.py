@@ -74,7 +74,10 @@ except AttributeError:
     def register_namespace(prefix, uri):
         etree._namespace_map[uri] = prefix
 
-dell_base = "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/"
+# this is the NS returned in the NS declaration in wsman requests.  it seems
+# that the card will respond to pretty much any URI for the schema as long as
+# it ends in the proper class name. But this is what it says the actual uri is.
+dell_base = "http://schemas.dell.com/wbem/wscim/1/cim-schema/2"
 
 std_xml_namespaces = {
     # standards based namespaces we will be working with
@@ -85,35 +88,35 @@ std_xml_namespaces = {
     "xsi":   "http://www.w3.org/2001/XMLSchema-instance",
 
     # configuration namespaces
-    'raid_attr': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_RAIDAttribute",
-    'raid_str':  "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_RAIDString",
-    'raid_int':  "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_RAIDInteger",
-    'raid_enum': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_RAIDEnumeration",
-    'nic_attr':  "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_NICAttribute",
-    'nic_str':   "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_NICString",
-    'nic_int':   "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_NICInteger",
-    'nic_enum':  "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_NICEnumeration",
-    'bios_attr': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSAttribute",
-    'bios_str':  "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSString",
-    'bios_int':  "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSinteger",
-    'bios_enum': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSEnumeration",
-    'idrac_attr':"http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_iDRACCardAttribute",
-    'idrac_str': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_iDRACCardString",
-    'idrac_int': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_iDRACCardInteger",
-    'idrac_enum':"http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_iDRACCardEnumeration",
-    'lc_attr': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_LCAttribute",
-    'lc_str':  "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_LCString",
-    'lc_enum': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_LCEnumeration",
+    'raid_attr': "%s/DCIM_RAIDAttribute" % dell_base,
+    'raid_str':  "%s/DCIM_RAIDString" % dell_base,
+    'raid_int':  "%s/DCIM_RAIDInteger" % dell_base,
+    'raid_enum': "%s/DCIM_RAIDEnumeration" % dell_base,
+    'nic_attr':  "%s/DCIM_NICAttribute" % dell_base,
+    'nic_str':   "%s/DCIM_NICString" % dell_base,
+    'nic_int':   "%s/DCIM_NICInteger" % dell_base,
+    'nic_enum':  "%s/DCIM_NICEnumeration" % dell_base,
+    'bios_attr': "%s/DCIM_BIOSAttribute" % dell_base,
+    'bios_str':  "%s/DCIM_BIOSString" % dell_base,
+    'bios_int':  "%s/DCIM_BIOSinteger" % dell_base,
+    'bios_enum': "%s/DCIM_BIOSEnumeration" % dell_base,
+    'idrac_attr':"%s/DCIM_iDRACCardAttribute" % dell_base,
+    'idrac_str': "%s/DCIM_iDRACCardString" % dell_base,
+    'idrac_int': "%s/DCIM_iDRACCardInteger" % dell_base,
+    'idrac_enum':"%s/DCIM_iDRACCardEnumeration" % dell_base,
+    'lc_attr': "%s/DCIM_LCAttribute" % dell_base,
+    'lc_str':  "%s/DCIM_LCString" % dell_base,
+    'lc_enum': "%s/DCIM_LCEnumeration" % dell_base,
 
     # service namespaces
-    'bios_srv': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSService",
-    'nic_srv':  "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_NICService",
-    'idrac_srv':"http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_iDRACCardService",
-    'raid_srv': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_RAIDService",
-    'lc_srv':   "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_LCService",
+    'bios_srv': "%s/DCIM_BIOSService" % dell_base,
+    'nic_srv':  "%s/DCIM_NICService" % dell_base,
+    'idrac_srv':"%s/DCIM_iDRACCardService" % dell_base,
+    'raid_srv': "%s/DCIM_RAIDService" % dell_base,
+    'lc_srv':   "%s/DCIM_LCService" % dell_base,
 
     # lifecycle controller misc
-    'lc_job': "http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_LifecycleJob",
+    'lc_job': "%s/DCIM_LifecycleJob" % dell_base,
     }
 
 dell_schema_list = {
