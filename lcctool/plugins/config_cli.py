@@ -217,24 +217,11 @@ class Config(Plugin):
         for host in ctx.raccfg.iterSpecfiedRacs():
             wsman = lcctool.wsman_factory(host, debug=ctx.args.debug)
             for subsys in ctx.args.subsystems:
-                service_ns = lcctool.schemas.std_xml_namespaces["%s_srv"%subsys]
-                service_uri = lcctool.get_service_uri(wsman, service_ns)
-                service = lcctool.wscim.find_class(service_ns)(wsman=wsman)
-                # need to iterate over all the fqdds
-                fqdd_list = {}
-                for schema in lcctool.schemas.dell_schema_list[subsys]:
-                    for item in wsman.enumerate(schema):
-                        fqdd_list[item["fqdd"]] = None
-
-                for fqdd in fqdd_list.keys():
-                    moduleLog.info("resetting pending configuration for %s" % fqdd)
-                    res = service.call_method(service_uri, service_ns, "CreateTargetedConfigJob", 
-                                              Target=fqdd,
+                run_method_for_each_fqdd(wsman, "CreateTargetedConfigJob", subsys
                                               ScheduledStartTime="TIME_NOW",
                                               UntilTime="20121111111111",   # no idea what that number is....
                                               RebootJobType=reboot_type,
-                                             )
-                    moduleLog.info("result: %s" % repr(res))
+                                                )
 
     @traceLog()
     def reset_pending(self, ctx, *args, **kargs):
@@ -244,20 +231,21 @@ class Config(Plugin):
         for host in ctx.raccfg.iterSpecfiedRacs():
             wsman = lcctool.wsman_factory(host, debug=ctx.args.debug)
             for subsys in ctx.args.subsystems:
-                service_ns = lcctool.schemas.std_xml_namespaces["%s_srv"%subsys]
-                service_uri = lcctool.get_service_uri(wsman, service_ns)
-                service = lcctool.wscim.find_class(service_ns)(wsman=wsman)
-                # need to iterate over all the fqdds and run delete with each as target
-                fqdd_list = {}
-                for schema in lcctool.schemas.dell_schema_list[subsys]:
-                    for item in wsman.enumerate(schema):
-                        fqdd_list[item["fqdd"]] = None
-
-                for fqdd in fqdd_list.keys():
-                    moduleLog.info("resetting pending configuration for %s" % fqdd)
-                    res = service.call_method(service_uri, service_ns, "DeletePendingConfiguration", Target=fqdd)
-                    moduleLog.info("result: %s" % repr(res))
+                run_method_for_each_fqdd(wsman, "DeletePendingConfiguration", subsys)
 
 
+@traceLog()
+def run_method_for_each_fqdd(wsman, method, subsys, *args, **kargs):
+    service_ns = lcctool.schemas.std_xml_namespaces["%s_srv"%subsys]
+    service_uri = lcctool.get_service_uri(wsman, service_ns)
+    service = lcctool.wscim.find_class(service_ns)(wsman=wsman)
+    # need to iterate over all the fqdds and run delete with each as target
+    fqdd_list = {}
+    for schema in lcctool.schemas.dell_schema_list[subsys]:
+        for item in wsman.enumerate(schema):
+            fqdd_list[item["fqdd"]] = None
 
-
+    for fqdd in fqdd_list.keys():
+        moduleLog.info("resetting pending configuration for %s" % fqdd)
+        res = service.call_method(service_uri, service_ns, method, Target=fqdd, *args, **kargs)
+        moduleLog.info("result: %s" % repr(res))
