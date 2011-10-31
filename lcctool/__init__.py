@@ -150,9 +150,9 @@ def call_method(wsman, uri, schema, method, *args, **kargs):
     for arg in args:
         name = arg[0]
         value = arg[1]
-        etree.SubElement(xml_input_etree, "{%s}%s" % (schema,name)).text = value
+        etree.SubElement(xml_input_etree, "{%s}%s" % (schema,name)).text = str(value)
     for name, value in kargs.items():
-        etree.SubElement(xml_input_etree, "{%s}%s" % (schema,name)).text = value
+        etree.SubElement(xml_input_etree, "{%s}%s" % (schema,name)).text = str(value)
     xml_out = wsman.invoke(uri, method, xml_input_etree)
     ret = {}
     for elem  in list(xml_out):
