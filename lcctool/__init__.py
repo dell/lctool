@@ -59,27 +59,48 @@ class NotImplementedException(Exception): pass
 unit_test_mode = False
 test_data_dir = ""
 
+instance_cache = {}
+
 @traceLog()
-def wsman_factory(*args, **kargs):
-    if unit_test_mode:
+def wsman_factory(host, *args, **kargs):
+    global instance_cache
+
+    if instance_cache.get(host["host"], None):
+        pass
+
+    elif unit_test_mode:
         import wsman_intf_mock
-        return wsman_intf_mock.MockWsman(test_data_dir, *args, **kargs)
+        instance_cache[host["host"]] = wsman_intf_mock.MockWsman(host=host, test_data_dir=test_data_dir, *args, **kargs)
 
-    if sys.platform.startswith("linux"):
+    elif sys.platform.startswith("linux"):
         import wsman_intf_openwsman_cli
-        return wsman_intf_openwsman_cli.OpenWSManCLI(*args, **kargs)
+        instance_cache[host["host"]] = wsman_intf_openwsman_cli.OpenWSManCLI(host=host, *args, **kargs)
 
-    if sys.platform.startswith("win"):
+    elif sys.platform.startswith("win"):
         import wsman_intf_windows
-        return wsman_intf_windows.WsmanWindows(*args, **kargs)
+        instance_cache[host["host"]] = wsman_intf_windows.WsmanWindows(host=host, *args, **kargs)
+
+    return instance_cache[host["host"]]
 
 # Notes:
 #  all input xml and all output xml from these functions is defined as etree Element objects or equivalent. NO XML STRINGS!
 class BaseWsman(object):
-    def __init__(self, host, debug=False, *args, **kargs):
+    def __init__(self, host, debug=False, debug_flags=None, *args, **kargs):
         self.host = host
         self.debug = debug
+        if debug_flags is not None:
+            self.debug_flags = debug_flags
+        else:
+            self.debug_flags = []
+        self.avail_debug_flags = []
         super(BaseWsman, self).__init__(*args, **kargs)
+
+    def debug_flag(self, flag):
+        assert(flag in self.avail_debug_flags)
+        if self.debug:
+            return flag in self.debug_flags
+        else:
+            return False
 
     def get_host(self):
         return self.host.get("host", None)
