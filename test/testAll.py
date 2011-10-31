@@ -108,7 +108,7 @@ if __name__ == "__main__":
 
     p = argparse.ArgumentParser(add_help=False)
     p.add_argument('--version', action='version', version='%(prog)s ' + __VERSION__)
-    p.add_argument("-v", "--verbose", action="count", dest="verbosity", help=_("Display more verbose output."))
+    p.add_argument("-v", "--verbose", action="count", dest="verbosity", default=0, help=_("Display more verbose output."))
     p.add_argument("-q", "--quiet", action="store_const", const=0, dest="verbosity", help=_("Minimize program output. Only errors and warnings are displayed."))
     p.add_argument("--debug", action="count", dest="debug", help=_("Enable debugging output."))
     p.add_argument("--trace", action="store_true", dest="trace", help=_("Enable verbose function tracing."))

@@ -67,12 +67,18 @@ class MockWsman(lcctool.BaseWsman):
 
     @traceLog()
     def invoke(self, schema, method, xml_input_etree):
-#        if xml_input_etree:
-#            fd, fn = tempfile.mkstemp(suffix=".xml")
-#            os.write(fd, etree.tostring(xml_input_etree))
-#            os.close(fd)
         xml_file = self._open_ro("invoke_%s_%s" % (method, schema))
         xml_out = etree.fromstring(xml_file.read())
         xml_file.close()
         for body_elements in xml_out.iter("{%(soap)s}Body" % schemas.std_xml_namespaces):
             return list(body_elements)[0]
+
+    @traceLog()
+    def get_instance_id(self, schema, instance_id):
+        xml_file = self._open_ro("get_%s_%s" % (instance_id, schema))
+        xml_out = etree.fromstring(xml_file.read())
+        xml_file.close()
+        for body_elements in xml_out.iter("{%(soap)s}Body" % schemas.std_xml_namespaces):
+            for item in list(body_elements):
+                yield wscim.cim_instance_from_wsxml(self, item)
+

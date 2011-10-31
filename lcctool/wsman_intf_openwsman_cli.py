@@ -45,6 +45,12 @@ moduleDebugLog = getLog(prefix="debug.")
 class OpenWSManCLI(lcctool.BaseWsman):
     def __init__(self, host, *args, **kargs):
         super(OpenWSManCLI, self).__init__(host, *args, **kargs)
+        self.avail_debug_flags.extend([
+                'verbose_requests',
+                'print_input_xml',
+                'print_request_xml',
+                'print_identify',
+                ])
 
         if kargs.get("use_wsman_cli", True):
             self.init_wsmancli(host, *args, **kargs)
@@ -63,7 +69,7 @@ class OpenWSManCLI(lcctool.BaseWsman):
         for k,v in opts.items():
             if v() is not None:
                 self.wsman_cmd.extend([k,v()])
-        if self.debug:
+        if self.debug_flag('verbose_requests'):
             self.wsman_cmd.append("--debug=6")
             moduleDebugLog.info("wsman basic cli: %s" % " ".join(self.wsman_cmd))
 
@@ -75,8 +81,6 @@ class OpenWSManCLI(lcctool.BaseWsman):
         while 1:
             try:
                 s = call_output( cmd, raise_exc=False )
-                if self.debug:
-                    moduleDebugLog.info("xml output from wsmancli:\n%s" % s)
                 return etree.fromstring(s)
             except Exception:
                 retries = retries - 1
@@ -99,7 +103,7 @@ class OpenWSManCLI(lcctool.BaseWsman):
             os.write(fd, etree.tostring(xml_input_etree))
             os.close(fd)
             wsman_cmd.extend(["-J", fn])
-            if self.debug:
+            if self.debug_flag('print_input_xml'):
                 moduleDebugLog.info("invoke input xml: \n%s" %  etree.tostring(xml_input_etree))
 
         try:
@@ -115,10 +119,11 @@ class OpenWSManCLI(lcctool.BaseWsman):
     def _get_instance_id_wsmancli(self, schema, instance_id):
         wsman_cmd = self.wsman_cmd[:]
 
-        wsman_cmd.extend(["get", "%s?InstanceID=%s" % (schema, schema)])
+        wsman_cmd.extend(["get", "%s?InstanceID=%s" % (schema, instance_id)])
         xml_out = self._retry_wsmancli(wsman_cmd)
         for body_elements in xml_out.iter("{%(soap)s}Body" % schemas.std_xml_namespaces):
-            return list(body_elements)[0]
+            for item in list(body_elements):
+                yield wscim.cim_instance_from_wsxml(self, item)
 
 
     def init_pywsman(self, host, *args, **kargs):
@@ -136,11 +141,11 @@ class OpenWSManCLI(lcctool.BaseWsman):
         assert self.options is not None
 
         # for debugging
-        if self.debug:
+        if self.debug_flag('print_request_xml'):
             self.options.set_dump_request()
 
         self._identify_result = self.client.identify( self.options )
-        if self.debug:
+        if self.debug_flag('print_identify'):
             moduleDebugLog.info("Identify: \n%s" % self._identify_result)
 
     @traceLog()

@@ -230,3 +230,7 @@ class DCIM_iDRACCardEnumeration(CIM_BIOSEnumeration, DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['idrac_enum']
 
 
+class DCIM_LifecycleJob(CIM_ConcreteJob):
+    _property_list  = { "JobStartTime": 'string', "JobUntilTime": 'string', "Message": 'string', "MessageID": 'string', }
+    _ns = schemas.std_xml_namespaces['lc_job']
+

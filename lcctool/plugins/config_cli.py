@@ -84,6 +84,12 @@ class Config(Plugin):
         p.set_defaults(func=self.reset_pending)
 
 
+        # monitor jobs
+        p = ctx.subparsers.add_parser("job-status", help=_("display job status."))
+        p.add_argument('--uri',    action="append", dest="uri",    default=[], help=_("URI."))
+        p.add_argument('--job-id', action="append", dest="job_id", default=[], help=_("job id."))
+        p.set_defaults(func=self.job_status)
+
         # change bios password
         pass
 
@@ -111,40 +117,74 @@ class Config(Plugin):
             if 'now' in ctx.args.flags:
                 for service_ns in ret['service_ns_to_fqdd_map'].keys():
                     fqdd_list = dict([ (i, None) for i in ret['service_ns_to_fqdd_map'][service_ns]])
-                    run_method_for_each_fqdd(wsman=wsman, method="CreateTargetedConfigJob",
+                    for res in run_method_for_each_fqdd(wsman=wsman, method="CreateTargetedConfigJob",
                                              service_ns=service_ns, fqdd_list=fqdd_list, msg="Committing config for %(fqdd)s",
                                              ScheduledStartTime="TIME_NOW",
                                              UntilTime="20121111111111",   # no idea what that number is....
-                                             RebootJobType=1)
-                    #TODO: need method to monitor job id progress
+                                             RebootJobType=1):
+                        for job_details in lcctool.plugins.config_cli.iter_job_details(res):
+                            ret['jobs'].append(job_details)
 
+        print monitor_jobs(wsman, ret['jobs'])
 
 
     @traceLog()
-    def commit(self, ctx, reboot_type=1, *args, **kargs):
+    def commit(self, ctx):
         if not ctx.args.subsystems:
             moduleLog.warning("No subsystems specified! See the --subsystem option for details.")
 
+        jobs = []
         for host in ctx.raccfg.iterSpecfiedRacs():
             wsman = lcctool.wsman_factory(host, debug=ctx.args.debug)
             for subsys in ctx.args.subsystems:
-                run_method_for_each_fqdd(wsman=wsman, method="CreateTargetedConfigJob",
+                for res in run_method_for_each_fqdd(wsman=wsman, method="CreateTargetedConfigJob",
                                          subsys=subsys, msg="Committing config for %(fqdd)s",
                                          ScheduledStartTime="TIME_NOW",
                                          UntilTime="20121111111111",   # no idea what that number is....
-                                         RebootJobType=reboot_type)
-                #TODO: need method to monitor job id progress
+                                         RebootJobType=1):
+                    for job_details in lcctool.plugins.config_cli.iter_job_details(res):
+                        jobs.append(job_details)
+        print monitor_jobs(wsman, jobs)
 
     @traceLog()
-    def reset_pending(self, ctx, *args, **kargs):
+    def reset_pending(self, ctx):
         if not ctx.args.subsystems:
             moduleLog.warning("No subsystems specified! See the --subsystem option for details.")
 
         for host in ctx.raccfg.iterSpecfiedRacs():
             wsman = lcctool.wsman_factory(host, debug=ctx.args.debug)
             for subsys in ctx.args.subsystems:
-                run_method_for_each_fqdd(wsman=wsman, method="DeletePendingConfiguration", subsys=subsys, msg="resetting pending configuration for %(fqdd)s")
+                for res in run_method_for_each_fqdd(wsman=wsman, method="DeletePendingConfiguration", subsys=subsys, msg="resetting pending configuration for %(fqdd)s"):
+                    pass
 
+
+    @traceLog()
+    def job_status(self, ctx):
+        for host in ctx.raccfg.iterSpecfiedRacs():
+            wsman = lcctool.wsman_factory(host, debug=ctx.args.debug)
+            while ctx.args.uri and ctx.args.job_id:
+                uri = ctx.args.uri.pop()
+                jid = ctx.args.job_id.pop()
+                for msg in get_job_status_string(wsman, uri, jid):
+                    print msg
+
+@traceLog()
+def get_job_status_string(wsman, uri, jid):
+    for j in wsman.get_instance_id(uri, jid):
+        yield "Job %(id)s  Status (%(status)s)  percent done (%(percent)s)  message (%(message)s)" % {
+            'id': j["InstanceID"], 
+            'status': j["JobStatus"], 
+            'percent': j["PercentComplete"], 
+            'message': j["Message"]}
+
+@traceLog()
+def monitor_jobs(wsman, jobs):
+    s = ""
+    if jobs:
+        s = s + "Jobs have been created for configuration. To monitor progress of these jobs, run:\n"
+        s = s + "\tlcctool job-status "
+        s = s + " ".join([ "--uri %s --job-id %s" % (j['uri'], j['InstanceID']) for j in jobs ])
+    return s
 
 @traceLog()
 def run_method_for_each_fqdd(wsman, method, fqdd_list=None, subsys=None, service_ns=None, msg=None, *args, **kargs):
@@ -166,9 +206,9 @@ def run_method_for_each_fqdd(wsman, method, fqdd_list=None, subsys=None, service
     for fqdd in fqdd_list.keys():
         if msg:
             moduleLog.info(msg % {'fqdd':fqdd})
-
         res = service.call_method(service_uri, service_ns, method, Target=fqdd, *args, **kargs)
         moduleLog.info("result: %s" % repr(res))
+        yield res
 
 @traceLog()
 def get_changed_items(wsman, host, input_filename=None, input_fh=None, debug=False):
@@ -220,6 +260,9 @@ def stage_config(wsman, host, input_filename=None, input_fh=None, debug=False):
         if "yes" in [ i.lower() for i in res.get("rebootrequired", [])]:
             moduleVerboseLog.info("       Reboot required to enable setting.")
             need_reboot = True
+
+        for  job_det in iter_job_details(res):
+            jobs.append( job_det )
 
         arr = service_ns_to_fqdd_map.get(meth_details['ns'], [])
         arr.append(fqdd)
@@ -278,12 +321,30 @@ def get_host_subsystems_config(host, subsystems, ini, xml, debug, sync):
                 sync(full=False)
     sync(full=True)
 
+#            <n1:Job>
+#                <wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address>
+#                <wsa:ReferenceParameters>
+#                   <wsman:ResourceURI>http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_LifecycleJob</wsman:ResourceURI>
+#                   <wsman:SelectorSet>
+#                       <wsman:Selector Name="InstanceID">JID_001320083637</wsman:Selector>
+#                       <wsman:Selector Name="__cimnamespace">root/dcim</wsman:Selector>
+#                   </wsman:SelectorSet>
+#                </wsa:ReferenceParameters>
+#            </n1:Job>
+@traceLog()
+def iter_job_details(res):
+    for job in res.get('job_children', []):
+        job_uri = None
+        job_num = None
+        job_cimns =  None
+        for uri in job[1].iter("{%(wsman)s}ResourceURI" % lcctool.schemas.std_xml_namespaces):
+            job_uri = uri.text 
+        for selector in job[1].iter("{%(wsman)s}Selector" % lcctool.schemas.std_xml_namespaces):
+           if selector.get("Name", None) == "InstanceID":
+                job_num = selector.text
+           if selector.get("Name", None) == "__cimnamespace":
+                job_cimns = selector.text
+        if None in (job_uri, job_num, job_cimns):
+            raise Exception("could not parse required job information from return value")
 
-# save until this gets implemented
-# SAMPLE code for parsing out job id
-#                for job in res.get('job_children', []):
-#                    job_num = "could not get job #"
-#                    for selector in job[1].iter("{%(wsman)s}Selector" % lcctool.schemas.std_xml_namespaces):
-#                        if selector.get("Name", None) == "InstanceID":
-#                            job_num = selector.text
-#                            jobs.append(job_num)
+        yield {"uri": job_uri, "InstanceID": job_num, "CIMNS": job_cimns}

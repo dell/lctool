@@ -114,3 +114,32 @@ class CIM_BIOSString(CIM_BIOSAttribute):
 class CIM_BIOSInteger(CIM_BIOSAttribute):
     _property_list  = {"LowerBound": "uint64", "UpperBound": "uint64", "ProgrammaticUnit": "string", "ScalarIncrement": "uint32"}
 
+
+class CIM_Job(CIM_LogicalElement):
+    _property_list  = {
+        "JobStatus": 'string',
+        "TimeSubmitted": 'datetime',
+        'ScheduledStartTime': 'datetime',
+        'StartTime': 'datetime',
+        'ElapsedTime': 'datetime',
+        'JobRunTimes': 'uint32',
+        'RunMonth': 'uint8',
+        'RunDay': 'sint8',
+        'RunDayOfWeek': 'sint8',
+        'RunStartInterval': 'datetime',
+        'LocalOrUtcTime': 'uint16',
+        'UntilTime': 'datetime',
+        'Notify': 'string',
+        "Owner": 'string',
+        "Priority": 'uint32',
+        "PercentComplete": 'uint16',
+        "DeleteOnCompletion": 'boolean',
+        "ErrorCode": 'uint16',
+        "ErrorDescription": 'string',
+        "RecoveryAction": 'uint16',
+        "OtherRecoveryAction": 'string'}
+    _methods = { "KillJob": {}, }
+
+class CIM_ConcreteJob(CIM_Job):
+    _property_list  = { "JobState": 'uint16', 'TimeOfLastStateChange': 'datetime', 'TimeBeforeRemoval': 'datetime', }
+    _methods = { "RequestStateChange": {}, 'GetError': {} }

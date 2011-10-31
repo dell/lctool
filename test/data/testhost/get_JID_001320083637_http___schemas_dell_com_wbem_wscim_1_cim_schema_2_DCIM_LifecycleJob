@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:n1="http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_LifecycleJob">
+  <s:Header>
+    <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+    <wsa:Action>http://schemas.xmlsoap.org/ws/2004/09/transfer/GetResponse</wsa:Action>
+    <wsa:RelatesTo>uuid:19c07fe2-b09f-109f-8002-f5f65ac51500</wsa:RelatesTo>
+    <wsa:MessageID>uuid:0b575f5d-b09f-109f-8081-1d9967e82400</wsa:MessageID>
+  </s:Header>
+  <s:Body>
+    <n1:DCIM_LifecycleJob>
+      <n1:InstanceID>JID_001320083637</n1:InstanceID>
+      <n1:JobStartTime>00000101000000</n1:JobStartTime>
+      <n1:JobStatus>Completed</n1:JobStatus>
+      <n1:JobUntilTime>20121111111111</n1:JobUntilTime>
+      <n1:Message>Job completed successfully</n1:Message>
+      <n1:MessageID>PR19</n1:MessageID>
+      <n1:Name>ConfigBIOS:BIOS.Setup.1-1</n1:Name>
+      <n1:PercentComplete>100</n1:PercentComplete>
+    </n1:DCIM_LifecycleJob>
+  </s:Body>
+</s:Envelope>

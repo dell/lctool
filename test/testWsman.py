@@ -111,13 +111,17 @@ NumLock = Off
         wsman = lcctool.wsman_factory(host)
         import lcctool.plugins.config_cli
         ret = lcctool.plugins.config_cli.stage_config(wsman=wsman, host=host, input_fh=fh, debug=False)
+        jobs = []
         for service_ns in ret['service_ns_to_fqdd_map'].keys():
             fqdd_list = dict([ (i, None) for i in ret['service_ns_to_fqdd_map'][service_ns]])
-            lcctool.plugins.config_cli.run_method_for_each_fqdd(wsman=wsman, method="CreateTargetedConfigJob",
+            for res in lcctool.plugins.config_cli.run_method_for_each_fqdd(wsman=wsman, method="CreateTargetedConfigJob",
                                      service_ns=service_ns, fqdd_list=fqdd_list, msg="Committing config for %(fqdd)s",
                                      ScheduledStartTime="TIME_NOW",
                                      UntilTime="20121111111111",   # no idea what that number is....
-                                     RebootJobType=1)
+                                     RebootJobType=1):
+                for job_details in lcctool.plugins.config_cli.iter_job_details(res):
+                    jobs.append(job_details)
+        lcctool.plugins.config_cli.monitor_jobs(wsman, jobs)
 
     def testFactory(self):
         import lcctool
