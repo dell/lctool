@@ -38,6 +38,7 @@ from stdcli.trace_decorator import traceLog, getLog
 from stdcli.plugin import Plugin
 import lcctool
 import lcctool.schemas
+import lcctool.wscim_dell_classes
 
 moduleLog = getLog()
 moduleVerboseLog = getLog(prefix="verbose.")
@@ -217,7 +218,7 @@ class Config(Plugin):
         for host in ctx.raccfg.iterSpecfiedRacs():
             wsman = lcctool.wsman_factory(host, debug=ctx.args.debug)
             for subsys in ctx.args.subsystems:
-                run_method_for_each_fqdd(wsman, "CreateTargetedConfigJob", subsys
+                run_method_for_each_fqdd(wsman, "CreateTargetedConfigJob", subsys,
                                               ScheduledStartTime="TIME_NOW",
                                               UntilTime="20121111111111",   # no idea what that number is....
                                               RebootJobType=reboot_type,

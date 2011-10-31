@@ -47,67 +47,10 @@ class WSInstance(cobj.CIMInstance):
             if not kargs["properties"].has_key(i):
                 kargs["properties"][i] = cobj.CIMProperty(i, None, type=typ)
 
-
     # this should really use CIMArgument, et al.
     @traceLog()
     def call_method(self, uri, schema, method, *args, **kargs):
         return lcctool.call_method(self.wsman, uri, schema, method, *args, **kargs)
-
-
-# Dell-specfic mixin class that implements some standard methods that are
-# useful for setting bios/nic/drac/raid settings. Also, all the dell classes
-# have the "FQDD" property.
-class DCIM_Mixin(object):
-    _property_list  = {"FQDD": "string"}
-
-    @traceLog()
-    def get_service_uri(self):
-        # cache the uri
-        if not self.associated_service_class.get("uri", None):
-            self.associated_service_class["uri"] = lcctool.get_service_uri(self.wsman, self.associated_service_class["name"]._ns)
-        method = self.associated_service_class["set_method"]
-        multi_method = self.associated_service_class["multi_set_method"]
-        uri = self.associated_service_class["uri"]
-        return {'uri': uri, 'ns': self.associated_service_class["name"]._ns, 'set_method': method, 'multi_set_method': multi_method}
-
-    @traceLog()
-    def get_name(self):
-        name = self["attributename"]
-        if self.has_key("groupid") and self["groupid"]:
-            name = self["groupid"] + "#" + name
-        return name
-
-    @traceLog()
-    def deserialize_ini(self, ini):
-        retval = False
-        if ini.has_section(self["fqdd"]) and ini.has_option(self["fqdd"], self.get_name()):
-            newval = ini.get(self["fqdd"], self.get_name())
-            if newval != self["currentvalue"]:
-                moduleVerboseLog.debug("setPending: [%s] %s = %s" % (self["fqdd"], self.get_name(), newval))
-                self.update_existing({'PendingValue': newval})
-                retval = True
-            else:
-                moduleVerboseLog.debug("Option has not changed: [%s] %s" % (self["fqdd"], self.get_name()))
-        else:
-            moduleVerboseLog.debug("could not find new section/option: [%s] %s" % (self["fqdd"], self.get_name()))
-
-        return retval
-
-    @traceLog()
-    def serialize_ini(self, ini):
-        name = self.get_name()
-        for sec in ("main", self["fqdd"]):
-            if not ini.has_section(sec):
-                ini.add_section(sec)
-
-        if self.has_key("isreadonly") and self["isreadonly"].lower() == "true":
-            name = "#readonly#  %s" % name
-
-        value = self["currentvalue"]
-        if value is None:
-            value = ''
-
-        ini.set(self["fqdd"], name, value)
 
 
 @traceLog()
@@ -156,5 +99,3 @@ def itersubclasses(cls, _seen=None):
             yield sub
             for sub in itersubclasses(sub, _seen):
                 yield sub
-
-import wscim_classes

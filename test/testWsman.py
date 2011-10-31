@@ -54,6 +54,7 @@ class TestCase(unittest.TestCase):
     @traceLog()
     def dotestIni(self, subsystems, ini_data_string):
         import lcctool
+        import lcctool.wscim_dell_classes
         host = {'host': 'testhost'}
         ini = ConfigParser.ConfigParser()
         ini.optionxform = str # need to be case sensitive
@@ -105,6 +106,7 @@ class TestCase(unittest.TestCase):
 
     def testChangeSettingBios(self):
         import lcctool
+        import lcctool.wscim_dell_classes
         host = {'host': 'testhost'}
         ini_str = """\
 [main]
@@ -163,6 +165,7 @@ NumLock = Off
 
     def testFactory(self):
         import lcctool.wscim
+        import lcctool.wscim_dell_classes
         import lcctool.wscim_classes
         from lcctool.schemas import etree
 
