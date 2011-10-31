@@ -11,12 +11,11 @@ pass=${3:-${pass:-calvin}}
 
 mkdir $host ||:
 
-wsman enumerate -P 443 -V -v -c dummy.cert -j utf-8 -y basic -o -m 512 -h $host -u "$user" -p "$pass" http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSEnumeration > $host/http___schemas_dmtf_org_wbem_wscim_1_cim_schema_2_root_dcim_DCIM_BIOSEnumeration
-wsman enumerate -P 443 -V -v -c dummy.cert -j utf-8 -y basic -o -m 512 -h $host -u "$user" -p "$pass" http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSString > $host/http___schemas_dmtf_org_wbem_wscim_1_cim_schema_2_root_dcim_DCIM_BIOSString
-wsman enumerate -P 443 -V -v -c dummy.cert -j utf-8 -y basic -o -m 512 -h $host -u "$user" -p "$pass" http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_BIOSinteger > $host/http___schemas_dmtf_org_wbem_wscim_1_cim_schema_2_root_dcim_DCIM_BIOSinteger
+dell_uri=http://schemas.dell.com/wbem/wscim/1/cim-schema/2
+ dell_fn=http___schemas_dell_com_wbem_wscim_1_cim-schema_2
+std_opts="-P 443 -V -v -c dummy.cert -j utf-8 -y basic -o -m 512"
 
-wsman enumerate -P 443 -V -v -c dummy.cert -j utf-8 -y basic -o -m 512 -h $host -u "$user" -p "$pass" http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_iDRACCardAttribute > $host/http___schemas_dmtf_org_wbem_wscim_1_cim_schema_2_root_dcim_DCIM_iDRACCardAttribute
-
-wsman enumerate -P 443 -V -v -c dummy.cert -j utf-8 -y basic -o -m 512 -h $host -u "$user" -p "$pass" http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_NICAttribute > $host/http___schemas_dmtf_org_wbem_wscim_1_cim_schema_2_root_dcim_DCIM_NICAttribute
-
-wsman enumerate -P 443 -V -v -c dummy.cert -j utf-8 -y basic -o -m 512 -h $host -u "$user" -p "$pass" http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/root/dcim/DCIM_RAIDAttribute > $host/http___schemas_dmtf_org_wbem_wscim_1_cim_schema_2_root_dcim_DCIM_RAIDAttribute
+for enum in DCIM_BIOSEnumeration DCIM_BIOSString DCIM_BIOSinteger  DCIM_iDRACCardAttribute DCIM_NICAttribute DCIM_RAIDAttribute DCIM_BIOSService DCIM_RAIDService DCIM_NICService DCIM_iDRACCardService CIM_BIOSAttribute
+do
+    wsman enumerate $std_opts -h $host -u "$user" -p "$pass" $dell_uri/$enum > $host/enumerate_${dell_fn}_$enum
+done

@@ -71,7 +71,7 @@ class MockWsman(lcctool.BaseWsman):
 #            fd, fn = tempfile.mkstemp(suffix=".xml")
 #            os.write(fd, etree.tostring(xml_input_etree))
 #            os.close(fd)
-        xml_file = self._open_ro("invoke_%s_%s" % (schema, method))
+        xml_file = self._open_ro("invoke_%s_%s" % (method, schema))
         xml_out = etree.fromstring(xml_file.read())
         xml_file.close()
         for body_elements in xml_out.iter("{%(soap)s}Body" % schemas.std_xml_namespaces):

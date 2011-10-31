@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsen="http://schemas.xmlsoap.org/ws/2004/09/enumeration" xmlns:wsman="http://schemas.dmtf.org/wbem/wsman/1/wsman.xsd" xmlns:n1="http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_NICService">
+  <s:Header>
+    <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+    <wsa:Action>http://schemas.xmlsoap.org/ws/2004/09/enumeration/EnumerateResponse</wsa:Action>
+    <wsa:RelatesTo>uuid:d6e73113-b09a-109a-8002-f5f65ac51500</wsa:RelatesTo>
+    <wsa:MessageID>uuid:c6d334bd-b09a-109a-8015-1d9967e82400</wsa:MessageID>
+  </s:Header>
+  <s:Body>
+    <wsen:EnumerateResponse>
+      <wsman:Items>
+        <n1:DCIM_NICService>
+          <n1:CreationClassName>DCIM_NICService</n1:CreationClassName>
+          <n1:ElementName>NIC Service</n1:ElementName>
+          <n1:Name>DCIM:NICService</n1:Name>
+          <n1:SystemCreationClassName>DCIM_ComputerSystem</n1:SystemCreationClassName>
+          <n1:SystemName>DCIM:ComputerSystem</n1:SystemName>
+        </n1:DCIM_NICService>
+      </wsman:Items>
+      <wsen:EnumerationContext/>
+      <wsman:EndOfSequence/>
+    </wsen:EnumerateResponse>
+  </s:Body>
+</s:Envelope>

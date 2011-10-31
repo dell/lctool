@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsen="http://schemas.xmlsoap.org/ws/2004/09/enumeration" xmlns:wsman="http://schemas.dmtf.org/wbem/wsman/1/wsman.xsd" xmlns:n1="http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSString" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <s:Header>
+    <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+    <wsa:Action>http://schemas.xmlsoap.org/ws/2004/09/enumeration/EnumerateResponse</wsa:Action>
+    <wsa:RelatesTo>uuid:d42bbcb2-b09a-109a-8002-f5f65ac51500</wsa:RelatesTo>
+    <wsa:MessageID>uuid:c4157a08-b09a-109a-8007-1d9967e82400</wsa:MessageID>
+  </s:Header>
+  <s:Body>
+    <wsen:EnumerateResponse>
+      <wsman:Items>
+        <n1:DCIM_BIOSString>
+          <n1:AttributeName>UserLcdStr</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>BIOS.Setup.1-1</n1:FQDD>
+          <n1:InstanceID>BIOS.Setup.1-1:UserLcdStr</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>62</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_BIOSString>
+        <n1:DCIM_BIOSString>
+          <n1:AttributeName>AssetTag</n1:AttributeName>
+          <n1:CurrentValue xsi:nil="true"/>
+          <n1:DefaultValue xsi:nil="true"/>
+          <n1:FQDD>BIOS.Setup.1-1</n1:FQDD>
+          <n1:InstanceID>BIOS.Setup.1-1:AssetTag</n1:InstanceID>
+          <n1:IsReadOnly>false</n1:IsReadOnly>
+          <n1:MaxLength>10</n1:MaxLength>
+          <n1:MinLength>0</n1:MinLength>
+          <n1:PendingValue xsi:nil="true"/>
+        </n1:DCIM_BIOSString>
+      </wsman:Items>
+      <wsen:EnumerationContext/>
+      <wsman:EndOfSequence/>
+    </wsen:EnumerateResponse>
+  </s:Body>
+</s:Envelope>
