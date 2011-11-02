@@ -1,0 +1,52 @@
+the purpose of this file is to suggest other CLI plugins to write
+
+In my opinion (MB), the order we should implement things next:
+  -- power management (on/off/etc)
+         this one should be *very* easy to implement, so good starting point
+  -- boot to network iso or PXE
+  -- boot order management
+  -- RAID configuration (clearing raid config/creating new raid containers)
+
+
+
+# list of things to implement
+#    this list is somewhat redundant as everything documented in the Lifecycle
+#    Controller Web Services Interface Guide should be implemented
+
+
+#1 DRAC Account management  (lcctool/plugins/drac_acct.py)
+   -- list enabled accounts
+       should list account #, username, capabilities
+   -- enable/disable account, by account # or account username
+   -- set account username (by account #)
+   -- set account password (by account # or username)
+   -- list the account capability set
+       This should list the names of capabilities that can be used for the capability functions below
+   -- add account capability (by account # or username)
+   -- remove account capability (by account # or username)
+   -- set full account capability set (by account # or username)
+       This should override any current capabilities and set to the exact set specified
+
+#2 Firmware
+   -- request firmware inventory
+   -- firmware update
+
+#3 Power
+   -- enumerate supported power states
+   -- get current power state
+   -- set current power state
+   -- power off
+   -- power on
+   -- power cycle
+
+#4 Hardware inventory
+
+Network boot
+   -- boot to network ISO
+   -- boot to PXE
+
+Get HOST MAC information
+
+Boot order
+
+RAID configuration
