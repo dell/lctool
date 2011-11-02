@@ -3,6 +3,11 @@ List of wierd stuff I've found.
 techcenter website: "linux" link is to the windows doc
 LCC WSIG 1.2 PDF:  section 17.3, page 191 says "TARGET: Obtained from the InstanceID field", but it is actually the FQDD.
 
+LCC WSIG 1.2 LINUX PDF: section 3.2.3: 
+    "Enumeration configuration only available for winRM."
+     -- not true... the "-m" parameter reduces round trips for enumeration in wsmancli
+
+
 MOFs:
   iDRACCardService:  Description was cut/paste from NIC description and forgot to change NIC->iDRAC
   iDRACCardAttribute: "To be determined in 12G implementation" -- doesnt seem appropriate for public mof
