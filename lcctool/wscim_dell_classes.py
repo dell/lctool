@@ -173,6 +173,10 @@ class DCIM_iDRACCardService(CIM_Service):
     _ns = schemas.std_xml_namespaces['idrac_srv']
 
 
+# notes:
+# associated_service_class should hopefully be something we can auto-detect at some point.
+# need some pointer on how to do that. For the time being, we'll hardcode the service class
+# here as a class property
 class DCIM_BIOSAttribute(CIM_BIOSAttribute, DCIM_Mixin):
     _ns = schemas.std_xml_namespaces['bios_attr']
     associated_service_class = {'name': DCIM_BIOSService, 'set_method': 'SetAttribute', 'multi_set_method': 'SetAttributes'}

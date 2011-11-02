@@ -111,6 +111,16 @@ class BaseWsman(object):
     def get_password(self):
         return self.host.get("password", None)
 
+    def invoke(self, *args, **kargs):
+        raise NotImplementedException("invoke not implemented in base class")
+    def enumerate(self, *args, **kargs):
+        raise NotImplementedException("invoke not implemented in base class")
+    def get_instance_id(self, *args, **kargs):
+        raise NotImplementedException("invoke not implemented in base class")
+
+    def put(self, *args, **kargs):
+        raise NotImplementedException("invoke not implemented in base class")
+
 # why are these all here but commented out? Good question. These are all methods in the base openwsman Client class that we should implement in some fashion.
 #    @traceLog()
 #    def get(self, *args, **kargs):

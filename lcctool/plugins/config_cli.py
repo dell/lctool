@@ -49,6 +49,13 @@ _ = lcctool._
 
 default_filename = "config-%(host)s.%(output_format)s"
 
+# So we can version the config file output and reject file formats we dont know
+# rule is that major version *must* match, minor version shouldn't matter (or,
+# in general, we should write code to ensure that minor version changes always
+# are forwards and backwards compatible)
+CONFIG_FILE_VERSION_MAJOR = "1"
+CONFIG_FILE_VERSION_MINOR = "0"
+
 class Config(Plugin):
     @traceLog()
     def __init__(self, ctx):
@@ -93,6 +100,20 @@ class Config(Plugin):
         # change bios password
         pass
 
+        # suggested additional cli methods:
+        #  -- method to get one config item. Couple ideas for how this cli looks:
+        #       lcctool get-config-item SUBSYS/INSTANCE_ID
+        #       lcctool get-config-item --subsys SUBSYS  INSTANCE_ID
+        #       lcctool get-config-item --subsys SUBSYS --fqdd FQDD --attribute ATTRIBUTE_NAME
+        #     * lcctool get-config-item --subsys SUBSYS --fqdd FQDD ATTRIBUTE_NAME [ATTRIBUTE_NAME ...]
+        #  -- method to set one config item. Couple ideas for how this cli looks:
+        #       lcctool set-config-item SUBSYS/INSTANCE_ID=NEWVAL
+        #       lcctool set-config-item --subsys SUBSYS  INSTANCE_ID=NEWVAL
+        #       lcctool set-config-item --subsys SUBSYS --fqdd FQDD --attribute ATTRIBUTE_NAME --value NEWVALUE
+        #     * lcctool get-config-item --subsys SUBSYS --fqdd FQDD ATTRIBUTE_NAME=NEWVALUE [ATTRIBUTE_NAME=NEWVALUE ...]
+        #
+        # the idea marked with (*) are the ones MB thinks are preferrable
+
 
     @traceLog()
     def finishedCliParsing(self, ctx):
@@ -113,7 +134,8 @@ class Config(Plugin):
     def stage_config(self, ctx):
         for host in ctx.raccfg.iterSpecfiedRacs():
             wsman = lcctool.wsman_factory(host, debug=ctx.args.debug)
-            ret = stage_config(host, input_filename=ctx.args.input_filename, debug=ctx.args.debug)
+            pending = get_changed_items(wsman, host, input_filename, input_fh, debug)
+            ret = stage_config(wsman, pending)
             if 'now' in ctx.args.flags:
                 for service_ns in ret['service_ns_to_fqdd_map'].keys():
                     fqdd_list = dict([ (i, None) for i in ret['service_ns_to_fqdd_map'][service_ns]])
@@ -140,7 +162,8 @@ class Config(Plugin):
                 for res in run_method_for_each_fqdd(wsman=wsman, method="CreateTargetedConfigJob",
                                          subsys=subsys, msg="Committing config for %(fqdd)s",
                                          ScheduledStartTime="TIME_NOW",
-                                         UntilTime="20121111111111",   # no idea what that number is....
+                                         # fmt:     YYYYMMDDhhmmss
+                                         UntilTime="20121111111111",
                                          RebootJobType=1):
                     for job_details in lcctool.plugins.config_cli.iter_job_details(res):
                         jobs.append(job_details)
@@ -155,7 +178,7 @@ class Config(Plugin):
             wsman = lcctool.wsman_factory(host, debug=ctx.args.debug)
             for subsys in ctx.args.subsystems:
                 for res in run_method_for_each_fqdd(wsman=wsman, method="DeletePendingConfiguration", subsys=subsys, msg="resetting pending configuration for %(fqdd)s"):
-                    pass
+                    pass # noop, probably should think about parsing the return code
 
 
     @traceLog()
@@ -172,9 +195,9 @@ class Config(Plugin):
 def get_job_status_string(wsman, uri, jid):
     for j in wsman.get_instance_id(uri, jid):
         yield "Job %(id)s  Status (%(status)s)  percent done (%(percent)s)  message (%(message)s)" % {
-            'id': j["InstanceID"], 
-            'status': j["JobStatus"], 
-            'percent': j["PercentComplete"], 
+            'id': j["InstanceID"],
+            'status': j["JobStatus"],
+            'percent': j["PercentComplete"],
             'message': j["Message"]}
 
 @traceLog()
@@ -221,6 +244,14 @@ def get_changed_items(wsman, host, input_filename=None, input_fh=None, debug=Fal
     if input_fh:
         ini.readfp(input_fh)
 
+    try:
+        major = ini.get("main", "config_file_version_major")
+    except Exception:
+        raise Exception("Could not process this config file because it doesnt have proper versioning information. This tool can only process version %s config files." % CONFIG_FILE_VERSION_MAJOR)
+
+    if major != CONFIG_FILE_VERSION_MAJOR:
+        raise Exception(_("Config file version mismatch. Could not process this version config file. Config file had %(configmajor)s, but this tool can only process version %s") % (major, CONFIG_FILE_VERSION_MAJOR))
+
     changed = {}
     for fqdd in ini.sections():
         if not ini.has_option("main", fqdd):
@@ -239,9 +270,7 @@ def get_changed_items(wsman, host, input_filename=None, input_fh=None, debug=Fal
 
 
 @traceLog()
-def stage_config(wsman, host, input_filename=None, input_fh=None, debug=False):
-    pending = get_changed_items(wsman, host, input_filename, input_fh, debug)
-
+def stage_config(wsman, pending):
     jobs = []
     need_reboot = False
     service_ns_to_fqdd_map = {}
@@ -252,7 +281,7 @@ def stage_config(wsman, host, input_filename=None, input_fh=None, debug=False):
         names = [ ("AttributeName", i.get_name()) for i in pending[fqdd].values() ]
         values = [ ("AttributeValue", i["pendingvalue"]) for i in pending[fqdd].values() ]
         margs = names + values
-        res = items[0].call_method(meth_details['uri'], meth_details['ns'], meth_details['multi_set_method'], ("Target", fqdd), *margs)
+        res = lcctool.call_method(wsman, meth_details['uri'], meth_details['ns'], meth_details['multi_set_method'], ("Target", fqdd), *margs)
         moduleVerboseLog.info("  RES: %s" % repr(res))
         if res.get('job_children', None):
             jobs.append(res.get('job_children'))
@@ -279,6 +308,8 @@ def get_host_config(host, subsystems, output_filename, output_format, debug):
     ini.add_section("main")
     ini.set("main", "host", host["host"])
     ini.set("main", "alias", host.get("alias", ""))
+    ini.set("main", "config_file_version_major", CONFIG_FILE_VERSION_MAJOR)
+    ini.set("main", "config_file_version_major", CONFIG_FILE_VERSION_MINOR)
 
     do_close = output_filename != "-"
     fn_subst = { "output_format": output_format, "host": host.get("alias", host["host"]) }
@@ -338,7 +369,7 @@ def iter_job_details(res):
         job_num = None
         job_cimns =  None
         for uri in job[1].iter("{%(wsman)s}ResourceURI" % lcctool.schemas.std_xml_namespaces):
-            job_uri = uri.text 
+            job_uri = uri.text
         for selector in job[1].iter("{%(wsman)s}Selector" % lcctool.schemas.std_xml_namespaces):
            if selector.get("Name", None) == "InstanceID":
                 job_num = selector.text

@@ -100,6 +100,7 @@ class TestCase(unittest.TestCase):
         host = {'host': 'testhost'}
         ini_str = """\
 [main]
+config_file_version_major = 1
 host = testhost
 BIOS.Setup.1-1 = ['http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSEnumeration', 'http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSString', 'http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSinteger']
 
@@ -110,7 +111,8 @@ NumLock = Off
         fh = cStringIO.StringIO(ini_str)
         wsman = lcctool.wsman_factory(host)
         import lcctool.plugins.config_cli
-        ret = lcctool.plugins.config_cli.stage_config(wsman=wsman, host=host, input_fh=fh, debug=False)
+        pending = lcctool.plugins.config_cli.get_changed_items(wsman=wsman, host=host, input_fh=fh, debug=False)
+        ret = lcctool.plugins.config_cli.stage_config(wsman=wsman, pending=pending)
         jobs = []
         for service_ns in ret['service_ns_to_fqdd_map'].keys():
             fqdd_list = dict([ (i, None) for i in ret['service_ns_to_fqdd_map'][service_ns]])
@@ -200,6 +202,7 @@ test_xml_str_int = """\
 ## test data
 main_ini_testdata = """
 [main]
+config_file_version_major = 1
 BIOS.Setup.1-1 = ['http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSEnumeration', 'http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSString', 'http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSinteger']
 iDRAC.Embedded.1 = ['http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_iDRACCardAttribute']
 NIC.Embedded.4-1 = ['http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_NICAttribute']
