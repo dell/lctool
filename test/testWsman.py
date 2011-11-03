@@ -58,7 +58,7 @@ class TestCase(unittest.TestCase):
         host = {'host': 'testhost'}
 
         import lcctool.plugins.config_cli
-        ini, xml = lcctool.plugins.config_cli.get_host_config(host, subsystems, output_filename=None, output_format='ini', debug=0)
+        ini, xml, fn = lcctool.plugins.config_cli.get_host_config(host, subsystems, output_filename=None, output_format='ini', debug=0)
 
         # read in known-good INI data
         good_ini = ConfigParser.ConfigParser()

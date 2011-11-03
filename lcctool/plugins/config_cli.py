@@ -128,7 +128,8 @@ class Config(Plugin):
             moduleLog.warning("No subsystems specified! See the --subsystem option for details.")
 
         for host in ctx.raccfg.iterSpecfiedRacs():
-            get_host_config(host, ctx.args.subsystems, ctx.args.output_filename, ctx.args.output_format, ctx.args.debug)
+            ini, xml, fn = get_host_config(host, ctx.args.subsystems, ctx.args.output_filename, ctx.args.output_format, ctx.args.debug)
+            moduleLog.info("Configuration for %(host)s saved to file %(fn)s." % {'host': host.get('alias', host['host']), 'fn': fn})
 
     @traceLog()
     def stage_config(self, ctx):
@@ -309,7 +310,7 @@ def get_host_config(host, subsystems, output_filename, output_format, debug):
     ini.set("main", "host", host["host"])
     ini.set("main", "alias", host.get("alias", ""))
     ini.set("main", "config_file_version_major", CONFIG_FILE_VERSION_MAJOR)
-    ini.set("main", "config_file_version_major", CONFIG_FILE_VERSION_MINOR)
+    ini.set("main", "config_file_version_minor", CONFIG_FILE_VERSION_MINOR)
 
     do_close = output_filename != "-"
     fn_subst = { "output_format": output_format, "host": host.get("alias", host["host"]) }
@@ -335,7 +336,7 @@ def get_host_config(host, subsystems, output_filename, output_format, debug):
     if do_close and outfile:
         outfile.close()
 
-    return (ini, xml)
+    return (ini, xml, output_filename % fn_subst)
 
 
 @traceLog()

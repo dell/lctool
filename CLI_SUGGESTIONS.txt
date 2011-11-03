@@ -13,25 +13,37 @@ In my opinion (MB), the order we should implement things next:
 #    this list is somewhat redundant as everything documented in the Lifecycle
 #    Controller Web Services Interface Guide should be implemented
 
+# Identify
+    -- need simple 'lcctool identify' command that will print basic drac info
 
-#1 DRAC Account management  (lcctool/plugins/drac_acct.py)
+# DRAC Account management  (lcctool/plugins/drac_acct.py)
+  UPDATED: proposed cli implementation shown
    -- list enabled accounts
        should list account #, username, capabilities
+        lcctool account --ls
    -- enable/disable account, by account # or account username
-   -- set account username (by account #)
+        lcctool account --enable ID/# 
+        lcctool account --disable ID/# 
+   -- set account username (by account # or username)
+        lcctool account --set-username NEWNAME ID/#
    -- set account password (by account # or username)
+        lcctool account --set-password NEWNAME ID/#
    -- list the account capability set
        This should list the names of capabilities that can be used for the capability functions below
+        lcctool account --ls-caps ID/#
    -- add account capability (by account # or username)
+        lcctool account --add-caps CAP[,CAP...] ID/#
    -- remove account capability (by account # or username)
+        lcctool account --rm-caps CAP[,CAP...] ID/#
    -- set full account capability set (by account # or username)
        This should override any current capabilities and set to the exact set specified
+        lcctool account --set-caps CAP[,CAP...] ID/#
 
-#2 Firmware
+# Firmware
    -- request firmware inventory
    -- firmware update
 
-#3 Power
+# Power
    -- enumerate supported power states
    -- get current power state
    -- set current power state
@@ -39,7 +51,7 @@ In my opinion (MB), the order we should implement things next:
    -- power on
    -- power cycle
 
-#4 Hardware inventory
+# Hardware inventory
 
 Network boot
    -- boot to network ISO
