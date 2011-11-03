@@ -1,4 +1,4 @@
-This package depends on the 'stdcli' package. Install that first (it has identical install instructions, so you can also install it similar to the instructions below.)
+This package depends on the 'stdcli' package. Install that first (it has identical install instructions, so you can also install it similar to the instructions below.) Also, you will need to install pywbem, which isnt in the default OS installs, but should be available in your OS.
 
 To develop on RHEL6+:
 

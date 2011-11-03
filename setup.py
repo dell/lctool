@@ -44,6 +44,7 @@ setup(name='lcctool',
       package_data = { 'lcctool': ['pkg/lcctool.ini',] },
       zip_safe=False,
       install_requires=[
+          "pywbem",
           "stdcli >= 0.9.3",
       ],
       entry_points={
