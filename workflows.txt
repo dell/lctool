@@ -1,0 +1,16 @@
+Here is info from the LC team on what needs to be implemented.
+
+Top 10 WSMan workflows (from marketing/customers)
+1.      Get installed FW Inventory and Update selected FW (including apply and success)
+2.      Get Current, As Shipped HW Inventory, compare and display difference
+3.      Get BIOS configuration/boot order, save as baseline, compare against baseline, display difference, Set from baseline
+4.      Get OS Drivers list available, select from list, unpack and attach selection
+5.      Get LC Log, display with filtering (latest n entries, entries between date1 and date 2)
+6.      Initiate Backup (including poll for finish and status)
+7.      Get current CSIOR/Part Replacement setting status and enable
+8.      Re-Initiate Auto-Discovery in DHCP and Static IP scenarios
+9.      Get NIC/CNA configuration, save as baseline, compare against baseline and display difference, Set from baseline
+10.     Get RAID configuration, save as baseline, compare against baseline and display difference, Set from baseline
+
+
+
