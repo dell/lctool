@@ -29,7 +29,7 @@ import sys, os
 
 version = '0.1'
 
-setup(name='lcctool',
+setup(name='lctool',
       version=version,
       description="Tool to manage Lifecycle Controller",
       long_description="""This is the long description of the tool to manage Lifecycle Controller""",
@@ -41,21 +41,21 @@ setup(name='lcctool',
       license='LGPL',
       packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
       include_package_data=True,
-      package_data = { 'lcctool': ['pkg/lcctool.ini',] },
+      package_data = { 'lctool': ['pkg/lctool.ini',] },
       zip_safe=False,
       install_requires=[
           "pywbem",
           "stdcli >= 0.9.3",
       ],
       entry_points={
-        'console_scripts': [ 'lcctool = lcctool:main', ],
-        'lcctool_cli_extensions': [
+        'console_scripts': [ 'lctool = lctool:main', ],
+        'lctool_cli_extensions': [
 # these are only useful for testing/debugging. dont enable by default.
 #            'sample = stdcli.plugins.builtin:SamplePlugin',
 #            'dump-config = stdcli.plugins.builtin:DumpConfigPlugin',
-#            'sample-raccfg-test = lcctool.plugins.raccfg:SampleTestRacCfg',
-            'raccfg = lcctool.plugins.raccfg:RacCfg',
-            'enumerate = lcctool.plugins.config_cli:Config',
+#            'sample-raccfg-test = lctool.plugins.raccfg:SampleTestRacCfg',
+            'raccfg = lctool.plugins.raccfg:RacCfg',
+            'enumerate = lctool.plugins.config_cli:Config',
             ],
         },
       )

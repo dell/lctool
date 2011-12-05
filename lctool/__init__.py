@@ -25,7 +25,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 """
-lcctool: sample desc here
+lctool: sample desc here
 """
 
 import pkg_resources

@@ -42,9 +42,9 @@ moduleVerboseLog = getLog(prefix="verbose")
 class TestCase(unittest.TestCase):
     @traceLog()
     def setUp(self):
-        import lcctool
-        lcctool.unit_test_mode = 1
-        lcctool.test_data_dir = os.path.join(os.path.dirname(__file__), "data")
+        import lctool
+        lctool.unit_test_mode = 1
+        lctool.test_data_dir = os.path.join(os.path.dirname(__file__), "data")
 
     @traceLog()
     def tearDown(self):

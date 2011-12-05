@@ -33,7 +33,7 @@ import pywsman
 
 from stdcli.trace_decorator import traceLog, getLog
 from stdcli.pycompat import call_output
-import lcctool
+import lctool
 import schemas
 etree = schemas.etree
 import wscim
@@ -42,7 +42,7 @@ moduleLog = getLog()
 moduleVerboseLog = getLog(prefix="verbose.")
 moduleDebugLog = getLog(prefix="debug.")
 
-class OpenWSManCLI(lcctool.BaseWsman):
+class OpenWSManCLI(lctool.BaseWsman):
     def __init__(self, host, *args, **kargs):
         super(OpenWSManCLI, self).__init__(host, *args, **kargs)
         self.avail_debug_flags.extend([

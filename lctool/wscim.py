@@ -28,7 +28,7 @@ import pywbem.cim_obj as cobj
 import schemas
 from schemas import std_xml_namespaces, etree
 from stdcli.trace_decorator import traceLog, getLog
-import lcctool
+import lctool
 
 moduleLog = getLog()
 moduleVerboseLog = getLog(prefix="verbose.")
@@ -76,7 +76,7 @@ class WSInstance(cobj.CIMInstance):
     # this should really use CIMArgument, et al.
     @traceLog()
     def call_method(self, uri, schema, method, *args, **kargs):
-        return lcctool.call_method(self.wsman, uri, schema, method, *args, **kargs)
+        return lctool.call_method(self.wsman, uri, schema, method, *args, **kargs)
 
 
 @traceLog()

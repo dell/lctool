@@ -30,7 +30,7 @@ import os
 import re
 
 from stdcli.trace_decorator import traceLog, getLog
-import lcctool
+import lctool
 import schemas
 import wscim
 etree = schemas.etree
@@ -43,7 +43,7 @@ def _makesafe(*args):
     p = re.compile( '[^a-zA-Z0-9]')
     return p.sub( '_', "_".join(args))
 
-class MockWsman(lcctool.BaseWsman):
+class MockWsman(lctool.BaseWsman):
     def __init__(self, test_data_dir, *args, **kargs):
         self.test_data_dir = test_data_dir
         super(MockWsman, self).__init__(*args, **kargs)

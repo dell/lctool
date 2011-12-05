@@ -12,7 +12,7 @@ $ python ./setup.py develop --user
 
 This will install "symlinks" to your local directory in ~/.local/lib/python$VER/site-packages/.
 
-Now, when you run the "lcctool" binary, it will run the copy in ~/.local/bin/ and will use the libraries from ~/.local/lib, even if you otherwise have a copy installed on your system. This also allows multiple people to each develop on one system and use their own local copy.
+Now, when you run the "lctool" binary, it will run the copy in ~/.local/bin/ and will use the libraries from ~/.local/lib, even if you otherwise have a copy installed on your system. This also allows multiple people to each develop on one system and use their own local copy.
 
 
 

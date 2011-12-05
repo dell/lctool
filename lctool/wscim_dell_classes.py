@@ -24,7 +24,7 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-import lcctool
+import lctool
 import wscim
 import schemas
 from stdcli.trace_decorator import traceLog, getLog
@@ -48,7 +48,7 @@ class DCIM_Mixin(object):
     def get_service_uri(self):
         # cache the uri
         if not self.associated_service_class.get("uri", None):
-            self.associated_service_class["uri"] = lcctool.get_service_uri(self.wsman, self.associated_service_class["name"]._ns)
+            self.associated_service_class["uri"] = lctool.get_service_uri(self.wsman, self.associated_service_class["name"]._ns)
         method = self.associated_service_class["set_method"]
         multi_method = self.associated_service_class["multi_set_method"]
         uri = self.associated_service_class["uri"]

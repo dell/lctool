@@ -36,16 +36,16 @@ except (ImportError,), e:
 
 from stdcli.trace_decorator import traceLog, getLog
 from stdcli.plugin import Plugin
-import lcctool
-import lcctool.schemas
-import lcctool.wscim_dell_classes
+import lctool
+import lctool.schemas
+import lctool.wscim_dell_classes
 
 moduleLog = getLog()
 moduleVerboseLog = getLog(prefix="verbose.")
 moduleDebugLog = getLog(prefix="debug.")
 moduleVerboseLog.debug("loading plugin module: %s" % __name__)
 
-_ = lcctool._
+_ = lctool._
 
 default_filename = "config-%(host)s.%(output_format)s"
 
@@ -65,8 +65,8 @@ class Config(Plugin):
         p = ctx.subparsers.add_parser("get-config", help=_("Query target system settings and save in an INI-style file."))
         p.add_argument('--output-format', action="store", dest="output_format", default="ini", choices=["ini","xml"], help=_("Specify output format. Default is '%(default)s'"))
         p.add_argument('--output', '-O', action="store", dest="output_filename", default=default_filename, help=_("Change the name of the default filename for saving settings. Use '-' to display on stdout. (Default: %(default)s)"))
-        p.add_argument('--subsystem', action="append", dest="subsystems", choices=lcctool.schemas.get_subsystems(), default=[], help=_("List of the different subsystems to dump settings. May be specified multiple times."))
-        p.add_argument('--all-subsystems', action="store_const", dest="subsystems", const=lcctool.schemas.get_subsystems(), help=_("Dump settings for all subsystems."))
+        p.add_argument('--subsystem', action="append", dest="subsystems", choices=lctool.schemas.get_subsystems(), default=[], help=_("List of the different subsystems to dump settings. May be specified multiple times."))
+        p.add_argument('--all-subsystems', action="store_const", dest="subsystems", const=lctool.schemas.get_subsystems(), help=_("Dump settings for all subsystems."))
         p.set_defaults(func=self.get_config)
 
 
@@ -79,15 +79,15 @@ class Config(Plugin):
 
         # reboot server to apply configs
         p = ctx.subparsers.add_parser("commit-config", help=_("Commit previously staged attributes. THIS WILL REBOOT THE SERVER."))
-        p.add_argument('--subsystem', action="append", dest="subsystems", choices=lcctool.schemas.get_subsystems(), default=[], help=_("List of the different subsystems to dump settings. May be specified multiple times."))
-        p.add_argument('--all-subsystems', action="store_const", dest="subsystems", const=lcctool.schemas.get_subsystems(), help=_("Dump settings for all subsystems."))
+        p.add_argument('--subsystem', action="append", dest="subsystems", choices=lctool.schemas.get_subsystems(), default=[], help=_("List of the different subsystems to dump settings. May be specified multiple times."))
+        p.add_argument('--all-subsystems', action="store_const", dest="subsystems", const=lctool.schemas.get_subsystems(), help=_("Dump settings for all subsystems."))
         p.set_defaults(func=self.commit)
 
 
         # reset pending configurations
         p = ctx.subparsers.add_parser("reset-pending-config", help=_("reset all pending config options."))
-        p.add_argument('--subsystem', action="append", dest="subsystems", choices=lcctool.schemas.get_subsystems(), default=[], help=_("List of the different subsystems to dump settings. May be specified multiple times."))
-        p.add_argument('--all-subsystems', action="store_const", dest="subsystems", const=lcctool.schemas.get_subsystems(), help=_("Dump settings for all subsystems."))
+        p.add_argument('--subsystem', action="append", dest="subsystems", choices=lctool.schemas.get_subsystems(), default=[], help=_("List of the different subsystems to dump settings. May be specified multiple times."))
+        p.add_argument('--all-subsystems', action="store_const", dest="subsystems", const=lctool.schemas.get_subsystems(), help=_("Dump settings for all subsystems."))
         p.set_defaults(func=self.reset_pending)
 
 
@@ -102,15 +102,15 @@ class Config(Plugin):
 
         # suggested additional cli methods:
         #  -- method to get one config item. Couple ideas for how this cli looks:
-        #       lcctool get-config-item SUBSYS/INSTANCE_ID
-        #       lcctool get-config-item --subsys SUBSYS  INSTANCE_ID
-        #       lcctool get-config-item --subsys SUBSYS --fqdd FQDD --attribute ATTRIBUTE_NAME
-        #     * lcctool get-config-item --subsys SUBSYS --fqdd FQDD ATTRIBUTE_NAME [ATTRIBUTE_NAME ...]
+        #       lctool get-config-item SUBSYS/INSTANCE_ID
+        #       lctool get-config-item --subsys SUBSYS  INSTANCE_ID
+        #       lctool get-config-item --subsys SUBSYS --fqdd FQDD --attribute ATTRIBUTE_NAME
+        #     * lctool get-config-item --subsys SUBSYS --fqdd FQDD ATTRIBUTE_NAME [ATTRIBUTE_NAME ...]
         #  -- method to set one config item. Couple ideas for how this cli looks:
-        #       lcctool set-config-item SUBSYS/INSTANCE_ID=NEWVAL
-        #       lcctool set-config-item --subsys SUBSYS  INSTANCE_ID=NEWVAL
-        #       lcctool set-config-item --subsys SUBSYS --fqdd FQDD --attribute ATTRIBUTE_NAME --value NEWVALUE
-        #     * lcctool get-config-item --subsys SUBSYS --fqdd FQDD ATTRIBUTE_NAME=NEWVALUE [ATTRIBUTE_NAME=NEWVALUE ...]
+        #       lctool set-config-item SUBSYS/INSTANCE_ID=NEWVAL
+        #       lctool set-config-item --subsys SUBSYS  INSTANCE_ID=NEWVAL
+        #       lctool set-config-item --subsys SUBSYS --fqdd FQDD --attribute ATTRIBUTE_NAME --value NEWVALUE
+        #     * lctool get-config-item --subsys SUBSYS --fqdd FQDD ATTRIBUTE_NAME=NEWVALUE [ATTRIBUTE_NAME=NEWVALUE ...]
         #
         # the idea marked with (*) are the ones MB thinks are preferrable
 
@@ -118,8 +118,8 @@ class Config(Plugin):
     @traceLog()
     def finishedCliParsing(self, ctx):
         if hasattr(ctx.args, "unit_test") and ctx.args.unit_test:
-            lcctool.unit_test_mode = True
-            lcctool.test_data_dir = ctx.args.unit_test
+            lctool.unit_test_mode = True
+            lctool.test_data_dir = ctx.args.unit_test
 
 
     @traceLog()
@@ -134,7 +134,7 @@ class Config(Plugin):
     @traceLog()
     def stage_config(self, ctx):
         for host in ctx.raccfg.iterSpecfiedRacs():
-            wsman = lcctool.wsman_factory(host, debug=ctx.args.debug)
+            wsman = lctool.wsman_factory(host, debug=ctx.args.debug)
             pending = get_changed_items(wsman, host, input_filename, input_fh, debug)
             ret = stage_config(wsman, pending)
             if 'now' in ctx.args.flags:
@@ -145,7 +145,7 @@ class Config(Plugin):
                                              ScheduledStartTime="TIME_NOW",
                                              UntilTime="20121111111111",   # no idea what that number is....
                                              RebootJobType=1):
-                        for job_details in lcctool.plugins.config_cli.iter_job_details(res):
+                        for job_details in lctool.plugins.config_cli.iter_job_details(res):
                             ret['jobs'].append(job_details)
 
         print monitor_jobs(wsman, ret['jobs'])
@@ -158,7 +158,7 @@ class Config(Plugin):
 
         jobs = []
         for host in ctx.raccfg.iterSpecfiedRacs():
-            wsman = lcctool.wsman_factory(host, debug=ctx.args.debug)
+            wsman = lctool.wsman_factory(host, debug=ctx.args.debug)
             for subsys in ctx.args.subsystems:
                 for res in run_method_for_each_fqdd(wsman=wsman, method="CreateTargetedConfigJob",
                                          subsys=subsys, msg="Committing config for %(fqdd)s",
@@ -166,7 +166,7 @@ class Config(Plugin):
                                          # fmt:     YYYYMMDDhhmmss
                                          UntilTime="20121111111111",
                                          RebootJobType=1):
-                    for job_details in lcctool.plugins.config_cli.iter_job_details(res):
+                    for job_details in lctool.plugins.config_cli.iter_job_details(res):
                         jobs.append(job_details)
         print monitor_jobs(wsman, jobs)
 
@@ -176,7 +176,7 @@ class Config(Plugin):
             moduleLog.warning("No subsystems specified! See the --subsystem option for details.")
 
         for host in ctx.raccfg.iterSpecfiedRacs():
-            wsman = lcctool.wsman_factory(host, debug=ctx.args.debug)
+            wsman = lctool.wsman_factory(host, debug=ctx.args.debug)
             for subsys in ctx.args.subsystems:
                 for res in run_method_for_each_fqdd(wsman=wsman, method="DeletePendingConfiguration", subsys=subsys, msg="resetting pending configuration for %(fqdd)s"):
                     pass # noop, probably should think about parsing the return code
@@ -185,7 +185,7 @@ class Config(Plugin):
     @traceLog()
     def job_status(self, ctx):
         for host in ctx.raccfg.iterSpecfiedRacs():
-            wsman = lcctool.wsman_factory(host, debug=ctx.args.debug)
+            wsman = lctool.wsman_factory(host, debug=ctx.args.debug)
             while ctx.args.uri and ctx.args.job_id:
                 uri = ctx.args.uri.pop()
                 jid = ctx.args.job_id.pop()
@@ -206,22 +206,22 @@ def monitor_jobs(wsman, jobs):
     s = ""
     if jobs:
         s = s + "Jobs have been created for configuration. To monitor progress of these jobs, run:\n"
-        s = s + "\tlcctool job-status "
+        s = s + "\tlctool job-status "
         s = s + " ".join([ "--uri %s --job-id %s" % (j['uri'], j['InstanceID']) for j in jobs ])
     return s
 
 @traceLog()
 def run_method_for_each_fqdd(wsman, method, fqdd_list=None, subsys=None, service_ns=None, msg=None, *args, **kargs):
     if service_ns is None:
-        service_ns = lcctool.schemas.std_xml_namespaces["%s_srv"%subsys]
+        service_ns = lctool.schemas.std_xml_namespaces["%s_srv"%subsys]
     schema_list = []
     if subsys is not None:
-        schema_list = lcctool.schemas.dell_schema_list[subsys]
+        schema_list = lctool.schemas.dell_schema_list[subsys]
     if fqdd_list is None:
         fqdd_list = {}
 
-    service_uri = lcctool.get_service_uri(wsman, service_ns)
-    service = lcctool.wscim.find_class(service_ns)(wsman=wsman)
+    service_uri = lctool.get_service_uri(wsman, service_ns)
+    service = lctool.wscim.find_class(service_ns)(wsman=wsman)
     # need to iterate over all the fqdds and run delete with each as target
     for schema in schema_list:
         for item in wsman.enumerate(schema):
@@ -282,7 +282,7 @@ def stage_config(wsman, pending):
         names = [ ("AttributeName", i.get_name()) for i in pending[fqdd].values() ]
         values = [ ("AttributeValue", i["pendingvalue"]) for i in pending[fqdd].values() ]
         margs = names + values
-        res = lcctool.call_method(wsman, meth_details['uri'], meth_details['ns'], meth_details['multi_set_method'], ("Target", fqdd), *margs)
+        res = lctool.call_method(wsman, meth_details['uri'], meth_details['ns'], meth_details['multi_set_method'], ("Target", fqdd), *margs)
         moduleVerboseLog.info("  RES: %s" % repr(res))
         if res.get('job_children', None):
             jobs.append(res.get('job_children'))
@@ -318,8 +318,9 @@ def get_host_config(host, subsystems, output_filename, output_format, debug):
     if output_filename == "-":
         outfile = sys.stdout
     elif output_filename:
-        outfile = open(output_filename % fn_subst, "w+")
-    xml = lcctool.schemas.etree.Element("xml_return")
+        output_filename = output_filename % fn_subst
+        outfile = open(output_filename, "w+")
+    xml = lctool.schemas.etree.Element("xml_return")
 
     def sync(full=True):
         # only sync when we are not using stdout (or, if using stdout, when we have full output to write)
@@ -329,26 +330,26 @@ def get_host_config(host, subsystems, output_filename, output_format, debug):
             if output_format == "ini":
                 ini.write( outfile )
             elif output_format == "xml":
-                outfile.write( lcctool.schemas.etree.tostring(xml) )
+                outfile.write( lctool.schemas.etree.tostring(xml) )
 
     get_host_subsystems_config(host, subsystems, ini, xml, debug, sync)
 
     if do_close and outfile:
         outfile.close()
 
-    return (ini, xml, output_filename % fn_subst)
+    return (ini, xml, output_filename)
 
 
 @traceLog()
 def get_host_subsystems_config(host, subsystems, ini, xml, debug, sync):
-    wsman = lcctool.wsman_factory(host, debug=debug)
+    wsman = lctool.wsman_factory(host, debug=debug)
     for subsys in subsystems:
-        for schema in lcctool.schemas.dell_schema_list[subsys]:
+        for schema in lctool.schemas.dell_schema_list[subsys]:
             moduleLog.info("Getting config for schema %s" % schema)
             for item in wsman.enumerate(schema):
                 moduleVerboseLog.info("  storing %s" % item["instanceid"])
                 item.serialize_ini(ini)
-                ini.set("main", item["fqdd"], lcctool.schemas.dell_schema_list[subsys])
+                ini.set("main", item["fqdd"], lctool.schemas.dell_schema_list[subsys])
                 xml.append(item.raw_xml_elem)
                 sync(full=False)
     sync(full=True)
@@ -369,9 +370,9 @@ def iter_job_details(res):
         job_uri = None
         job_num = None
         job_cimns =  None
-        for uri in job[1].iter("{%(wsman)s}ResourceURI" % lcctool.schemas.std_xml_namespaces):
+        for uri in job[1].iter("{%(wsman)s}ResourceURI" % lctool.schemas.std_xml_namespaces):
             job_uri = uri.text
-        for selector in job[1].iter("{%(wsman)s}Selector" % lcctool.schemas.std_xml_namespaces):
+        for selector in job[1].iter("{%(wsman)s}Selector" % lctool.schemas.std_xml_namespaces):
            if selector.get("Name", None) == "InstanceID":
                 job_num = selector.text
            if selector.get("Name", None) == "__cimnamespace":

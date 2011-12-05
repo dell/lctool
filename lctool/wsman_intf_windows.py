@@ -24,6 +24,6 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-import lcctool
+import lctool
 
-raise lcctool.NotImplementedException("Not yet ported to windows.")
+raise lctool.NotImplementedException("Not yet ported to windows.")

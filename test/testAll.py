@@ -33,7 +33,7 @@ import logging
 try:
     import argparse
 except ImportError:
-    import lcctool.argparse
+    import lctool.argparse
 
 # all of the variables below are substituted by the build system
 __VERSION__="1.0.0"
@@ -45,7 +45,7 @@ top_srcdir = os.path.join(os.path.dirname(exeName), "..")
 top_builddir = os.getcwd()
 
 sys.path.insert(0,top_srcdir)
-sys.path.insert(0,"%s/lcctool/" % top_srcdir)
+sys.path.insert(0,"%s/lctool/" % top_srcdir)
 
 def setupLogging(log_file=None, config_file=None, verbosity=1, trace=0, debug=0):
     # set up logging

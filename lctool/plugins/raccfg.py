@@ -28,14 +28,14 @@ import pkg_resources
 import ConfigParser
 import fnmatch
 
-import lcctool
+import lctool
 from stdcli.trace_decorator import traceLog, getLog
 from stdcli.plugin import Plugin
 
 moduleVerboseLog = getLog(prefix="verbose.")
 moduleVerboseLog.debug("initializing plugin module: %s" % __name__)
 
-_ = lcctool._
+_ = lctool._
 
 class SampleTestRacCfg(Plugin):
     @traceLog()
@@ -56,7 +56,7 @@ class RacCfg(Plugin):
         moduleVerboseLog.debug("initializing plugin: %s" % self.__class__.__name__)
         ctx.raccfg = self
         self.ctx = ctx
-        configfile = pkg_resources.resource_filename("lcctool","rachosts.ini")
+        configfile = pkg_resources.resource_filename("lctool","rachosts.ini")
 
         # --rac-host=HOST  --rac-user=USER  --rac-pass=PASS
         # --rac-alias=HOSTALIAS1,HOSTALIAS2,HOSTALIAS3,...

@@ -43,9 +43,9 @@ moduleVerboseLog = getLog(prefix="verbose")
 
 class TestCase(unittest.TestCase):
     def setUp(self):
-        import lcctool
-        lcctool.unit_test_mode = 1
-        lcctool.test_data_dir = os.path.join(os.path.dirname(__file__), "data")
+        import lctool
+        lctool.unit_test_mode = 1
+        lctool.test_data_dir = os.path.join(os.path.dirname(__file__), "data")
 
     def tearDown(self):
         pass
@@ -53,12 +53,12 @@ class TestCase(unittest.TestCase):
 
     @traceLog()
     def dotestIni(self, subsystems, ini_data_string):
-        import lcctool
-        import lcctool.wscim_dell_classes
+        import lctool
+        import lctool.wscim_dell_classes
         host = {'host': 'testhost'}
 
-        import lcctool.plugins.config_cli
-        ini, xml, fn = lcctool.plugins.config_cli.get_host_config(host, subsystems, output_filename=None, output_format='ini', debug=0)
+        import lctool.plugins.config_cli
+        ini, xml, fn = lctool.plugins.config_cli.get_host_config(host, subsystems, output_filename=None, output_format='ini', debug=0)
 
         # read in known-good INI data
         good_ini = ConfigParser.ConfigParser()
@@ -95,8 +95,8 @@ class TestCase(unittest.TestCase):
         self.dotestIni(["bios", "idrac", "nic"], main_ini_testdata + bios_ini_testdata + nic_ini_testdata + idrac_ini_testdata)
 
     def testChangeSettingBios(self):
-        import lcctool
-        import lcctool.wscim_dell_classes
+        import lctool
+        import lctool.wscim_dell_classes
         host = {'host': 'testhost'}
         ini_str = """\
 [main]
@@ -109,32 +109,32 @@ SataPortB = Auto
 NumLock = Off
 """
         fh = cStringIO.StringIO(ini_str)
-        wsman = lcctool.wsman_factory(host)
-        import lcctool.plugins.config_cli
-        pending = lcctool.plugins.config_cli.get_changed_items(wsman=wsman, host=host, input_fh=fh, debug=False)
-        ret = lcctool.plugins.config_cli.stage_config(wsman=wsman, pending=pending)
+        wsman = lctool.wsman_factory(host)
+        import lctool.plugins.config_cli
+        pending = lctool.plugins.config_cli.get_changed_items(wsman=wsman, host=host, input_fh=fh, debug=False)
+        ret = lctool.plugins.config_cli.stage_config(wsman=wsman, pending=pending)
         jobs = []
         for service_ns in ret['service_ns_to_fqdd_map'].keys():
             fqdd_list = dict([ (i, None) for i in ret['service_ns_to_fqdd_map'][service_ns]])
-            for res in lcctool.plugins.config_cli.run_method_for_each_fqdd(wsman=wsman, method="CreateTargetedConfigJob",
+            for res in lctool.plugins.config_cli.run_method_for_each_fqdd(wsman=wsman, method="CreateTargetedConfigJob",
                                      service_ns=service_ns, fqdd_list=fqdd_list, msg="Committing config for %(fqdd)s",
                                      ScheduledStartTime="TIME_NOW",
                                      UntilTime="20121111111111",   # no idea what that number is....
                                      RebootJobType=1):
-                for job_details in lcctool.plugins.config_cli.iter_job_details(res):
+                for job_details in lctool.plugins.config_cli.iter_job_details(res):
                     jobs.append(job_details)
-        lcctool.plugins.config_cli.monitor_jobs(wsman, jobs)
+        lctool.plugins.config_cli.monitor_jobs(wsman, jobs)
 
     def testFactory(self):
-        import lcctool
-        import lcctool.wscim_dell_classes
-        from lcctool.schemas import etree
+        import lctool
+        import lctool.wscim_dell_classes
+        from lctool.schemas import etree
 
         xml = etree.fromstring(test_xml_str_int)
          
         host = {'host': 'testhost'}
-        wsman = lcctool.wsman_factory(host)
-        i = lcctool.wscim.cim_instance_from_wsxml(wsman, xml)
+        wsman = lctool.wsman_factory(host)
+        i = lctool.wscim.cim_instance_from_wsxml(wsman, xml)
 
         self.assertEquals( i['AttributeName'], 'AcPwrRcvryUserDelay' )
         self.assertEquals( i['CurrentValue'], '30' )

@@ -14,30 +14,30 @@ In my opinion (MB), the order we should implement things next:
 #    Controller Web Services Interface Guide should be implemented
 
 # Identify
-    -- need simple 'lcctool identify' command that will print basic drac info
+    -- need simple 'lctool identify' command that will print basic drac info
 
-# DRAC Account management  (lcctool/plugins/drac_acct.py)
+# DRAC Account management  (lctool/plugins/drac_acct.py)
   UPDATED: proposed cli implementation shown
    -- list enabled accounts
        should list account #, username, capabilities
-        lcctool account --ls
+        lctool account --ls
    -- enable/disable account, by account # or account username
-        lcctool account --enable ID/# 
-        lcctool account --disable ID/# 
+        lctool account --enable ID/# 
+        lctool account --disable ID/# 
    -- set account username (by account # or username)
-        lcctool account --set-username NEWNAME ID/#
+        lctool account --set-username NEWNAME ID/#
    -- set account password (by account # or username)
-        lcctool account --set-password NEWNAME ID/#
+        lctool account --set-password NEWNAME ID/#
    -- list the account capability set
        This should list the names of capabilities that can be used for the capability functions below
-        lcctool account --ls-caps ID/#
+        lctool account --ls-caps ID/#
    -- add account capability (by account # or username)
-        lcctool account --add-caps CAP[,CAP...] ID/#
+        lctool account --add-caps CAP[,CAP...] ID/#
    -- remove account capability (by account # or username)
-        lcctool account --rm-caps CAP[,CAP...] ID/#
+        lctool account --rm-caps CAP[,CAP...] ID/#
    -- set full account capability set (by account # or username)
        This should override any current capabilities and set to the exact set specified
-        lcctool account --set-caps CAP[,CAP...] ID/#
+        lctool account --set-caps CAP[,CAP...] ID/#
 
 # Firmware
    -- request firmware inventory
